@@ -1,0 +1,65 @@
+# ---------------------------
+# PyTorch (CUDA 12.x wheels)
+# ---------------------------
+--index-url https://download.pytorch.org/whl/cu121
+--extra-index-url https://pypi.org/simple
+
+torch>=2.8.0
+torchaudio>=2.8.0
+datasets[audio]
+
+# Core HF stack
+transformers>=4.57.0
+accelerate>=1.12.0
+bitsandbytes>=0.49.0
+
+# ---------------------------
+# ASR models
+# ---------------------------
+omnilingual-asr>=0.2.0
+openai-whisper
+
+# ---------------------------
+# Data loading / processing
+# ---------------------------
+pandas>=2.3.0
+numpy>=1.26.0
+librosa>=0.11.0
+soundfile>=0.13.0
+tabulate
+
+# ---------------------------
+# Evaluation
+# ---------------------------
+torchmetrics>=1.8.0
+jiwer>=4.0.0
+editdistance>=0.8.0
+sacrebleu>=2.5.0
+
+# ---------------------------
+# Utilities
+# ---------------------------
+pyyaml>=6.0
+tqdm>=4.66.0
+python-dotenv>=1.0.0
+
+# ---------------------------
+# Notebooks / viz
+# ---------------------------
+jupyter>=1.1.0
+ipykernel>=7.1.0
+ipywidgets>=8.1.0
+matplotlib>=3.10.0
+seaborn>=0.13.0
+
+# ---------------------------
+# NLP & corpus tools
+# ---------------------------
+nltk>=3.9.0
+regex
+
+# ---------------------------
+# Other tools
+# ---------------------------
+uroman
+python-Levenshtein
