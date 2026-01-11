@@ -27,6 +27,8 @@ from config import (
     MMS_MODEL_ID,
     MMS_TARGET_LANG,
     MMS_ZEROSHOT_MODEL_ID,
+    OMNI_MODEL_CARD,
+    OMNI_LANG_TAG,
 )
 
 from eval_engine import evaluate_model
@@ -36,6 +38,7 @@ class QwenASRAgent:
     """
     Optimized agent for multi-GPU inference.
     Uses device_map="auto" for model parallelism and batch processing.
+    Evaluates 4 baseline models: Whisper, MMS-1B, MMS-ZeroShot, and OmniASR.
     """
 
     def __init__(
@@ -68,24 +71,24 @@ class QwenASRAgent:
             # 8-bit quantization for memory efficiency
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_name,
-                device_map="auto",  # Automatic multi-GPU distribution
+                device_map="auto",
                 load_in_8bit=True,
                 trust_remote_code=True,
             )
         else:
             # Use device_map="auto" for multi-GPU tensor parallelism
             model_kwargs = {
-                "dtype": torch.bfloat16,  # Fixed: was torch_dtype (deprecated)
-                "device_map": "auto",  # Spreads across all available GPUs
+                "dtype": torch.bfloat16,
+                "device_map": "auto",
                 "trust_remote_code": True,
             }
             
-            # Only add flash attention if explicitly enabled
+            # Set attention implementation
             if use_flash_attention:
                 print("Attempting to use Flash Attention 2...")
                 model_kwargs["attn_implementation"] = "flash_attention_2"
             else:
-                print("Using default attention implementation")
+                print("Using eager attention (not Flash Attention)")
                 model_kwargs["attn_implementation"] = "eager"
             
             self.model = AutoModelForCausalLM.from_pretrained(
@@ -114,8 +117,8 @@ class QwenASRAgent:
         language: str = LANGUAGE,
     ) -> List[Dict[str, Any]]:
         """
-        Run baselines for a BATCH of audio files.
-        This is more efficient than processing one at a time.
+        Run all 4 baseline models for a BATCH of audio files.
+        Includes: Whisper, MMS-1B, MMS-ZeroShot, and OmniASR.
         """
         results = []
         
@@ -136,7 +139,7 @@ class QwenASRAgent:
             }
             whisper_results.append(evaluate_model(cfg))
         
-        # Run all files through MMS
+        # Run all files through MMS-1B
         print(f"  Running MMS-1B on {len(audio_indices)} files...")
         mms_results = []
         for idx in audio_indices:
@@ -153,7 +156,7 @@ class QwenASRAgent:
             }
             mms_results.append(evaluate_model(cfg))
         
-        # Run all files through MMS-ZS
+        # Run all files through MMS-ZeroShot
         print(f"  Running MMS-ZeroShot on {len(audio_indices)} files...")
         mms_zs_results = []
         for idx in audio_indices:
@@ -169,6 +172,23 @@ class QwenASRAgent:
             }
             mms_zs_results.append(evaluate_model(cfg))
         
+        # Run all files through OmniASR
+        print(f"  Running OmniASR on {len(audio_indices)} files...")
+        omni_results = []
+        for idx in audio_indices:
+            cfg = {
+                "backend": "omni",
+                "model_card": OMNI_MODEL_CARD,
+                "lang_tag": OMNI_LANG_TAG,
+                "language": language,
+                "data_root": str(data_root),
+                "transcription_file": TRANSCRIPTIONS_FILE,
+                "quiet": True,
+                "max_samples": 1,
+                "start_idx": idx,
+            }
+            omni_results.append(evaluate_model(cfg))
+        
         # Combine results
         for i, idx in enumerate(audio_indices):
             results.append({
@@ -176,6 +196,7 @@ class QwenASRAgent:
                 "whisper": whisper_results[i]["hyps"][0],
                 "mms_1b": mms_results[i]["hyps"][0],
                 "mms_zs_uroman": mms_zs_results[i]["hyps"][0],
+                "omni": omni_results[i]["hyps"][0],
                 "ref_dev": whisper_results[i]["refs"][0],
             })
         
@@ -185,7 +206,11 @@ class QwenASRAgent:
         """System prompt for Qwen."""
         return """You are an expert Hindi ASR judge.
 
-You will receive multiple ASR hypotheses for the SAME Hindi utterance from different systems.
+You will receive multiple ASR hypotheses for the SAME Hindi utterance from different systems:
+- Whisper (OpenAI)
+- MMS-1B (Meta)
+- MMS-ZeroShot (Meta, romanized)
+- OmniASR (multilingual)
 
 Your task:
 1. Carefully analyze all candidate transcriptions
@@ -221,12 +246,10 @@ REASONING: <brief explanation in English>
 
     def _call_qwen_batch(
         self,
-        prompts: List[tuple],  # List of (system, user) prompt pairs
+        prompts: List[tuple],
         batch_size: int = QWEN_BATCH_SIZE,
     ) -> List[str]:
-        """
-        Process multiple prompts in batches for efficiency.
-        """
+        """Process multiple prompts in batches for efficiency."""
         responses = []
         
         num_batches = (len(prompts) + batch_size - 1) // batch_size
@@ -264,7 +287,6 @@ REASONING: <brief explanation in English>
             if hasattr(self.model, 'device'):
                 model_inputs = model_inputs.to(self.model.device)
             else:
-                # For device_map="auto", use the first device
                 first_device = next(self.model.parameters()).device
                 model_inputs = model_inputs.to(first_device)
             
@@ -274,7 +296,7 @@ REASONING: <brief explanation in English>
                     **model_inputs,
                     max_new_tokens=QWEN_MAX_NEW_TOKENS,
                     pad_token_id=self.tokenizer.pad_token_id,
-                    do_sample=False,  # Deterministic for consistency
+                    do_sample=False,
                 )
             
             # Decode
@@ -320,9 +342,7 @@ REASONING: <brief explanation in English>
         batch_size: int = QWEN_BATCH_SIZE,
         verbose: bool = True,
     ) -> List[Dict[str, Any]]:
-        """
-        Run Qwen agent on multiple files with batching for efficiency.
-        """
+        """Run Qwen agent on multiple files with all 4 baseline models."""
         
         print(f"\n{'='*80}")
         print(f"QWEN ASR AGENT - MULTI-GPU OPTIMIZED EVALUATION")
@@ -332,15 +352,16 @@ REASONING: <brief explanation in English>
         print(f"Qwen batch size: {batch_size}")
         print(f"Language: {language}")
         print(f"Data root: {data_root}")
+        print(f"Baseline models: Whisper, MMS-1B, MMS-ZeroShot, OmniASR")
         print(f"{'='*80}\n")
         
         audio_indices = list(range(start_idx, start_idx + max_files))
         
-        # Step 1: Run all baselines
+        # Step 1: Run all baselines (including OmniASR)
         print(f"Step 1/4: Running baseline ASR models...")
         print(f"{'-'*80}")
         baseline_results = self._run_baselines_batch(audio_indices, data_root, language)
-        print(f"✓ Baseline models completed\n")
+        print(f"✓ All baseline models completed\n")
         
         # Step 2: Prepare Qwen prompts
         print(f"Step 2/4: Preparing Qwen prompts...")
@@ -354,6 +375,7 @@ REASONING: <brief explanation in English>
                     "whisper": result["whisper"],
                     "mms_1b": result["mms_1b"],
                     "mms_zeroshot": result["mms_zs_uroman"],
+                    "omni": result["omni"],
                 }
             )
             prompts.append((system_prompt, user_prompt))
@@ -385,6 +407,7 @@ REASONING: <brief explanation in English>
                 "whisper_hyp": result["whisper"],
                 "mms_1b_hyp": result["mms_1b"],
                 "mms_zs_hyp": result["mms_zs_uroman"],
+                "omni_hyp": result["omni"],
                 "ref_dev": ref,
                 "qwen_decision": parsed,
                 "wer": wer_val,
@@ -430,7 +453,7 @@ def main():
     if not data_root.exists():
         raise FileNotFoundError(f"Data directory not found: {data_root}")
     
-    # Initialize agent (uses all available GPUs automatically)
+    # Initialize agent
     agent = QwenASRAgent(
         model_name=args.model_name,
         load_in_8bit=args.load_8bit,
