@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict
 import sys
+import os
 
 # Import config
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -70,7 +71,8 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
     if not trans_path.exists():
         raise FileNotFoundError(f"Transcription file not found: {trans_path}")
     
-    if not quiet:
+    # 🔇 OPTIMIZATION: Minimal logging for batch operations
+    if not quiet and max_samples != 1:  # Only log for multi-file operations
         print(f"\n{'='*60}")
         print(f"Evaluating: {backend} - {model_name}")
         print(f"{'='*60}")
@@ -79,6 +81,11 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
         if max_samples:
             print(f"Sample range: {start_idx} to {start_idx + max_samples}")
         print(f"{'='*60}\n")
+    
+    # 🔇 OPTIMIZATION: Suppress dataset loading message for single files
+    original_stdout = sys.stdout
+    if quiet or max_samples == 1:
+        sys.stdout = open(os.devnull, 'w')
     
     # Load dataset
     loader = HFAudioLoader(target_sr=ASR_SAMPLING_RATE)
@@ -89,86 +96,100 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
         clips_subdir=CLIPS_SUBDIR,
     )
     
+    # Restore stdout
+    if quiet or max_samples == 1:
+        sys.stdout.close()
+        sys.stdout = original_stdout
+    
     # Slice dataset if requested
     if max_samples is not None:
         end_idx = start_idx + max_samples
         ds = ds.select(range(start_idx, min(end_idx, len(ds))))
-        if not quiet:
+        if not quiet and max_samples != 1:
             print(f"Selected {len(ds)} samples from dataset\n")
     
+    # 🔇 OPTIMIZATION: Suppress model execution for single-file batch calls
+    if quiet or max_samples == 1:
+        sys.stdout = open(os.devnull, 'w')
+    
     # Run evaluation based on backend
-    if backend == "whisper":
-        result = run_whisper_baseline(
-            loader=loader,
-            ds=ds,
-            model_name=model_name,
-            language=config.get("whisper_lang", language if language == "hi" else "en"),
-            verbose=not quiet,
-        )
-    
-    elif backend == "mms":
-        result = run_mms_baseline(
-            loader=loader,
-            ds=ds,
-            model_id=model_name,
-            target_lang=target_lang or "hin",
-            verbose=not quiet,
-        )
-    
-    elif backend == "omni":
-        from asr_omni_baseline import run_omni_baseline
+    try:
+        if backend == "whisper":
+            result = run_whisper_baseline(
+                loader=loader,
+                ds=ds,
+                model_name=model_name,
+                language=config.get("whisper_lang", language if language == "hi" else "en"),
+                verbose=False,  # Force quiet for repetitive calls
+            )
         
-        result = run_omni_baseline(
-            loader=loader,
-            ds=ds,
-            model_card=model_name,
-            lang_tag=config.get("lang_tag", "hin_Deva"),
-            verbose=not quiet,
-        )
-    
-    elif backend == "mms_zeroshot":
-        # Load romanized transcriptions
-        roman_path = data_root / TRANSCRIPTIONS_UROMAN_FILE
+        elif backend == "mms":
+            result = run_mms_baseline(
+                loader=loader,
+                ds=ds,
+                model_id=model_name,
+                target_lang=target_lang or "hin",
+                verbose=False,  # Force quiet
+            )
         
-        if not roman_path.exists():
-            raise FileNotFoundError(f"Romanized transcriptions not found: {roman_path}")
-        
-        # Load romanized refs into a dictionary keyed by filename
-        refs_roman_map = {}
-        with roman_path.open("r", encoding="utf-8") as f:
-            for line in f:
-                line = line.rstrip("\n")
-                if not line.strip():
-                    continue
-                parts = line.split(maxsplit=1)
-                if len(parts) == 2:
-                    filename, rom_text = parts
-                    refs_roman_map[filename] = rom_text.strip()
-        
-        # Build refs_roman list aligned with dataset order
-        refs_roman = []
-        for i in range(len(ds)):
-            audio_info = ds[i]["audio"]
-            path = audio_info["path"] if isinstance(audio_info, dict) else audio_info
-            filename = Path(path).name
+        elif backend == "omni":
+            from asr_omni_baseline import run_omni_baseline
             
-            if filename in refs_roman_map:
-                refs_roman.append(refs_roman_map[filename])
-            else:
-                refs_roman.append("")
-                if not quiet:
-                    print(f"Warning: No romanized transcription for {filename}")
+            result = run_omni_baseline(
+                loader=loader,
+                ds=ds,
+                model_card=model_name,
+                lang_tag=config.get("lang_tag", "hin_Deva"),
+                verbose=False,  # Force quiet
+            )
         
-        result = run_mms_zeroshot_baseline_basic(
-            loader=loader,
-            ds=ds,
-            refs_roman=refs_roman,
-            model_id=config.get("model_id", "mms-meta/mms-zeroshot-300m"),
-            verbose=not quiet,
-        )
+        elif backend == "mms_zeroshot":
+            # Load romanized transcriptions
+            roman_path = data_root / TRANSCRIPTIONS_UROMAN_FILE
+            
+            if not roman_path.exists():
+                raise FileNotFoundError(f"Romanized transcriptions not found: {roman_path}")
+            
+            # Load romanized refs into a dictionary keyed by filename
+            refs_roman_map = {}
+            with roman_path.open("r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.rstrip("\n")
+                    if not line.strip():
+                        continue
+                    parts = line.split(maxsplit=1)
+                    if len(parts) == 2:
+                        filename, rom_text = parts
+                        refs_roman_map[filename] = rom_text.strip()
+            
+            # Build refs_roman list aligned with dataset order
+            refs_roman = []
+            for i in range(len(ds)):
+                audio_info = ds[i]["audio"]
+                path = audio_info["path"] if isinstance(audio_info, dict) else audio_info
+                filename = Path(path).name
+                
+                if filename in refs_roman_map:
+                    refs_roman.append(refs_roman_map[filename])
+                else:
+                    refs_roman.append("")
+            
+            result = run_mms_zeroshot_baseline_basic(
+                loader=loader,
+                ds=ds,
+                refs_roman=refs_roman,
+                model_id=config.get("model_id", "mms-meta/mms-zeroshot-300m"),
+                verbose=False,  # Force quiet
+            )
+        
+        else:
+            raise ValueError(f"Unknown backend: {backend}")
     
-    else:
-        raise ValueError(f"Unknown backend: {backend}")
+    finally:
+        # Restore stdout in case of error
+        if quiet or max_samples == 1:
+            sys.stdout.close()
+            sys.stdout = original_stdout
     
     # Add metadata to results
     result["backend"] = backend
