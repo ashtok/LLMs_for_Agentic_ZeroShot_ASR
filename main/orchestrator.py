@@ -75,17 +75,17 @@ class QwenASRAgent:
         else:
             # Use device_map="auto" for multi-GPU tensor parallelism
             model_kwargs = {
-                "torch_dtype": torch.bfloat16,  # Better than float16
+                "dtype": torch.bfloat16,  # Fixed: was torch_dtype (deprecated)
                 "device_map": "auto",  # Spreads across all available GPUs
                 "trust_remote_code": True,
             }
             
-            # Add flash attention if requested and available
+            # Only add flash attention if explicitly enabled
             if use_flash_attention:
-                try:
-                    model_kwargs["attn_implementation"] = "flash_attention_2"
-                except Exception as e:
-                    print(f"Warning: Flash attention not available, using default: {e}")
+                print("Attempting to use Flash Attention 2...")
+                model_kwargs["attn_implementation"] = "flash_attention_2"
+            else:
+                print("Using default attention implementation")
             
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_name,
@@ -93,7 +93,7 @@ class QwenASRAgent:
             )
 
         self.model.eval()
-        
+    
         # Report GPU distribution
         if hasattr(self.model, 'hf_device_map'):
             print(f"\n✓ Model loaded across GPUs:")
