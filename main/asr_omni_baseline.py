@@ -1,20 +1,22 @@
 from pathlib import Path
 from typing import Dict, List, Any
+import sys
 
 from jiwer import wer, cer
+
+# Import config
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import (
+    DATA_ROOT,
+    LANGUAGE,
+    TRANSCRIPTIONS_FILE,
+    ASR_SAMPLING_RATE,
+    AUDIO_FILE_PATTERN,
+    CLIPS_SUBDIR,
+)
+
 from audio_loader import HFAudioLoader
-
-# NOTE: do NOT import ASRInferencePipeline at module level
-# from omnilingual_asr.models.inference.pipeline import ASRInferencePipeline  # remove this
-
-
-def _get_omni_pipeline(model_card: str):
-    """
-    Lazy-import the Omni pipeline so that importing this module
-    does not immediately trigger fairseq2/fairseq2n/TBB loading.
-    """
-    from omnilingual_asr.models.inference.pipeline import ASRInferencePipeline  # type: ignore
-    return ASRInferencePipeline(model_card=model_card)
+from omnilingual_asr.models.inference.pipeline import ASRInferencePipeline
 
 
 def run_omni_baseline(
@@ -22,11 +24,26 @@ def run_omni_baseline(
     ds: Any,
     model_card: str = "omniASR_CTC_300M",
     lang_tag: str = "hin_Deva",
+    verbose: bool = True,
 ) -> Dict[str, float]:
     """
-    Run Omnilingual ASR baseline on a given dataset (loader + ds) and return metrics.
+    Run Omnilingual ASR baseline on a given dataset and return metrics.
+    
+    Args:
+        loader: Audio loader instance
+        ds: Dataset loaded by audio_loader
+        model_card: Model card name (e.g., "omniASR_CTC_300M")
+        lang_tag: Language tag (e.g., "hin_Deva" for Hindi Devanagari)
+        verbose: Whether to print detailed output
+    
+    Returns:
+        Dictionary with WER, CER, and other metrics
     """
-    pipeline = _get_omni_pipeline(model_card=model_card)
+    if verbose:
+        print(f"[OmniASR] Loading model: {model_card}")
+        print(f"[OmniASR] Language tag: {lang_tag}\n")
+    
+    pipeline = ASRInferencePipeline(model_card=model_card)
 
     refs: List[str] = []
     hyps: List[str] = []
@@ -48,38 +65,60 @@ def run_omni_baseline(
         refs.append(ref)
         hyps.append(hyp)
 
-        print(str(path))
-        print(f"REF: {ref}")
-        print(f"HYP_OMNI: {hyp}\n")
+        if verbose:
+            filename = Path(path).name
+            print(f"[OmniASR] Sample {i+1}/{N}")
+            print(f"FILE: {filename}")
+            print(f"REF: {ref}")
+            print(f"HYP_OMNI: {hyp}\n")
 
     wer_val = float(wer(refs, hyps))
     cer_val = float(cer(refs, hyps))
 
-    print(f"[OmniASR] WER: {wer_val}")
-    print(f"[OmniASR] CER: {cer_val}")
+    if verbose:
+        print(f"[OmniASR] WER: {wer_val:.4f}")
+        print(f"[OmniASR] CER: {cer_val:.4f}")
 
     return {
         "model": f"{model_card} ({lang_tag})",
         "wer": wer_val,
         "cer": cer_val,
         "n_samples": N,
+        "hyps": hyps,
+        "refs": refs,
     }
 
 
 def main() -> None:
-    base_dir = Path(__file__).resolve().parent.parent / "data" / "hindi_audio"
+    # Use config paths
+    data_dir = DATA_ROOT / LANGUAGE
+    transcriptions_path = data_dir / TRANSCRIPTIONS_FILE
+    
+    if not data_dir.exists():
+        raise FileNotFoundError(f"Data directory not found: {data_dir}")
+    
+    if not transcriptions_path.exists():
+        raise FileNotFoundError(f"Transcriptions file not found: {transcriptions_path}")
+    
+    print(f"Loading data from: {data_dir}")
+    print(f"Using transcriptions: {transcriptions_path}\n")
 
-    loader = HFAudioLoader(target_sr=16_000)
+    loader = HFAudioLoader(target_sr=ASR_SAMPLING_RATE)
     ds = loader.from_dir_with_text(
-        str(base_dir),
-        str(base_dir / "transcriptions.txt"),
+        str(data_dir),
+        str(transcriptions_path),
+        pattern=AUDIO_FILE_PATTERN,
+        clips_subdir=CLIPS_SUBDIR,
     )
+    
+    print(f"Loaded {len(ds)} samples\n")
 
     run_omni_baseline(
         loader,
         ds,
-        model_card="omniASR_CTC_300M", #todo encoder-decoder model
+        model_card="omniASR_CTC_300M",  # TODO: Try encoder-decoder model
         lang_tag="hin_Deva",
+        verbose=True,
     )
 
 

@@ -1,10 +1,22 @@
 import csv
 from pathlib import Path
 from typing import Tuple, List, Dict
+import sys
 
 import librosa
 import numpy as np
 from datasets import Dataset, Audio
+
+# Import config
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import (
+    DATA_ROOT,
+    LANGUAGE,
+    TRANSCRIPTIONS_FILE,
+    ASR_SAMPLING_RATE,
+    AUDIO_FILE_PATTERN,
+    CLIPS_SUBDIR,
+)
 
 
 def load_transcriptions(txt_path: str) -> Dict[str, str]:
@@ -34,15 +46,21 @@ class HFAudioLoader:
     def from_dir(
         self,
         audio_dir: str,
-        pattern: str = "hindi_*.wav",
+        pattern: str = "*.mp3",
+        clips_subdir: str = "clips",
     ) -> Dataset:
         """
         Build a Dataset with only audio paths.
+        
+        Args:
+            audio_dir: Base directory containing audio files
+            pattern: Glob pattern for audio files (default: *.mp3)
+            clips_subdir: Subdirectory containing clips (default: clips)
         """
-        audio_dir_path = Path(audio_dir)
+        audio_dir_path = Path(audio_dir) / clips_subdir
         paths = sorted(str(p) for p in audio_dir_path.glob(pattern))
         if not paths:
-            raise ValueError(f"No files matching {pattern} in {audio_dir}")
+            raise ValueError(f"No files matching {pattern} in {audio_dir_path}")
 
         ds = Dataset.from_dict({"audio": paths})
         # Store as Audio but DO NOT decode (avoid torchcodec); we decode via librosa
@@ -54,28 +72,55 @@ class HFAudioLoader:
         self,
         audio_dir: str,
         transcriptions_path: str,
-        pattern: str = "hindi_*.wav",
+        pattern: str = "*.mp3",
+        clips_subdir: str = "clips",
     ) -> Dataset:
         """
         Build a Dataset with audio paths and a 'text' column from transcriptions.txt.
+        
+        Args:
+            audio_dir: Base directory containing audio files
+            transcriptions_path: Path to transcriptions.txt
+            pattern: Glob pattern for audio files (default: *.mp3)
+            clips_subdir: Subdirectory containing clips (default: clips)
         """
-        audio_dir_path = Path(audio_dir)
-        paths = sorted(list(audio_dir_path.glob(pattern)))
-        if not paths:
-            raise ValueError(f"No files matching {pattern} in {audio_dir}")
-
+        audio_dir_path = Path(audio_dir) / clips_subdir
+        
+        if not audio_dir_path.exists():
+            raise ValueError(f"Clips directory not found: {audio_dir_path}")
+        
+        # Load transcriptions mapping first
         trans_map = load_transcriptions(transcriptions_path)
+        
+        if not trans_map:
+            raise ValueError(f"No transcriptions loaded from {transcriptions_path}")
+        
+        # Find all audio files matching pattern
+        all_paths = sorted(list(audio_dir_path.glob(pattern)))
+        if not all_paths:
+            raise ValueError(f"No files matching {pattern} in {audio_dir_path}")
 
+        # Filter to only files that have transcriptions
         audio_paths_str: List[str] = []
         texts: List[str] = []
-        for p in paths:
-            audio_paths_str.append(str(p))
-            fname = p.name  # e.g. "hindi_000.wav"
-            texts.append(trans_map.get(fname, ""))
+        
+        for p in all_paths:
+            fname = p.name  # e.g. "common_voice_hi_43600788.mp3"
+            if fname in trans_map:
+                audio_paths_str.append(str(p))
+                texts.append(trans_map[fname])
+        
+        if not audio_paths_str:
+            raise ValueError(
+                f"No audio files found with matching transcriptions. "
+                f"Found {len(all_paths)} audio files but none in transcriptions."
+            )
 
         ds = Dataset.from_dict({"audio": audio_paths_str, "text": texts})
         ds = ds.cast_column("audio", Audio(decode=False))
         self.dataset = ds
+        
+        print(f"Loaded {len(ds)} audio files with transcriptions from {audio_dir_path}")
         return ds
 
     def get_example(self, idx: int) -> Tuple[np.ndarray, int, str]:
@@ -110,20 +155,40 @@ class HFAudioLoader:
 
 
 def main():
-    base_dir = r"D:\Masters In Germany\Computer Science\Semester 5\Thesis\NLP_Thesis\data\hindi_audio"
-    audio_dir = base_dir
-    trans_path = str(Path(base_dir) / "transcriptions.txt")
+    # Use config paths
+    data_dir = DATA_ROOT / LANGUAGE
+    transcriptions_path = data_dir / TRANSCRIPTIONS_FILE
+    
+    if not data_dir.exists():
+        raise FileNotFoundError(f"Data directory not found: {data_dir}")
+    
+    if not transcriptions_path.exists():
+        raise FileNotFoundError(f"Transcriptions file not found: {transcriptions_path}")
+    
+    print(f"Loading data from: {data_dir}")
+    print(f"Using transcriptions: {transcriptions_path}")
+    print(f"Audio pattern: {AUDIO_FILE_PATTERN}")
+    print(f"Clips subdirectory: {CLIPS_SUBDIR}\n")
 
-    loader = HFAudioLoader(target_sr=16_000)
+    loader = HFAudioLoader(target_sr=ASR_SAMPLING_RATE)
 
-    ds = loader.from_dir_with_text(audio_dir, trans_path)
-    for i in range(3):
-        print(ds[i]["audio"], "|||", ds[i]["text"])
-
-    print(f"Dataset length: {len(ds)}")
+    ds = loader.from_dir_with_text(
+        str(data_dir),
+        str(transcriptions_path),
+        pattern=AUDIO_FILE_PATTERN,
+        clips_subdir=CLIPS_SUBDIR,
+    )
+    
+    print(f"\nDataset length: {len(ds)}")
     print("Features:", ds.features)
+    
+    # Show first 3 examples
+    print("\nFirst 3 examples:")
+    for i in range(min(3, len(ds))):
+        print(f"{i}: {ds[i]['audio']} ||| {ds[i]['text']}")
 
     # Single example
+    print("\n--- Single Example Test ---")
     waveform, sr, path = loader.get_example(0)
     print(f"First file path: {path}")
     print(f"Sample rate: {sr}")
@@ -132,12 +197,13 @@ def main():
     print(f"First 10 samples: {waveform[:10]}")
 
     # Small batch
-    waveforms, srs, paths = loader.get_batch(list(range(4)))
-    print("Batch size:", len(waveforms))
-    print("First path in batch:", paths[0])
-    print("First waveform shape in batch:", waveforms[0].shape)
+    print("\n--- Batch Test ---")
+    batch_size = min(4, len(ds))
+    waveforms, srs, paths = loader.get_batch(list(range(batch_size)))
+    print(f"Batch size: {len(waveforms)}")
+    print(f"First path in batch: {paths[0]}")
+    print(f"First waveform shape in batch: {waveforms[0].shape}")
 
 
 if __name__ == "__main__":
     main()
-
