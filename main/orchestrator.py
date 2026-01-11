@@ -86,6 +86,7 @@ class QwenASRAgent:
                 model_kwargs["attn_implementation"] = "flash_attention_2"
             else:
                 print("Using default attention implementation")
+                model_kwargs["attn_implementation"] = "eager"
             
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_name,
