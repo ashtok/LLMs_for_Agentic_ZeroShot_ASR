@@ -67,7 +67,7 @@ WHISPER_LANG_CODE = "hi"  # Whisper language code for Hindi
 QWEN_MODEL_NAME = "Qwen/Qwen3-4B-Instruct-2507"  # Changed from 3B to 8B
 QWEN_LOAD_8BIT = False  # Set to True for memory-constrained environments
 QWEN_MAX_NEW_TOKENS = 512
-QWEN_BATCH_SIZE = 8  # NEW: Default batch size for Qwen inference
+QWEN_BATCH_SIZE = 24  # NEW: Default batch size for Qwen inference
 QWEN_USE_FLASH_ATTENTION = False  # NEW: Use flash attention if available
 
 # Agent evaluation defaults
