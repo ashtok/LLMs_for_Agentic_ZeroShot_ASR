@@ -178,7 +178,7 @@ class QwenASRAgent:
         for idx in audio_indices:
             cfg = {
                 "backend": "omni",
-                "model_card": OMNI_MODEL_CARD,
+                "model_name": OMNI_MODEL_CARD,
                 "lang_tag": OMNI_LANG_TAG,
                 "language": language,
                 "data_root": str(data_root),
