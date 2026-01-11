@@ -3,6 +3,8 @@ from typing import Dict, List, Any
 import sys
 
 import whisper
+import torchaudio
+import numpy as np
 from jiwer import wer, cer
 
 # Import config
@@ -28,6 +30,7 @@ def run_whisper_baseline(
 ) -> Dict[str, float]:
     """
     Run OpenAI Whisper baseline on a given dataset and return metrics.
+    Uses torchaudio to load files instead of ffmpeg.
     
     Args:
         loader: Audio loader instance
@@ -41,7 +44,8 @@ def run_whisper_baseline(
     """
     if verbose:
         print(f"[OpenAI Whisper] Loading model: whisper-{model_name}")
-        print(f"[OpenAI Whisper] Language: {language}\n")
+        print(f"[OpenAI Whisper] Language: {language}")
+        print(f"[OpenAI Whisper] Using torchaudio (no ffmpeg required)\n")
     
     model = whisper.load_model(model_name)
 
@@ -53,8 +57,24 @@ def run_whisper_baseline(
         audio_info = ds[i]["audio"]
         path = audio_info["path"] if isinstance(audio_info, dict) else audio_info
 
+        # Load audio with torchaudio instead of letting Whisper use ffmpeg
+        waveform, sr = torchaudio.load(path)
+        
+        # Convert to mono if stereo
+        if waveform.shape[0] > 1:
+            waveform = waveform.mean(dim=0, keepdim=True)
+        
+        # Resample to 16kHz if needed (Whisper expects 16kHz)
+        if sr != 16000:
+            resampler = torchaudio.transforms.Resample(sr, 16000)
+            waveform = resampler(waveform)
+        
+        # Convert to numpy array and flatten
+        audio_array = waveform.squeeze(0).numpy()
+
+        # Pass numpy array directly to Whisper (bypasses ffmpeg)
         result = model.transcribe(
-            path,
+            audio_array,
             language=language,
             task="transcribe",
             fp16=False,
@@ -91,9 +111,22 @@ def run_whisper_baseline(
 
 
 def main():
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Run OpenAI Whisper baseline evaluation")
+    parser.add_argument("--language", default=LANGUAGE, help="Language code for dataset")
+    parser.add_argument("--model-name", default="small", 
+                       choices=["tiny", "base", "small", "medium", "large", "large-v2", "large-v3"],
+                       help="Whisper model size")
+    parser.add_argument("--whisper-lang", default="hi", help="Language code for Whisper")
+    parser.add_argument("--quiet", action="store_true", help="Reduce output verbosity")
+    parser.add_argument("--transcriptions", default=TRANSCRIPTIONS_FILE, help="Transcriptions filename")
+    parser.add_argument("--max-samples", type=int, default=None, help="Limit number of samples")
+    args = parser.parse_args()
+    
     # Use config paths
-    data_dir = DATA_ROOT / LANGUAGE
-    transcriptions_path = data_dir / TRANSCRIPTIONS_FILE
+    data_dir = DATA_ROOT / args.language
+    transcriptions_path = data_dir / args.transcriptions
     
     if not data_dir.exists():
         raise FileNotFoundError(f"Data directory not found: {data_dir}")
@@ -101,8 +134,9 @@ def main():
     if not transcriptions_path.exists():
         raise FileNotFoundError(f"Transcriptions file not found: {transcriptions_path}")
     
-    print(f"Loading data from: {data_dir}")
-    print(f"Using transcriptions: {transcriptions_path}\n")
+    if not args.quiet:
+        print(f"Loading data from: {data_dir}")
+        print(f"Using transcriptions: {transcriptions_path}\n")
 
     loader = HFAudioLoader(target_sr=ASR_SAMPLING_RATE)
     ds = loader.from_dir_with_text(
@@ -112,15 +146,22 @@ def main():
         clips_subdir=CLIPS_SUBDIR,
     )
     
-    print(f"Loaded {len(ds)} samples\n")
+    # Limit samples if requested
+    if args.max_samples:
+        ds = ds.select(range(min(args.max_samples, len(ds))))
+    
+    if not args.quiet:
+        print(f"Loaded {len(ds)} samples\n")
 
-    run_whisper_baseline(
+    results = run_whisper_baseline(
         loader, 
         ds, 
-        model_name="small", 
-        language="hi",
-        verbose=True,
+        model_name=args.model_name, 
+        language=args.whisper_lang,
+        verbose=not args.quiet,
     )
+    
+    return results
 
 
 if __name__ == "__main__":
