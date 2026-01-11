@@ -1,9 +1,14 @@
 from pathlib import Path
 from typing import List, Dict
+import sys
 
 import torch
 from transformers import Wav2Vec2ForCTC, AutoProcessor
 from jiwer import wer, cer
+
+# Import config
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from config import DATA_ROOT, LANGUAGE, TRANSCRIPTIONS_FILE, ASR_SAMPLING_RATE
 
 from audio_loader import HFAudioLoader
 
@@ -13,8 +18,21 @@ def run_mms_baseline(
     ds,
     model_id: str = "facebook/mms-1b-all",
     target_lang: str = "hin",
-    verbose: bool = True,   # NEW
+    verbose: bool = True,
 ) -> Dict[str, float]:
+    """
+    Run MMS baseline evaluation on audio dataset
+    
+    Args:
+        loader: Audio loader instance
+        ds: Dataset loaded by audio_loader
+        model_id: HuggingFace model ID
+        target_lang: Target language code for MMS
+        verbose: Whether to print detailed output
+    
+    Returns:
+        Dictionary with WER, CER, and other metrics
+    """
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if verbose:
         print("Using device:", device)
@@ -86,15 +104,28 @@ def run_mms_baseline(
 
 
 def main():
-    base_dir = Path(__file__).resolve().parent.parent / "data" / "hindi_audio"
-    base_dir_str = str(base_dir)
-
-    loader = HFAudioLoader(target_sr=16_000)
+    # Use config paths
+    data_dir = DATA_ROOT / LANGUAGE
+    transcriptions_path = data_dir / TRANSCRIPTIONS_FILE
+    
+    if not data_dir.exists():
+        raise FileNotFoundError(f"Data directory not found: {data_dir}")
+    
+    if not transcriptions_path.exists():
+        raise FileNotFoundError(f"Transcriptions file not found: {transcriptions_path}")
+    
+    print(f"Loading data from: {data_dir}")
+    print(f"Using transcriptions: {transcriptions_path}")
+    
+    loader = HFAudioLoader(target_sr=ASR_SAMPLING_RATE)
     ds = loader.from_dir_with_text(
-        base_dir_str,
-        str(base_dir / "transcriptions.txt"),
+        str(data_dir),
+        str(transcriptions_path),
     )
-    run_mms_baseline(loader, ds)
+    
+    print(f"Loaded {len(ds)} samples\n")
+    
+    run_mms_baseline(loader, ds, target_lang="hin", verbose=True)
 
 
 if __name__ == "__main__":

@@ -14,6 +14,11 @@ LANGUAGE = "hi"  # Language code for Common Voice dataset
 AUDIO_ROOT = DATA_ROOT / LANGUAGE / "clips"
 
 
+# Common Voice file patterns
+AUDIO_FILE_PATTERN = "common_voice_*.mp3"  # NEW
+CLIPS_SUBDIR = "clips"  # NEW
+
+
 # Common Voice TSV files
 VALIDATED_TSV = "validated.tsv"
 TRAIN_TSV = "train.tsv"
@@ -34,6 +39,11 @@ QWEN_AGENT_RESULTS_DIR = RESULTS_ROOT / "qwen_agent"
 
 # Audio processing
 ASR_SAMPLING_RATE = 16_000
+
+
+# Model configurations
+MMS_MODEL_ID = "facebook/mms-1b-all"
+MMS_TARGET_LANG = "hin"  # MMS language code for Hindi
 
 
 # Evaluation defaults
