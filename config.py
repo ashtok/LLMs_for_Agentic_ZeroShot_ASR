@@ -63,6 +63,14 @@ OMNI_LANG_TAG = "hin_Deva"  # Hindi Devanagari
 WHISPER_MODEL_NAME = "small"  # Options: tiny, base, small, medium, large, large-v2, large-v3
 WHISPER_LANG_CODE = "hi"  # Whisper language code for Hindi
 
+# Qwen Agent configurations
+QWEN_MODEL_NAME = "Qwen/Qwen2.5-3B-Instruct"
+QWEN_LOAD_8BIT = False  # Set to True for memory-constrained environments
+QWEN_MAX_NEW_TOKENS = 512
+
+# Agent evaluation defaults
+AGENT_MAX_FILES = 5
+AGENT_START_IDX = 0
 
 # Evaluation defaults
 DEFAULT_MAX_SAMPLES = None
