@@ -1,23 +1,16 @@
-"""
-Configuration file containing all main addresses and paths used across the project.
-"""
 from pathlib import Path
-
 
 # Project root directory
 REPO_ROOT = Path(__file__).resolve().parent
 
-
 # Data directories
 DATA_ROOT = REPO_ROOT / "data"
-LANGUAGE = "hi"  # Language code for Common Voice dataset
+LANGUAGE = "hi"
 AUDIO_ROOT = DATA_ROOT / LANGUAGE / "clips"
-
 
 # Common Voice file patterns
 AUDIO_FILE_PATTERN = "common_voice_*.mp3"
 CLIPS_SUBDIR = "clips"
-
 
 # Common Voice TSV files
 VALIDATED_TSV = "validated.tsv"
@@ -27,48 +20,63 @@ TEST_TSV = "test.tsv"
 INVALIDATED_TSV = "invalidated.tsv"
 OTHER_TSV = "other.tsv"
 
-
 # Transcription files
 TRANSCRIPTIONS_FILE = "transcriptions.txt"
 TRANSCRIPTIONS_UROMAN_FILE = "transcriptions_uroman.txt"
 
-
 # Uroman configuration
 UROMAN_DIR = REPO_ROOT / "uroman" / "uroman"
-UROMAN_LANG_CODE = "hin"  # Uroman language code for Hindi
-
+UROMAN_LANG_CODE = "hin"
 
 # Results directories
 RESULTS_ROOT = REPO_ROOT / "results"
 BASELINES_RESULTS_DIR = RESULTS_ROOT / "baselines"
 QWEN_AGENT_RESULTS_DIR = RESULTS_ROOT / "qwen_agent"
-
+LLAMA_AGENT_RESULTS_DIR = RESULTS_ROOT / "llama_agent"
 
 # Audio processing
 ASR_SAMPLING_RATE = 16_000
 
-
-# Model configurations
-
-# MMS (Massively Multilingual Speech)
+# MMS
 MMS_MODEL_ID = "facebook/mms-1b-all"
-MMS_TARGET_LANG = "hin"  # MMS language code for Hindi
+MMS_TARGET_LANG = "hin"
 MMS_ZEROSHOT_MODEL_ID = "mms-meta/mms-zeroshot-300m"
 
 # OmniASR
-OMNI_MODEL_CARD = "omniASR_CTC_300M"  # Options: omniASR_CTC_300M, omniASR_EncDec_300M
-OMNI_LANG_TAG = "hin_Deva"  # Hindi Devanagari
+OMNI_MODEL_CARD = "omniASR_CTC_300M"
+OMNI_LANG_TAG = "hin_Deva"
 
 # Whisper
-WHISPER_MODEL_NAME = "small"  # Options: tiny, base, small, medium, large, large-v2, large-v3
-WHISPER_LANG_CODE = "hi"  # Whisper language code for Hindi
+WHISPER_MODEL_NAME = "small"
+WHISPER_LANG_CODE = "hi"
 
-# Qwen Agent configurations
-QWEN_MODEL_NAME = "Qwen/Qwen3-4B-Instruct-2507"  # Changed from 3B to 8B
-QWEN_LOAD_8BIT = False  # Set to True for memory-constrained environments
-QWEN_MAX_NEW_TOKENS = 512
-QWEN_BATCH_SIZE = 24  # NEW: Default batch size for Qwen inference
-QWEN_USE_FLASH_ATTENTION = False  # NEW: Use flash attention if available
+# Qwen configuration
+QWEN_MODEL_NAME = "Qwen/Qwen3-4B-Instruct-2507"
+
+# Llama configuration
+LLAMA_MODEL_NAME = "allura-forge/Llama-3.3-8B-Instruct"
+
+# ---- CURRENT SELECTION SWITCHES ----
+
+# Choose which LLM to use for the agent: "qwen" or "llama"
+CURRENT_BACKBONE = "llama"  # or "qwen"
+
+if CURRENT_BACKBONE == "qwen":
+    CURRENT_MODEL_NAME = QWEN_MODEL_NAME
+    CURRENT_RESULTS_DIR = QWEN_AGENT_RESULTS_DIR
+    CURRENT_ENGINE_LABEL = "QWEN"
+elif CURRENT_BACKBONE == "llama":
+    CURRENT_MODEL_NAME = LLAMA_MODEL_NAME
+    CURRENT_RESULTS_DIR = LLAMA_AGENT_RESULTS_DIR
+    CURRENT_ENGINE_LABEL = "LLAMA"
+else:
+    raise ValueError(f"Unknown CURRENT_BACKBONE: {CURRENT_BACKBONE}")
+
+# Common generation settings
+LOAD_8BIT = False
+MAX_NEW_TOKENS = 512
+BATCH_SIZE = 24
+USE_FLASH_ATTENTION = False
 
 # Agent evaluation defaults
 AGENT_MAX_FILES = 5
@@ -78,6 +86,5 @@ AGENT_START_IDX = 0
 DEFAULT_MAX_SAMPLES = None
 DEFAULT_START_IDX = 0
 DEFAULT_QUIET = False
-
 
 print(REPO_ROOT)
