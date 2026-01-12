@@ -72,6 +72,9 @@ class ASRJudgeAgent:
             trust_remote_code=True,
         )
 
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+
         print("Loading model...")
         if load_in_8bit and torch.cuda.is_available():
             self.model = AutoModelForCausalLM.from_pretrained(
