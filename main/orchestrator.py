@@ -8,6 +8,8 @@ import sys
 import torch
 from jiwer import wer, cer
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from datetime import datetime
+
 
 # Import config
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -85,7 +87,7 @@ class ASRJudgeAgent:
             )
         else:
             model_kwargs = {
-                "dtype": torch.bfloat16,
+                #"dtype": torch.bfloat16,
                 "device_map": "auto",
                 "trust_remote_code": True,
             }
@@ -501,13 +503,19 @@ def main() -> None:
     CURRENT_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
     print(f"Saving results to: {CURRENT_RESULTS_DIR}")
-    for res in results:
+    print(f"Saving results to: {CURRENT_RESULTS_DIR}")
+
+    # Choose which samples to save individually:
+    sample_results = results[:10]  # first 10; change selection logic if you want random
+
+    for res in sample_results:
         out_path = (
             CURRENT_RESULTS_DIR
             / f"{args.language}_{res['audio_idx']:05d}_agent.json"
         )
         with out_path.open("w", encoding="utf-8") as f:
             json.dump(res, f, indent=2, ensure_ascii=False)
+
 
     summary = {
         "model": args.model_name,
@@ -517,10 +525,14 @@ def main() -> None:
         "start_idx": args.start_idx,
         "avg_wer": sum(r["wer"] for r in results) / len(results),
         "avg_cer": sum(r["cer"] for r in results) / len(results),
-        "results": results,
+        # optionally store just IDs or sample_ids instead of full results
+        "sampled_audio_indices": [r["audio_idx"] for r in sample_results],
     }
 
-    summary_path = CURRENT_RESULTS_DIR / f"{args.language}_agent_summary.json"
+
+    today = datetime.today().strftime("%d-%m")
+    summary_path = CURRENT_RESULTS_DIR / f"{args.language}_agent_summary_{today}.json"
+
     with summary_path.open("w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
 

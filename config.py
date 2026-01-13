@@ -51,7 +51,7 @@ WHISPER_MODEL_NAME = "small"
 WHISPER_LANG_CODE = "hi"
 
 # Qwen configuration
-QWEN_MODEL_NAME = "Qwen/Qwen3-4B-Instruct-2507"
+QWEN_MODEL_NAME = "Qwen/Qwen3-30B-A3B-Instruct-2507-FP8"
 
 # Llama configuration
 LLAMA_MODEL_NAME = "allura-forge/Llama-3.3-8B-Instruct"
@@ -59,7 +59,7 @@ LLAMA_MODEL_NAME = "allura-forge/Llama-3.3-8B-Instruct"
 # ---- CURRENT SELECTION SWITCHES ----
 
 # Choose which LLM to use for the agent: "qwen" or "llama"
-CURRENT_BACKBONE = "llama"  # or "qwen"
+CURRENT_BACKBONE = "qwen"  # or "qwen"
 
 if CURRENT_BACKBONE == "qwen":
     CURRENT_MODEL_NAME = QWEN_MODEL_NAME
@@ -74,12 +74,12 @@ else:
 
 # Common generation settings
 LOAD_8BIT = False
-MAX_NEW_TOKENS = 512
-BATCH_SIZE = 24
+MAX_NEW_TOKENS = 256
+BATCH_SIZE = 4
 USE_FLASH_ATTENTION = False
 
 # Agent evaluation defaults
-AGENT_MAX_FILES = 5
+AGENT_MAX_FILES = 2000
 AGENT_START_IDX = 0
 
 # Evaluation defaults
