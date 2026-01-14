@@ -75,8 +75,8 @@ else:
 # Common generation settings
 LOAD_8BIT = False
 MAX_NEW_TOKENS = 256
-BATCH_SIZE = 4
-USE_FLASH_ATTENTION = False
+BATCH_SIZE = 16
+USE_FLASH_ATTENTION = True
 
 # Agent evaluation defaults
 AGENT_MAX_FILES = 2000
