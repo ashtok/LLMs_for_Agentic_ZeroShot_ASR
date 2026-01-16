@@ -54,7 +54,7 @@ WHISPER_LANG_CODE = "hi"
 QWEN_MODEL_NAME = "Qwen/Qwen3-30B-A3B-Instruct-2507-FP8"
 
 # Llama configuration
-LLAMA_MODEL_NAME = "allura-forge/Llama-3.3-8B-Instruct"
+LLAMA_MODEL_NAME = "meta-llama/Llama-3.1-8B-Instruct"
 
 # ---- CURRENT SELECTION SWITCHES ----
 

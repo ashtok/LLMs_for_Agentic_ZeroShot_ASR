@@ -352,7 +352,7 @@ class ASRJudgeAgent:
 
         audio_indices = list(range(start_idx, start_idx + max_files))
 
-        chunk_size = min(50, max_files)
+        chunk_size = min(30, max_files)
         all_final_results: List[Dict[str, Any]] = []
 
         for chunk_start in range(0, len(audio_indices), chunk_size):
