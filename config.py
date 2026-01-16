@@ -61,7 +61,7 @@ LLAMA_MODEL_NAME = "meta-llama/Llama-3.1-8B-Instruct"
 # ---- CURRENT SELECTION SWITCHES ----
 
 # Choose which LLM to use for the agent: "qwen" or "llama"
-CURRENT_BACKBONE = "llama"  # or "qwen"
+CURRENT_BACKBONE = "qwen"  # or "qwen"
 
 if CURRENT_BACKBONE == "qwen":
     CURRENT_MODEL_NAME = QWEN_MODEL_NAME
@@ -77,7 +77,7 @@ else:
 # Common generation settings
 LOAD_8BIT = False
 MAX_NEW_TOKENS = 256
-BATCH_SIZE = 16
+BATCH_SIZE = 2
 USE_FLASH_ATTENTION = True
 
 # Agent evaluation defaults
