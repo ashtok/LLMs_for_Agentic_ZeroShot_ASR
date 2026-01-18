@@ -1,4 +1,55 @@
 #!/bin/bash
+#SBATCH --job-name=asr_agent
+#SBATCH --partition=standard
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=48G
+#SBATCH --time=24:00:00
+#SBATCH --output=logs/asr_agent_%j.out
+#SBATCH --error=logs/asr_agent_%j.err
+
+echo "=========================================="
+echo "ASR Judge Agent (Single-GPU)"
+echo "Job ID: $SLURM_JOB_ID"
+echo "Start time: $(date)"
+echo "=========================================="
+
+mkdir -p logs
+export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
+export PYTHONUNBUFFERED=1
+
+# One-time snapshot
+nvidia-smi
+
+# Start background GPU utilization logging
+LOG_DIR=logs
+mkdir -p "$LOG_DIR"
+
+nvidia-smi \
+  --query-gpu=timestamp,index,utilization.gpu,utilization.memory,memory.used,memory.total \
+  --format=csv \
+  -l 1 \
+  -f "$LOG_DIR/gpu_usage_${SLURM_JOB_ID}.csv" &
+GPU_LOG_PID=$!
+
+echo ""
+echo "Running ASR Agent (using config defaults)..."
+echo ""
+
+uv run main/orchestrator.py --max-files 750 --no-flash-attention
+JOB_STATUS=$?
+
+# Stop GPU logger
+kill $GPU_LOG_PID 2>/dev/null || true
+
+echo ""
+echo "=========================================="
+echo "Job finished at: $(date) (status $JOB_STATUS)"
+echo "GPU log: $LOG_DIR/gpu_usage_${SLURM_JOB_ID}.csv"
+echo "=========================================="
+#!/bin/bash
 #SBATCH --job-name=asr_agent          # was qwen_agent
 #SBATCH --partition=standard
 #SBATCH --nodes=1
@@ -27,7 +78,7 @@ echo "Running ASR Agent (using config defaults)..."
 echo ""
 
 # Orchestrator will pick Qwen / Llama / Gemma via config.CURRENT_BACKBONE
-uv run main/orchestrator.py --max-files 2400 --no-flash-attention
+uv run main/orchestrator.py --max-files 750 --no-flash-attention
 
 echo ""
 echo "=========================================="

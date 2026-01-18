@@ -1,0 +1,129 @@
+==========================================
+Qwen ASR Agent (Multi-GPU)
+Job ID: 2168580
+Start time: Sun Jan 11 07:10:34 PM CET 2026
+==========================================
+Sun Jan 11 19:10:34 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:E2:00.0 Off |                  Off |
+| N/A   29C    P8             35W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running Qwen Agent (using config defaults)...
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing Qwen ASR Agent
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+8-bit quantization: False
+Flash attention: False
+Multi-GPU: Using device_map='auto' for tensor parallelism
+================================================================================
+
+Loading Qwen tokenizer...
+Loading Qwen model (this may take a few minutes)...
+Using eager attention (not Flash Attention)
+
+✓ Model loaded across GPUs:
+  Devices: 0
+✓ Qwen model ready for inference
+
+
+================================================================================
+QWEN ASR AGENT - MULTI-GPU OPTIMIZED EVALUATION
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+Files to process: 20 (starting from index 0)
+Qwen batch size: 8
+Language: hi
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi
+Baseline models: Whisper, MMS-1B, MMS-ZeroShot, OmniASR
+================================================================================
+
+Step 1/4: Running baseline ASR models...
+--------------------------------------------------------------------------------
+  Running Whisper on 20 files...
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+  Running MMS-1B on 20 files...
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+  Running MMS-ZeroShot on 20 files...
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+  Running OmniASR on 20 files...
+
+==========================================
+Job finished at: Sun Jan 11 07:21:47 PM CET 2026
+==========================================

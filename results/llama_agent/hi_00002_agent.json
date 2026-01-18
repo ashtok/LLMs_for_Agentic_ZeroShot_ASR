@@ -1,0 +1,18 @@
+{
+  "audio_idx": 2,
+  "audio_name": "hi_00002",
+  "whisper_hyp": "बाई और को एक बुप तरास्ता हैं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "bai aur ko ek buk traastaa hai",
+  "omni_hyp": "بائی اور کو ایک گوپت راستا ہے",
+  "ref_dev": "बाईं ओर को एक गुप्त रास्ता है।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: बाई और को एक बुरी तरह से हैं\nCONFIDENCE: medium\nREASONING: Whisper's transcription \"बाई और को एक बुप तरास्ता हैं\" is close but has a typo \"बुप\" instead of \"बुरी\". MMS-ZeroShot's transcription \"bai aur ko ek buk traastaa hai\" also has a typo \"buk\" instead of \"बुरी\". MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. Omni's transcription is in Urdu, not Hindi. Therefore, I combined the correct words from Whisper and MMS-ZeroShot to get the most accurate transcription.",
+    "language": "Hindi",
+    "transcription": "बाई और को एक बुरी तरह से हैं",
+    "confidence": "medium",
+    "reasoning": "Whisper's transcription \"बाई और को एक बुप तरास्ता हैं\" is close but has a typo \"बुप\" instead of \"बुरी\". MMS-ZeroShot's transcription \"bai aur ko ek buk traastaa hai\" also has a typo \"buk\" instead of \"बुरी\". MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. Omni's transcription is in Urdu, not Hindi. Therefore, I combined the correct words from Whisper and MMS-ZeroShot to get the most accurate transcription."
+  },
+  "wer": 0.8571428571428571,
+  "cer": 0.43333333333333335
+}

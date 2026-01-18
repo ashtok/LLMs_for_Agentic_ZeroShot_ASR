@@ -1,0 +1,18 @@
+{
+  "audio_idx": 0,
+  "audio_name": "hi_00000",
+  "whisper_hyp": "तुमारे पास तीन महिने बच्छे हैं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "tmare pas tin mhine btce hn",
+  "omni_hyp": "तुम्हारे पास तीन महीने बच्चे है",
+  "ref_dev": "तुम्हारे पास तीन महीने बचे हैं।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं\nCONFIDENCE: high\nREASONING: Whisper's transcription \"तुमारे पास तीन महिने बच्छे हैं\" has a small typo with \"महिने\" instead of \"महीने\" and \"बच्छे\" instead of \"बच्चे\". MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is the most accurate among the options, with the correct spelling of \"महीने\" and \"बच्चे\". MMS-ZeroShot's transcription has significant errors, and OmniASR's transcription has a small typo with \"है\" instead of \"हैं\". Therefore, I have selected MMS-1B's transcription as the most accurate.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "Whisper's transcription \"तुमारे पास तीन महिने बच्छे हैं\" has a small typo with \"महिने\" instead of \"महीने\" and \"बच्छे\" instead of \"बच्चे\". MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is the most accurate among the options, with the correct spelling of \"महीने\" and \"बच्चे\". MMS-ZeroShot's transcription has significant errors, and OmniASR's transcription has a small typo with \"है\" instead of \"हैं\". Therefore, I have selected MMS-1B's transcription as the most accurate."
+  },
+  "wer": 0.3333333333333333,
+  "cer": 0.0967741935483871
+}

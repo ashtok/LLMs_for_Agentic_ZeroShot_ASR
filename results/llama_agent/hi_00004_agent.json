@@ -1,0 +1,18 @@
+{
+  "audio_idx": 4,
+  "audio_name": "hi_00004",
+  "whisper_hyp": "दबा इतना बारी ता की में ल्से हिला नहीं सगा",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "dabaitna bharii thakii min lsye hila niim ska",
+  "omni_hyp": "डबा इतنा भारी थا कि मैं उसे हिला नہीं सका",
+  "ref_dev": "डब्बा इतना भारी था कि मैं उसे हिला नहीं सका।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: दबा इतना भारी था कि मैं उसे हिला नहीं सका\nCONFIDENCE: high\nREASONING: Whisper's transcription \"दबा इतना बारी ता की में ल्से हिला नहीं सगा\" has some errors, but it captures the essence of the sentence. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is completely off-topic. MMS-ZeroShot's transcription \"dabaitna bharii thakii min lsye hila niim ska\" has some errors and romanization issues. OmniASR's transcription \"डबा इतना भारी था कि मैं उसे हिला नہीं सका\" is the most accurate, but it has a non-standard use of \"नہीं\" instead of \"नहीं\". Combining the best elements, I select OmniASR's transcription with the correction of \"नहीं\" to get the final result.",
+    "language": "Hindi",
+    "transcription": "दबा इतना भारी था कि मैं उसे हिला नहीं सका",
+    "confidence": "high",
+    "reasoning": "Whisper's transcription \"दबा इतना बारी ता की में ल्से हिला नहीं सगा\" has some errors, but it captures the essence of the sentence. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is completely off-topic. MMS-ZeroShot's transcription \"dabaitna bharii thakii min lsye hila niim ska\" has some errors and romanization issues. OmniASR's transcription \"डबा इतना भारी था कि मैं उसे हिला नہीं सका\" is the most accurate, but it has a non-standard use of \"नہीं\" instead of \"नहीं\". Combining the best elements, I select OmniASR's transcription with the correction of \"नहीं\" to get the final result."
+  },
+  "wer": 0.2,
+  "cer": 0.09090909090909091
+}

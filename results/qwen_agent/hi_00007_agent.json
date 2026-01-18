@@ -1,0 +1,18 @@
+{
+  "audio_idx": 7,
+  "audio_name": "hi_00007",
+  "whisper_hyp": "तुम गलत मनजील पर हों",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "tm galat manjil prho",
+  "omni_hyp": "तुम गलत मंजिल पर हो",
+  "ref_dev": "तुम गलत मंज़िल पर हो।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi  \nTRANSCRIPTION: तुम गलत मंजिल पर हो  \nCONFIDENCE: high  \nREASONING: The most consistent and accurate transcription across systems is \"तुम गलत मंजिल पर हो\", which appears in both Whisper and OmniASR. While MMS-1B's output is significantly different and likely incorrect (mentioning \"three months\" and \"children\"), and MMS-ZeroShot is in romanized form and contains errors (\"manjil prho\" instead of \"मंजिल पर\"), the core phrase \"तुम गलत मंजिल पर हो\" is correctly captured by Whisper and OmniASR. The word \"मंजिल\" (floor/level) is more contextually appropriate than \"मनजील\" (a misspelling), and \"हो\" is correct. Thus, the best transcription combines the correct structure and spelling from Whisper and OmniASR.",
+    "language": "Hindi",
+    "transcription": "तुम गलत मंजिल पर हो",
+    "confidence": "high",
+    "reasoning": "The most consistent and accurate transcription across systems is \"तुम गलत मंजिल पर हो\", which appears in both Whisper and OmniASR. While MMS-1B's output is significantly different and likely incorrect (mentioning \"three months\" and \"children\"), and MMS-ZeroShot is in romanized form and contains errors (\"manjil prho\" instead of \"मंजिल पर\"), the core phrase \"तुम गलत मंजिल पर हो\" is correctly captured by Whisper and OmniASR. The word \"मंजिल\" (floor/level) is more contextually appropriate than \"मनजील\" (a misspelling), and \"हो\" is correct. Thus, the best transcription combines the correct structure and spelling from Whisper and OmniASR."
+  },
+  "wer": 0.4,
+  "cer": 0.09523809523809523
+}

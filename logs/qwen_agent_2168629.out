@@ -1,0 +1,126 @@
+==========================================
+Qwen ASR Agent (Single-GPU)
+Job ID: 2168629
+Start time: Sun Jan 11 08:14:38 PM CET 2026
+==========================================
+Sun Jan 11 20:14:38 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:81:00.0 Off |                    0 |
+| N/A   49C    P0             87W /  300W |       1MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running Qwen Agent (using config defaults)...
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED Qwen ASR Agent
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+8-bit quantization: False
+Flash attention: False
+Optimization: Pre-loading all models, batch processing
+================================================================================
+
+Loading Qwen tokenizer...
+Loading Qwen model...
+Using eager attention
+✓ Qwen model ready
+
+Pre-loading baseline models (one-time cost)...
+✓ All baseline models loaded and ready
+
+
+================================================================================
+QWEN ASR AGENT - OPTIMIZED FOR SINGLE L40 GPU
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+Files to process: 24 (starting from index 0)
+Qwen batch size: 24
+Language: hi
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi
+Optimizations: Pre-loaded models, batched processing, mixed precision
+================================================================================
+
+
+============================================================
+Processing chunk 1/1
+Files 0 to 23 (total: 24)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 24 files...
+✓ Baselines completed
+
+Step 2/4: Preparing Qwen prompts...
+------------------------------------------------------------
+✓ Prepared 24 prompts
+
+Step 3/4: Running Qwen inference...
+------------------------------------------------------------
+    Qwen batch 1/1 (24 prompts)...
+✓ Qwen inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1/24] 00000: WER=0.3333, CER=0.0968, Conf=high
+  [2/24] 00001: WER=0.6667, CER=0.3846, Conf=medium
+  [3/24] 00002: WER=1.0000, CER=1.0000, Conf=
+  [4/24] 00003: WER=0.4000, CER=0.3333, Conf=high
+  [5/24] 00004: WER=0.2000, CER=0.0682, Conf=high
+  [6/24] 00005: WER=1.0000, CER=1.0000, Conf=
+  [7/24] 00006: WER=0.5000, CER=0.3529, Conf=medium
+  [8/24] 00007: WER=1.0000, CER=1.0000, Conf=high
+  [9/24] 00008: WER=0.6250, CER=0.3714, Conf=high
+  [10/24] 00009: WER=0.5714, CER=0.2105, Conf=high
+  [11/24] 00010: WER=0.5714, CER=0.1579, Conf=high
+  [12/24] 00011: WER=0.5000, CER=0.0882, Conf=high
+  [13/24] 00012: WER=0.6000, CER=0.3000, Conf=medium
+  [14/24] 00013: WER=0.8750, CER=0.7826, Conf=medium
+  [15/24] 00014: WER=1.0000, CER=0.4706, Conf=medium
+  [16/24] 00015: WER=1.0000, CER=1.0000, Conf=
+  [17/24] 00016: WER=0.3333, CER=0.0769, Conf=high
+  [18/24] 00017: WER=0.4615, CER=0.1884, Conf=high
+  [19/24] 00018: WER=0.7500, CER=0.1795, Conf=medium
+  [20/24] 00019: WER=1.0000, CER=1.0000, Conf=
+  [21/24] 00020: WER=1.0000, CER=1.0000, Conf=
+  [22/24] 00021: WER=0.4286, CER=0.0667, Conf=high
+  [23/24] 00022: WER=0.3333, CER=0.0800, Conf=high
+  [24/24] 00023: WER=0.4000, CER=0.2000, Conf=high
+
+================================================================================
+QWEN AGENT - FINAL SUMMARY
+================================================================================
+Total files processed: 24
+Average WER: 0.6479
+Average CER: 0.4337
+================================================================================
+
+Saving results to: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/results/qwen_agent
+
+================================================================================
+✓ All results saved
+  Individual results: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/results/qwen_agent
+  Summary: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/results/qwen_agent/hi_qwen_agent_summary.json
+================================================================================
+
+
+==========================================
+Job finished at: Sun Jan 11 08:22:56 PM CET 2026
+==========================================

@@ -1,0 +1,18 @@
+{
+  "audio_idx": 1,
+  "audio_name": "hi_00001",
+  "whisper_hyp": "मैं करती हों",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "ma khati hum",
+  "omni_hyp": "مي کاتي ھو",
+  "ref_dev": "मैं खाती हूँ।",
+  "llm_decision": {
+    "raw": "Write the output in the following format:\n\nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: The MMS-1B hypothesis \"तुम्हारे पास तीन महीने बच्चे हैं\" is the most coherent and contextually accurate among all candidates. It is in proper Devanagari script, grammatically correct, and semantically meaningful. Whisper's \"मैं करती हों\" is incomplete and ungrammatical. MMS-ZeroShot's \"ma khati hum\" is in Romanized Hindi and contains errors (e.g., \"khati\" instead of \"karti\"). Omni's output \"مي کاتي ھو\" is in Arabic script and appears to be a misinterpretation. Thus, MMS-1B provides the most reliable transcription.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "The MMS-1B hypothesis \"तुम्हारे पास तीन महीने बच्चे हैं\" is the most coherent and contextually accurate among all candidates. It is in proper Devanagari script, grammatically correct, and semantically meaningful. Whisper's \"मैं करती हों\" is incomplete and ungrammatical. MMS-ZeroShot's \"ma khati hum\" is in Romanized Hindi and contains errors (e.g., \"khati\" instead of \"karti\"). Omni's output \"مي کاتي ھو\" is in Arabic script and appears to be a misinterpretation. Thus, MMS-1B provides the most reliable transcription."
+  },
+  "wer": 2.0,
+  "cer": 1.9230769230769231
+}

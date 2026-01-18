@@ -1,0 +1,18 @@
+{
+  "audio_idx": 3,
+  "audio_name": "hi_00003",
+  "whisper_hyp": "यह सब से अची हैं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "ihasahi sbsychiha",
+  "omni_hyp": "यह सैही सबसे अच्छी है",
+  "ref_dev": "यह स्याही सबसे अच्छी है।",
+  "llm_decision": {
+    "raw": "I'll analyze the ASR hypotheses for the Hindi utterance:\n\n1. Whisper: \"यह सब से अची हैं\" - This has a spelling error (\"अची\" instead of \"अच्छी\") and \"हैं\" is incorrect for singular subject.\n\n2. MMS-1B: \"तुम्हारे पास तीन महीने बच्चे हैं\" - This is completely different from the other hypotheses and seems to be about \"three months children\", which doesn't match the context of the other transcriptions.\n\n3. MMS-ZeroShot: \"ihasahi sbsychiha\" - This is romanized text that appears to be a phonetic representation, but it's not readable as Hindi.\n\n4. Omni: \"यह सैही सबसे अच्छी है\" - This has \"सैही\" which is a misspelling of \"सही\", but otherwise is close to correct.\n\nLooking at the patterns:\n- All hypotheses except MMS-1B contain \"यह सबसे �",
+    "language": "",
+    "transcription": "",
+    "confidence": "",
+    "reasoning": ""
+  },
+  "wer": 1.0,
+  "cer": 1.0
+}

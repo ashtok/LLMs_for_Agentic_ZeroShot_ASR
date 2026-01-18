@@ -1,0 +1,18 @@
+{
+  "audio_idx": 2,
+  "audio_name": "hi_00002",
+  "whisper_hyp": "बाई और को एक बुप तरास्ता हैं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "bai aur ko ek buk traastaa hai",
+  "omni_hyp": "بائی اور کو ایک گوپت راستا ہے",
+  "ref_dev": "बाईं ओर को एक गुप्त रास्ता है।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: The MMS-1B hypothesis \"तुम्हारे पास तीन महीने बच्चे हैं\" is the most accurate and grammatically correct among all options. It correctly interprets the likely intended meaning: \"You have three months left\" or \"You have a three-month-old child\" (context-dependent). The Whisper output contains garbled words (\"बाई\", \"बुप तरास्ता\"), MMS-ZeroShot is in romanized form and contains errors (\"buk traastaa\"), and OmniASR is in Urdu script with incorrect transliteration (\"بائی اور کو ایک گوپت راستا ہے\"). MMS-1B's output is consistent with natural Hindi syntax and phonetic accuracy, making it the best choice.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "The MMS-1B hypothesis \"तुम्हारे पास तीन महीने बच्चे हैं\" is the most accurate and grammatically correct among all options. It correctly interprets the likely intended meaning: \"You have three months left\" or \"You have a three-month-old child\" (context-dependent). The Whisper output contains garbled words (\"बाई\", \"बुप तरास्ता\"), MMS-ZeroShot is in romanized form and contains errors (\"buk traastaa\"), and OmniASR is in Urdu script with incorrect transliteration (\"بائی اور کو ایک گوپت راستا ہے\"). MMS-1B's output is consistent with natural Hindi syntax and phonetic accuracy, making it the best choice."
+  },
+  "wer": 1.0,
+  "cer": 0.8
+}

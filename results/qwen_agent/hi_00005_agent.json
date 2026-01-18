@@ -1,0 +1,18 @@
+{
+  "audio_idx": 5,
+  "audio_name": "hi_00005",
+  "whisper_hyp": "वे कुछ करते कियो नहीं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "ve kuch krte ko nhi",
+  "omni_hyp": "vi kuछ kartekju nehín",
+  "ref_dev": "वे कुछ करते क्यों नहीं?",
+  "llm_decision": {
+    "raw": "\"ve kuch krte ko nhi\" is a romanized version of the Hindi sentence, which translates to \"they did not do anything.\" The other hypotheses seem to be either incorrect or misinterpretations of the original audio.\n\n- Whisper: \"वे कुछ करते कियो नहीं\" – This is close to the correct meaning, but has a minor grammatical error (\"कियो\" should be \"किया\").\n- MMS-1B: \"तुम्हारे पास तीन महीने बच्चे हैं\" – This is completely unrelated and clearly incorrect.\n- MMS-ZeroShot: \"ve kuch krte ko nhi\" – This is the romanized form of the correct sentence, and matches the intended meaning.\n- Omni: \"vi kuछ kartekju nehín\" – This is a phonetic approximation with spelling errors (\"vi\" instead of \"ve\", \"kartekju\" instead of \"karte hain\", etc.), but the meaning is still somewhat understandable.\n\nThe most accurate and consistent transcription across the candidates is derived from MMS-ZeroShot, which correctly captures",
+    "language": "",
+    "transcription": "",
+    "confidence": "",
+    "reasoning": ""
+  },
+  "wer": 1.0,
+  "cer": 1.0
+}

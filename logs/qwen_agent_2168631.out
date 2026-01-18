@@ -1,0 +1,216 @@
+==========================================
+Qwen ASR Agent (Single-GPU)
+Job ID: 2168631
+Start time: Sun Jan 11 08:35:44 PM CET 2026
+==========================================
+Sun Jan 11 20:35:44 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:25:00.0 Off |                  Off |
+| N/A   46C    P0             93W /  300W |       1MiB /  49140MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running Qwen Agent (using config defaults)...
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED Qwen ASR Agent
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+8-bit quantization: False
+Flash attention: False
+Optimization: Pre-loading all models, batch processing
+================================================================================
+
+Loading Qwen tokenizer...
+Loading Qwen model...
+Using eager attention
+✓ Qwen model ready
+
+Pre-loading baseline models (one-time cost)...
+✓ All baseline models loaded and ready
+
+
+================================================================================
+QWEN ASR AGENT - OPTIMIZED FOR SINGLE L40 GPU
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+Files to process: 2400 (starting from index 0)
+Qwen batch size: 24
+Language: hi
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi
+Optimizations: Pre-loaded models, batched processing, mixed precision
+================================================================================
+
+
+============================================================
+Processing chunk 1/48
+Files 0 to 49 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing Qwen prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running Qwen inference...
+------------------------------------------------------------
+    Qwen batch 1/3 (24 prompts)...
+    Qwen batch 2/3 (24 prompts)...
+    Qwen batch 3/3 (2 prompts)...
+✓ Qwen inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1/2400] 00000: WER=0.3333, CER=0.0968, Conf=high
+  [2/2400] 00001: WER=0.6667, CER=0.3846, Conf=medium
+  [3/2400] 00002: WER=1.0000, CER=1.0000, Conf=
+  [4/2400] 00003: WER=0.4000, CER=0.3333, Conf=high
+  [5/2400] 00004: WER=0.2000, CER=0.0682, Conf=high
+  [6/2400] 00005: WER=1.0000, CER=1.0000, Conf=
+  [7/2400] 00006: WER=0.5000, CER=0.3529, Conf=medium
+  [8/2400] 00007: WER=1.0000, CER=1.0000, Conf=high
+  [9/2400] 00008: WER=0.6250, CER=0.3714, Conf=high
+  [10/2400] 00009: WER=0.4286, CER=0.1316, Conf=high
+  [11/2400] 00010: WER=0.5714, CER=0.1579, Conf=high
+  [12/2400] 00011: WER=0.5000, CER=0.0882, Conf=high
+  [13/2400] 00012: WER=0.6000, CER=0.3000, Conf=medium
+  [14/2400] 00013: WER=0.8750, CER=0.7826, Conf=medium
+  [15/2400] 00014: WER=1.0000, CER=0.4706, Conf=medium
+  [16/2400] 00015: WER=1.0000, CER=1.0000, Conf=
+  [17/2400] 00016: WER=0.3333, CER=0.0769, Conf=high
+  [18/2400] 00017: WER=0.4615, CER=0.1884, Conf=high
+  [19/2400] 00018: WER=0.7500, CER=0.1795, Conf=medium
+  [20/2400] 00019: WER=1.0000, CER=1.0000, Conf=
+  [21/2400] 00020: WER=1.0000, CER=1.0000, Conf=
+  [22/2400] 00021: WER=0.4286, CER=0.0667, Conf=high
+  [23/2400] 00022: WER=0.3333, CER=0.0800, Conf=high
+  [24/2400] 00023: WER=0.4000, CER=0.2000, Conf=high
+  [25/2400] 00024: WER=0.0000, CER=0.0000, Conf=high
+  [26/2400] 00025: WER=1.0000, CER=1.0000, Conf=
+  [27/2400] 00026: WER=0.3333, CER=0.0870, Conf=high
+  [28/2400] 00027: WER=0.3333, CER=0.1429, Conf=medium
+  [29/2400] 00028: WER=0.1250, CER=0.0270, Conf=high
+  [30/2400] 00029: WER=1.0000, CER=1.0000, Conf=medium
+  [31/2400] 00030: WER=0.3333, CER=0.0667, Conf=medium
+  [32/2400] 00031: WER=0.1429, CER=0.0286, Conf=high
+  [33/2400] 00032: WER=1.0000, CER=1.0000, Conf=high
+  [34/2400] 00033: WER=0.2500, CER=0.0541, Conf=medium
+  [35/2400] 00034: WER=0.5000, CER=0.1429, Conf=high
+  [36/2400] 00035: WER=0.1667, CER=0.0357, Conf=high
+  [37/2400] 00036: WER=0.1250, CER=0.0303, Conf=high
+  [38/2400] 00037: WER=1.0000, CER=1.0000, Conf=
+  [39/2400] 00038: WER=1.0000, CER=1.0000, Conf=
+  [40/2400] 00039: WER=1.4000, CER=1.1304, Conf=medium
+  [41/2400] 00040: WER=0.6667, CER=0.1212, Conf=high
+  [42/2400] 00041: WER=0.3333, CER=0.1200, Conf=medium
+  [43/2400] 00042: WER=1.0000, CER=0.2500, Conf=high
+  [44/2400] 00043: WER=1.0000, CER=1.0000, Conf=
+  [45/2400] 00044: WER=0.4000, CER=0.2000, Conf=high
+  [46/2400] 00045: WER=0.0000, CER=0.0000, Conf=high
+  [47/2400] 00046: WER=1.0000, CER=0.7586, Conf=medium
+  [48/2400] 00047: WER=0.3333, CER=0.0833, Conf=medium
+  [49/2400] 00048: WER=1.0000, CER=1.0000, Conf=
+  [50/2400] 00049: WER=0.5000, CER=0.1111, Conf=high
+
+============================================================
+Processing chunk 2/48
+Files 50 to 99 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing Qwen prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running Qwen inference...
+------------------------------------------------------------
+    Qwen batch 1/3 (24 prompts)...
+    Qwen batch 2/3 (24 prompts)...
+    Qwen batch 3/3 (2 prompts)...
+✓ Qwen inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [51/2400] 00050: WER=0.5000, CER=0.1154, Conf=high
+  [52/2400] 00051: WER=1.0000, CER=1.0000, Conf=high
+  [53/2400] 00052: WER=0.6000, CER=0.0800, Conf=high
+  [54/2400] 00053: WER=0.2500, CER=0.0588, Conf=high
+  [55/2400] 00054: WER=1.0000, CER=1.0000, Conf=high
+  [56/2400] 00055: WER=0.7500, CER=0.4444, Conf=medium
+  [57/2400] 00056: WER=0.2000, CER=0.0556, Conf=high
+  [58/2400] 00057: WER=0.3333, CER=0.0800, Conf=medium
+  [59/2400] 00058: WER=0.6000, CER=0.1667, Conf=high
+  [60/2400] 00059: WER=1.0000, CER=1.0000, Conf=
+  [61/2400] 00060: WER=0.1667, CER=0.1034, Conf=high
+  [62/2400] 00061: WER=1.0000, CER=0.1765, Conf=medium
+  [63/2400] 00062: WER=0.1000, CER=0.0233, Conf=high
+  [64/2400] 00063: WER=0.1667, CER=0.0345, Conf=high
+  [65/2400] 00064: WER=0.8000, CER=0.2222, Conf=high
+  [66/2400] 00065: WER=1.0000, CER=0.3077, Conf=high
+  [67/2400] 00066: WER=0.1429, CER=0.0455, Conf=high
+  [68/2400] 00067: WER=0.2000, CER=0.0385, Conf=high
+  [69/2400] 00068: WER=0.3636, CER=0.1493, Conf=high
+  [70/2400] 00069: WER=0.3000, CER=0.0588, Conf=high
+  [71/2400] 00070: WER=0.5000, CER=0.1111, Conf=high
+  [72/2400] 00071: WER=0.4286, CER=0.1471, Conf=high
+  [73/2400] 00072: WER=0.4000, CER=0.0600, Conf=high
+  [74/2400] 00073: WER=0.2000, CER=0.0455, Conf=high
+  [75/2400] 00074: WER=0.3333, CER=0.0968, Conf=high
+  [76/2400] 00075: WER=0.5000, CER=0.1111, Conf=high
+  [77/2400] 00076: WER=1.0000, CER=1.0000, Conf=
+  [78/2400] 00077: WER=0.4444, CER=0.1458, Conf=high
+  [79/2400] 00078: WER=2.0000, CER=1.6875, Conf=high
+  [80/2400] 00079: WER=1.0000, CER=1.0000, Conf=medium
+  [81/2400] 00080: WER=0.1250, CER=0.0312, Conf=high
+  [82/2400] 00081: WER=1.0000, CER=1.0000, Conf=
+  [83/2400] 00082: WER=0.5000, CER=0.1111, Conf=high
+  [84/2400] 00083: WER=0.4286, CER=0.1071, Conf=high
+  [85/2400] 00084: WER=0.6667, CER=0.1923, Conf=medium
+  [86/2400] 00085: WER=0.8182, CER=0.1493, Conf=medium
+  [87/2400] 00086: WER=0.4000, CER=0.0952, Conf=high
+  [88/2400] 00087: WER=0.7778, CER=0.1538, Conf=high
+  [89/2400] 00088: WER=1.0000, CER=1.0000, Conf=
+  [90/2400] 00089: WER=0.3333, CER=0.0833, Conf=high
+  [91/2400] 00090: WER=0.1667, CER=0.0800, Conf=high
+  [92/2400] 00091: WER=0.4286, CER=0.0541, Conf=high
+  [93/2400] 00092: WER=1.0000, CER=1.0000, Conf=high
+  [94/2400] 00093: WER=0.4286, CER=0.1290, Conf=high
+  [95/2400] 00094: WER=0.2500, CER=0.1333, Conf=high
+  [96/2400] 00095: WER=0.2857, CER=0.0714, Conf=high
+  [97/2400] 00096: WER=0.2500, CER=0.0588, Conf=high
+  [98/2400] 00097: WER=0.2857, CER=0.1154, Conf=high
+  [99/2400] 00098: WER=1.0000, CER=0.6818, Conf=high
+  [100/2400] 00099: WER=0.1429, CER=0.0690, Conf=medium
+
+============================================================
+Processing chunk 3/48
+Files 100 to 149 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...

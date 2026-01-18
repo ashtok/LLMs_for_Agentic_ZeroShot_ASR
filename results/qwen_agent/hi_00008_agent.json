@@ -1,0 +1,18 @@
+{
+  "audio_idx": 8,
+  "audio_name": "hi_00008",
+  "whisper_hyp": "अब हाने रठोर से चेल में मुलागात की हैं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "pabhane ratthor ze jel me mlakatki",
+  "omni_hyp": "آبا نے راٹھور سے چیل میں ملاقات کی",
+  "ref_dev": "आभा ने राठौड़ से जेल में मुलाकात की",
+  "llm_decision": {
+    "raw": "I'll analyze the ASR hypotheses for the Hindi utterance:\n\n1. Whisper: अब हाने रठोर से चेल में मुलागात की हैं\n2. MMS-1B: तुम्हारे पास तीन महीने बच्चे हैं\n3. MMS-ZeroShot: pabhane ratthor ze jel me mlakatki (Romanized, not in Devanagari)\n4. OmniASR: آبا نے راٹھور سے چیل میں ملاقات کی (Urdu script, not Hindi)\n\nLet me evaluate:\n\n- Whisper's transcription has \"अब हाने\" which seems like a misrecognition of \"आपने\" (you have) or \"अब\" (now). \"रठोर\" appears to be a misrecognition of \"राठौर\" (Rathore). \"चेल में मुलागात की हैं\" is close to \"च",
+    "language": "",
+    "transcription": "",
+    "confidence": "",
+    "reasoning": ""
+  },
+  "wer": 1.0,
+  "cer": 1.0
+}

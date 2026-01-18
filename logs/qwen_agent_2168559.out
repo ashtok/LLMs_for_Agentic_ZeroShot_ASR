@@ -1,0 +1,179 @@
+==========================================
+Qwen ASR Agent (Multi-GPU)
+Job ID: 2168559
+Start time: Sun Jan 11 05:56:33 PM CET 2026
+==========================================
+Sun Jan 11 17:56:33 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:81:00.0 Off |                    0 |
+| N/A   35C    P0             80W /  300W |       1MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running Qwen Agent (using config defaults)...
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing Qwen ASR Agent
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+8-bit quantization: False
+Flash attention: False
+Multi-GPU: Using device_map='auto' for tensor parallelism
+================================================================================
+
+Loading Qwen tokenizer...
+Loading Qwen model (this may take a few minutes)...
+Using default attention implementation
+
+✓ Model loaded across GPUs:
+  Devices: 0
+✓ Qwen model ready for inference
+
+
+================================================================================
+QWEN ASR AGENT - MULTI-GPU OPTIMIZED EVALUATION
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+Files to process: 20 (starting from index 0)
+Qwen batch size: 8
+Language: hi
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi
+================================================================================
+
+Step 1/4: Running baseline ASR models...
+--------------------------------------------------------------------------------
+  Running Whisper on 20 files...
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+  Running MMS-1B on 20 files...
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+  Running MMS-ZeroShot on 20 files...
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+✓ Baseline models completed
+
+Step 2/4: Preparing Qwen prompts...
+--------------------------------------------------------------------------------
+✓ Prepared 20 prompts
+
+Step 3/4: Running Qwen inference...
+--------------------------------------------------------------------------------
+    Processing Qwen batch 1/3 (8 prompts)...
+    Processing Qwen batch 2/3 (8 prompts)...
+    Processing Qwen batch 3/3 (4 prompts)...
+✓ Qwen inference completed
+
+Step 4/4: Parsing results and calculating metrics...
+--------------------------------------------------------------------------------
+  [1/20] 00000: WER=0.5000, CER=0.1613, Conf=high
+  [2/20] 00001: WER=0.6667, CER=0.3846, Conf=medium
+  [3/20] 00002: WER=1.0000, CER=1.0000, Conf=
+  [4/20] 00003: WER=0.8000, CER=0.4167, Conf=high
+  [5/20] 00004: WER=0.7000, CER=0.2727, Conf=medium
+  [6/20] 00005: WER=0.4000, CER=0.1304, Conf=medium
+  [7/20] 00006: WER=0.5000, CER=0.3529, Conf=medium
+  [8/20] 00007: WER=0.4000, CER=0.1905, Conf=high
+  [9/20] 00008: WER=1.0000, CER=0.8571, Conf=medium
+  [10/20] 00009: WER=1.0000, CER=1.0000, Conf=
+  [11/20] 00010: WER=0.7143, CER=0.2632, Conf=medium
+  [12/20] 00011: WER=0.6667, CER=0.1471, Conf=high
+  [13/20] 00012: WER=0.6000, CER=0.3000, Conf=medium
+  [14/20] 00013: WER=0.8750, CER=0.6304, Conf=medium
+  [15/20] 00014: WER=1.2000, CER=1.2941, Conf=high
+  [16/20] 00015: WER=0.4000, CER=0.2333, Conf=medium
+  [17/20] 00016: WER=0.6667, CER=0.1538, Conf=high
+  [18/20] 00017: WER=0.5385, CER=0.1594, Conf=high
+  [19/20] 00018: WER=0.7500, CER=0.1795, Conf=medium
+  [20/20] 00019: WER=0.5714, CER=0.0882, Conf=high
+
+================================================================================
+QWEN AGENT - EVALUATION SUMMARY
+================================================================================
+Files processed: 20
+Average WER: 0.6975
+Average CER: 0.4108
+================================================================================
+
+Saving results to: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/results/qwen_agent
+
+================================================================================
+✓ All results saved
+  Individual results: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/results/qwen_agent
+  Summary: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/results/qwen_agent/hi_qwen_agent_summary.json
+================================================================================
+
+
+==========================================
+Job finished at: Sun Jan 11 06:07:21 PM CET 2026
+==========================================

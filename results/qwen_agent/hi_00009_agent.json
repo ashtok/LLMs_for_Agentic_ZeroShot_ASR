@@ -1,0 +1,18 @@
+{
+  "audio_idx": 9,
+  "audio_name": "hi_00009",
+  "whisper_hyp": "उसे बगवड़ देड तक इंतजार कर वाया",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "as nye amshe bhwd der ta kntzar krwaia",
+  "omni_hyp": "उसने अबसे बहुत देर तक इंतजार करवाया",
+  "ref_dev": "उसने हमसे बहुत देर तक इंतेज़ार करवाया।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi  \nTRANSCRIPTION: उसने अबसे बहुत देर तक इंतजार करवाया  \nCONFIDENCE: high  \nREASONING: The hypothesis from OmniASR (\"उसने अबसे बहुत देर तक इंतजार करवाया\") is the most semantically coherent and phonetically accurate among all options. It correctly captures the meaning: \"He/She made someone wait for a very long time.\" The word \"अबसे\" (abse) likely corresponds to a phonetic realization of \"अब से\" (from now), and \"करवाया\" (karvaya) correctly reflects the causative form of \"to make wait.\" Whisper's output is partially understandable but contains errors (\"बगवड़\" instead of \"अबसे\", \"देड तक\" instead of \"देर तक\"). MMS-1B's output is completely unrelated in meaning. MMS-ZeroShot is in romanized form and contains non-Devan",
+    "language": "Hindi",
+    "transcription": "उसने अबसे बहुत देर तक इंतजार करवाया",
+    "confidence": "high",
+    "reasoning": "The hypothesis from OmniASR (\"उसने अबसे बहुत देर तक इंतजार करवाया\") is the most semantically coherent and phonetically accurate among all options. It correctly captures the meaning: \"He/She made someone wait for a very long time.\" The word \"अबसे\" (abse) likely corresponds to a phonetic realization of \"अब से\" (from now), and \"करवाया\" (karvaya) correctly reflects the causative form of \"to make wait.\" Whisper's output is partially understandable but contains errors (\"बगवड़\" instead of \"अबसे\", \"देड तक\" instead of \"देर तक\"). MMS-1B's output is completely unrelated in meaning. MMS-ZeroShot is in romanized form and contains non-Devan"
+  },
+  "wer": 0.42857142857142855,
+  "cer": 0.13157894736842105
+}

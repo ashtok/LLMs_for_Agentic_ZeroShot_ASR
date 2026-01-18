@@ -1,0 +1,18 @@
+{
+  "audio_idx": 0,
+  "audio_name": "hi_00000",
+  "whisper_hyp": "तुमारे पास तीन महिने बच्छे हैं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "tmare pas tin mhine btce hn",
+  "omni_hyp": "तुम्हारे पास तीन महीने बच्चे है",
+  "ref_dev": "तुम्हारे पास तीन महीने बचे हैं।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: The hypothesis from MMS-1B (\"तुम्हारे पास तीन महीने बच्चे हैं\") is the most accurate and grammatically correct, using proper Devanagari script and correct word forms (e.g., \"तीन महीने\" for \"three months\", \"बच्चे\" for \"children\"). Whisper has a spelling error (\"तीन महिने बच्छे\" – incorrect spelling of \"बच्चे\"). OmniASR is close but omits the final \"ं\" in \"हैं\", making it slightly less accurate. MMS-ZeroShot is romanized and not usable as a final transcription. Thus, MMS-1B's output is selected as the best.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "The hypothesis from MMS-1B (\"तुम्हारे पास तीन महीने बच्चे हैं\") is the most accurate and grammatically correct, using proper Devanagari script and correct word forms (e.g., \"तीन महीने\" for \"three months\", \"बच्चे\" for \"children\"). Whisper has a spelling error (\"तीन महिने बच्छे\" – incorrect spelling of \"बच्चे\"). OmniASR is close but omits the final \"ं\" in \"हैं\", making it slightly less accurate. MMS-ZeroShot is romanized and not usable as a final transcription. Thus, MMS-1B's output is selected as the best."
+  },
+  "wer": 0.3333333333333333,
+  "cer": 0.0967741935483871
+}

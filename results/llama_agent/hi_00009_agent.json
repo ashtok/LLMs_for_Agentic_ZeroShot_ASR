@@ -1,0 +1,18 @@
+{
+  "audio_idx": 9,
+  "audio_name": "hi_00009",
+  "whisper_hyp": "उसे बहुत देड तक इंटेजार कर वाया",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "as nye amshe bhwd der ta kntzar krwaia",
+  "omni_hyp": "उसने अबसे बहुत देर तक इंतजार करवाया",
+  "ref_dev": "उसने हमसे बहुत देर तक इंतेज़ार करवाया।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: उसने अबसे बहुत देर तक इंतजार करवाया\nCONFIDENCE: high\nREASONING: Whisper's transcription \"उसे बहुत देड तक इंटेजार कर वाया\" has a small typo (\"देड\" instead of \"देर\"), while MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. MMS-ZeroShot's transcription \"as nye amshe bhwd der ta kntzar krwaia\" is also incorrect. OmniASR's transcription \"उसने अबसे बहुत देर तक इंतजार करवाया\" is the most accurate, so it is selected as the best transcription.",
+    "language": "Hindi",
+    "transcription": "उसने अबसे बहुत देर तक इंतजार करवाया",
+    "confidence": "high",
+    "reasoning": "Whisper's transcription \"उसे बहुत देड तक इंटेजार कर वाया\" has a small typo (\"देड\" instead of \"देर\"), while MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. MMS-ZeroShot's transcription \"as nye amshe bhwd der ta kntzar krwaia\" is also incorrect. OmniASR's transcription \"उसने अबसे बहुत देर तक इंतजार करवाया\" is the most accurate, so it is selected as the best transcription."
+  },
+  "wer": 0.42857142857142855,
+  "cer": 0.13157894736842105
+}

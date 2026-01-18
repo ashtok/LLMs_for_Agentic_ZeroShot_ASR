@@ -1,0 +1,18 @@
+{
+  "audio_idx": 6,
+  "audio_name": "hi_00006",
+  "whisper_hyp": "मैं पूरी राट्रोईं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "me purirotroinge",
+  "omni_hyp": "م پوری رادروین",
+  "ref_dev": "मैं पूरी रात रोई।",
+  "llm_decision": {
+    "raw": "Write a detailed, long answer.",
+    "language": "",
+    "transcription": "",
+    "confidence": "",
+    "reasoning": ""
+  },
+  "wer": 1.0,
+  "cer": 1.0
+}

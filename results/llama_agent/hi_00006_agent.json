@@ -1,0 +1,18 @@
+{
+  "audio_idx": 6,
+  "audio_name": "hi_00006",
+  "whisper_hyp": "मैं पूरी राट्रोईं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "me purirotroinge",
+  "omni_hyp": "م پوری رادروین",
+  "ref_dev": "मैं पूरी रात रोई।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: मैं पूरी रात रोती हूँ\nCONFIDENCE: high\nREASONING: Whisper's transcription \"मैं पूरी राट्रोईं\" is close but has a typo. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. MMS-ZeroShot's transcription \"me purirotroinge\" is also incorrect due to romanization and typo. OmniASR's transcription \"م پوری رادروین\" is a transliteration of the audio, but not in Devanagari script. The correct transcription \"मैं पूरी रात रोती हूँ\" is a combination of Whisper's and OmniASR's elements, with the correct Devanagari script and the correct phrase \"रात रोती हूँ\" from the audio context.",
+    "language": "Hindi",
+    "transcription": "मैं पूरी रात रोती हूँ",
+    "confidence": "high",
+    "reasoning": "Whisper's transcription \"मैं पूरी राट्रोईं\" is close but has a typo. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. MMS-ZeroShot's transcription \"me purirotroinge\" is also incorrect due to romanization and typo. OmniASR's transcription \"م پوری رادروین\" is a transliteration of the audio, but not in Devanagari script. The correct transcription \"मैं पूरी रात रोती हूँ\" is a combination of Whisper's and OmniASR's elements, with the correct Devanagari script and the correct phrase \"रात रोती हूँ\" from the audio context."
+  },
+  "wer": 0.5,
+  "cer": 0.35294117647058826
+}

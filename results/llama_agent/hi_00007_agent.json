@@ -1,0 +1,18 @@
+{
+  "audio_idx": 7,
+  "audio_name": "hi_00007",
+  "whisper_hyp": "तुम गलत मनजील पर हों",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "tm galat manjil prho",
+  "omni_hyp": "तुम गलत मंजिल पर हो",
+  "ref_dev": "तुम गलत मंज़िल पर हो।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: तुम गलत मंजिल पर हो\nCONFIDENCE: high\nREASONING: Whisper and OmniASR provide similar transcriptions, \"तुम गलत मंजिल पर हो\", which seems to be the most accurate. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio, suggesting it may be a completely different sentence. MMS-ZeroShot's transcription \"tm galat manjil prho\" is partially correct but contains errors and is likely due to the model's inability to handle romanization correctly.",
+    "language": "Hindi",
+    "transcription": "तुम गलत मंजिल पर हो",
+    "confidence": "high",
+    "reasoning": "Whisper and OmniASR provide similar transcriptions, \"तुम गलत मंजिल पर हो\", which seems to be the most accurate. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio, suggesting it may be a completely different sentence. MMS-ZeroShot's transcription \"tm galat manjil prho\" is partially correct but contains errors and is likely due to the model's inability to handle romanization correctly."
+  },
+  "wer": 0.4,
+  "cer": 0.09523809523809523
+}

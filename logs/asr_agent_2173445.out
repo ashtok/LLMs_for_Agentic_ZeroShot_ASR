@@ -1,0 +1,21 @@
+Job ID: 2173445
+Start: Thu Jan 15 12:10:01 PM CET 2026
+jn004
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+About to run uv...
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED QWEN ASR Agent
+================================================================================
+Model: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8
+8-bit quantization: False
+Flash attention: True
+Optimization: Pre-loading baseline configs, batched LLM inference
+================================================================================
+
+Loading tokenizer...
+Loading model...
+Attempting to use Flash Attention 2...
+uv finished with exit code 1
+End: Thu Jan 15 12:21:28 PM CET 2026

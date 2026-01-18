@@ -1,0 +1,18 @@
+{
+  "audio_idx": 4,
+  "audio_name": "hi_00004",
+  "whisper_hyp": "दबा इतना बारी ता की में ल्से हिला नहीं सगा",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "dabaitna bharii thakii min lsye hila niim ska",
+  "omni_hyp": "डबा इतنा भारी थا कि मैं उसे हिला नہीं सका",
+  "ref_dev": "डब्बा इतना भारी था कि मैं उसे हिला नहीं सका।",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi  \nTRANSCRIPTION: डबा इतना भारी था कि मैं उसे हिला नहीं सका  \nCONFIDENCE: high  \nREASONING: The OmniASR transcription is the most accurate and natural in Devanagari script, correctly capturing the intended meaning: \"The box was so heavy that I couldn't move it.\" Whisper and MMS-1B have significant errors (e.g., \"दबा\" vs \"डबा\", \"बारी ता की\" vs \"भारी था कि\"), while MMS-ZeroShot is romanized and contains phonetic inaccuracies. OmniASR's output is grammatically correct, contextually appropriate, and matches the likely intended sentence.",
+    "language": "Hindi",
+    "transcription": "डबा इतना भारी था कि मैं उसे हिला नहीं सका",
+    "confidence": "high",
+    "reasoning": "The OmniASR transcription is the most accurate and natural in Devanagari script, correctly capturing the intended meaning: \"The box was so heavy that I couldn't move it.\" Whisper and MMS-1B have significant errors (e.g., \"दबा\" vs \"डबा\", \"बारी ता की\" vs \"भारी था कि\"), while MMS-ZeroShot is romanized and contains phonetic inaccuracies. OmniASR's output is grammatically correct, contextually appropriate, and matches the likely intended sentence."
+  },
+  "wer": 0.2,
+  "cer": 0.06818181818181818
+}

@@ -1,0 +1,18 @@
+{
+  "audio_idx": 8,
+  "audio_name": "hi_00008",
+  "whisper_hyp": "अब हाने रठोर से चेल में मुलागात की हैं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_hyp": "pabhane ratthor ze jel me mlakatki",
+  "omni_hyp": "آبا نے راٹھور سے چیل میں ملاقات کی",
+  "ref_dev": "आभा ने राठौड़ से जेल में मुलाकात की",
+  "llm_decision": {
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: अब रठौर से चेल में मुलाकात की हैं\nCONFIDENCE: high\nREASONING: Whisper's transcription \"अब हाने रठोर से चेल में मुलागात की हैं\" is close but has a small error. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the context. MMS-ZeroShot's transcription \"pabhane ratthor ze jel me mlakatki\" is not recognizable. OmniASR's transcription is in Urdu, not Hindi. Combining elements, I corrected the Whisper transcription to \"अब रठौर से चेल में मुलाकात की हैं\" which seems to be the most accurate.",
+    "language": "Hindi",
+    "transcription": "अब रठौर से चेल में मुलाकात की हैं",
+    "confidence": "high",
+    "reasoning": "Whisper's transcription \"अब हाने रठोर से चेल में मुलागात की हैं\" is close but has a small error. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the context. MMS-ZeroShot's transcription \"pabhane ratthor ze jel me mlakatki\" is not recognizable. OmniASR's transcription is in Urdu, not Hindi. Combining elements, I corrected the Whisper transcription to \"अब रठौर से चेल में मुलाकात की हैं\" which seems to be the most accurate."
+  },
+  "wer": 0.625,
+  "cer": 0.4
+}

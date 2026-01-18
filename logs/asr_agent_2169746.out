@@ -1,0 +1,80 @@
+==========================================
+ASR Judge Agent (Single-GPU)
+Job ID: 2169746
+Start time: Mon Jan 12 10:20:44 PM CET 2026
+==========================================
+Mon Jan 12 22:20:44 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:A1:00.0 Off |                    0 |
+| N/A   30C    P8             33W /  350W |       1MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running ASR Agent (using config defaults)...
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED LLAMA ASR Agent
+================================================================================
+Model: allura-forge/Llama-3.3-8B-Instruct
+8-bit quantization: False
+Flash attention: False
+Optimization: Pre-loading baseline configs, batched LLM inference
+================================================================================
+
+Loading tokenizer...
+Loading model...
+Using eager attention
+✓ LLAMA model ready
+
+Pre-loading baseline configs (one-time setup)...
+✓ Baseline configs ready
+
+
+================================================================================
+LLAMA ASR AGENT - OPTIMIZED FOR SINGLE GPU
+================================================================================
+Model: allura-forge/Llama-3.3-8B-Instruct
+Files to process: 2400 (starting from index 0)
+Batch size: 24
+Language: hi
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi
+================================================================================
+
+
+============================================================
+Processing chunk 1/48
+Files 0 to 49 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+
+==========================================
+Job finished at: Mon Jan 12 10:41:32 PM CET 2026
+==========================================

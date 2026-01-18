@@ -1,0 +1,3631 @@
+==========================================
+ASR Judge Agent (Single-GPU)
+Job ID: 2169810
+Start time: Tue Jan 13 12:00:31 AM CET 2026
+==========================================
+Tue Jan 13 00:00:31 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:25:00.0 Off |                  Off |
+| N/A   36C    P0             81W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running ASR Agent (using config defaults)...
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED LLAMA ASR Agent
+================================================================================
+Model: allura-forge/Llama-3.3-8B-Instruct
+8-bit quantization: False
+Flash attention: False
+Optimization: Pre-loading baseline configs, batched LLM inference
+================================================================================
+
+Loading tokenizer...
+Loading model...
+Using eager attention
+✓ LLAMA model ready
+
+Pre-loading baseline configs (one-time setup)...
+✓ Baseline configs ready
+
+
+================================================================================
+LLAMA ASR AGENT - OPTIMIZED FOR SINGLE GPU
+================================================================================
+Model: allura-forge/Llama-3.3-8B-Instruct
+Files to process: 2400 (starting from index 0)
+Batch size: 24
+Language: hi
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi
+================================================================================
+
+
+============================================================
+Processing chunk 1/48
+Files 0 to 49 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1/2400] 00000: WER=0.3333, CER=0.0968, Conf=high
+  [2/2400] 00001: WER=0.6667, CER=0.2308, Conf=high
+  [3/2400] 00002: WER=0.7143, CER=0.2000, Conf=medium
+  [4/2400] 00003: WER=0.4000, CER=0.3333, Conf=high
+  [5/2400] 00004: WER=0.2000, CER=0.0682, Conf=high
+  [6/2400] 00005: WER=0.4000, CER=0.3043, Conf=high
+  [7/2400] 00006: WER=0.5000, CER=0.3529, Conf=high
+  [8/2400] 00007: WER=0.4000, CER=0.0952, Conf=high
+  [9/2400] 00008: WER=0.6250, CER=0.3429, Conf=medium
+  [10/2400] 00009: WER=0.5714, CER=0.1579, Conf=high
+  [11/2400] 00010: WER=0.7143, CER=0.1579, Conf=high
+  [12/2400] 00011: WER=0.5000, CER=0.0882, Conf=high
+  [13/2400] 00012: WER=0.6000, CER=0.4000, Conf=medium
+  [14/2400] 00013: WER=0.3750, CER=0.1304, Conf=medium
+  [15/2400] 00014: WER=1.0000, CER=0.4706, Conf=high
+  [16/2400] 00015: WER=0.4000, CER=0.3667, Conf=medium
+  [17/2400] 00016: WER=0.3333, CER=0.0769, Conf=high
+  [18/2400] 00017: WER=0.6154, CER=0.1739, Conf=high
+  [19/2400] 00018: WER=0.8750, CER=0.2308, Conf=high
+  [20/2400] 00019: WER=0.1429, CER=0.0294, Conf=high
+  [21/2400] 00020: WER=0.7500, CER=0.0769, Conf=high
+  [22/2400] 00021: WER=0.1429, CER=0.0333, Conf=high
+  [23/2400] 00022: WER=0.3333, CER=0.0800, Conf=high
+  [24/2400] 00023: WER=0.4000, CER=0.2000, Conf=high
+  [25/2400] 00024: WER=0.0000, CER=0.0000, Conf=high
+  [26/2400] 00025: WER=0.3846, CER=0.0794, Conf=high
+  [27/2400] 00026: WER=0.1667, CER=0.0435, Conf=high
+  [28/2400] 00027: WER=0.1667, CER=0.0357, Conf=high
+  [29/2400] 00028: WER=0.1250, CER=0.0270, Conf=high
+  [30/2400] 00029: WER=0.5000, CER=0.2400, Conf=high
+  [31/2400] 00030: WER=0.6667, CER=0.2667, Conf=high
+  [32/2400] 00031: WER=0.1429, CER=0.0286, Conf=high
+  [33/2400] 00032: WER=0.2000, CER=0.0667, Conf=high
+  [34/2400] 00033: WER=0.1250, CER=0.0270, Conf=high
+  [35/2400] 00034: WER=0.2500, CER=0.1190, Conf=high
+  [36/2400] 00035: WER=0.1667, CER=0.0357, Conf=high
+  [37/2400] 00036: WER=0.2500, CER=0.1515, Conf=high
+  [38/2400] 00037: WER=0.3333, CER=0.0500, Conf=high
+  [39/2400] 00038: WER=0.3333, CER=0.1628, Conf=high
+  [40/2400] 00039: WER=1.0000, CER=0.3913, Conf=low
+  [41/2400] 00040: WER=0.6667, CER=0.1818, Conf=high
+  [42/2400] 00041: WER=1.1667, CER=0.9600, Conf=high
+  [43/2400] 00042: WER=1.0000, CER=0.1500, Conf=high
+  [44/2400] 00043: WER=0.7000, CER=0.3469, Conf=medium
+  [45/2400] 00044: WER=0.3000, CER=0.0889, Conf=high
+  [46/2400] 00045: WER=0.0000, CER=0.0000, Conf=high
+  [47/2400] 00046: WER=0.6667, CER=0.4138, Conf=low
+  [48/2400] 00047: WER=0.3333, CER=0.0833, Conf=high
+  [49/2400] 00048: WER=0.6250, CER=0.1389, Conf=high
+  [50/2400] 00049: WER=0.5000, CER=0.1111, Conf=high
+
+============================================================
+Processing chunk 2/48
+Files 50 to 99 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [51/2400] 00050: WER=0.5000, CER=0.1154, Conf=high
+  [52/2400] 00051: WER=0.3333, CER=0.0952, Conf=high
+  [53/2400] 00052: WER=0.6000, CER=0.0800, Conf=high
+  [54/2400] 00053: WER=0.2500, CER=0.0588, Conf=high
+  [55/2400] 00054: WER=1.0000, CER=0.1739, Conf=high
+  [56/2400] 00055: WER=0.7500, CER=0.4444, Conf=high
+  [57/2400] 00056: WER=0.2000, CER=0.0556, Conf=high
+  [58/2400] 00057: WER=0.6667, CER=0.2400, Conf=high
+  [59/2400] 00058: WER=0.8000, CER=0.2500, Conf=high
+  [60/2400] 00059: WER=0.5000, CER=0.1111, Conf=high
+  [61/2400] 00060: WER=0.1667, CER=0.1034, Conf=high
+  [62/2400] 00061: WER=1.0000, CER=0.2353, Conf=high
+  [63/2400] 00062: WER=0.1000, CER=0.0233, Conf=high
+  [64/2400] 00063: WER=0.1667, CER=0.0345, Conf=high
+  [65/2400] 00064: WER=1.0000, CER=0.2593, Conf=high
+  [66/2400] 00065: WER=0.7500, CER=0.1538, Conf=high
+  [67/2400] 00066: WER=0.1429, CER=0.0455, Conf=high
+  [68/2400] 00067: WER=0.2000, CER=0.0385, Conf=high
+  [69/2400] 00068: WER=0.2727, CER=0.1045, Conf=high
+  [70/2400] 00069: WER=0.1000, CER=0.0196, Conf=high
+  [71/2400] 00070: WER=3.5000, CER=3.3333, Conf=medium
+  [72/2400] 00071: WER=0.2857, CER=0.0882, Conf=high
+  [73/2400] 00072: WER=0.4000, CER=0.0600, Conf=high
+  [74/2400] 00073: WER=0.6000, CER=0.3182, Conf=high
+  [75/2400] 00074: WER=0.5000, CER=0.1613, Conf=high
+  [76/2400] 00075: WER=0.5000, CER=0.1111, Conf=high
+  [77/2400] 00076: WER=0.6667, CER=0.2593, Conf=high
+  [78/2400] 00077: WER=0.4444, CER=0.1458, Conf=high
+  [79/2400] 00078: WER=1.3333, CER=0.6250, Conf=medium
+  [80/2400] 00079: WER=0.4444, CER=0.1111, Conf=medium
+  [81/2400] 00080: WER=0.3750, CER=0.0625, Conf=high
+  [82/2400] 00081: WER=0.1667, CER=0.0517, Conf=high
+  [83/2400] 00082: WER=0.5000, CER=0.1111, Conf=high
+  [84/2400] 00083: WER=0.4286, CER=0.1071, Conf=high
+  [85/2400] 00084: WER=0.6667, CER=0.1923, Conf=medium
+  [86/2400] 00085: WER=0.9091, CER=0.2388, Conf=medium
+  [87/2400] 00086: WER=0.4000, CER=0.0952, Conf=high
+  [88/2400] 00087: WER=0.8889, CER=0.1731, Conf=high
+  [89/2400] 00088: WER=0.4000, CER=0.1071, Conf=high
+  [90/2400] 00089: WER=0.3333, CER=0.0833, Conf=high
+  [91/2400] 00090: WER=0.3333, CER=0.1200, Conf=high
+  [92/2400] 00091: WER=0.4286, CER=0.0541, Conf=high
+  [93/2400] 00092: WER=0.2857, CER=0.0938, Conf=high
+  [94/2400] 00093: WER=0.4286, CER=0.1935, Conf=high
+  [95/2400] 00094: WER=0.2500, CER=0.1333, Conf=medium
+  [96/2400] 00095: WER=0.4286, CER=0.1071, Conf=high
+  [97/2400] 00096: WER=0.2500, CER=0.0588, Conf=high
+  [98/2400] 00097: WER=0.1429, CER=0.0385, Conf=high
+  [99/2400] 00098: WER=1.0000, CER=0.6818, Conf=high
+  [100/2400] 00099: WER=0.1429, CER=0.0345, Conf=high
+
+============================================================
+Processing chunk 3/48
+Files 100 to 149 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [101/2400] 00100: WER=0.1667, CER=0.0345, Conf=high
+  [102/2400] 00101: WER=0.3077, CER=0.0541, Conf=high
+  [103/2400] 00102: WER=0.5000, CER=0.3462, Conf=medium
+  [104/2400] 00103: WER=0.7500, CER=0.1176, Conf=high
+  [105/2400] 00104: WER=0.2000, CER=0.0435, Conf=high
+  [106/2400] 00105: WER=0.2500, CER=0.0526, Conf=high
+  [107/2400] 00106: WER=0.3636, CER=0.1296, Conf=high
+  [108/2400] 00107: WER=0.1429, CER=0.0282, Conf=high
+  [109/2400] 00108: WER=0.4545, CER=0.2295, Conf=high
+  [110/2400] 00109: WER=0.3333, CER=0.0667, Conf=high
+  [111/2400] 00110: WER=0.5000, CER=0.1739, Conf=medium
+  [112/2400] 00111: WER=1.0000, CER=0.5714, Conf=high
+  [113/2400] 00112: WER=0.3333, CER=0.0909, Conf=high
+  [114/2400] 00113: WER=0.5000, CER=0.0870, Conf=high
+  [115/2400] 00114: WER=0.2857, CER=0.0938, Conf=high
+  [116/2400] 00115: WER=0.1667, CER=0.0400, Conf=high
+  [117/2400] 00116: WER=0.3333, CER=0.1321, Conf=high
+  [118/2400] 00117: WER=0.2000, CER=0.0455, Conf=high
+  [119/2400] 00118: WER=0.1429, CER=0.1290, Conf=high
+  [120/2400] 00119: WER=0.6000, CER=0.2222, Conf=high
+  [121/2400] 00120: WER=0.2857, CER=0.0714, Conf=high
+  [122/2400] 00121: WER=0.3750, CER=0.2326, Conf=medium
+  [123/2400] 00122: WER=0.8000, CER=0.5185, Conf=high
+  [124/2400] 00123: WER=0.6000, CER=0.4615, Conf=high
+  [125/2400] 00124: WER=0.3333, CER=0.0508, Conf=high
+  [126/2400] 00125: WER=0.1250, CER=0.0278, Conf=high
+  [127/2400] 00126: WER=0.4000, CER=0.0612, Conf=high
+  [128/2400] 00127: WER=0.4444, CER=0.1875, Conf=high
+  [129/2400] 00128: WER=0.1667, CER=0.0758, Conf=high
+  [130/2400] 00129: WER=2.0000, CER=1.9333, Conf=medium
+  [131/2400] 00130: WER=2.3333, CER=2.1429, Conf=medium
+  [132/2400] 00131: WER=0.3333, CER=0.0667, Conf=high
+  [133/2400] 00132: WER=0.8333, CER=0.6364, Conf=medium
+  [134/2400] 00133: WER=0.3000, CER=0.0816, Conf=high
+  [135/2400] 00134: WER=0.5000, CER=0.2778, Conf=high
+  [136/2400] 00135: WER=0.5714, CER=0.2414, Conf=high
+  [137/2400] 00136: WER=0.2857, CER=0.1111, Conf=high
+  [138/2400] 00137: WER=0.8182, CER=0.2540, Conf=high
+  [139/2400] 00138: WER=0.2000, CER=0.0702, Conf=high
+  [140/2400] 00139: WER=0.8333, CER=0.1667, Conf=high
+  [141/2400] 00140: WER=0.6000, CER=0.1667, Conf=medium
+  [142/2400] 00141: WER=0.6364, CER=0.2553, Conf=high
+  [143/2400] 00142: WER=0.2143, CER=0.0455, Conf=high
+  [144/2400] 00143: WER=0.5714, CER=0.1429, Conf=high
+  [145/2400] 00144: WER=0.6000, CER=0.3043, Conf=high
+  [146/2400] 00145: WER=0.4000, CER=0.0625, Conf=high
+  [147/2400] 00146: WER=0.3333, CER=0.0893, Conf=high
+  [148/2400] 00147: WER=0.4545, CER=0.0571, Conf=high
+  [149/2400] 00148: WER=0.1818, CER=0.0357, Conf=high
+  [150/2400] 00149: WER=0.5000, CER=0.1429, Conf=high
+
+============================================================
+Processing chunk 4/48
+Files 150 to 199 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [151/2400] 00150: WER=0.5556, CER=0.3824, Conf=high
+  [152/2400] 00151: WER=0.5000, CER=0.1905, Conf=high
+  [153/2400] 00152: WER=0.6250, CER=0.2051, Conf=high
+  [154/2400] 00153: WER=0.5000, CER=0.2083, Conf=medium
+  [155/2400] 00154: WER=0.0714, CER=0.0135, Conf=high
+  [156/2400] 00155: WER=0.3636, CER=0.1731, Conf=high
+  [157/2400] 00156: WER=0.3333, CER=0.1500, Conf=high
+  [158/2400] 00157: WER=0.5000, CER=0.1000, Conf=high
+  [159/2400] 00158: WER=0.4167, CER=0.2931, Conf=high
+  [160/2400] 00159: WER=0.1250, CER=0.0526, Conf=high
+  [161/2400] 00160: WER=0.2727, CER=0.0500, Conf=high
+  [162/2400] 00161: WER=0.4545, CER=0.1613, Conf=high
+  [163/2400] 00162: WER=0.6667, CER=0.1875, Conf=low
+  [164/2400] 00163: WER=0.5385, CER=0.1111, Conf=high
+  [165/2400] 00164: WER=0.5714, CER=0.1724, Conf=high
+  [166/2400] 00165: WER=0.6000, CER=0.1667, Conf=high
+  [167/2400] 00166: WER=0.1111, CER=0.0588, Conf=high
+  [168/2400] 00167: WER=0.7500, CER=0.4762, Conf=high
+  [169/2400] 00168: WER=0.1429, CER=0.0263, Conf=high
+  [170/2400] 00169: WER=0.0769, CER=0.0154, Conf=high
+  [171/2400] 00170: WER=0.7143, CER=0.2632, Conf=high
+  [172/2400] 00171: WER=0.5385, CER=0.1471, Conf=high
+  [173/2400] 00172: WER=1.5000, CER=0.5000, Conf=high
+  [174/2400] 00173: WER=0.3333, CER=0.1034, Conf=high
+  [175/2400] 00174: WER=0.1667, CER=0.0400, Conf=high
+  [176/2400] 00175: WER=0.6667, CER=0.6154, Conf=high
+  [177/2400] 00176: WER=0.6000, CER=0.2857, Conf=high
+  [178/2400] 00177: WER=0.3333, CER=0.1154, Conf=high
+  [179/2400] 00178: WER=0.1538, CER=0.0462, Conf=high
+  [180/2400] 00179: WER=0.4000, CER=0.1250, Conf=high
+  [181/2400] 00180: WER=0.3333, CER=0.0667, Conf=high
+  [182/2400] 00181: WER=0.4615, CER=0.1111, Conf=high
+  [183/2400] 00182: WER=0.6000, CER=0.0667, Conf=high
+  [184/2400] 00183: WER=0.2857, CER=0.1429, Conf=high
+  [185/2400] 00184: WER=0.3333, CER=0.1304, Conf=high
+  [186/2400] 00185: WER=0.6000, CER=0.2083, Conf=high
+  [187/2400] 00186: WER=0.5000, CER=0.0943, Conf=high
+  [188/2400] 00187: WER=0.2857, CER=0.0667, Conf=high
+  [189/2400] 00188: WER=0.2000, CER=0.0400, Conf=high
+  [190/2400] 00189: WER=0.6000, CER=0.1163, Conf=high
+  [191/2400] 00190: WER=0.1250, CER=0.0244, Conf=high
+  [192/2400] 00191: WER=0.3750, CER=0.0857, Conf=high
+  [193/2400] 00192: WER=0.2000, CER=0.0556, Conf=high
+  [194/2400] 00193: WER=0.4444, CER=0.0870, Conf=high
+  [195/2400] 00194: WER=0.1111, CER=0.0408, Conf=high
+  [196/2400] 00195: WER=0.3333, CER=0.0465, Conf=high
+  [197/2400] 00196: WER=0.2222, CER=0.0400, Conf=high
+  [198/2400] 00197: WER=0.1667, CER=0.0417, Conf=high
+  [199/2400] 00198: WER=0.7143, CER=0.1064, Conf=high
+  [200/2400] 00199: WER=0.3571, CER=0.0862, Conf=high
+
+============================================================
+Processing chunk 5/48
+Files 200 to 249 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [201/2400] 00200: WER=0.5000, CER=0.2857, Conf=high
+  [202/2400] 00201: WER=0.7500, CER=0.3529, Conf=high
+  [203/2400] 00202: WER=0.4000, CER=0.1429, Conf=high
+  [204/2400] 00203: WER=0.2000, CER=0.0667, Conf=high
+  [205/2400] 00204: WER=0.3333, CER=0.0909, Conf=high
+  [206/2400] 00205: WER=0.8000, CER=0.3704, Conf=high
+  [207/2400] 00206: WER=0.6667, CER=0.0909, Conf=high
+  [208/2400] 00207: WER=0.2308, CER=0.0678, Conf=high
+  [209/2400] 00208: WER=2.0000, CER=1.8571, Conf=high
+  [210/2400] 00209: WER=0.5000, CER=0.3103, Conf=high
+  [211/2400] 00210: WER=0.6667, CER=0.2958, Conf=medium
+  [212/2400] 00211: WER=0.5000, CER=0.1579, Conf=high
+  [213/2400] 00212: WER=0.5000, CER=0.1915, Conf=high
+  [214/2400] 00213: WER=0.2500, CER=0.0698, Conf=medium
+  [215/2400] 00214: WER=0.6667, CER=0.2727, Conf=high
+  [216/2400] 00215: WER=0.1667, CER=0.0455, Conf=high
+  [217/2400] 00216: WER=0.4000, CER=0.1364, Conf=high
+  [218/2400] 00217: WER=0.4167, CER=0.0704, Conf=high
+  [219/2400] 00218: WER=0.4286, CER=0.1053, Conf=high
+  [220/2400] 00219: WER=0.1818, CER=0.0508, Conf=high
+  [221/2400] 00220: WER=0.3333, CER=0.0833, Conf=high
+  [222/2400] 00221: WER=0.6000, CER=0.2400, Conf=medium
+  [223/2400] 00222: WER=0.0000, CER=0.0000, Conf=high
+  [224/2400] 00223: WER=0.5000, CER=0.2667, Conf=medium
+  [225/2400] 00224: WER=0.4167, CER=0.1967, Conf=high
+  [226/2400] 00225: WER=0.4167, CER=0.2069, Conf=high
+  [227/2400] 00226: WER=0.3333, CER=0.0690, Conf=high
+  [228/2400] 00227: WER=0.6667, CER=0.2308, Conf=high
+  [229/2400] 00228: WER=0.8571, CER=0.2000, Conf=high
+  [230/2400] 00229: WER=0.2222, CER=0.0789, Conf=high
+  [231/2400] 00230: WER=0.3000, CER=0.0435, Conf=high
+  [232/2400] 00231: WER=0.2000, CER=0.0465, Conf=high
+  [233/2400] 00232: WER=0.6000, CER=0.0833, Conf=high
+  [234/2400] 00233: WER=0.5556, CER=0.1224, Conf=high
+  [235/2400] 00234: WER=0.2308, CER=0.0988, Conf=high
+  [236/2400] 00235: WER=0.3333, CER=0.0690, Conf=high
+  [237/2400] 00236: WER=0.1250, CER=0.0345, Conf=high
+  [238/2400] 00237: WER=1.0000, CER=0.2857, Conf=high
+  [239/2400] 00238: WER=0.2500, CER=0.0500, Conf=high
+  [240/2400] 00239: WER=0.5000, CER=0.1053, Conf=high
+  [241/2400] 00240: WER=0.1429, CER=0.0357, Conf=high
+  [242/2400] 00241: WER=0.0833, CER=0.0208, Conf=high
+  [243/2400] 00242: WER=0.1667, CER=0.0476, Conf=high
+  [244/2400] 00243: WER=0.8000, CER=0.2414, Conf=high
+  [245/2400] 00244: WER=0.1250, CER=0.0263, Conf=high
+  [246/2400] 00245: WER=0.7500, CER=0.2105, Conf=high
+  [247/2400] 00246: WER=0.3333, CER=0.1304, Conf=high
+  [248/2400] 00247: WER=0.3333, CER=0.0667, Conf=high
+  [249/2400] 00248: WER=0.5556, CER=0.1000, Conf=high
+  [250/2400] 00249: WER=0.8000, CER=0.4211, Conf=medium
+
+============================================================
+Processing chunk 6/48
+Files 250 to 299 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [251/2400] 00250: WER=1.0000, CER=0.4444, Conf=medium
+  [252/2400] 00251: WER=0.3750, CER=0.1190, Conf=high
+  [253/2400] 00252: WER=0.6667, CER=0.1250, Conf=high
+  [254/2400] 00253: WER=0.3333, CER=0.1429, Conf=medium
+  [255/2400] 00254: WER=0.3571, CER=0.1324, Conf=high
+  [256/2400] 00255: WER=0.7500, CER=0.2857, Conf=high
+  [257/2400] 00256: WER=1.2500, CER=0.1429, Conf=high
+  [258/2400] 00257: WER=0.6667, CER=0.4545, Conf=medium
+  [259/2400] 00258: WER=0.1111, CER=0.0270, Conf=high
+  [260/2400] 00259: WER=0.5714, CER=0.1702, Conf=medium
+  [261/2400] 00260: WER=0.2222, CER=0.0526, Conf=high
+  [262/2400] 00261: WER=1.0000, CER=0.6000, Conf=low
+  [263/2400] 00262: WER=0.5000, CER=0.1500, Conf=high
+  [264/2400] 00263: WER=0.2500, CER=0.0645, Conf=high
+  [265/2400] 00264: WER=0.1429, CER=0.0256, Conf=medium
+  [266/2400] 00265: WER=0.0909, CER=0.0222, Conf=high
+  [267/2400] 00266: WER=0.3333, CER=0.2903, Conf=high
+  [268/2400] 00267: WER=0.4000, CER=0.0833, Conf=high
+  [269/2400] 00268: WER=0.1429, CER=0.0333, Conf=high
+  [270/2400] 00269: WER=0.4000, CER=0.1429, Conf=high
+  [271/2400] 00270: WER=0.8000, CER=0.3571, Conf=high
+  [272/2400] 00271: WER=0.5556, CER=0.2667, Conf=medium
+  [273/2400] 00272: WER=0.6000, CER=0.1429, Conf=high
+  [274/2400] 00273: WER=0.1538, CER=0.0635, Conf=high
+  [275/2400] 00274: WER=0.4000, CER=0.1500, Conf=high
+  [276/2400] 00275: WER=0.6667, CER=0.3421, Conf=high
+  [277/2400] 00276: WER=0.1667, CER=0.0312, Conf=high
+  [278/2400] 00277: WER=1.0000, CER=0.3333, Conf=high
+  [279/2400] 00278: WER=0.1250, CER=0.0323, Conf=high
+  [280/2400] 00279: WER=2.3333, CER=2.9000, Conf=medium
+  [281/2400] 00280: WER=0.8750, CER=0.3636, Conf=high
+  [282/2400] 00281: WER=0.2857, CER=0.2500, Conf=high
+  [283/2400] 00282: WER=1.5000, CER=0.1818, Conf=high
+  [284/2400] 00283: WER=0.2000, CER=0.0556, Conf=high
+  [285/2400] 00284: WER=0.5385, CER=0.2029, Conf=medium
+  [286/2400] 00285: WER=0.3000, CER=0.1667, Conf=high
+  [287/2400] 00286: WER=0.3333, CER=0.0833, Conf=high
+  [288/2400] 00287: WER=1.6667, CER=0.8000, Conf=low
+  [289/2400] 00288: WER=0.5000, CER=0.1500, Conf=high
+  [290/2400] 00289: WER=0.6667, CER=0.2188, Conf=high
+  [291/2400] 00290: WER=0.4000, CER=0.1200, Conf=high
+  [292/2400] 00291: WER=0.2857, CER=0.2500, Conf=high
+  [293/2400] 00292: WER=0.5833, CER=0.2031, Conf=high
+  [294/2400] 00293: WER=0.2500, CER=0.0588, Conf=high
+  [295/2400] 00294: WER=0.6364, CER=0.1923, Conf=high
+  [296/2400] 00295: WER=1.4000, CER=1.4211, Conf=medium
+  [297/2400] 00296: WER=0.4286, CER=0.2571, Conf=high
+  [298/2400] 00297: WER=0.8000, CER=0.2917, Conf=high
+  [299/2400] 00298: WER=0.3333, CER=0.1250, Conf=medium
+  [300/2400] 00299: WER=0.3333, CER=0.1429, Conf=high
+
+============================================================
+Processing chunk 7/48
+Files 300 to 349 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [301/2400] 00300: WER=0.2000, CER=0.0526, Conf=high
+  [302/2400] 00301: WER=0.7143, CER=0.2703, Conf=high
+  [303/2400] 00302: WER=0.2000, CER=0.0400, Conf=high
+  [304/2400] 00303: WER=0.3636, CER=0.0862, Conf=high
+  [305/2400] 00304: WER=1.2000, CER=0.9286, Conf=high
+  [306/2400] 00305: WER=0.5714, CER=0.1389, Conf=medium
+  [307/2400] 00306: WER=0.1429, CER=0.0741, Conf=high
+  [308/2400] 00307: WER=0.3333, CER=0.0690, Conf=high
+  [309/2400] 00308: WER=0.5000, CER=0.1579, Conf=high
+  [310/2400] 00309: WER=0.1111, CER=0.0698, Conf=high
+  [311/2400] 00310: WER=0.2222, CER=0.0392, Conf=high
+  [312/2400] 00311: WER=0.3750, CER=0.1667, Conf=high
+  [313/2400] 00312: WER=0.4000, CER=0.0625, Conf=high
+  [314/2400] 00313: WER=0.4000, CER=0.0769, Conf=high
+  [315/2400] 00314: WER=0.3333, CER=0.0870, Conf=high
+  [316/2400] 00315: WER=0.3000, CER=0.0909, Conf=medium
+  [317/2400] 00316: WER=0.1250, CER=0.0833, Conf=high
+  [318/2400] 00317: WER=0.2857, CER=0.2000, Conf=high
+  [319/2400] 00318: WER=0.3750, CER=0.2759, Conf=high
+  [320/2400] 00319: WER=0.2500, CER=0.0606, Conf=high
+  [321/2400] 00320: WER=0.2000, CER=0.0556, Conf=high
+  [322/2400] 00321: WER=0.1000, CER=0.0227, Conf=high
+  [323/2400] 00322: WER=0.4000, CER=0.1429, Conf=high
+  [324/2400] 00323: WER=0.2857, CER=0.0833, Conf=high
+  [325/2400] 00324: WER=0.2000, CER=0.0435, Conf=high
+  [326/2400] 00325: WER=0.6250, CER=0.3043, Conf=medium
+  [327/2400] 00326: WER=0.2500, CER=0.1500, Conf=high
+  [328/2400] 00327: WER=1.2000, CER=1.1905, Conf=medium
+  [329/2400] 00328: WER=0.6364, CER=0.2037, Conf=high
+  [330/2400] 00329: WER=0.8571, CER=0.4247, Conf=medium
+  [331/2400] 00330: WER=0.4000, CER=0.1765, Conf=high
+  [332/2400] 00331: WER=0.5000, CER=0.3000, Conf=high
+  [333/2400] 00332: WER=0.5000, CER=0.1176, Conf=high
+  [334/2400] 00333: WER=0.6667, CER=0.2667, Conf=high
+  [335/2400] 00334: WER=0.4444, CER=0.1400, Conf=high
+  [336/2400] 00335: WER=0.3750, CER=0.1579, Conf=high
+  [337/2400] 00336: WER=0.5556, CER=0.2000, Conf=high
+  [338/2400] 00337: WER=0.6000, CER=0.2105, Conf=high
+  [339/2400] 00338: WER=0.5000, CER=0.2273, Conf=high
+  [340/2400] 00339: WER=0.7500, CER=0.1957, Conf=high
+  [341/2400] 00340: WER=0.2500, CER=0.0455, Conf=high
+  [342/2400] 00341: WER=1.0000, CER=0.5714, Conf=low
+  [343/2400] 00342: WER=0.6000, CER=0.3333, Conf=high
+  [344/2400] 00343: WER=0.4000, CER=0.3500, Conf=medium
+  [345/2400] 00344: WER=1.0000, CER=0.5000, Conf=medium
+  [346/2400] 00345: WER=0.8333, CER=0.4194, Conf=high
+  [347/2400] 00346: WER=1.7500, CER=1.7059, Conf=high
+  [348/2400] 00347: WER=0.3000, CER=0.0667, Conf=high
+  [349/2400] 00348: WER=0.2500, CER=0.0588, Conf=high
+  [350/2400] 00349: WER=2.5000, CER=3.0000, Conf=medium
+
+============================================================
+Processing chunk 8/48
+Files 350 to 399 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [351/2400] 00350: WER=0.1429, CER=0.0294, Conf=high
+  [352/2400] 00351: WER=0.2500, CER=0.1667, Conf=high
+  [353/2400] 00352: WER=0.6667, CER=0.2222, Conf=high
+  [354/2400] 00353: WER=0.3750, CER=0.0638, Conf=high
+  [355/2400] 00354: WER=0.8571, CER=0.2941, Conf=medium
+  [356/2400] 00355: WER=0.6000, CER=0.0741, Conf=high
+  [357/2400] 00356: WER=0.5455, CER=0.2931, Conf=high
+  [358/2400] 00357: WER=1.0000, CER=0.5862, Conf=medium
+  [359/2400] 00358: WER=1.0000, CER=0.2143, Conf=high
+  [360/2400] 00359: WER=0.3636, CER=0.0779, Conf=high
+  [361/2400] 00360: WER=0.5000, CER=0.2000, Conf=high
+  [362/2400] 00361: WER=0.2000, CER=0.0417, Conf=high
+  [363/2400] 00362: WER=0.5556, CER=0.3590, Conf=high
+  [364/2400] 00363: WER=1.0000, CER=0.1875, Conf=high
+  [365/2400] 00364: WER=1.0000, CER=0.6000, Conf=medium
+  [366/2400] 00365: WER=0.3846, CER=0.1636, Conf=high
+  [367/2400] 00366: WER=0.8750, CER=0.5714, Conf=high
+  [368/2400] 00367: WER=0.3333, CER=0.0625, Conf=high
+  [369/2400] 00368: WER=0.2000, CER=0.0455, Conf=high
+  [370/2400] 00369: WER=0.5000, CER=0.2500, Conf=high
+  [371/2400] 00370: WER=0.2500, CER=0.0847, Conf=high
+  [372/2400] 00371: WER=0.5000, CER=0.0976, Conf=medium
+  [373/2400] 00372: WER=2.3333, CER=1.8750, Conf=medium
+  [374/2400] 00373: WER=0.3333, CER=0.1250, Conf=high
+  [375/2400] 00374: WER=0.4545, CER=0.2105, Conf=medium
+  [376/2400] 00375: WER=0.4444, CER=0.1875, Conf=medium
+  [377/2400] 00376: WER=0.3333, CER=0.1364, Conf=high
+  [378/2400] 00377: WER=0.2222, CER=0.0789, Conf=high
+  [379/2400] 00378: WER=0.5556, CER=0.1731, Conf=high
+  [380/2400] 00379: WER=0.4286, CER=0.2286, Conf=high
+  [381/2400] 00380: WER=0.5000, CER=0.1714, Conf=high
+  [382/2400] 00381: WER=0.4000, CER=0.1250, Conf=high
+  [383/2400] 00382: WER=0.5000, CER=0.1053, Conf=high
+  [384/2400] 00383: WER=0.1000, CER=0.0213, Conf=high
+  [385/2400] 00384: WER=0.1250, CER=0.0323, Conf=high
+  [386/2400] 00385: WER=0.1111, CER=0.0208, Conf=high
+  [387/2400] 00386: WER=0.4000, CER=0.2308, Conf=high
+  [388/2400] 00387: WER=0.1818, CER=0.1154, Conf=high
+  [389/2400] 00388: WER=1.0000, CER=0.6000, Conf=medium
+  [390/2400] 00389: WER=0.2308, CER=0.1364, Conf=high
+  [391/2400] 00390: WER=0.3636, CER=0.1538, Conf=medium
+  [392/2400] 00391: WER=0.3333, CER=0.0645, Conf=high
+  [393/2400] 00392: WER=0.2500, CER=0.1379, Conf=high
+  [394/2400] 00393: WER=0.7500, CER=0.2222, Conf=high
+  [395/2400] 00394: WER=0.5455, CER=0.3934, Conf=medium
+  [396/2400] 00395: WER=1.2000, CER=1.1905, Conf=high
+  [397/2400] 00396: WER=1.0000, CER=0.4375, Conf=high
+  [398/2400] 00397: WER=0.3750, CER=0.0800, Conf=high
+  [399/2400] 00398: WER=0.2857, CER=0.1250, Conf=medium
+  [400/2400] 00399: WER=0.0000, CER=0.0000, Conf=high
+
+============================================================
+Processing chunk 9/48
+Files 400 to 449 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [401/2400] 00400: WER=0.6000, CER=0.0800, Conf=high
+  [402/2400] 00401: WER=0.1667, CER=0.0345, Conf=high
+  [403/2400] 00402: WER=0.6250, CER=0.1628, Conf=medium
+  [404/2400] 00403: WER=0.2500, CER=0.0455, Conf=high
+  [405/2400] 00404: WER=0.1667, CER=0.0435, Conf=high
+  [406/2400] 00405: WER=0.5714, CER=0.4857, Conf=high
+  [407/2400] 00406: WER=0.3333, CER=0.1000, Conf=high
+  [408/2400] 00407: WER=0.2000, CER=0.0476, Conf=high
+  [409/2400] 00408: WER=0.1667, CER=0.0333, Conf=high
+  [410/2400] 00409: WER=0.3333, CER=0.1250, Conf=high
+  [411/2400] 00410: WER=0.3636, CER=0.0469, Conf=high
+  [412/2400] 00411: WER=0.5714, CER=0.1163, Conf=high
+  [413/2400] 00412: WER=0.3333, CER=0.0526, Conf=high
+  [414/2400] 00413: WER=0.1429, CER=0.0690, Conf=high
+  [415/2400] 00414: WER=0.3333, CER=0.1304, Conf=high
+  [416/2400] 00415: WER=0.2000, CER=0.0377, Conf=medium
+  [417/2400] 00416: WER=0.2857, CER=0.0417, Conf=high
+  [418/2400] 00417: WER=0.1818, CER=0.0597, Conf=high
+  [419/2400] 00418: WER=0.4286, CER=0.1538, Conf=high
+  [420/2400] 00419: WER=0.1250, CER=0.0233, Conf=high
+  [421/2400] 00420: WER=0.4286, CER=0.1064, Conf=high
+  [422/2400] 00421: WER=0.2500, CER=0.0444, Conf=high
+  [423/2400] 00422: WER=0.5385, CER=0.1429, Conf=medium
+  [424/2400] 00423: WER=0.1000, CER=0.0455, Conf=high
+  [425/2400] 00424: WER=0.3333, CER=0.0976, Conf=medium
+  [426/2400] 00425: WER=0.2000, CER=0.1481, Conf=high
+  [427/2400] 00426: WER=0.2000, CER=0.0417, Conf=high
+  [428/2400] 00427: WER=0.0769, CER=0.0213, Conf=high
+  [429/2400] 00428: WER=0.3077, CER=0.1644, Conf=high
+  [430/2400] 00429: WER=0.7778, CER=0.2381, Conf=high
+  [431/2400] 00430: WER=0.5000, CER=0.2500, Conf=medium
+  [432/2400] 00431: WER=0.3846, CER=0.1290, Conf=high
+  [433/2400] 00432: WER=0.1667, CER=0.0345, Conf=high
+  [434/2400] 00433: WER=0.1667, CER=0.0455, Conf=high
+  [435/2400] 00434: WER=0.1667, CER=0.0345, Conf=high
+  [436/2400] 00435: WER=0.2500, CER=0.0435, Conf=high
+  [437/2400] 00436: WER=0.7500, CER=0.2000, Conf=high
+  [438/2400] 00437: WER=0.1429, CER=0.0526, Conf=medium
+  [439/2400] 00438: WER=1.0000, CER=0.4242, Conf=medium
+  [440/2400] 00439: WER=0.8750, CER=0.1800, Conf=medium
+  [441/2400] 00440: WER=1.4000, CER=0.5862, Conf=medium
+  [442/2400] 00441: WER=0.2857, CER=0.0606, Conf=high
+  [443/2400] 00442: WER=0.2222, CER=0.0577, Conf=high
+  [444/2400] 00443: WER=0.4444, CER=0.1250, Conf=high
+  [445/2400] 00444: WER=0.6667, CER=0.2245, Conf=high
+  [446/2400] 00445: WER=0.4286, CER=0.1000, Conf=high
+  [447/2400] 00446: WER=0.2727, CER=0.0690, Conf=high
+  [448/2400] 00447: WER=0.2500, CER=0.1000, Conf=high
+  [449/2400] 00448: WER=0.8182, CER=0.3704, Conf=medium
+  [450/2400] 00449: WER=0.1667, CER=0.0417, Conf=high
+
+============================================================
+Processing chunk 10/48
+Files 450 to 499 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [451/2400] 00450: WER=0.6000, CER=0.1304, Conf=high
+  [452/2400] 00451: WER=0.3571, CER=0.1429, Conf=high
+  [453/2400] 00452: WER=0.5000, CER=0.0800, Conf=high
+  [454/2400] 00453: WER=0.5000, CER=0.4000, Conf=medium
+  [455/2400] 00454: WER=1.5000, CER=0.1333, Conf=high
+  [456/2400] 00455: WER=0.2500, CER=0.0667, Conf=high
+  [457/2400] 00456: WER=0.3750, CER=0.0882, Conf=medium
+  [458/2400] 00457: WER=0.6000, CER=0.3333, Conf=high
+  [459/2400] 00458: WER=0.4545, CER=0.0882, Conf=high
+  [460/2400] 00459: WER=0.2727, CER=0.1373, Conf=high
+  [461/2400] 00460: WER=0.3636, CER=0.0566, Conf=high
+  [462/2400] 00461: WER=0.4167, CER=0.0877, Conf=high
+  [463/2400] 00462: WER=0.1667, CER=0.0333, Conf=high
+  [464/2400] 00463: WER=0.2857, CER=0.1818, Conf=high
+  [465/2400] 00464: WER=0.2308, CER=0.0366, Conf=high
+  [466/2400] 00465: WER=0.0769, CER=0.0141, Conf=high
+  [467/2400] 00466: WER=0.5385, CER=0.1449, Conf=high
+  [468/2400] 00467: WER=0.3333, CER=0.0357, Conf=medium
+  [469/2400] 00468: WER=0.4615, CER=0.0789, Conf=high
+  [470/2400] 00469: WER=0.2500, CER=0.0667, Conf=high
+  [471/2400] 00470: WER=0.5714, CER=0.1316, Conf=medium
+  [472/2400] 00471: WER=1.0000, CER=1.1875, Conf=high
+  [473/2400] 00472: WER=0.0000, CER=0.0000, Conf=high
+  [474/2400] 00473: WER=0.7500, CER=0.3750, Conf=medium
+  [475/2400] 00474: WER=0.5714, CER=0.3103, Conf=high
+  [476/2400] 00475: WER=0.4000, CER=0.0909, Conf=high
+  [477/2400] 00476: WER=0.5000, CER=0.1875, Conf=high
+  [478/2400] 00477: WER=0.3333, CER=0.0769, Conf=high
+  [479/2400] 00478: WER=0.5000, CER=0.1053, Conf=medium
+  [480/2400] 00479: WER=0.6000, CER=0.1250, Conf=high
+  [481/2400] 00480: WER=0.2000, CER=0.0476, Conf=high
+  [482/2400] 00481: WER=1.0000, CER=0.4400, Conf=medium
+  [483/2400] 00482: WER=0.0833, CER=0.0189, Conf=high
+  [484/2400] 00483: WER=0.6000, CER=0.4231, Conf=medium
+  [485/2400] 00484: WER=0.1667, CER=0.1091, Conf=high
+  [486/2400] 00485: WER=0.5385, CER=0.2540, Conf=low
+  [487/2400] 00486: WER=0.1818, CER=0.1087, Conf=high
+  [488/2400] 00487: WER=0.4615, CER=0.4375, Conf=medium
+  [489/2400] 00488: WER=0.1667, CER=0.0377, Conf=high
+  [490/2400] 00489: WER=0.0000, CER=0.0000, Conf=high
+  [491/2400] 00490: WER=0.5000, CER=0.1111, Conf=high
+  [492/2400] 00491: WER=2.3333, CER=2.1538, Conf=low
+  [493/2400] 00492: WER=0.5556, CER=0.1957, Conf=high
+  [494/2400] 00493: WER=0.2000, CER=0.0435, Conf=high
+  [495/2400] 00494: WER=0.2000, CER=0.0417, Conf=high
+  [496/2400] 00495: WER=0.5000, CER=0.1176, Conf=high
+  [497/2400] 00496: WER=1.7500, CER=1.6250, Conf=medium
+  [498/2400] 00497: WER=0.5000, CER=0.3704, Conf=high
+  [499/2400] 00498: WER=0.3846, CER=0.0725, Conf=high
+  [500/2400] 00499: WER=0.6000, CER=0.0820, Conf=high
+
+============================================================
+Processing chunk 11/48
+Files 500 to 549 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [501/2400] 00500: WER=0.6000, CER=0.2642, Conf=high
+  [502/2400] 00501: WER=0.3333, CER=0.1111, Conf=high
+  [503/2400] 00502: WER=0.6000, CER=0.2500, Conf=high
+  [504/2400] 00503: WER=0.4167, CER=0.1408, Conf=medium
+  [505/2400] 00504: WER=0.5714, CER=0.2143, Conf=high
+  [506/2400] 00505: WER=0.7500, CER=0.0952, Conf=high
+  [507/2400] 00506: WER=0.1429, CER=0.0357, Conf=high
+  [508/2400] 00507: WER=0.5000, CER=0.1087, Conf=high
+  [509/2400] 00508: WER=0.5833, CER=0.2581, Conf=high
+  [510/2400] 00509: WER=0.3000, CER=0.0385, Conf=high
+  [511/2400] 00510: WER=0.1250, CER=0.0323, Conf=high
+  [512/2400] 00511: WER=0.3571, CER=0.1449, Conf=high
+  [513/2400] 00512: WER=0.4167, CER=0.1818, Conf=high
+  [514/2400] 00513: WER=0.2000, CER=0.0417, Conf=high
+  [515/2400] 00514: WER=0.6250, CER=0.2368, Conf=medium
+  [516/2400] 00515: WER=0.2500, CER=0.0862, Conf=high
+  [517/2400] 00516: WER=1.0000, CER=0.4074, Conf=medium
+  [518/2400] 00517: WER=0.5000, CER=0.1905, Conf=high
+  [519/2400] 00518: WER=0.3333, CER=0.1304, Conf=high
+  [520/2400] 00519: WER=0.7500, CER=0.3889, Conf=high
+  [521/2400] 00520: WER=1.1429, CER=0.2128, Conf=medium
+  [522/2400] 00521: WER=0.3333, CER=0.0769, Conf=high
+  [523/2400] 00522: WER=0.3333, CER=0.2000, Conf=high
+  [524/2400] 00523: WER=0.5000, CER=0.2292, Conf=high
+  [525/2400] 00524: WER=0.3333, CER=0.0851, Conf=high
+  [526/2400] 00525: WER=1.3333, CER=0.2093, Conf=medium
+  [527/2400] 00526: WER=0.6429, CER=0.1467, Conf=high
+  [528/2400] 00527: WER=1.0000, CER=0.3684, Conf=medium
+  [529/2400] 00528: WER=0.2857, CER=0.1026, Conf=medium
+  [530/2400] 00529: WER=0.0909, CER=0.0345, Conf=high
+  [531/2400] 00530: WER=0.2500, CER=0.0556, Conf=high
+  [532/2400] 00531: WER=0.5000, CER=0.2083, Conf=medium
+  [533/2400] 00532: WER=0.3333, CER=0.2143, Conf=high
+  [534/2400] 00533: WER=0.1429, CER=0.2222, Conf=high
+  [535/2400] 00534: WER=0.2000, CER=0.0909, Conf=high
+  [536/2400] 00535: WER=0.3000, CER=0.2400, Conf=high
+  [537/2400] 00536: WER=0.3750, CER=0.0789, Conf=high
+  [538/2400] 00537: WER=0.6364, CER=0.3857, Conf=high
+  [539/2400] 00538: WER=0.2500, CER=0.0714, Conf=high
+  [540/2400] 00539: WER=0.5000, CER=0.1200, Conf=high
+  [541/2400] 00540: WER=0.6667, CER=0.3000, Conf=high
+  [542/2400] 00541: WER=0.1818, CER=0.0364, Conf=high
+  [543/2400] 00542: WER=0.5455, CER=0.2045, Conf=high
+  [544/2400] 00543: WER=0.2857, CER=0.0882, Conf=high
+  [545/2400] 00544: WER=0.3333, CER=0.2817, Conf=high
+  [546/2400] 00545: WER=0.1429, CER=0.0250, Conf=medium
+  [547/2400] 00546: WER=0.4615, CER=0.1765, Conf=medium
+  [548/2400] 00547: WER=0.2857, CER=0.0385, Conf=high
+  [549/2400] 00548: WER=1.4000, CER=1.3043, Conf=medium
+  [550/2400] 00549: WER=0.2500, CER=0.1143, Conf=high
+
+============================================================
+Processing chunk 12/48
+Files 550 to 599 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [551/2400] 00550: WER=0.1667, CER=0.0417, Conf=high
+  [552/2400] 00551: WER=0.1250, CER=0.0571, Conf=medium
+  [553/2400] 00552: WER=0.3636, CER=0.2364, Conf=high
+  [554/2400] 00553: WER=0.1667, CER=0.0385, Conf=high
+  [555/2400] 00554: WER=0.1250, CER=0.0270, Conf=high
+  [556/2400] 00555: WER=0.1667, CER=0.0370, Conf=high
+  [557/2400] 00556: WER=0.1667, CER=0.0645, Conf=high
+  [558/2400] 00557: WER=0.5000, CER=0.1176, Conf=high
+  [559/2400] 00558: WER=0.5455, CER=0.1846, Conf=high
+  [560/2400] 00559: WER=0.5000, CER=0.1111, Conf=high
+  [561/2400] 00560: WER=0.7500, CER=0.2941, Conf=high
+  [562/2400] 00561: WER=0.1429, CER=0.0323, Conf=high
+  [563/2400] 00562: WER=1.0000, CER=0.1538, Conf=medium
+  [564/2400] 00563: WER=0.0000, CER=0.0000, Conf=high
+  [565/2400] 00564: WER=0.6250, CER=0.2683, Conf=high
+  [566/2400] 00565: WER=0.1818, CER=0.0678, Conf=high
+  [567/2400] 00566: WER=0.5714, CER=0.2162, Conf=high
+  [568/2400] 00567: WER=0.4286, CER=0.0789, Conf=high
+  [569/2400] 00568: WER=0.0714, CER=0.0133, Conf=high
+  [570/2400] 00569: WER=0.1429, CER=0.0286, Conf=high
+  [571/2400] 00570: WER=0.0909, CER=0.0217, Conf=high
+  [572/2400] 00571: WER=0.1538, CER=0.0455, Conf=high
+  [573/2400] 00572: WER=0.3333, CER=0.0909, Conf=high
+  [574/2400] 00573: WER=0.2000, CER=0.1818, Conf=high
+  [575/2400] 00574: WER=0.6000, CER=0.1739, Conf=high
+  [576/2400] 00575: WER=0.1250, CER=0.0217, Conf=high
+  [577/2400] 00576: WER=0.5000, CER=0.1111, Conf=high
+  [578/2400] 00577: WER=0.5714, CER=0.1212, Conf=high
+  [579/2400] 00578: WER=0.0833, CER=0.0161, Conf=high
+  [580/2400] 00579: WER=0.8000, CER=0.1600, Conf=high
+  [581/2400] 00580: WER=1.0000, CER=0.2941, Conf=high
+  [582/2400] 00581: WER=0.2500, CER=0.0556, Conf=high
+  [583/2400] 00582: WER=0.1667, CER=0.0385, Conf=high
+  [584/2400] 00583: WER=0.5000, CER=0.1579, Conf=high
+  [585/2400] 00584: WER=0.6364, CER=0.2167, Conf=high
+  [586/2400] 00585: WER=0.3750, CER=0.0571, Conf=high
+  [587/2400] 00586: WER=0.2500, CER=0.0488, Conf=high
+  [588/2400] 00587: WER=0.4615, CER=0.3143, Conf=medium
+  [589/2400] 00588: WER=0.7500, CER=0.2941, Conf=high
+  [590/2400] 00589: WER=0.8000, CER=0.4211, Conf=high
+  [591/2400] 00590: WER=0.2857, CER=0.2414, Conf=high
+  [592/2400] 00591: WER=0.3846, CER=0.0847, Conf=high
+  [593/2400] 00592: WER=0.5556, CER=0.3243, Conf=high
+  [594/2400] 00593: WER=0.4000, CER=0.0870, Conf=high
+  [595/2400] 00594: WER=0.3077, CER=0.1389, Conf=high
+  [596/2400] 00595: WER=0.3333, CER=0.1071, Conf=high
+  [597/2400] 00596: WER=0.2500, CER=0.0612, Conf=high
+  [598/2400] 00597: WER=0.5714, CER=0.3529, Conf=high
+  [599/2400] 00598: WER=0.1250, CER=0.0286, Conf=high
+  [600/2400] 00599: WER=0.2857, CER=0.1587, Conf=medium
+
+============================================================
+Processing chunk 13/48
+Files 600 to 649 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [601/2400] 00600: WER=0.5000, CER=0.3462, Conf=high
+  [602/2400] 00601: WER=0.6250, CER=0.3182, Conf=high
+  [603/2400] 00602: WER=0.4545, CER=0.2500, Conf=medium
+  [604/2400] 00603: WER=1.1429, CER=1.0000, Conf=medium
+  [605/2400] 00604: WER=0.2222, CER=0.0698, Conf=high
+  [606/2400] 00605: WER=0.4615, CER=0.1379, Conf=high
+  [607/2400] 00606: WER=0.4286, CER=0.1944, Conf=high
+  [608/2400] 00607: WER=0.4444, CER=0.1778, Conf=medium
+  [609/2400] 00608: WER=0.4167, CER=0.1613, Conf=high
+  [610/2400] 00609: WER=0.3077, CER=0.0615, Conf=high
+  [611/2400] 00610: WER=0.1818, CER=0.1000, Conf=high
+  [612/2400] 00611: WER=0.1000, CER=0.0244, Conf=high
+  [613/2400] 00612: WER=0.2857, CER=0.1250, Conf=high
+  [614/2400] 00613: WER=0.5000, CER=0.3425, Conf=medium
+  [615/2400] 00614: WER=0.5000, CER=0.2000, Conf=high
+  [616/2400] 00615: WER=0.2857, CER=0.0526, Conf=high
+  [617/2400] 00616: WER=0.8182, CER=0.4118, Conf=medium
+  [618/2400] 00617: WER=0.2500, CER=0.0556, Conf=high
+  [619/2400] 00618: WER=0.2857, CER=0.0571, Conf=high
+  [620/2400] 00619: WER=1.5000, CER=1.0000, Conf=high
+  [621/2400] 00620: WER=0.3571, CER=0.1250, Conf=high
+  [622/2400] 00621: WER=0.1429, CER=0.0286, Conf=high
+  [623/2400] 00622: WER=0.1667, CER=0.0345, Conf=high
+  [624/2400] 00623: WER=0.0000, CER=0.0000, Conf=high
+  [625/2400] 00624: WER=0.4000, CER=0.1000, Conf=high
+  [626/2400] 00625: WER=0.0000, CER=0.0000, Conf=high
+  [627/2400] 00626: WER=0.3750, CER=0.1667, Conf=high
+  [628/2400] 00627: WER=0.3333, CER=0.0612, Conf=high
+  [629/2400] 00628: WER=0.3750, CER=0.1364, Conf=high
+  [630/2400] 00629: WER=0.4444, CER=0.1667, Conf=medium
+  [631/2400] 00630: WER=0.6000, CER=0.2000, Conf=high
+  [632/2400] 00631: WER=0.2500, CER=0.0556, Conf=high
+  [633/2400] 00632: WER=0.4286, CER=0.2239, Conf=medium
+  [634/2400] 00633: WER=0.1429, CER=0.0357, Conf=high
+  [635/2400] 00634: WER=0.2727, CER=0.0476, Conf=high
+  [636/2400] 00635: WER=0.5455, CER=0.5000, Conf=high
+  [637/2400] 00636: WER=0.2143, CER=0.0581, Conf=high
+  [638/2400] 00637: WER=0.4545, CER=0.0667, Conf=high
+  [639/2400] 00638: WER=0.2000, CER=0.0417, Conf=high
+  [640/2400] 00639: WER=0.6667, CER=0.2500, Conf=high
+  [641/2400] 00640: WER=0.2308, CER=0.0294, Conf=high
+  [642/2400] 00641: WER=0.0909, CER=0.0200, Conf=high
+  [643/2400] 00642: WER=0.2727, CER=0.1897, Conf=high
+  [644/2400] 00643: WER=0.3077, CER=0.1406, Conf=high
+  [645/2400] 00644: WER=0.4167, CER=0.3333, Conf=medium
+  [646/2400] 00645: WER=0.1250, CER=0.0294, Conf=high
+  [647/2400] 00646: WER=0.5000, CER=0.3019, Conf=high
+  [648/2400] 00647: WER=0.3333, CER=0.1091, Conf=high
+  [649/2400] 00648: WER=0.6000, CER=0.2174, Conf=high
+  [650/2400] 00649: WER=0.3333, CER=0.0571, Conf=high
+
+============================================================
+Processing chunk 14/48
+Files 650 to 699 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [651/2400] 00650: WER=0.0000, CER=0.0000, Conf=high
+  [652/2400] 00651: WER=0.4286, CER=0.0909, Conf=high
+  [653/2400] 00652: WER=0.3000, CER=0.2500, Conf=high
+  [654/2400] 00653: WER=0.0000, CER=0.0000, Conf=high
+  [655/2400] 00654: WER=0.7143, CER=0.3684, Conf=high
+  [656/2400] 00655: WER=0.3333, CER=0.0714, Conf=high
+  [657/2400] 00656: WER=0.2000, CER=0.0909, Conf=high
+  [658/2400] 00657: WER=0.2857, CER=0.1176, Conf=high
+  [659/2400] 00658: WER=0.3846, CER=0.1081, Conf=high
+  [660/2400] 00659: WER=0.2308, CER=0.0769, Conf=high
+  [661/2400] 00660: WER=0.4000, CER=0.2000, Conf=high
+  [662/2400] 00661: WER=0.5000, CER=0.1042, Conf=high
+  [663/2400] 00662: WER=0.1000, CER=0.0179, Conf=medium
+  [664/2400] 00663: WER=0.4286, CER=0.2143, Conf=high
+  [665/2400] 00664: WER=0.2727, CER=0.1163, Conf=high
+  [666/2400] 00665: WER=0.5000, CER=0.1765, Conf=high
+  [667/2400] 00666: WER=0.7500, CER=0.2105, Conf=medium
+  [668/2400] 00667: WER=0.7778, CER=0.1273, Conf=medium
+  [669/2400] 00668: WER=0.8000, CER=0.3043, Conf=medium
+  [670/2400] 00669: WER=0.5000, CER=0.1111, Conf=high
+  [671/2400] 00670: WER=0.5000, CER=0.1184, Conf=high
+  [672/2400] 00671: WER=0.5833, CER=0.1719, Conf=high
+  [673/2400] 00672: WER=0.6000, CER=0.2000, Conf=high
+  [674/2400] 00673: WER=0.5833, CER=0.1333, Conf=medium
+  [675/2400] 00674: WER=0.1250, CER=0.0294, Conf=high
+  [676/2400] 00675: WER=0.3333, CER=0.0417, Conf=high
+  [677/2400] 00676: WER=0.1667, CER=0.0357, Conf=high
+  [678/2400] 00677: WER=0.3000, CER=0.1136, Conf=high
+  [679/2400] 00678: WER=0.2500, CER=0.0526, Conf=high
+  [680/2400] 00679: WER=0.2308, CER=0.0862, Conf=high
+  [681/2400] 00680: WER=0.4167, CER=0.1587, Conf=high
+  [682/2400] 00681: WER=0.5556, CER=0.2619, Conf=medium
+  [683/2400] 00682: WER=0.6667, CER=0.2667, Conf=high
+  [684/2400] 00683: WER=0.2857, CER=0.0857, Conf=high
+  [685/2400] 00684: WER=0.3077, CER=0.0533, Conf=high
+  [686/2400] 00685: WER=0.1818, CER=0.0862, Conf=high
+  [687/2400] 00686: WER=0.1667, CER=0.0385, Conf=high
+  [688/2400] 00687: WER=0.3077, CER=0.1186, Conf=high
+  [689/2400] 00688: WER=0.2143, CER=0.0870, Conf=high
+  [690/2400] 00689: WER=0.2857, CER=0.0606, Conf=high
+  [691/2400] 00690: WER=0.1429, CER=0.0333, Conf=high
+  [692/2400] 00691: WER=0.4000, CER=0.0870, Conf=high
+  [693/2400] 00692: WER=0.5000, CER=0.1053, Conf=high
+  [694/2400] 00693: WER=0.2500, CER=0.0571, Conf=high
+  [695/2400] 00694: WER=0.2000, CER=0.0385, Conf=high
+  [696/2400] 00695: WER=0.3333, CER=0.1429, Conf=high
+  [697/2400] 00696: WER=0.4615, CER=0.1471, Conf=high
+  [698/2400] 00697: WER=0.3333, CER=0.0556, Conf=high
+  [699/2400] 00698: WER=0.5000, CER=0.2000, Conf=high
+  [700/2400] 00699: WER=0.5714, CER=0.3590, Conf=medium
+
+============================================================
+Processing chunk 15/48
+Files 700 to 749 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [701/2400] 00700: WER=0.5000, CER=0.3043, Conf=high
+  [702/2400] 00701: WER=0.4444, CER=0.1875, Conf=high
+  [703/2400] 00702: WER=0.2000, CER=0.0435, Conf=high
+  [704/2400] 00703: WER=0.2000, CER=0.0455, Conf=high
+  [705/2400] 00704: WER=0.2500, CER=0.1613, Conf=high
+  [706/2400] 00705: WER=0.3333, CER=0.0625, Conf=high
+  [707/2400] 00706: WER=0.7500, CER=0.2973, Conf=high
+  [708/2400] 00707: WER=0.3636, CER=0.1277, Conf=high
+  [709/2400] 00708: WER=0.5714, CER=0.1622, Conf=medium
+  [710/2400] 00709: WER=0.2857, CER=0.0625, Conf=medium
+  [711/2400] 00710: WER=0.2000, CER=0.0909, Conf=high
+  [712/2400] 00711: WER=0.5000, CER=0.2105, Conf=high
+  [713/2400] 00712: WER=0.1429, CER=0.0345, Conf=high
+  [714/2400] 00713: WER=0.4000, CER=0.0909, Conf=high
+  [715/2400] 00714: WER=0.2308, CER=0.0317, Conf=high
+  [716/2400] 00715: WER=0.3750, CER=0.0857, Conf=high
+  [717/2400] 00716: WER=0.6364, CER=0.1346, Conf=medium
+  [718/2400] 00717: WER=0.5000, CER=0.1273, Conf=medium
+  [719/2400] 00718: WER=0.2500, CER=0.0556, Conf=high
+  [720/2400] 00719: WER=0.1667, CER=0.0333, Conf=high
+  [721/2400] 00720: WER=0.4167, CER=0.1500, Conf=high
+  [722/2400] 00721: WER=0.9000, CER=0.3036, Conf=medium
+  [723/2400] 00722: WER=0.0769, CER=0.0164, Conf=high
+  [724/2400] 00723: WER=0.2000, CER=0.0732, Conf=medium
+  [725/2400] 00724: WER=0.5000, CER=0.2500, Conf=high
+  [726/2400] 00725: WER=0.3077, CER=0.0588, Conf=high
+  [727/2400] 00726: WER=0.2000, CER=0.2727, Conf=medium
+  [728/2400] 00727: WER=0.3636, CER=0.1667, Conf=medium
+  [729/2400] 00728: WER=0.6000, CER=0.2857, Conf=high
+  [730/2400] 00729: WER=0.8333, CER=0.4483, Conf=high
+  [731/2400] 00730: WER=0.1667, CER=0.0370, Conf=high
+  [732/2400] 00731: WER=0.4000, CER=0.1739, Conf=high
+  [733/2400] 00732: WER=0.1000, CER=0.0256, Conf=high
+  [734/2400] 00733: WER=0.3333, CER=0.0741, Conf=medium
+  [735/2400] 00734: WER=0.4286, CER=0.0938, Conf=high
+  [736/2400] 00735: WER=0.6000, CER=0.1667, Conf=high
+  [737/2400] 00736: WER=0.2500, CER=0.0541, Conf=high
+  [738/2400] 00737: WER=0.0769, CER=0.0145, Conf=high
+  [739/2400] 00738: WER=0.0000, CER=0.0000, Conf=high
+  [740/2400] 00739: WER=0.3333, CER=0.1071, Conf=high
+  [741/2400] 00740: WER=0.1667, CER=0.0328, Conf=high
+  [742/2400] 00741: WER=0.2222, CER=0.0811, Conf=high
+  [743/2400] 00742: WER=0.1250, CER=0.0227, Conf=high
+  [744/2400] 00743: WER=0.6429, CER=0.2361, Conf=medium
+  [745/2400] 00744: WER=0.2143, CER=0.0448, Conf=high
+  [746/2400] 00745: WER=0.3077, CER=0.2667, Conf=medium
+  [747/2400] 00746: WER=0.2500, CER=0.0556, Conf=high
+  [748/2400] 00747: WER=0.5000, CER=0.1667, Conf=high
+  [749/2400] 00748: WER=0.6250, CER=0.2750, Conf=medium
+  [750/2400] 00749: WER=0.4545, CER=0.1343, Conf=medium
+
+============================================================
+Processing chunk 16/48
+Files 750 to 799 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [751/2400] 00750: WER=0.2500, CER=0.0526, Conf=high
+  [752/2400] 00751: WER=0.0000, CER=0.0000, Conf=high
+  [753/2400] 00752: WER=0.5000, CER=0.3077, Conf=high
+  [754/2400] 00753: WER=0.6667, CER=0.4103, Conf=high
+  [755/2400] 00754: WER=0.6667, CER=0.1667, Conf=medium
+  [756/2400] 00755: WER=0.5385, CER=0.1132, Conf=high
+  [757/2400] 00756: WER=0.3333, CER=0.1429, Conf=high
+  [758/2400] 00757: WER=0.7500, CER=0.5000, Conf=medium
+  [759/2400] 00758: WER=0.5455, CER=0.3125, Conf=high
+  [760/2400] 00759: WER=0.2000, CER=0.2105, Conf=high
+  [761/2400] 00760: WER=0.2500, CER=0.0526, Conf=high
+  [762/2400] 00761: WER=0.3333, CER=0.0714, Conf=high
+  [763/2400] 00762: WER=0.1429, CER=0.0294, Conf=high
+  [764/2400] 00763: WER=0.5000, CER=0.1333, Conf=high
+  [765/2400] 00764: WER=0.5000, CER=0.1818, Conf=high
+  [766/2400] 00765: WER=0.3333, CER=0.0800, Conf=high
+  [767/2400] 00766: WER=0.1667, CER=0.0345, Conf=high
+  [768/2400] 00767: WER=0.7500, CER=0.0952, Conf=high
+  [769/2400] 00768: WER=0.4000, CER=0.1111, Conf=high
+  [770/2400] 00769: WER=0.3333, CER=0.1316, Conf=high
+  [771/2400] 00770: WER=0.3333, CER=0.1515, Conf=high
+  [772/2400] 00771: WER=0.2500, CER=0.0526, Conf=high
+  [773/2400] 00772: WER=0.6250, CER=0.2174, Conf=high
+  [774/2400] 00773: WER=0.4615, CER=0.1081, Conf=medium
+  [775/2400] 00774: WER=0.4444, CER=0.1220, Conf=medium
+  [776/2400] 00775: WER=0.1667, CER=0.0417, Conf=high
+  [777/2400] 00776: WER=0.0909, CER=0.0149, Conf=high
+  [778/2400] 00777: WER=0.5000, CER=0.1429, Conf=high
+  [779/2400] 00778: WER=0.3333, CER=0.1136, Conf=high
+  [780/2400] 00779: WER=0.4444, CER=0.0870, Conf=high
+  [781/2400] 00780: WER=0.4444, CER=0.1333, Conf=high
+  [782/2400] 00781: WER=0.5833, CER=0.1186, Conf=high
+  [783/2400] 00782: WER=0.2857, CER=0.0741, Conf=high
+  [784/2400] 00783: WER=0.2727, CER=0.1071, Conf=medium
+  [785/2400] 00784: WER=1.7500, CER=1.4000, Conf=medium
+  [786/2400] 00785: WER=0.2727, CER=0.0667, Conf=high
+  [787/2400] 00786: WER=0.3333, CER=0.1471, Conf=high
+  [788/2400] 00787: WER=0.2500, CER=0.0455, Conf=high
+  [789/2400] 00788: WER=0.4000, CER=0.1364, Conf=high
+  [790/2400] 00789: WER=0.2500, CER=0.0476, Conf=high
+  [791/2400] 00790: WER=0.4000, CER=0.1818, Conf=high
+  [792/2400] 00791: WER=0.2222, CER=0.0909, Conf=high
+  [793/2400] 00792: WER=0.5455, CER=0.1455, Conf=high
+  [794/2400] 00793: WER=0.1538, CER=0.0357, Conf=high
+  [795/2400] 00794: WER=0.6154, CER=0.1972, Conf=high
+  [796/2400] 00795: WER=0.7778, CER=0.5179, Conf=high
+  [797/2400] 00796: WER=0.5000, CER=0.1200, Conf=medium
+  [798/2400] 00797: WER=0.2500, CER=0.0909, Conf=medium
+  [799/2400] 00798: WER=0.2000, CER=0.0357, Conf=high
+  [800/2400] 00799: WER=0.3333, CER=0.0909, Conf=high
+
+============================================================
+Processing chunk 17/48
+Files 800 to 849 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [801/2400] 00800: WER=0.3750, CER=0.0833, Conf=high
+  [802/2400] 00801: WER=0.1667, CER=0.0545, Conf=high
+  [803/2400] 00802: WER=0.1667, CER=0.0882, Conf=medium
+  [804/2400] 00803: WER=0.1000, CER=0.0328, Conf=high
+  [805/2400] 00804: WER=0.4444, CER=0.1224, Conf=high
+  [806/2400] 00805: WER=0.2500, CER=0.1818, Conf=high
+  [807/2400] 00806: WER=0.4286, CER=0.0779, Conf=high
+  [808/2400] 00807: WER=0.7500, CER=0.3393, Conf=medium
+  [809/2400] 00808: WER=0.6000, CER=0.0769, Conf=high
+  [810/2400] 00809: WER=1.0000, CER=0.3889, Conf=high
+  [811/2400] 00810: WER=0.7778, CER=0.2909, Conf=high
+  [812/2400] 00811: WER=0.5000, CER=0.2162, Conf=high
+  [813/2400] 00812: WER=0.2500, CER=0.0816, Conf=high
+  [814/2400] 00813: WER=0.2857, CER=0.0725, Conf=high
+  [815/2400] 00814: WER=0.5714, CER=0.2963, Conf=high
+  [816/2400] 00815: WER=0.1818, CER=0.0435, Conf=high
+  [817/2400] 00816: WER=0.3000, CER=0.0364, Conf=high
+  [818/2400] 00817: WER=0.2000, CER=0.0682, Conf=high
+  [819/2400] 00818: WER=0.2727, CER=0.0769, Conf=high
+  [820/2400] 00819: WER=0.4444, CER=0.1429, Conf=high
+  [821/2400] 00820: WER=0.1667, CER=0.0286, Conf=high
+  [822/2400] 00821: WER=0.2500, CER=0.0714, Conf=high
+  [823/2400] 00822: WER=0.5556, CER=0.3261, Conf=high
+  [824/2400] 00823: WER=0.7500, CER=0.0833, Conf=high
+  [825/2400] 00824: WER=0.0000, CER=0.0000, Conf=high
+  [826/2400] 00825: WER=0.1429, CER=0.0732, Conf=high
+  [827/2400] 00826: WER=0.2857, CER=0.0625, Conf=high
+  [828/2400] 00827: WER=0.2500, CER=0.0588, Conf=high
+  [829/2400] 00828: WER=0.1538, CER=0.0500, Conf=high
+  [830/2400] 00829: WER=0.5714, CER=0.2113, Conf=medium
+  [831/2400] 00830: WER=0.3333, CER=0.0806, Conf=high
+  [832/2400] 00831: WER=0.1538, CER=0.0357, Conf=high
+  [833/2400] 00832: WER=0.5385, CER=0.2174, Conf=high
+  [834/2400] 00833: WER=0.6000, CER=0.2500, Conf=high
+  [835/2400] 00834: WER=0.1538, CER=0.0476, Conf=high
+  [836/2400] 00835: WER=0.1667, CER=0.1154, Conf=high
+  [837/2400] 00836: WER=0.2857, CER=0.0625, Conf=high
+  [838/2400] 00837: WER=1.7500, CER=1.4118, Conf=medium
+  [839/2400] 00838: WER=0.5455, CER=0.0952, Conf=high
+  [840/2400] 00839: WER=0.2000, CER=0.0800, Conf=high
+  [841/2400] 00840: WER=0.6000, CER=0.3333, Conf=high
+  [842/2400] 00841: WER=0.3333, CER=0.0667, Conf=high
+  [843/2400] 00842: WER=0.5714, CER=0.2581, Conf=high
+  [844/2400] 00843: WER=0.7143, CER=0.2500, Conf=high
+  [845/2400] 00844: WER=0.2500, CER=0.0571, Conf=high
+  [846/2400] 00845: WER=0.6667, CER=0.1333, Conf=high
+  [847/2400] 00846: WER=0.5714, CER=0.2121, Conf=high
+  [848/2400] 00847: WER=0.6667, CER=0.2308, Conf=high
+  [849/2400] 00848: WER=0.1429, CER=0.0370, Conf=high
+  [850/2400] 00849: WER=0.3846, CER=0.1111, Conf=high
+
+============================================================
+Processing chunk 18/48
+Files 850 to 899 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [851/2400] 00850: WER=0.3000, CER=0.0816, Conf=high
+  [852/2400] 00851: WER=0.3333, CER=0.2333, Conf=high
+  [853/2400] 00852: WER=0.1818, CER=0.0435, Conf=high
+  [854/2400] 00853: WER=0.2500, CER=0.0455, Conf=high
+  [855/2400] 00854: WER=0.2000, CER=0.0455, Conf=high
+  [856/2400] 00855: WER=0.2727, CER=0.0847, Conf=high
+  [857/2400] 00856: WER=0.3000, CER=0.1087, Conf=high
+  [858/2400] 00857: WER=1.4000, CER=1.1304, Conf=medium
+  [859/2400] 00858: WER=0.7500, CER=0.1842, Conf=high
+  [860/2400] 00859: WER=0.1000, CER=0.0222, Conf=high
+  [861/2400] 00860: WER=0.9000, CER=0.3455, Conf=high
+  [862/2400] 00861: WER=0.2500, CER=0.0556, Conf=high
+  [863/2400] 00862: WER=0.6250, CER=0.3333, Conf=high
+  [864/2400] 00863: WER=0.7500, CER=0.2917, Conf=high
+  [865/2400] 00864: WER=0.2857, CER=0.0571, Conf=high
+  [866/2400] 00865: WER=1.0000, CER=0.5556, Conf=low
+  [867/2400] 00866: WER=0.2500, CER=0.0526, Conf=high
+  [868/2400] 00867: WER=0.8333, CER=0.1111, Conf=high
+  [869/2400] 00868: WER=0.6667, CER=0.1875, Conf=high
+  [870/2400] 00869: WER=0.8333, CER=0.1290, Conf=high
+  [871/2400] 00870: WER=0.4545, CER=0.1034, Conf=high
+  [872/2400] 00871: WER=0.2857, CER=0.1053, Conf=high
+  [873/2400] 00872: WER=0.2000, CER=0.0800, Conf=high
+  [874/2400] 00873: WER=0.7143, CER=0.1143, Conf=high
+  [875/2400] 00874: WER=0.5000, CER=0.0952, Conf=medium
+  [876/2400] 00875: WER=0.3333, CER=0.0667, Conf=medium
+  [877/2400] 00876: WER=0.2500, CER=0.1143, Conf=high
+  [878/2400] 00877: WER=0.1429, CER=0.1268, Conf=medium
+  [879/2400] 00878: WER=0.2500, CER=0.0435, Conf=high
+  [880/2400] 00879: WER=0.2500, CER=0.0526, Conf=high
+  [881/2400] 00880: WER=0.1250, CER=0.0612, Conf=high
+  [882/2400] 00881: WER=0.1429, CER=0.0244, Conf=high
+  [883/2400] 00882: WER=0.3077, CER=0.1385, Conf=medium
+  [884/2400] 00883: WER=0.0000, CER=0.0000, Conf=high
+  [885/2400] 00884: WER=0.4615, CER=0.1642, Conf=medium
+  [886/2400] 00885: WER=0.4286, CER=0.3333, Conf=high
+  [887/2400] 00886: WER=0.3333, CER=0.0714, Conf=medium
+  [888/2400] 00887: WER=0.3750, CER=0.1111, Conf=high
+  [889/2400] 00888: WER=0.5000, CER=0.2000, Conf=high
+  [890/2400] 00889: WER=0.2500, CER=0.0769, Conf=high
+  [891/2400] 00890: WER=0.3636, CER=0.2000, Conf=high
+  [892/2400] 00891: WER=0.3333, CER=0.2143, Conf=high
+  [893/2400] 00892: WER=0.4000, CER=0.2807, Conf=medium
+  [894/2400] 00893: WER=0.5000, CER=0.2174, Conf=high
+  [895/2400] 00894: WER=0.5000, CER=0.1081, Conf=medium
+  [896/2400] 00895: WER=0.4000, CER=0.0870, Conf=high
+  [897/2400] 00896: WER=6.0000, CER=7.7500, Conf=high
+  [898/2400] 00897: WER=0.0000, CER=0.0000, Conf=high
+  [899/2400] 00898: WER=0.3333, CER=0.0800, Conf=high
+  [900/2400] 00899: WER=0.7778, CER=0.3333, Conf=high
+
+============================================================
+Processing chunk 19/48
+Files 900 to 949 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [901/2400] 00900: WER=0.3750, CER=0.1053, Conf=high
+  [902/2400] 00901: WER=0.1429, CER=0.0303, Conf=high
+  [903/2400] 00902: WER=0.7000, CER=0.1875, Conf=high
+  [904/2400] 00903: WER=0.0000, CER=0.0000, Conf=high
+  [905/2400] 00904: WER=0.4545, CER=0.1481, Conf=high
+  [906/2400] 00905: WER=0.5000, CER=0.2083, Conf=high
+  [907/2400] 00906: WER=0.3333, CER=0.2222, Conf=high
+  [908/2400] 00907: WER=0.6000, CER=0.1429, Conf=high
+  [909/2400] 00908: WER=0.2857, CER=0.0882, Conf=medium
+  [910/2400] 00909: WER=0.2500, CER=0.0635, Conf=high
+  [911/2400] 00910: WER=0.5455, CER=0.2632, Conf=high
+  [912/2400] 00911: WER=0.5385, CER=0.1558, Conf=medium
+  [913/2400] 00912: WER=0.5000, CER=0.1481, Conf=high
+  [914/2400] 00913: WER=0.3846, CER=0.0882, Conf=high
+  [915/2400] 00914: WER=0.1667, CER=0.0345, Conf=high
+  [916/2400] 00915: WER=0.5000, CER=0.2593, Conf=high
+  [917/2400] 00916: WER=0.5833, CER=0.3103, Conf=medium
+  [918/2400] 00917: WER=0.2000, CER=0.0357, Conf=high
+  [919/2400] 00918: WER=0.2500, CER=0.0526, Conf=high
+  [920/2400] 00919: WER=0.2500, CER=0.0500, Conf=high
+  [921/2400] 00920: WER=0.3333, CER=0.3043, Conf=high
+  [922/2400] 00921: WER=1.0000, CER=0.3182, Conf=high
+  [923/2400] 00922: WER=0.6000, CER=0.2353, Conf=high
+  [924/2400] 00923: WER=0.1667, CER=0.0323, Conf=high
+  [925/2400] 00924: WER=0.4286, CER=0.2308, Conf=high
+  [926/2400] 00925: WER=0.5556, CER=0.2093, Conf=medium
+  [927/2400] 00926: WER=0.5000, CER=0.1875, Conf=high
+  [928/2400] 00927: WER=0.4545, CER=0.0769, Conf=high
+  [929/2400] 00928: WER=0.5714, CER=0.1707, Conf=high
+  [930/2400] 00929: WER=0.3333, CER=0.2308, Conf=high
+  [931/2400] 00930: WER=0.8889, CER=0.2857, Conf=medium
+  [932/2400] 00931: WER=0.4286, CER=0.1714, Conf=high
+  [933/2400] 00932: WER=0.3333, CER=0.1667, Conf=high
+  [934/2400] 00933: WER=0.6250, CER=0.1200, Conf=high
+  [935/2400] 00934: WER=0.1667, CER=0.0400, Conf=high
+  [936/2400] 00935: WER=0.3333, CER=0.0769, Conf=high
+  [937/2400] 00936: WER=0.5000, CER=0.2188, Conf=high
+  [938/2400] 00937: WER=0.1818, CER=0.0333, Conf=high
+  [939/2400] 00938: WER=0.2727, CER=0.0455, Conf=high
+  [940/2400] 00939: WER=0.0000, CER=0.0000, Conf=high
+  [941/2400] 00940: WER=0.2727, CER=0.0536, Conf=high
+  [942/2400] 00941: WER=0.3333, CER=0.1304, Conf=high
+  [943/2400] 00942: WER=0.5000, CER=0.2593, Conf=high
+  [944/2400] 00943: WER=0.6250, CER=0.5789, Conf=high
+  [945/2400] 00944: WER=0.5000, CER=0.2154, Conf=high
+  [946/2400] 00945: WER=0.0000, CER=0.0000, Conf=high
+  [947/2400] 00946: WER=0.4000, CER=0.0806, Conf=high
+  [948/2400] 00947: WER=0.6250, CER=0.2059, Conf=medium
+  [949/2400] 00948: WER=0.2857, CER=0.1724, Conf=medium
+  [950/2400] 00949: WER=0.2222, CER=0.0476, Conf=high
+
+============================================================
+Processing chunk 20/48
+Files 950 to 999 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [951/2400] 00950: WER=0.5000, CER=0.2308, Conf=high
+  [952/2400] 00951: WER=0.5000, CER=0.1579, Conf=high
+  [953/2400] 00952: WER=0.4615, CER=0.2985, Conf=high
+  [954/2400] 00953: WER=0.2000, CER=0.0455, Conf=high
+  [955/2400] 00954: WER=0.2500, CER=0.1622, Conf=high
+  [956/2400] 00955: WER=0.5000, CER=0.1379, Conf=high
+  [957/2400] 00956: WER=0.3333, CER=0.1290, Conf=high
+  [958/2400] 00957: WER=0.8571, CER=0.3056, Conf=high
+  [959/2400] 00958: WER=0.7692, CER=0.3077, Conf=high
+  [960/2400] 00959: WER=0.5000, CER=0.2143, Conf=high
+  [961/2400] 00960: WER=1.0000, CER=0.2750, Conf=high
+  [962/2400] 00961: WER=0.4286, CER=0.0938, Conf=high
+  [963/2400] 00962: WER=0.2857, CER=0.1351, Conf=high
+  [964/2400] 00963: WER=0.6667, CER=0.2308, Conf=medium
+  [965/2400] 00964: WER=0.1818, CER=0.0370, Conf=high
+  [966/2400] 00965: WER=0.1429, CER=0.0323, Conf=high
+  [967/2400] 00966: WER=0.2000, CER=0.0385, Conf=high
+  [968/2400] 00967: WER=0.4444, CER=0.1111, Conf=high
+  [969/2400] 00968: WER=0.7778, CER=0.3333, Conf=medium
+  [970/2400] 00969: WER=0.5455, CER=0.1791, Conf=medium
+  [971/2400] 00970: WER=0.2500, CER=0.1667, Conf=high
+  [972/2400] 00971: WER=0.2500, CER=0.0588, Conf=high
+  [973/2400] 00972: WER=0.2222, CER=0.0930, Conf=high
+  [974/2400] 00973: WER=0.4615, CER=0.1918, Conf=high
+  [975/2400] 00974: WER=0.2857, CER=0.1250, Conf=high
+  [976/2400] 00975: WER=0.7500, CER=0.3182, Conf=high
+  [977/2400] 00976: WER=0.6667, CER=0.1818, Conf=high
+  [978/2400] 00977: WER=0.5000, CER=0.1111, Conf=high
+  [979/2400] 00978: WER=0.4286, CER=0.1515, Conf=high
+  [980/2400] 00979: WER=0.4000, CER=0.1579, Conf=high
+  [981/2400] 00980: WER=0.3750, CER=0.2051, Conf=low
+  [982/2400] 00981: WER=0.4000, CER=0.1429, Conf=high
+  [983/2400] 00982: WER=0.1250, CER=0.0278, Conf=high
+  [984/2400] 00983: WER=0.1667, CER=0.1071, Conf=high
+  [985/2400] 00984: WER=0.3000, CER=0.1020, Conf=high
+  [986/2400] 00985: WER=0.6000, CER=0.2364, Conf=high
+  [987/2400] 00986: WER=0.5000, CER=0.2381, Conf=high
+  [988/2400] 00987: WER=0.6923, CER=0.2317, Conf=high
+  [989/2400] 00988: WER=0.3333, CER=0.2069, Conf=high
+  [990/2400] 00989: WER=0.0000, CER=0.0000, Conf=high
+  [991/2400] 00990: WER=0.1250, CER=0.0270, Conf=high
+  [992/2400] 00991: WER=0.5455, CER=0.3500, Conf=high
+  [993/2400] 00992: WER=0.4286, CER=0.1905, Conf=high
+  [994/2400] 00993: WER=0.5455, CER=0.3922, Conf=medium
+  [995/2400] 00994: WER=0.3333, CER=0.0833, Conf=high
+  [996/2400] 00995: WER=0.3750, CER=0.0909, Conf=high
+  [997/2400] 00996: WER=0.5000, CER=0.1304, Conf=high
+  [998/2400] 00997: WER=0.8182, CER=0.1471, Conf=high
+  [999/2400] 00998: WER=0.3077, CER=0.0690, Conf=high
+  [1000/2400] 00999: WER=0.5385, CER=0.4000, Conf=medium
+
+============================================================
+Processing chunk 21/48
+Files 1000 to 1049 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1001/2400] 01000: WER=0.2308, CER=0.1067, Conf=high
+  [1002/2400] 01001: WER=0.0000, CER=0.0000, Conf=high
+  [1003/2400] 01002: WER=0.1538, CER=0.0645, Conf=medium
+  [1004/2400] 01003: WER=0.2000, CER=0.0500, Conf=high
+  [1005/2400] 01004: WER=0.3333, CER=0.0769, Conf=high
+  [1006/2400] 01005: WER=0.2222, CER=0.1176, Conf=high
+  [1007/2400] 01006: WER=0.8182, CER=0.2281, Conf=medium
+  [1008/2400] 01007: WER=1.0000, CER=0.2647, Conf=high
+  [1009/2400] 01008: WER=0.3333, CER=0.1000, Conf=medium
+  [1010/2400] 01009: WER=0.5455, CER=0.3393, Conf=high
+  [1011/2400] 01010: WER=0.5000, CER=0.2368, Conf=medium
+  [1012/2400] 01011: WER=0.6000, CER=0.2381, Conf=high
+  [1013/2400] 01012: WER=0.3846, CER=0.2162, Conf=high
+  [1014/2400] 01013: WER=0.1429, CER=0.0312, Conf=high
+  [1015/2400] 01014: WER=0.7500, CER=0.3333, Conf=high
+  [1016/2400] 01015: WER=0.4545, CER=0.0984, Conf=high
+  [1017/2400] 01016: WER=0.2000, CER=0.0500, Conf=high
+  [1018/2400] 01017: WER=0.5714, CER=0.1600, Conf=high
+  [1019/2400] 01018: WER=0.1667, CER=0.2000, Conf=high
+  [1020/2400] 01019: WER=0.5000, CER=0.2632, Conf=low
+  [1021/2400] 01020: WER=0.3750, CER=0.1316, Conf=high
+  [1022/2400] 01021: WER=0.4167, CER=0.2222, Conf=high
+  [1023/2400] 01022: WER=0.2727, CER=0.1897, Conf=high
+  [1024/2400] 01023: WER=0.8000, CER=0.2857, Conf=medium
+  [1025/2400] 01024: WER=0.0000, CER=0.0000, Conf=high
+  [1026/2400] 01025: WER=0.2500, CER=0.0714, Conf=medium
+  [1027/2400] 01026: WER=0.0714, CER=0.0308, Conf=high
+  [1028/2400] 01027: WER=0.5455, CER=0.2069, Conf=high
+  [1029/2400] 01028: WER=0.4286, CER=0.1964, Conf=high
+  [1030/2400] 01029: WER=0.2500, CER=0.0735, Conf=high
+  [1031/2400] 01030: WER=0.4444, CER=0.3000, Conf=high
+  [1032/2400] 01031: WER=0.2857, CER=0.0625, Conf=high
+  [1033/2400] 01032: WER=0.6667, CER=0.2162, Conf=medium
+  [1034/2400] 01033: WER=0.2857, CER=0.0615, Conf=high
+  [1035/2400] 01034: WER=0.3333, CER=0.0625, Conf=high
+  [1036/2400] 01035: WER=0.1429, CER=0.1667, Conf=high
+  [1037/2400] 01036: WER=0.6250, CER=0.1500, Conf=high
+  [1038/2400] 01037: WER=0.2222, CER=0.1667, Conf=high
+  [1039/2400] 01038: WER=0.3636, CER=0.0909, Conf=high
+  [1040/2400] 01039: WER=0.1429, CER=0.0303, Conf=medium
+  [1041/2400] 01040: WER=1.0000, CER=0.4815, Conf=high
+  [1042/2400] 01041: WER=0.2857, CER=0.1071, Conf=high
+  [1043/2400] 01042: WER=0.2000, CER=0.0323, Conf=high
+  [1044/2400] 01043: WER=0.1250, CER=0.0303, Conf=high
+  [1045/2400] 01044: WER=0.5455, CER=0.1132, Conf=high
+  [1046/2400] 01045: WER=0.4000, CER=0.0952, Conf=high
+  [1047/2400] 01046: WER=0.6667, CER=0.1538, Conf=high
+  [1048/2400] 01047: WER=0.1818, CER=0.0566, Conf=high
+  [1049/2400] 01048: WER=0.5000, CER=0.1364, Conf=high
+  [1050/2400] 01049: WER=0.1429, CER=0.0312, Conf=high
+
+============================================================
+Processing chunk 22/48
+Files 1050 to 1099 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1051/2400] 01050: WER=0.5000, CER=0.2000, Conf=high
+  [1052/2400] 01051: WER=0.2222, CER=0.0408, Conf=high
+  [1053/2400] 01052: WER=0.4000, CER=0.0833, Conf=high
+  [1054/2400] 01053: WER=0.5000, CER=0.2667, Conf=high
+  [1055/2400] 01054: WER=0.4167, CER=0.1552, Conf=high
+  [1056/2400] 01055: WER=0.7500, CER=0.1875, Conf=medium
+  [1057/2400] 01056: WER=0.6667, CER=0.0667, Conf=high
+  [1058/2400] 01057: WER=2.3333, CER=1.8667, Conf=high
+  [1059/2400] 01058: WER=0.6000, CER=0.2222, Conf=medium
+  [1060/2400] 01059: WER=0.7500, CER=0.0833, Conf=low
+  [1061/2400] 01060: WER=0.5000, CER=0.1000, Conf=high
+  [1062/2400] 01061: WER=0.2000, CER=0.0400, Conf=high
+  [1063/2400] 01062: WER=0.2000, CER=0.1373, Conf=high
+  [1064/2400] 01063: WER=0.4167, CER=0.3014, Conf=medium
+  [1065/2400] 01064: WER=0.6667, CER=0.1000, Conf=high
+  [1066/2400] 01065: WER=2.0000, CER=2.1538, Conf=high
+  [1067/2400] 01066: WER=0.2000, CER=0.0400, Conf=high
+  [1068/2400] 01067: WER=0.0000, CER=0.0000, Conf=high
+  [1069/2400] 01068: WER=0.6667, CER=0.2759, Conf=high
+  [1070/2400] 01069: WER=0.5000, CER=0.0714, Conf=high
+  [1071/2400] 01070: WER=0.1667, CER=0.0345, Conf=high
+  [1072/2400] 01071: WER=0.2500, CER=0.2222, Conf=high
+  [1073/2400] 01072: WER=0.2500, CER=0.0588, Conf=high
+  [1074/2400] 01073: WER=0.4286, CER=0.1667, Conf=medium
+  [1075/2400] 01074: WER=1.0000, CER=0.3636, Conf=high
+  [1076/2400] 01075: WER=0.5000, CER=0.1333, Conf=medium
+  [1077/2400] 01076: WER=0.0909, CER=0.0351, Conf=high
+  [1078/2400] 01077: WER=0.4167, CER=0.1304, Conf=high
+  [1079/2400] 01078: WER=0.7692, CER=0.6812, Conf=high
+  [1080/2400] 01079: WER=0.3333, CER=0.0909, Conf=high
+  [1081/2400] 01080: WER=0.2000, CER=0.0526, Conf=high
+  [1082/2400] 01081: WER=0.8333, CER=0.2807, Conf=medium
+  [1083/2400] 01082: WER=0.2000, CER=0.0536, Conf=high
+  [1084/2400] 01083: WER=0.4000, CER=0.1452, Conf=medium
+  [1085/2400] 01084: WER=0.6667, CER=0.3333, Conf=medium
+  [1086/2400] 01085: WER=0.3333, CER=0.2000, Conf=high
+  [1087/2400] 01086: WER=0.4000, CER=0.1000, Conf=high
+  [1088/2400] 01087: WER=0.1667, CER=0.0370, Conf=high
+  [1089/2400] 01088: WER=0.1429, CER=0.0303, Conf=high
+  [1090/2400] 01089: WER=0.5000, CER=0.1471, Conf=high
+  [1091/2400] 01090: WER=0.4000, CER=0.1333, Conf=high
+  [1092/2400] 01091: WER=0.5000, CER=0.1781, Conf=high
+  [1093/2400] 01092: WER=0.2000, CER=0.0400, Conf=high
+  [1094/2400] 01093: WER=0.2857, CER=0.0676, Conf=high
+  [1095/2400] 01094: WER=0.1667, CER=0.0741, Conf=high
+  [1096/2400] 01095: WER=0.2500, CER=0.1351, Conf=high
+  [1097/2400] 01096: WER=0.2000, CER=0.0323, Conf=high
+  [1098/2400] 01097: WER=0.2857, CER=0.0571, Conf=high
+  [1099/2400] 01098: WER=0.6667, CER=0.1667, Conf=medium
+  [1100/2400] 01099: WER=0.2857, CER=0.2812, Conf=high
+
+============================================================
+Processing chunk 23/48
+Files 1100 to 1149 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1101/2400] 01100: WER=1.0000, CER=0.4737, Conf=high
+  [1102/2400] 01101: WER=0.3333, CER=0.0741, Conf=high
+  [1103/2400] 01102: WER=0.3077, CER=0.0968, Conf=high
+  [1104/2400] 01103: WER=0.6667, CER=0.3704, Conf=medium
+  [1105/2400] 01104: WER=0.0909, CER=0.0185, Conf=high
+  [1106/2400] 01105: WER=0.2500, CER=0.0556, Conf=high
+  [1107/2400] 01106: WER=0.2500, CER=0.0484, Conf=high
+  [1108/2400] 01107: WER=0.2500, CER=0.0238, Conf=high
+  [1109/2400] 01108: WER=0.2222, CER=0.0465, Conf=high
+  [1110/2400] 01109: WER=0.5000, CER=0.1429, Conf=high
+  [1111/2400] 01110: WER=0.6667, CER=0.3750, Conf=medium
+  [1112/2400] 01111: WER=0.4000, CER=0.3000, Conf=high
+  [1113/2400] 01112: WER=0.1429, CER=0.0769, Conf=high
+  [1114/2400] 01113: WER=0.2500, CER=0.0588, Conf=high
+  [1115/2400] 01114: WER=0.1429, CER=0.0588, Conf=high
+  [1116/2400] 01115: WER=0.6667, CER=0.2239, Conf=high
+  [1117/2400] 01116: WER=0.3000, CER=0.0800, Conf=high
+  [1118/2400] 01117: WER=0.5714, CER=0.2381, Conf=high
+  [1119/2400] 01118: WER=0.2500, CER=0.0588, Conf=high
+  [1120/2400] 01119: WER=0.6000, CER=0.0606, Conf=high
+  [1121/2400] 01120: WER=0.5000, CER=0.1538, Conf=high
+  [1122/2400] 01121: WER=0.2857, CER=0.0938, Conf=high
+  [1123/2400] 01122: WER=0.3571, CER=0.0580, Conf=high
+  [1124/2400] 01123: WER=0.5000, CER=0.1212, Conf=high
+  [1125/2400] 01124: WER=0.2000, CER=0.0435, Conf=high
+  [1126/2400] 01125: WER=0.4000, CER=0.0741, Conf=high
+  [1127/2400] 01126: WER=0.3750, CER=0.1818, Conf=high
+  [1128/2400] 01127: WER=0.2500, CER=0.1111, Conf=high
+  [1129/2400] 01128: WER=0.3846, CER=0.1096, Conf=high
+  [1130/2400] 01129: WER=0.1429, CER=0.0263, Conf=high
+  [1131/2400] 01130: WER=0.6250, CER=0.1667, Conf=medium
+  [1132/2400] 01131: WER=0.7778, CER=0.2857, Conf=high
+  [1133/2400] 01132: WER=0.2000, CER=0.0455, Conf=high
+  [1134/2400] 01133: WER=0.2000, CER=0.0435, Conf=high
+  [1135/2400] 01134: WER=0.3333, CER=0.0690, Conf=high
+  [1136/2400] 01135: WER=0.5000, CER=0.0882, Conf=high
+  [1137/2400] 01136: WER=0.7500, CER=0.1667, Conf=high
+  [1138/2400] 01137: WER=0.3333, CER=0.0462, Conf=high
+  [1139/2400] 01138: WER=0.2500, CER=0.4118, Conf=high
+  [1140/2400] 01139: WER=0.1667, CER=0.0385, Conf=high
+  [1141/2400] 01140: WER=0.2500, CER=0.1111, Conf=medium
+  [1142/2400] 01141: WER=0.0833, CER=0.0167, Conf=high
+  [1143/2400] 01142: WER=0.7143, CER=0.1622, Conf=high
+  [1144/2400] 01143: WER=0.2500, CER=0.1875, Conf=high
+  [1145/2400] 01144: WER=0.2857, CER=0.1622, Conf=high
+  [1146/2400] 01145: WER=0.2000, CER=0.0400, Conf=high
+  [1147/2400] 01146: WER=0.5556, CER=0.1509, Conf=high
+  [1148/2400] 01147: WER=0.4444, CER=0.1556, Conf=high
+  [1149/2400] 01148: WER=0.2857, CER=0.0465, Conf=high
+  [1150/2400] 01149: WER=0.2308, CER=0.0714, Conf=high
+
+============================================================
+Processing chunk 24/48
+Files 1150 to 1199 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1151/2400] 01150: WER=0.6667, CER=0.2024, Conf=high
+  [1152/2400] 01151: WER=0.4286, CER=0.1471, Conf=high
+  [1153/2400] 01152: WER=0.3077, CER=0.1594, Conf=high
+  [1154/2400] 01153: WER=0.8000, CER=0.3684, Conf=low
+  [1155/2400] 01154: WER=0.3571, CER=0.1127, Conf=high
+  [1156/2400] 01155: WER=0.4167, CER=0.0694, Conf=high
+  [1157/2400] 01156: WER=0.1667, CER=0.0303, Conf=high
+  [1158/2400] 01157: WER=0.6667, CER=0.2667, Conf=high
+  [1159/2400] 01158: WER=0.3846, CER=0.1324, Conf=high
+  [1160/2400] 01159: WER=0.8000, CER=0.5238, Conf=low
+  [1161/2400] 01160: WER=0.3333, CER=0.0857, Conf=medium
+  [1162/2400] 01161: WER=1.5000, CER=0.6486, Conf=medium
+  [1163/2400] 01162: WER=0.5000, CER=0.1746, Conf=high
+  [1164/2400] 01163: WER=0.6667, CER=0.1176, Conf=high
+  [1165/2400] 01164: WER=0.3750, CER=0.0732, Conf=high
+  [1166/2400] 01165: WER=0.6667, CER=0.1579, Conf=high
+  [1167/2400] 01166: WER=0.4000, CER=0.2857, Conf=high
+  [1168/2400] 01167: WER=0.5000, CER=0.1250, Conf=high
+  [1169/2400] 01168: WER=0.1429, CER=0.0312, Conf=high
+  [1170/2400] 01169: WER=0.3333, CER=0.2037, Conf=high
+  [1171/2400] 01170: WER=0.5833, CER=0.3433, Conf=high
+  [1172/2400] 01171: WER=0.2500, CER=0.0400, Conf=high
+  [1173/2400] 01172: WER=0.2500, CER=0.0556, Conf=high
+  [1174/2400] 01173: WER=0.5000, CER=0.2222, Conf=medium
+  [1175/2400] 01174: WER=0.5000, CER=0.3125, Conf=high
+  [1176/2400] 01175: WER=0.1250, CER=0.0196, Conf=high
+  [1177/2400] 01176: WER=0.3333, CER=0.0968, Conf=high
+  [1178/2400] 01177: WER=0.6000, CER=0.3182, Conf=high
+  [1179/2400] 01178: WER=0.0769, CER=0.0159, Conf=high
+  [1180/2400] 01179: WER=0.4444, CER=0.0930, Conf=high
+  [1181/2400] 01180: WER=1.0000, CER=0.6250, Conf=low
+  [1182/2400] 01181: WER=0.5000, CER=0.1250, Conf=high
+  [1183/2400] 01182: WER=0.5714, CER=0.0682, Conf=high
+  [1184/2400] 01183: WER=0.4000, CER=0.0690, Conf=high
+  [1185/2400] 01184: WER=0.2500, CER=0.0500, Conf=high
+  [1186/2400] 01185: WER=0.5833, CER=0.4035, Conf=high
+  [1187/2400] 01186: WER=0.2500, CER=0.0625, Conf=high
+  [1188/2400] 01187: WER=0.5833, CER=0.1833, Conf=medium
+  [1189/2400] 01188: WER=0.5000, CER=0.0909, Conf=high
+  [1190/2400] 01189: WER=0.1667, CER=0.0385, Conf=high
+  [1191/2400] 01190: WER=1.0000, CER=0.5455, Conf=medium
+  [1192/2400] 01191: WER=0.5000, CER=0.1053, Conf=high
+  [1193/2400] 01192: WER=0.1429, CER=0.0333, Conf=high
+  [1194/2400] 01193: WER=0.2000, CER=0.0435, Conf=high
+  [1195/2400] 01194: WER=1.0000, CER=0.3750, Conf=high
+  [1196/2400] 01195: WER=0.2222, CER=0.0976, Conf=high
+  [1197/2400] 01196: WER=1.0000, CER=0.4000, Conf=high
+  [1198/2400] 01197: WER=0.6250, CER=0.1395, Conf=medium
+  [1199/2400] 01198: WER=0.1429, CER=0.0312, Conf=high
+  [1200/2400] 01199: WER=0.1429, CER=0.1026, Conf=high
+
+============================================================
+Processing chunk 25/48
+Files 1200 to 1249 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1201/2400] 01200: WER=0.4000, CER=0.1364, Conf=high
+  [1202/2400] 01201: WER=0.3077, CER=0.0755, Conf=high
+  [1203/2400] 01202: WER=0.6667, CER=0.2727, Conf=medium
+  [1204/2400] 01203: WER=0.2500, CER=0.0769, Conf=high
+  [1205/2400] 01204: WER=0.1429, CER=0.0417, Conf=high
+  [1206/2400] 01205: WER=0.6000, CER=0.1905, Conf=high
+  [1207/2400] 01206: WER=0.4615, CER=0.0938, Conf=high
+  [1208/2400] 01207: WER=0.6667, CER=0.2414, Conf=medium
+  [1209/2400] 01208: WER=0.0833, CER=0.0179, Conf=high
+  [1210/2400] 01209: WER=0.8333, CER=0.5000, Conf=low
+  [1211/2400] 01210: WER=0.2500, CER=0.0625, Conf=high
+  [1212/2400] 01211: WER=1.0000, CER=0.1500, Conf=high
+  [1213/2400] 01212: WER=0.4000, CER=0.2105, Conf=high
+  [1214/2400] 01213: WER=0.2857, CER=0.0857, Conf=high
+  [1215/2400] 01214: WER=0.2222, CER=0.0556, Conf=high
+  [1216/2400] 01215: WER=0.3333, CER=0.1077, Conf=high
+  [1217/2400] 01216: WER=0.8571, CER=0.4222, Conf=medium
+  [1218/2400] 01217: WER=0.7692, CER=0.2388, Conf=medium
+  [1219/2400] 01218: WER=0.5714, CER=0.1923, Conf=medium
+  [1220/2400] 01219: WER=0.3077, CER=0.0986, Conf=high
+  [1221/2400] 01220: WER=0.2727, CER=0.2034, Conf=high
+  [1222/2400] 01221: WER=0.6667, CER=0.1818, Conf=high
+  [1223/2400] 01222: WER=0.3750, CER=0.1837, Conf=high
+  [1224/2400] 01223: WER=0.3333, CER=0.0896, Conf=high
+  [1225/2400] 01224: WER=0.4286, CER=0.2895, Conf=high
+  [1226/2400] 01225: WER=0.6250, CER=0.2326, Conf=medium
+  [1227/2400] 01226: WER=0.0000, CER=0.0000, Conf=high
+  [1228/2400] 01227: WER=0.5000, CER=0.0800, Conf=medium
+  [1229/2400] 01228: WER=0.5000, CER=0.1795, Conf=medium
+  [1230/2400] 01229: WER=0.2000, CER=0.0667, Conf=high
+  [1231/2400] 01230: WER=0.7778, CER=0.3043, Conf=high
+  [1232/2400] 01231: WER=0.5000, CER=0.3182, Conf=high
+  [1233/2400] 01232: WER=0.2222, CER=0.0682, Conf=high
+  [1234/2400] 01233: WER=0.3333, CER=0.0690, Conf=high
+  [1235/2400] 01234: WER=0.1250, CER=0.0270, Conf=high
+  [1236/2400] 01235: WER=0.7778, CER=0.3947, Conf=medium
+  [1237/2400] 01236: WER=0.2500, CER=0.1667, Conf=high
+  [1238/2400] 01237: WER=0.4444, CER=0.2449, Conf=high
+  [1239/2400] 01238: WER=0.4167, CER=0.1897, Conf=medium
+  [1240/2400] 01239: WER=1.1667, CER=0.2683, Conf=medium
+  [1241/2400] 01240: WER=0.6364, CER=0.2115, Conf=medium
+  [1242/2400] 01241: WER=1.0000, CER=0.6000, Conf=high
+  [1243/2400] 01242: WER=0.2000, CER=0.0870, Conf=medium
+  [1244/2400] 01243: WER=0.6667, CER=0.2576, Conf=medium
+  [1245/2400] 01244: WER=0.0000, CER=0.0000, Conf=high
+  [1246/2400] 01245: WER=0.0833, CER=0.1356, Conf=high
+  [1247/2400] 01246: WER=0.7143, CER=0.2791, Conf=high
+  [1248/2400] 01247: WER=0.2857, CER=0.1370, Conf=high
+  [1249/2400] 01248: WER=0.5000, CER=0.2059, Conf=high
+  [1250/2400] 01249: WER=0.3333, CER=0.1053, Conf=high
+
+============================================================
+Processing chunk 26/48
+Files 1250 to 1299 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1251/2400] 01250: WER=0.4615, CER=0.1268, Conf=medium
+  [1252/2400] 01251: WER=0.3333, CER=0.0833, Conf=high
+  [1253/2400] 01252: WER=0.4286, CER=0.1277, Conf=medium
+  [1254/2400] 01253: WER=0.5455, CER=0.2500, Conf=high
+  [1255/2400] 01254: WER=0.5385, CER=0.2769, Conf=medium
+  [1256/2400] 01255: WER=0.5000, CER=0.1129, Conf=high
+  [1257/2400] 01256: WER=0.2857, CER=0.0588, Conf=high
+  [1258/2400] 01257: WER=1.0000, CER=0.5510, Conf=medium
+  [1259/2400] 01258: WER=0.2000, CER=0.0385, Conf=high
+  [1260/2400] 01259: WER=0.3333, CER=0.1282, Conf=high
+  [1261/2400] 01260: WER=0.8333, CER=0.5000, Conf=medium
+  [1262/2400] 01261: WER=0.5000, CER=0.2051, Conf=medium
+  [1263/2400] 01262: WER=0.5714, CER=0.5806, Conf=high
+  [1264/2400] 01263: WER=0.1667, CER=0.0741, Conf=high
+  [1265/2400] 01264: WER=1.2000, CER=0.8529, Conf=high
+  [1266/2400] 01265: WER=0.3750, CER=0.1290, Conf=medium
+  [1267/2400] 01266: WER=0.4444, CER=0.1053, Conf=high
+  [1268/2400] 01267: WER=0.3333, CER=0.0800, Conf=high
+  [1269/2400] 01268: WER=0.3000, CER=0.0645, Conf=high
+  [1270/2400] 01269: WER=0.2500, CER=0.0820, Conf=high
+  [1271/2400] 01270: WER=0.2500, CER=0.0667, Conf=high
+  [1272/2400] 01271: WER=1.0000, CER=0.2143, Conf=high
+  [1273/2400] 01272: WER=0.1667, CER=0.0357, Conf=high
+  [1274/2400] 01273: WER=0.1429, CER=0.0469, Conf=high
+  [1275/2400] 01274: WER=0.6667, CER=0.1290, Conf=high
+  [1276/2400] 01275: WER=0.6000, CER=0.0800, Conf=high
+  [1277/2400] 01276: WER=0.7500, CER=0.2083, Conf=low
+  [1278/2400] 01277: WER=0.2000, CER=0.0488, Conf=high
+  [1279/2400] 01278: WER=0.7273, CER=0.4478, Conf=medium
+  [1280/2400] 01279: WER=0.3000, CER=0.1132, Conf=high
+  [1281/2400] 01280: WER=0.2857, CER=0.0741, Conf=high
+  [1282/2400] 01281: WER=0.5385, CER=0.2254, Conf=high
+  [1283/2400] 01282: WER=0.3333, CER=0.0625, Conf=high
+  [1284/2400] 01283: WER=0.5000, CER=0.1622, Conf=high
+  [1285/2400] 01284: WER=0.6250, CER=0.4651, Conf=high
+  [1286/2400] 01285: WER=0.2000, CER=0.1818, Conf=high
+  [1287/2400] 01286: WER=0.3333, CER=0.0714, Conf=medium
+  [1288/2400] 01287: WER=0.5000, CER=0.2632, Conf=medium
+  [1289/2400] 01288: WER=0.5000, CER=0.1034, Conf=high
+  [1290/2400] 01289: WER=0.5455, CER=0.2769, Conf=high
+  [1291/2400] 01290: WER=0.3333, CER=0.0690, Conf=high
+  [1292/2400] 01291: WER=0.1250, CER=0.0312, Conf=high
+  [1293/2400] 01292: WER=0.4000, CER=0.1500, Conf=high
+  [1294/2400] 01293: WER=0.2000, CER=0.0750, Conf=high
+  [1295/2400] 01294: WER=0.6154, CER=0.1692, Conf=high
+  [1296/2400] 01295: WER=0.5000, CER=0.2857, Conf=high
+  [1297/2400] 01296: WER=0.1250, CER=0.0303, Conf=high
+  [1298/2400] 01297: WER=0.5556, CER=0.3023, Conf=high
+  [1299/2400] 01298: WER=0.6000, CER=0.1364, Conf=high
+  [1300/2400] 01299: WER=0.3636, CER=0.1538, Conf=medium
+
+============================================================
+Processing chunk 27/48
+Files 1300 to 1349 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1301/2400] 01300: WER=0.1429, CER=0.1194, Conf=high
+  [1302/2400] 01301: WER=0.5000, CER=0.1250, Conf=high
+  [1303/2400] 01302: WER=0.5000, CER=0.1569, Conf=high
+  [1304/2400] 01303: WER=0.2500, CER=0.1316, Conf=high
+  [1305/2400] 01304: WER=0.2500, CER=0.1094, Conf=high
+  [1306/2400] 01305: WER=0.4286, CER=0.1000, Conf=high
+  [1307/2400] 01306: WER=0.3333, CER=0.1379, Conf=high
+  [1308/2400] 01307: WER=0.2222, CER=0.0667, Conf=high
+  [1309/2400] 01308: WER=0.2500, CER=0.0278, Conf=high
+  [1310/2400] 01309: WER=0.1667, CER=0.0435, Conf=high
+  [1311/2400] 01310: WER=0.2500, CER=0.1053, Conf=high
+  [1312/2400] 01311: WER=0.2000, CER=0.0500, Conf=high
+  [1313/2400] 01312: WER=0.4000, CER=0.2222, Conf=high
+  [1314/2400] 01313: WER=0.2000, CER=0.0408, Conf=high
+  [1315/2400] 01314: WER=0.5833, CER=0.2273, Conf=high
+  [1316/2400] 01315: WER=0.1667, CER=0.0417, Conf=high
+  [1317/2400] 01316: WER=0.2000, CER=0.0323, Conf=high
+  [1318/2400] 01317: WER=0.4286, CER=0.0882, Conf=high
+  [1319/2400] 01318: WER=0.1667, CER=0.0435, Conf=high
+  [1320/2400] 01319: WER=0.1667, CER=0.0417, Conf=high
+  [1321/2400] 01320: WER=0.1667, CER=0.0385, Conf=high
+  [1322/2400] 01321: WER=0.1250, CER=0.0270, Conf=high
+  [1323/2400] 01322: WER=0.3750, CER=0.0476, Conf=high
+  [1324/2400] 01323: WER=0.2500, CER=0.1000, Conf=high
+  [1325/2400] 01324: WER=0.1000, CER=0.0244, Conf=high
+  [1326/2400] 01325: WER=0.5000, CER=0.1562, Conf=high
+  [1327/2400] 01326: WER=0.7000, CER=0.4394, Conf=medium
+  [1328/2400] 01327: WER=0.6667, CER=0.2308, Conf=medium
+  [1329/2400] 01328: WER=0.1250, CER=0.0278, Conf=high
+  [1330/2400] 01329: WER=0.1667, CER=0.0345, Conf=high
+  [1331/2400] 01330: WER=0.1667, CER=0.0615, Conf=high
+  [1332/2400] 01331: WER=0.3333, CER=0.0938, Conf=high
+  [1333/2400] 01332: WER=0.6000, CER=0.2727, Conf=high
+  [1334/2400] 01333: WER=0.2500, CER=0.0526, Conf=high
+  [1335/2400] 01334: WER=0.6364, CER=0.1231, Conf=high
+  [1336/2400] 01335: WER=0.7500, CER=0.1875, Conf=high
+  [1337/2400] 01336: WER=0.6667, CER=0.1034, Conf=high
+  [1338/2400] 01337: WER=0.3333, CER=0.2222, Conf=high
+  [1339/2400] 01338: WER=0.4444, CER=0.1042, Conf=high
+  [1340/2400] 01339: WER=0.2500, CER=0.1000, Conf=high
+  [1341/2400] 01340: WER=0.6000, CER=0.1786, Conf=high
+  [1342/2400] 01341: WER=0.2857, CER=0.0571, Conf=high
+  [1343/2400] 01342: WER=0.6667, CER=0.1212, Conf=high
+  [1344/2400] 01343: WER=0.2500, CER=0.1000, Conf=high
+  [1345/2400] 01344: WER=0.2727, CER=0.1724, Conf=high
+  [1346/2400] 01345: WER=0.4286, CER=0.2000, Conf=high
+  [1347/2400] 01346: WER=0.2000, CER=0.0400, Conf=high
+  [1348/2400] 01347: WER=0.3333, CER=0.1000, Conf=high
+  [1349/2400] 01348: WER=0.2857, CER=0.0526, Conf=high
+  [1350/2400] 01349: WER=0.4000, CER=0.2174, Conf=high
+
+============================================================
+Processing chunk 28/48
+Files 1350 to 1399 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1351/2400] 01350: WER=0.3846, CER=0.2623, Conf=medium
+  [1352/2400] 01351: WER=0.3750, CER=0.1556, Conf=high
+  [1353/2400] 01352: WER=0.2857, CER=0.1935, Conf=high
+  [1354/2400] 01353: WER=0.5000, CER=0.2778, Conf=high
+  [1355/2400] 01354: WER=0.4000, CER=0.1579, Conf=high
+  [1356/2400] 01355: WER=0.1250, CER=0.0233, Conf=high
+  [1357/2400] 01356: WER=0.2500, CER=0.0444, Conf=high
+  [1358/2400] 01357: WER=0.3000, CER=0.1020, Conf=high
+  [1359/2400] 01358: WER=0.2500, CER=0.0571, Conf=high
+  [1360/2400] 01359: WER=0.4000, CER=0.1500, Conf=high
+  [1361/2400] 01360: WER=0.2500, CER=0.1220, Conf=high
+  [1362/2400] 01361: WER=0.1429, CER=0.0357, Conf=high
+  [1363/2400] 01362: WER=0.4000, CER=0.2857, Conf=high
+  [1364/2400] 01363: WER=0.2000, CER=0.0333, Conf=high
+  [1365/2400] 01364: WER=0.2500, CER=0.0833, Conf=high
+  [1366/2400] 01365: WER=0.2727, CER=0.0678, Conf=high
+  [1367/2400] 01366: WER=0.6667, CER=0.2500, Conf=high
+  [1368/2400] 01367: WER=0.3333, CER=0.0750, Conf=high
+  [1369/2400] 01368: WER=0.3077, CER=0.0968, Conf=high
+  [1370/2400] 01369: WER=0.4286, CER=0.0541, Conf=high
+  [1371/2400] 01370: WER=0.3846, CER=0.1467, Conf=high
+  [1372/2400] 01371: WER=0.5833, CER=0.1500, Conf=medium
+  [1373/2400] 01372: WER=0.2857, CER=0.0690, Conf=high
+  [1374/2400] 01373: WER=0.5556, CER=0.1600, Conf=high
+  [1375/2400] 01374: WER=0.5714, CER=0.1081, Conf=high
+  [1376/2400] 01375: WER=0.6000, CER=0.1739, Conf=medium
+  [1377/2400] 01376: WER=0.2500, CER=0.0588, Conf=medium
+  [1378/2400] 01377: WER=0.4444, CER=0.1538, Conf=high
+  [1379/2400] 01378: WER=0.2000, CER=0.0500, Conf=high
+  [1380/2400] 01379: WER=0.4000, CER=0.2222, Conf=high
+  [1381/2400] 01380: WER=0.3333, CER=0.1176, Conf=high
+  [1382/2400] 01381: WER=0.1667, CER=0.0312, Conf=medium
+  [1383/2400] 01382: WER=0.5000, CER=0.1429, Conf=high
+  [1384/2400] 01383: WER=0.2500, CER=0.0556, Conf=high
+  [1385/2400] 01384: WER=1.0000, CER=0.4118, Conf=high
+  [1386/2400] 01385: WER=0.7500, CER=0.3333, Conf=high
+  [1387/2400] 01386: WER=0.1667, CER=0.0345, Conf=high
+  [1388/2400] 01387: WER=0.2727, CER=0.1111, Conf=high
+  [1389/2400] 01388: WER=0.1429, CER=0.0323, Conf=high
+  [1390/2400] 01389: WER=0.5000, CER=0.2609, Conf=high
+  [1391/2400] 01390: WER=1.0000, CER=0.8846, Conf=low
+  [1392/2400] 01391: WER=1.0000, CER=0.9333, Conf=medium
+  [1393/2400] 01392: WER=0.2500, CER=0.0811, Conf=high
+  [1394/2400] 01393: WER=0.3333, CER=0.0645, Conf=medium
+  [1395/2400] 01394: WER=0.2500, CER=0.0800, Conf=high
+  [1396/2400] 01395: WER=0.3333, CER=0.0769, Conf=high
+  [1397/2400] 01396: WER=0.2000, CER=0.0417, Conf=high
+  [1398/2400] 01397: WER=0.3077, CER=0.2759, Conf=high
+  [1399/2400] 01398: WER=0.3750, CER=0.1471, Conf=high
+  [1400/2400] 01399: WER=0.4444, CER=0.1707, Conf=high
+
+============================================================
+Processing chunk 29/48
+Files 1400 to 1449 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1401/2400] 01400: WER=0.2500, CER=0.1786, Conf=high
+  [1402/2400] 01401: WER=0.4286, CER=0.1765, Conf=high
+  [1403/2400] 01402: WER=0.8889, CER=0.2759, Conf=high
+  [1404/2400] 01403: WER=0.2857, CER=0.0714, Conf=high
+  [1405/2400] 01404: WER=0.2500, CER=0.0588, Conf=high
+  [1406/2400] 01405: WER=0.2500, CER=0.0556, Conf=high
+  [1407/2400] 01406: WER=0.2222, CER=0.0750, Conf=high
+  [1408/2400] 01407: WER=0.6250, CER=0.2571, Conf=high
+  [1409/2400] 01408: WER=0.8000, CER=0.2632, Conf=high
+  [1410/2400] 01409: WER=1.0000, CER=0.1154, Conf=high
+  [1411/2400] 01410: WER=0.4000, CER=0.0877, Conf=high
+  [1412/2400] 01411: WER=0.8333, CER=0.2000, Conf=high
+  [1413/2400] 01412: WER=0.4545, CER=0.0923, Conf=high
+  [1414/2400] 01413: WER=0.0000, CER=0.0000, Conf=high
+  [1415/2400] 01414: WER=0.2143, CER=0.1029, Conf=high
+  [1416/2400] 01415: WER=0.3077, CER=0.1081, Conf=high
+  [1417/2400] 01416: WER=0.2000, CER=0.0556, Conf=high
+  [1418/2400] 01417: WER=0.5714, CER=0.1667, Conf=high
+  [1419/2400] 01418: WER=0.5000, CER=0.1786, Conf=high
+  [1420/2400] 01419: WER=0.6000, CER=0.2157, Conf=high
+  [1421/2400] 01420: WER=0.1667, CER=0.0385, Conf=high
+  [1422/2400] 01421: WER=0.3333, CER=0.2286, Conf=medium
+  [1423/2400] 01422: WER=0.8000, CER=0.2500, Conf=high
+  [1424/2400] 01423: WER=0.1667, CER=0.0345, Conf=high
+  [1425/2400] 01424: WER=0.8000, CER=0.4717, Conf=medium
+  [1426/2400] 01425: WER=0.5000, CER=0.1852, Conf=high
+  [1427/2400] 01426: WER=0.0000, CER=0.0000, Conf=high
+  [1428/2400] 01427: WER=0.4000, CER=0.0800, Conf=high
+  [1429/2400] 01428: WER=0.1429, CER=0.0227, Conf=high
+  [1430/2400] 01429: WER=0.0000, CER=0.0000, Conf=high
+  [1431/2400] 01430: WER=0.2308, CER=0.0455, Conf=high
+  [1432/2400] 01431: WER=0.2143, CER=0.0822, Conf=high
+  [1433/2400] 01432: WER=1.0000, CER=0.3333, Conf=high
+  [1434/2400] 01433: WER=0.2500, CER=0.0526, Conf=high
+  [1435/2400] 01434: WER=0.1111, CER=0.0408, Conf=high
+  [1436/2400] 01435: WER=0.1667, CER=0.1000, Conf=high
+  [1437/2400] 01436: WER=0.8750, CER=0.2258, Conf=high
+  [1438/2400] 01437: WER=0.3750, CER=0.1176, Conf=high
+  [1439/2400] 01438: WER=0.6000, CER=0.1940, Conf=high
+  [1440/2400] 01439: WER=0.6667, CER=0.2195, Conf=high
+  [1441/2400] 01440: WER=0.1250, CER=0.0263, Conf=high
+  [1442/2400] 01441: WER=0.4000, CER=0.3000, Conf=high
+  [1443/2400] 01442: WER=0.2857, CER=0.0714, Conf=high
+  [1444/2400] 01443: WER=0.5000, CER=0.2692, Conf=high
+  [1445/2400] 01444: WER=0.3077, CER=0.1250, Conf=high
+  [1446/2400] 01445: WER=0.1667, CER=0.0469, Conf=high
+  [1447/2400] 01446: WER=0.1111, CER=0.0667, Conf=high
+  [1448/2400] 01447: WER=0.2222, CER=0.0541, Conf=high
+  [1449/2400] 01448: WER=0.5000, CER=0.1176, Conf=high
+  [1450/2400] 01449: WER=0.1818, CER=0.0370, Conf=high
+
+============================================================
+Processing chunk 30/48
+Files 1450 to 1499 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1451/2400] 01450: WER=0.2308, CER=0.0625, Conf=high
+  [1452/2400] 01451: WER=0.7500, CER=0.2000, Conf=high
+  [1453/2400] 01452: WER=0.1667, CER=0.0417, Conf=high
+  [1454/2400] 01453: WER=0.5000, CER=0.1429, Conf=high
+  [1455/2400] 01454: WER=0.5000, CER=0.0714, Conf=high
+  [1456/2400] 01455: WER=0.3000, CER=0.1159, Conf=high
+  [1457/2400] 01456: WER=0.2500, CER=0.0488, Conf=high
+  [1458/2400] 01457: WER=0.0000, CER=0.0000, Conf=high
+  [1459/2400] 01458: WER=0.2857, CER=0.1053, Conf=high
+  [1460/2400] 01459: WER=0.3333, CER=0.0833, Conf=high
+  [1461/2400] 01460: WER=0.1111, CER=0.0435, Conf=medium
+  [1462/2400] 01461: WER=1.0000, CER=0.2353, Conf=high
+  [1463/2400] 01462: WER=0.0000, CER=0.0000, Conf=high
+  [1464/2400] 01463: WER=0.4000, CER=0.0952, Conf=high
+  [1465/2400] 01464: WER=0.2857, CER=0.1200, Conf=high
+  [1466/2400] 01465: WER=0.1667, CER=0.0508, Conf=high
+  [1467/2400] 01466: WER=0.2000, CER=0.0526, Conf=high
+  [1468/2400] 01467: WER=0.2000, CER=0.0435, Conf=high
+  [1469/2400] 01468: WER=0.0000, CER=0.0000, Conf=high
+  [1470/2400] 01469: WER=0.2308, CER=0.0822, Conf=high
+  [1471/2400] 01470: WER=0.2500, CER=0.1000, Conf=medium
+  [1472/2400] 01471: WER=0.5714, CER=0.1163, Conf=high
+  [1473/2400] 01472: WER=0.4615, CER=0.1014, Conf=high
+  [1474/2400] 01473: WER=0.4286, CER=0.2121, Conf=high
+  [1475/2400] 01474: WER=0.1250, CER=0.0286, Conf=high
+  [1476/2400] 01475: WER=0.5000, CER=0.1000, Conf=high
+  [1477/2400] 01476: WER=0.2000, CER=0.0455, Conf=high
+  [1478/2400] 01477: WER=0.5000, CER=0.1071, Conf=high
+  [1479/2400] 01478: WER=0.3077, CER=0.1231, Conf=medium
+  [1480/2400] 01479: WER=0.7500, CER=0.2500, Conf=high
+  [1481/2400] 01480: WER=0.5000, CER=0.1304, Conf=high
+  [1482/2400] 01481: WER=0.2222, CER=0.0571, Conf=high
+  [1483/2400] 01482: WER=0.4444, CER=0.3617, Conf=high
+  [1484/2400] 01483: WER=0.3000, CER=0.1000, Conf=high
+  [1485/2400] 01484: WER=0.4286, CER=0.1515, Conf=high
+  [1486/2400] 01485: WER=1.0000, CER=0.4615, Conf=high
+  [1487/2400] 01486: WER=0.5455, CER=0.0968, Conf=high
+  [1488/2400] 01487: WER=1.2000, CER=0.3939, Conf=medium
+  [1489/2400] 01488: WER=0.6000, CER=0.0656, Conf=high
+  [1490/2400] 01489: WER=0.1429, CER=0.0588, Conf=high
+  [1491/2400] 01490: WER=0.5000, CER=0.1351, Conf=high
+  [1492/2400] 01491: WER=0.1429, CER=0.0357, Conf=high
+  [1493/2400] 01492: WER=0.4286, CER=0.3143, Conf=high
+  [1494/2400] 01493: WER=0.2500, CER=0.0400, Conf=high
+  [1495/2400] 01494: WER=0.3333, CER=0.0667, Conf=high
+  [1496/2400] 01495: WER=0.2000, CER=0.0417, Conf=high
+  [1497/2400] 01496: WER=0.5000, CER=0.1522, Conf=high
+  [1498/2400] 01497: WER=0.1538, CER=0.0548, Conf=high
+  [1499/2400] 01498: WER=0.6250, CER=0.1132, Conf=high
+  [1500/2400] 01499: WER=0.2857, CER=0.0312, Conf=high
+
+============================================================
+Processing chunk 31/48
+Files 1500 to 1549 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1501/2400] 01500: WER=0.1429, CER=0.0345, Conf=high
+  [1502/2400] 01501: WER=0.6000, CER=0.2143, Conf=high
+  [1503/2400] 01502: WER=0.2857, CER=0.0588, Conf=high
+  [1504/2400] 01503: WER=0.6667, CER=0.1778, Conf=high
+  [1505/2400] 01504: WER=0.2857, CER=0.1071, Conf=high
+  [1506/2400] 01505: WER=1.2500, CER=0.3684, Conf=low
+  [1507/2400] 01506: WER=0.2000, CER=0.0400, Conf=high
+  [1508/2400] 01507: WER=0.1000, CER=0.0185, Conf=high
+  [1509/2400] 01508: WER=0.2857, CER=0.0385, Conf=high
+  [1510/2400] 01509: WER=0.2500, CER=0.0500, Conf=high
+  [1511/2400] 01510: WER=0.4444, CER=0.1750, Conf=high
+  [1512/2400] 01511: WER=0.6923, CER=0.1791, Conf=medium
+  [1513/2400] 01512: WER=0.1111, CER=0.0222, Conf=high
+  [1514/2400] 01513: WER=0.1667, CER=0.0357, Conf=high
+  [1515/2400] 01514: WER=0.3333, CER=0.0656, Conf=high
+  [1516/2400] 01515: WER=1.0000, CER=0.7429, Conf=high
+  [1517/2400] 01516: WER=0.2222, CER=0.1489, Conf=high
+  [1518/2400] 01517: WER=0.8571, CER=0.3125, Conf=medium
+  [1519/2400] 01518: WER=0.2857, CER=0.0952, Conf=medium
+  [1520/2400] 01519: WER=0.0000, CER=0.0000, Conf=high
+  [1521/2400] 01520: WER=0.3333, CER=0.0800, Conf=high
+  [1522/2400] 01521: WER=0.3333, CER=0.0847, Conf=high
+  [1523/2400] 01522: WER=0.7500, CER=0.8000, Conf=low
+  [1524/2400] 01523: WER=0.2000, CER=0.0500, Conf=high
+  [1525/2400] 01524: WER=0.5000, CER=0.1429, Conf=high
+  [1526/2400] 01525: WER=0.2500, CER=0.0455, Conf=high
+  [1527/2400] 01526: WER=0.8000, CER=0.3846, Conf=medium
+  [1528/2400] 01527: WER=0.0000, CER=0.0000, Conf=high
+  [1529/2400] 01528: WER=0.3333, CER=0.0833, Conf=high
+  [1530/2400] 01529: WER=0.2500, CER=0.1628, Conf=high
+  [1531/2400] 01530: WER=0.2727, CER=0.0625, Conf=high
+  [1532/2400] 01531: WER=0.2000, CER=0.0426, Conf=high
+  [1533/2400] 01532: WER=0.8000, CER=0.3333, Conf=high
+  [1534/2400] 01533: WER=0.1429, CER=0.0682, Conf=high
+  [1535/2400] 01534: WER=0.3333, CER=0.1333, Conf=high
+  [1536/2400] 01535: WER=0.3333, CER=0.1481, Conf=high
+  [1537/2400] 01536: WER=0.6667, CER=0.2667, Conf=medium
+  [1538/2400] 01537: WER=0.5000, CER=0.3333, Conf=high
+  [1539/2400] 01538: WER=0.0909, CER=0.0192, Conf=high
+  [1540/2400] 01539: WER=0.1000, CER=0.0263, Conf=high
+  [1541/2400] 01540: WER=0.4000, CER=0.0870, Conf=high
+  [1542/2400] 01541: WER=0.1538, CER=0.0635, Conf=high
+  [1543/2400] 01542: WER=0.2222, CER=0.1316, Conf=high
+  [1544/2400] 01543: WER=0.6250, CER=0.0889, Conf=high
+  [1545/2400] 01544: WER=0.2500, CER=0.0556, Conf=high
+  [1546/2400] 01545: WER=0.2000, CER=0.0417, Conf=high
+  [1547/2400] 01546: WER=0.4286, CER=0.1290, Conf=high
+  [1548/2400] 01547: WER=0.3333, CER=0.1304, Conf=high
+  [1549/2400] 01548: WER=0.3750, CER=0.2500, Conf=high
+  [1550/2400] 01549: WER=0.1667, CER=0.0417, Conf=high
+
+============================================================
+Processing chunk 32/48
+Files 1550 to 1599 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1551/2400] 01550: WER=0.4000, CER=0.2000, Conf=high
+  [1552/2400] 01551: WER=0.0000, CER=0.0000, Conf=high
+  [1553/2400] 01552: WER=0.2500, CER=0.1000, Conf=high
+  [1554/2400] 01553: WER=0.2500, CER=0.0526, Conf=high
+  [1555/2400] 01554: WER=0.0000, CER=0.0000, Conf=high
+  [1556/2400] 01555: WER=0.1429, CER=0.0244, Conf=high
+  [1557/2400] 01556: WER=0.6667, CER=0.2692, Conf=high
+  [1558/2400] 01557: WER=2.0000, CER=1.7647, Conf=medium
+  [1559/2400] 01558: WER=0.5000, CER=0.1364, Conf=high
+  [1560/2400] 01559: WER=0.6000, CER=0.1500, Conf=high
+  [1561/2400] 01560: WER=0.0000, CER=0.0000, Conf=high
+  [1562/2400] 01561: WER=0.0909, CER=0.0167, Conf=high
+  [1563/2400] 01562: WER=0.5714, CER=0.1765, Conf=high
+  [1564/2400] 01563: WER=0.7778, CER=0.3000, Conf=high
+  [1565/2400] 01564: WER=0.2500, CER=0.0476, Conf=high
+  [1566/2400] 01565: WER=0.1111, CER=0.0270, Conf=high
+  [1567/2400] 01566: WER=0.2500, CER=0.2955, Conf=high
+  [1568/2400] 01567: WER=0.2000, CER=0.0714, Conf=high
+  [1569/2400] 01568: WER=0.7143, CER=0.2500, Conf=high
+  [1570/2400] 01569: WER=0.2500, CER=0.0769, Conf=high
+  [1571/2400] 01570: WER=0.5556, CER=0.2500, Conf=high
+  [1572/2400] 01571: WER=0.3846, CER=0.1719, Conf=high
+  [1573/2400] 01572: WER=0.1250, CER=0.0455, Conf=high
+  [1574/2400] 01573: WER=0.5714, CER=0.1556, Conf=medium
+  [1575/2400] 01574: WER=0.4444, CER=0.2444, Conf=high
+  [1576/2400] 01575: WER=0.2000, CER=0.0800, Conf=high
+  [1577/2400] 01576: WER=0.3846, CER=0.2031, Conf=medium
+  [1578/2400] 01577: WER=0.2222, CER=0.1220, Conf=high
+  [1579/2400] 01578: WER=0.6000, CER=0.2000, Conf=high
+  [1580/2400] 01579: WER=0.3000, CER=0.1224, Conf=high
+  [1581/2400] 01580: WER=0.4444, CER=0.2941, Conf=high
+  [1582/2400] 01581: WER=0.6000, CER=0.4889, Conf=medium
+  [1583/2400] 01582: WER=0.2000, CER=0.0417, Conf=medium
+  [1584/2400] 01583: WER=0.2500, CER=0.0833, Conf=high
+  [1585/2400] 01584: WER=0.5714, CER=0.2308, Conf=high
+  [1586/2400] 01585: WER=0.3000, CER=0.1020, Conf=high
+  [1587/2400] 01586: WER=0.1000, CER=0.0444, Conf=high
+  [1588/2400] 01587: WER=0.5000, CER=0.3043, Conf=medium
+  [1589/2400] 01588: WER=0.1667, CER=0.0800, Conf=high
+  [1590/2400] 01589: WER=0.8000, CER=0.3333, Conf=high
+  [1591/2400] 01590: WER=0.2857, CER=0.0606, Conf=high
+  [1592/2400] 01591: WER=0.2500, CER=0.0625, Conf=high
+  [1593/2400] 01592: WER=0.2500, CER=0.0625, Conf=high
+  [1594/2400] 01593: WER=0.4000, CER=0.2857, Conf=high
+  [1595/2400] 01594: WER=0.2500, CER=0.0476, Conf=high
+  [1596/2400] 01595: WER=0.1818, CER=0.0351, Conf=high
+  [1597/2400] 01596: WER=0.2000, CER=0.0455, Conf=high
+  [1598/2400] 01597: WER=0.2000, CER=0.0417, Conf=high
+  [1599/2400] 01598: WER=0.5714, CER=0.1818, Conf=medium
+  [1600/2400] 01599: WER=0.4286, CER=0.1500, Conf=high
+
+============================================================
+Processing chunk 33/48
+Files 1600 to 1649 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1601/2400] 01600: WER=0.2500, CER=0.0625, Conf=medium
+  [1602/2400] 01601: WER=0.5000, CER=0.2619, Conf=high
+  [1603/2400] 01602: WER=0.2500, CER=0.1000, Conf=high
+  [1604/2400] 01603: WER=0.4286, CER=0.2000, Conf=high
+  [1605/2400] 01604: WER=0.1667, CER=0.0400, Conf=high
+  [1606/2400] 01605: WER=0.7143, CER=0.5588, Conf=high
+  [1607/2400] 01606: WER=0.3000, CER=0.0952, Conf=high
+  [1608/2400] 01607: WER=0.7000, CER=0.5510, Conf=medium
+  [1609/2400] 01608: WER=0.6250, CER=0.2439, Conf=medium
+  [1610/2400] 01609: WER=0.3333, CER=0.0667, Conf=high
+  [1611/2400] 01610: WER=0.3333, CER=0.0500, Conf=high
+  [1612/2400] 01611: WER=0.7500, CER=0.3043, Conf=high
+  [1613/2400] 01612: WER=0.5556, CER=0.1400, Conf=medium
+  [1614/2400] 01613: WER=0.9091, CER=0.4545, Conf=medium
+  [1615/2400] 01614: WER=0.7143, CER=0.3462, Conf=high
+  [1616/2400] 01615: WER=0.2857, CER=0.2121, Conf=high
+  [1617/2400] 01616: WER=0.8182, CER=0.4561, Conf=medium
+  [1618/2400] 01617: WER=0.2727, CER=0.0741, Conf=high
+  [1619/2400] 01618: WER=0.3000, CER=0.2653, Conf=high
+  [1620/2400] 01619: WER=0.5000, CER=0.1628, Conf=high
+  [1621/2400] 01620: WER=0.1818, CER=0.0455, Conf=high
+  [1622/2400] 01621: WER=0.4444, CER=0.1667, Conf=high
+  [1623/2400] 01622: WER=0.3333, CER=0.0769, Conf=high
+  [1624/2400] 01623: WER=0.4286, CER=0.0645, Conf=high
+  [1625/2400] 01624: WER=0.6667, CER=0.1111, Conf=high
+  [1626/2400] 01625: WER=0.5000, CER=0.3125, Conf=medium
+  [1627/2400] 01626: WER=0.6667, CER=0.1667, Conf=high
+  [1628/2400] 01627: WER=0.3000, CER=0.1892, Conf=high
+  [1629/2400] 01628: WER=0.5714, CER=0.3333, Conf=medium
+  [1630/2400] 01629: WER=0.2857, CER=0.0714, Conf=high
+  [1631/2400] 01630: WER=0.3750, CER=0.1212, Conf=high
+  [1632/2400] 01631: WER=0.5000, CER=0.1029, Conf=high
+  [1633/2400] 01632: WER=0.3846, CER=0.0938, Conf=high
+  [1634/2400] 01633: WER=0.1429, CER=0.0323, Conf=high
+  [1635/2400] 01634: WER=0.3333, CER=0.1250, Conf=high
+  [1636/2400] 01635: WER=0.2500, CER=0.0588, Conf=high
+  [1637/2400] 01636: WER=0.6000, CER=0.1429, Conf=high
+  [1638/2400] 01637: WER=0.2727, CER=0.1087, Conf=high
+  [1639/2400] 01638: WER=0.1667, CER=0.0417, Conf=high
+  [1640/2400] 01639: WER=0.2857, CER=0.1515, Conf=high
+  [1641/2400] 01640: WER=0.4000, CER=0.1818, Conf=high
+  [1642/2400] 01641: WER=0.2500, CER=0.0556, Conf=high
+  [1643/2400] 01642: WER=0.5556, CER=0.2250, Conf=high
+  [1644/2400] 01643: WER=0.4286, CER=0.2258, Conf=high
+  [1645/2400] 01644: WER=0.7500, CER=0.1250, Conf=high
+  [1646/2400] 01645: WER=0.3333, CER=0.0714, Conf=high
+  [1647/2400] 01646: WER=0.7500, CER=0.4211, Conf=high
+  [1648/2400] 01647: WER=0.2000, CER=0.0500, Conf=high
+  [1649/2400] 01648: WER=0.0000, CER=0.0000, Conf=high
+  [1650/2400] 01649: WER=0.4286, CER=0.1250, Conf=high
+
+============================================================
+Processing chunk 34/48
+Files 1650 to 1699 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1651/2400] 01650: WER=0.5000, CER=0.1000, Conf=high
+  [1652/2400] 01651: WER=0.3333, CER=0.0769, Conf=high
+  [1653/2400] 01652: WER=0.2857, CER=0.0256, Conf=high
+  [1654/2400] 01653: WER=0.1250, CER=0.0227, Conf=high
+  [1655/2400] 01654: WER=0.1250, CER=0.0204, Conf=high
+  [1656/2400] 01655: WER=1.0000, CER=0.2174, Conf=high
+  [1657/2400] 01656: WER=0.2500, CER=0.0789, Conf=high
+  [1658/2400] 01657: WER=0.1538, CER=0.0323, Conf=high
+  [1659/2400] 01658: WER=0.5000, CER=0.0541, Conf=high
+  [1660/2400] 01659: WER=0.1429, CER=0.0333, Conf=high
+  [1661/2400] 01660: WER=0.7273, CER=0.4118, Conf=medium
+  [1662/2400] 01661: WER=0.4000, CER=0.2500, Conf=medium
+  [1663/2400] 01662: WER=0.4000, CER=0.2174, Conf=high
+  [1664/2400] 01663: WER=0.2500, CER=0.0556, Conf=high
+  [1665/2400] 01664: WER=0.4444, CER=0.2143, Conf=high
+  [1666/2400] 01665: WER=0.4545, CER=0.1228, Conf=high
+  [1667/2400] 01666: WER=0.3077, CER=0.0606, Conf=high
+  [1668/2400] 01667: WER=0.4286, CER=0.0571, Conf=high
+  [1669/2400] 01668: WER=0.6667, CER=0.2667, Conf=high
+  [1670/2400] 01669: WER=0.4000, CER=0.1860, Conf=high
+  [1671/2400] 01670: WER=0.5000, CER=0.1290, Conf=high
+  [1672/2400] 01671: WER=0.8750, CER=0.2750, Conf=high
+  [1673/2400] 01672: WER=0.6000, CER=0.0870, Conf=high
+  [1674/2400] 01673: WER=0.2500, CER=0.1207, Conf=high
+  [1675/2400] 01674: WER=2.3333, CER=2.0769, Conf=medium
+  [1676/2400] 01675: WER=0.8000, CER=0.6250, Conf=high
+  [1677/2400] 01676: WER=0.2000, CER=0.0588, Conf=high
+  [1678/2400] 01677: WER=0.3846, CER=0.2258, Conf=medium
+  [1679/2400] 01678: WER=0.3333, CER=0.0625, Conf=high
+  [1680/2400] 01679: WER=0.6667, CER=0.1268, Conf=high
+  [1681/2400] 01680: WER=0.2500, CER=0.0976, Conf=high
+  [1682/2400] 01681: WER=1.0000, CER=0.3871, Conf=high
+  [1683/2400] 01682: WER=0.7143, CER=0.5227, Conf=medium
+  [1684/2400] 01683: WER=0.1429, CER=0.0263, Conf=high
+  [1685/2400] 01684: WER=0.0000, CER=0.0000, Conf=high
+  [1686/2400] 01685: WER=0.6000, CER=0.1786, Conf=high
+  [1687/2400] 01686: WER=0.7500, CER=0.2444, Conf=medium
+  [1688/2400] 01687: WER=0.2500, CER=0.1053, Conf=high
+  [1689/2400] 01688: WER=0.5000, CER=0.2500, Conf=high
+  [1690/2400] 01689: WER=0.1667, CER=0.0333, Conf=high
+  [1691/2400] 01690: WER=0.2857, CER=0.0588, Conf=high
+  [1692/2400] 01691: WER=0.2857, CER=0.0645, Conf=high
+  [1693/2400] 01692: WER=0.3333, CER=0.1154, Conf=high
+  [1694/2400] 01693: WER=0.2857, CER=0.0588, Conf=high
+  [1695/2400] 01694: WER=0.4000, CER=0.0833, Conf=high
+  [1696/2400] 01695: WER=0.2500, CER=0.1176, Conf=high
+  [1697/2400] 01696: WER=0.1111, CER=0.0303, Conf=high
+  [1698/2400] 01697: WER=0.1111, CER=0.0789, Conf=high
+  [1699/2400] 01698: WER=0.1667, CER=0.0385, Conf=high
+  [1700/2400] 01699: WER=0.2000, CER=0.0577, Conf=high
+
+============================================================
+Processing chunk 35/48
+Files 1700 to 1749 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1701/2400] 01700: WER=0.5714, CER=0.2800, Conf=high
+  [1702/2400] 01701: WER=0.1429, CER=0.0294, Conf=high
+  [1703/2400] 01702: WER=0.2000, CER=0.0357, Conf=high
+  [1704/2400] 01703: WER=0.6154, CER=0.3077, Conf=high
+  [1705/2400] 01704: WER=0.1667, CER=0.0357, Conf=high
+  [1706/2400] 01705: WER=0.4000, CER=0.0517, Conf=high
+  [1707/2400] 01706: WER=0.5000, CER=0.1667, Conf=high
+  [1708/2400] 01707: WER=0.1429, CER=0.0357, Conf=high
+  [1709/2400] 01708: WER=0.0833, CER=0.0200, Conf=high
+  [1710/2400] 01709: WER=0.1818, CER=0.0308, Conf=high
+  [1711/2400] 01710: WER=0.0833, CER=0.0147, Conf=high
+  [1712/2400] 01711: WER=0.2500, CER=0.0862, Conf=high
+  [1713/2400] 01712: WER=0.4615, CER=0.2424, Conf=high
+  [1714/2400] 01713: WER=0.8333, CER=0.2500, Conf=high
+  [1715/2400] 01714: WER=0.7143, CER=0.1250, Conf=high
+  [1716/2400] 01715: WER=0.0769, CER=0.0135, Conf=high
+  [1717/2400] 01716: WER=0.5000, CER=0.1053, Conf=high
+  [1718/2400] 01717: WER=0.1667, CER=0.0357, Conf=high
+  [1719/2400] 01718: WER=0.6667, CER=0.4167, Conf=high
+  [1720/2400] 01719: WER=0.6000, CER=0.1786, Conf=high
+  [1721/2400] 01720: WER=0.1111, CER=0.0213, Conf=high
+  [1722/2400] 01721: WER=0.5000, CER=0.2105, Conf=high
+  [1723/2400] 01722: WER=0.5714, CER=0.1364, Conf=high
+  [1724/2400] 01723: WER=0.2500, CER=0.1136, Conf=high
+  [1725/2400] 01724: WER=0.2857, CER=0.0444, Conf=high
+  [1726/2400] 01725: WER=0.2857, CER=0.1000, Conf=high
+  [1727/2400] 01726: WER=0.2222, CER=0.0488, Conf=high
+  [1728/2400] 01727: WER=0.5556, CER=0.1636, Conf=high
+  [1729/2400] 01728: WER=0.2000, CER=0.0417, Conf=high
+  [1730/2400] 01729: WER=0.1667, CER=0.0333, Conf=high
+  [1731/2400] 01730: WER=0.0000, CER=0.0000, Conf=high
+  [1732/2400] 01731: WER=0.7500, CER=0.1304, Conf=high
+  [1733/2400] 01732: WER=0.0000, CER=0.0000, Conf=high
+  [1734/2400] 01733: WER=0.3333, CER=0.0833, Conf=high
+  [1735/2400] 01734: WER=0.4000, CER=0.2143, Conf=high
+  [1736/2400] 01735: WER=0.4000, CER=0.1304, Conf=medium
+  [1737/2400] 01736: WER=0.6667, CER=0.1600, Conf=high
+  [1738/2400] 01737: WER=0.2000, CER=0.0476, Conf=high
+  [1739/2400] 01738: WER=0.2500, CER=0.0488, Conf=high
+  [1740/2400] 01739: WER=0.6667, CER=0.2800, Conf=high
+  [1741/2400] 01740: WER=1.0000, CER=0.1500, Conf=high
+  [1742/2400] 01741: WER=0.4286, CER=0.1000, Conf=high
+  [1743/2400] 01742: WER=0.3750, CER=0.3333, Conf=high
+  [1744/2400] 01743: WER=0.3000, CER=0.0392, Conf=high
+  [1745/2400] 01744: WER=0.5714, CER=0.3438, Conf=high
+  [1746/2400] 01745: WER=0.2500, CER=0.0714, Conf=high
+  [1747/2400] 01746: WER=0.3333, CER=0.2500, Conf=high
+  [1748/2400] 01747: WER=0.0833, CER=0.0161, Conf=high
+  [1749/2400] 01748: WER=0.4000, CER=0.1579, Conf=high
+  [1750/2400] 01749: WER=0.5000, CER=0.1000, Conf=high
+
+============================================================
+Processing chunk 36/48
+Files 1750 to 1799 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1751/2400] 01750: WER=0.5000, CER=0.3600, Conf=high
+  [1752/2400] 01751: WER=0.6000, CER=0.1667, Conf=high
+  [1753/2400] 01752: WER=1.7500, CER=1.7059, Conf=medium
+  [1754/2400] 01753: WER=0.3333, CER=0.1333, Conf=high
+  [1755/2400] 01754: WER=0.5000, CER=0.1053, Conf=high
+  [1756/2400] 01755: WER=0.2500, CER=0.0556, Conf=high
+  [1757/2400] 01756: WER=0.5455, CER=0.1290, Conf=high
+  [1758/2400] 01757: WER=0.1667, CER=0.0270, Conf=high
+  [1759/2400] 01758: WER=0.1818, CER=0.0435, Conf=high
+  [1760/2400] 01759: WER=0.5000, CER=0.2308, Conf=high
+  [1761/2400] 01760: WER=0.3750, CER=0.0789, Conf=high
+  [1762/2400] 01761: WER=0.4000, CER=0.0800, Conf=high
+  [1763/2400] 01762: WER=0.2000, CER=0.0323, Conf=high
+  [1764/2400] 01763: WER=0.2857, CER=0.0588, Conf=high
+  [1765/2400] 01764: WER=0.7273, CER=0.2097, Conf=low
+  [1766/2400] 01765: WER=0.3333, CER=0.1667, Conf=high
+  [1767/2400] 01766: WER=0.5714, CER=0.1562, Conf=high
+  [1768/2400] 01767: WER=0.2500, CER=0.0588, Conf=high
+  [1769/2400] 01768: WER=0.2727, CER=0.0408, Conf=high
+  [1770/2400] 01769: WER=0.2000, CER=0.0526, Conf=high
+  [1771/2400] 01770: WER=0.2857, CER=0.2000, Conf=high
+  [1772/2400] 01771: WER=1.0000, CER=1.2222, Conf=high
+  [1773/2400] 01772: WER=0.1429, CER=0.0400, Conf=high
+  [1774/2400] 01773: WER=0.1250, CER=0.0263, Conf=high
+  [1775/2400] 01774: WER=0.4444, CER=0.1220, Conf=high
+  [1776/2400] 01775: WER=0.7500, CER=0.6400, Conf=high
+  [1777/2400] 01776: WER=0.5000, CER=0.2000, Conf=high
+  [1778/2400] 01777: WER=0.2500, CER=0.0882, Conf=high
+  [1779/2400] 01778: WER=0.6000, CER=0.2000, Conf=high
+  [1780/2400] 01779: WER=0.3333, CER=0.1071, Conf=high
+  [1781/2400] 01780: WER=0.2500, CER=0.0526, Conf=high
+  [1782/2400] 01781: WER=0.0909, CER=0.0667, Conf=high
+  [1783/2400] 01782: WER=1.4000, CER=0.8788, Conf=medium
+  [1784/2400] 01783: WER=0.0833, CER=0.0179, Conf=high
+  [1785/2400] 01784: WER=0.5000, CER=0.1818, Conf=high
+  [1786/2400] 01785: WER=0.0909, CER=0.0182, Conf=high
+  [1787/2400] 01786: WER=0.0769, CER=0.0678, Conf=high
+  [1788/2400] 01787: WER=0.2500, CER=0.0500, Conf=high
+  [1789/2400] 01788: WER=0.2000, CER=0.0870, Conf=high
+  [1790/2400] 01789: WER=0.1429, CER=0.0333, Conf=high
+  [1791/2400] 01790: WER=0.3333, CER=0.0938, Conf=high
+  [1792/2400] 01791: WER=0.5714, CER=0.1304, Conf=high
+  [1793/2400] 01792: WER=0.5000, CER=0.2647, Conf=high
+  [1794/2400] 01793: WER=0.1667, CER=0.0303, Conf=high
+  [1795/2400] 01794: WER=0.1429, CER=0.0455, Conf=high
+  [1796/2400] 01795: WER=0.6667, CER=0.2449, Conf=high
+  [1797/2400] 01796: WER=0.3333, CER=0.0769, Conf=high
+  [1798/2400] 01797: WER=0.6250, CER=0.1111, Conf=high
+  [1799/2400] 01798: WER=0.1429, CER=0.0312, Conf=high
+  [1800/2400] 01799: WER=0.1111, CER=0.0612, Conf=high
+
+============================================================
+Processing chunk 37/48
+Files 1800 to 1849 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1801/2400] 01800: WER=0.4167, CER=0.0548, Conf=high
+  [1802/2400] 01801: WER=0.7778, CER=0.4419, Conf=medium
+  [1803/2400] 01802: WER=0.8000, CER=0.4500, Conf=medium
+  [1804/2400] 01803: WER=0.2500, CER=0.1053, Conf=high
+  [1805/2400] 01804: WER=0.1250, CER=0.0286, Conf=high
+  [1806/2400] 01805: WER=0.4000, CER=0.0870, Conf=high
+  [1807/2400] 01806: WER=0.5714, CER=0.4286, Conf=high
+  [1808/2400] 01807: WER=0.6250, CER=0.1087, Conf=high
+  [1809/2400] 01808: WER=0.8000, CER=0.4348, Conf=medium
+  [1810/2400] 01809: WER=0.5455, CER=0.1887, Conf=high
+  [1811/2400] 01810: WER=0.7273, CER=0.2778, Conf=medium
+  [1812/2400] 01811: WER=0.3333, CER=0.2857, Conf=high
+  [1813/2400] 01812: WER=0.4167, CER=0.1167, Conf=medium
+  [1814/2400] 01813: WER=1.0000, CER=0.4348, Conf=high
+  [1815/2400] 01814: WER=0.2500, CER=0.0811, Conf=high
+  [1816/2400] 01815: WER=0.7143, CER=0.5493, Conf=medium
+  [1817/2400] 01816: WER=0.6667, CER=0.3188, Conf=medium
+  [1818/2400] 01817: WER=0.2500, CER=0.0588, Conf=high
+  [1819/2400] 01818: WER=1.5000, CER=1.5000, Conf=high
+  [1820/2400] 01819: WER=0.2500, CER=0.0571, Conf=high
+  [1821/2400] 01820: WER=0.8000, CER=0.5000, Conf=high
+  [1822/2400] 01821: WER=0.8462, CER=0.2353, Conf=medium
+  [1823/2400] 01822: WER=0.5000, CER=0.1591, Conf=high
+  [1824/2400] 01823: WER=0.5000, CER=0.1250, Conf=high
+  [1825/2400] 01824: WER=0.7500, CER=0.6000, Conf=high
+  [1826/2400] 01825: WER=0.8000, CER=0.3810, Conf=high
+  [1827/2400] 01826: WER=0.1250, CER=0.0263, Conf=high
+  [1828/2400] 01827: WER=1.0000, CER=0.8182, Conf=medium
+  [1829/2400] 01828: WER=0.4286, CER=0.1364, Conf=high
+  [1830/2400] 01829: WER=0.2500, CER=0.0455, Conf=high
+  [1831/2400] 01830: WER=0.5000, CER=0.2500, Conf=medium
+  [1832/2400] 01831: WER=0.7500, CER=0.4118, Conf=medium
+  [1833/2400] 01832: WER=0.1667, CER=0.0278, Conf=high
+  [1834/2400] 01833: WER=0.4286, CER=0.1351, Conf=high
+  [1835/2400] 01834: WER=0.5000, CER=0.3390, Conf=high
+  [1836/2400] 01835: WER=0.7500, CER=0.2500, Conf=medium
+  [1837/2400] 01836: WER=0.3333, CER=0.1600, Conf=high
+  [1838/2400] 01837: WER=0.5000, CER=0.2083, Conf=high
+  [1839/2400] 01838: WER=0.4000, CER=0.0851, Conf=high
+  [1840/2400] 01839: WER=0.6667, CER=0.1538, Conf=high
+  [1841/2400] 01840: WER=0.3750, CER=0.2188, Conf=high
+  [1842/2400] 01841: WER=0.7500, CER=0.1111, Conf=high
+  [1843/2400] 01842: WER=0.2222, CER=0.0784, Conf=high
+  [1844/2400] 01843: WER=0.5000, CER=0.1556, Conf=medium
+  [1845/2400] 01844: WER=0.2500, CER=0.0500, Conf=high
+  [1846/2400] 01845: WER=0.2000, CER=0.0357, Conf=high
+  [1847/2400] 01846: WER=0.2500, CER=0.0556, Conf=high
+  [1848/2400] 01847: WER=0.6250, CER=0.1667, Conf=high
+  [1849/2400] 01848: WER=0.5000, CER=0.2692, Conf=high
+  [1850/2400] 01849: WER=0.6000, CER=0.2200, Conf=medium
+
+============================================================
+Processing chunk 38/48
+Files 1850 to 1899 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1851/2400] 01850: WER=0.6000, CER=0.2727, Conf=medium
+  [1852/2400] 01851: WER=0.6000, CER=0.2712, Conf=high
+  [1853/2400] 01852: WER=0.6000, CER=0.1364, Conf=high
+  [1854/2400] 01853: WER=0.4000, CER=0.2449, Conf=medium
+  [1855/2400] 01854: WER=0.0909, CER=0.0233, Conf=high
+  [1856/2400] 01855: WER=0.1818, CER=0.1000, Conf=high
+  [1857/2400] 01856: WER=0.5000, CER=0.3091, Conf=high
+  [1858/2400] 01857: WER=0.6667, CER=0.2667, Conf=medium
+  [1859/2400] 01858: WER=0.3571, CER=0.1613, Conf=high
+  [1860/2400] 01859: WER=0.7143, CER=0.3333, Conf=high
+  [1861/2400] 01860: WER=0.2500, CER=0.0588, Conf=high
+  [1862/2400] 01861: WER=0.5000, CER=0.3421, Conf=high
+  [1863/2400] 01862: WER=0.2222, CER=0.0833, Conf=high
+  [1864/2400] 01863: WER=0.1667, CER=0.0294, Conf=high
+  [1865/2400] 01864: WER=0.3333, CER=0.0769, Conf=high
+  [1866/2400] 01865: WER=0.4000, CER=0.3200, Conf=high
+  [1867/2400] 01866: WER=0.1667, CER=0.1094, Conf=high
+  [1868/2400] 01867: WER=0.5455, CER=0.1379, Conf=high
+  [1869/2400] 01868: WER=0.4545, CER=0.1154, Conf=high
+  [1870/2400] 01869: WER=0.3000, CER=0.2069, Conf=medium
+  [1871/2400] 01870: WER=0.4000, CER=0.0800, Conf=high
+  [1872/2400] 01871: WER=0.6000, CER=0.1000, Conf=high
+  [1873/2400] 01872: WER=0.2857, CER=0.0625, Conf=high
+  [1874/2400] 01873: WER=0.2000, CER=0.0312, Conf=high
+  [1875/2400] 01874: WER=0.4000, CER=0.1667, Conf=high
+  [1876/2400] 01875: WER=0.3333, CER=0.2400, Conf=medium
+  [1877/2400] 01876: WER=0.1429, CER=0.0323, Conf=high
+  [1878/2400] 01877: WER=0.1000, CER=0.0233, Conf=high
+  [1879/2400] 01878: WER=1.2000, CER=0.8788, Conf=high
+  [1880/2400] 01879: WER=0.1538, CER=0.0339, Conf=high
+  [1881/2400] 01880: WER=0.5714, CER=0.2414, Conf=high
+  [1882/2400] 01881: WER=0.4000, CER=0.0889, Conf=high
+  [1883/2400] 01882: WER=0.7500, CER=0.3529, Conf=high
+  [1884/2400] 01883: WER=0.4000, CER=0.0870, Conf=high
+  [1885/2400] 01884: WER=0.6250, CER=0.3333, Conf=high
+  [1886/2400] 01885: WER=0.2000, CER=0.0500, Conf=high
+  [1887/2400] 01886: WER=0.1667, CER=0.0678, Conf=high
+  [1888/2400] 01887: WER=0.5000, CER=0.1935, Conf=medium
+  [1889/2400] 01888: WER=0.4000, CER=0.1702, Conf=high
+  [1890/2400] 01889: WER=0.5000, CER=0.1765, Conf=high
+  [1891/2400] 01890: WER=0.3333, CER=0.0476, Conf=high
+  [1892/2400] 01891: WER=0.2500, CER=0.1282, Conf=high
+  [1893/2400] 01892: WER=0.1429, CER=0.0556, Conf=high
+  [1894/2400] 01893: WER=0.7500, CER=0.1765, Conf=medium
+  [1895/2400] 01894: WER=0.2000, CER=0.0500, Conf=high
+  [1896/2400] 01895: WER=0.5000, CER=0.1379, Conf=high
+  [1897/2400] 01896: WER=0.7500, CER=0.3182, Conf=high
+  [1898/2400] 01897: WER=0.2000, CER=0.0500, Conf=high
+  [1899/2400] 01898: WER=0.2500, CER=0.0513, Conf=high
+  [1900/2400] 01899: WER=0.2000, CER=0.1250, Conf=high
+
+============================================================
+Processing chunk 39/48
+Files 1900 to 1949 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1901/2400] 01900: WER=0.1250, CER=0.0250, Conf=high
+  [1902/2400] 01901: WER=0.7500, CER=0.1667, Conf=high
+  [1903/2400] 01902: WER=0.1111, CER=0.0500, Conf=high
+  [1904/2400] 01903: WER=0.1818, CER=0.0678, Conf=high
+  [1905/2400] 01904: WER=0.2500, CER=0.0526, Conf=high
+  [1906/2400] 01905: WER=0.6667, CER=0.2500, Conf=high
+  [1907/2400] 01906: WER=0.4286, CER=0.1471, Conf=high
+  [1908/2400] 01907: WER=0.3636, CER=0.1379, Conf=high
+  [1909/2400] 01908: WER=0.2500, CER=0.0943, Conf=high
+  [1910/2400] 01909: WER=0.7500, CER=0.5082, Conf=high
+  [1911/2400] 01910: WER=0.4545, CER=0.3188, Conf=high
+  [1912/2400] 01911: WER=0.3000, CER=0.0833, Conf=high
+  [1913/2400] 01912: WER=0.7778, CER=0.2692, Conf=high
+  [1914/2400] 01913: WER=0.0000, CER=0.0000, Conf=high
+  [1915/2400] 01914: WER=0.3333, CER=0.2308, Conf=high
+  [1916/2400] 01915: WER=0.2000, CER=0.0556, Conf=high
+  [1917/2400] 01916: WER=0.1429, CER=0.0294, Conf=high
+  [1918/2400] 01917: WER=0.2500, CER=0.0556, Conf=high
+  [1919/2400] 01918: WER=0.8571, CER=0.7843, Conf=high
+  [1920/2400] 01919: WER=0.2500, CER=0.0923, Conf=high
+  [1921/2400] 01920: WER=0.5455, CER=0.1064, Conf=medium
+  [1922/2400] 01921: WER=0.7500, CER=0.6000, Conf=high
+  [1923/2400] 01922: WER=0.3333, CER=0.2143, Conf=high
+  [1924/2400] 01923: WER=0.5000, CER=0.2778, Conf=high
+  [1925/2400] 01924: WER=0.3333, CER=0.1538, Conf=medium
+  [1926/2400] 01925: WER=0.6250, CER=0.2292, Conf=medium
+  [1927/2400] 01926: WER=1.0000, CER=0.3571, Conf=high
+  [1928/2400] 01927: WER=0.6667, CER=0.3043, Conf=high
+  [1929/2400] 01928: WER=0.2500, CER=0.0435, Conf=high
+  [1930/2400] 01929: WER=0.7500, CER=0.3043, Conf=high
+  [1931/2400] 01930: WER=0.2857, CER=0.2500, Conf=medium
+  [1932/2400] 01931: WER=0.6667, CER=0.4412, Conf=high
+  [1933/2400] 01932: WER=0.2727, CER=0.2549, Conf=high
+  [1934/2400] 01933: WER=0.2308, CER=0.1127, Conf=high
+  [1935/2400] 01934: WER=0.2000, CER=0.0455, Conf=high
+  [1936/2400] 01935: WER=0.5385, CER=0.3056, Conf=high
+  [1937/2400] 01936: WER=0.2500, CER=0.0625, Conf=high
+  [1938/2400] 01937: WER=0.2500, CER=0.2128, Conf=high
+  [1939/2400] 01938: WER=0.4286, CER=0.1707, Conf=high
+  [1940/2400] 01939: WER=0.4000, CER=0.2174, Conf=high
+  [1941/2400] 01940: WER=0.6667, CER=0.2759, Conf=high
+  [1942/2400] 01941: WER=0.2500, CER=0.0556, Conf=high
+  [1943/2400] 01942: WER=0.2222, CER=0.0526, Conf=high
+  [1944/2400] 01943: WER=0.4000, CER=0.2727, Conf=high
+  [1945/2400] 01944: WER=0.5000, CER=0.2727, Conf=high
+  [1946/2400] 01945: WER=0.4286, CER=0.1765, Conf=high
+  [1947/2400] 01946: WER=0.4000, CER=0.1628, Conf=high
+  [1948/2400] 01947: WER=0.5556, CER=0.3051, Conf=high
+  [1949/2400] 01948: WER=0.2727, CER=0.1186, Conf=high
+  [1950/2400] 01949: WER=0.2000, CER=0.0816, Conf=high
+
+============================================================
+Processing chunk 40/48
+Files 1950 to 1999 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1951/2400] 01950: WER=0.5000, CER=0.1111, Conf=high
+  [1952/2400] 01951: WER=0.6667, CER=0.2308, Conf=high
+  [1953/2400] 01952: WER=0.3333, CER=0.0984, Conf=medium
+  [1954/2400] 01953: WER=0.6667, CER=0.5676, Conf=high
+  [1955/2400] 01954: WER=0.2500, CER=0.0526, Conf=high
+  [1956/2400] 01955: WER=0.3333, CER=0.1154, Conf=high
+  [1957/2400] 01956: WER=0.6667, CER=0.2500, Conf=high
+  [1958/2400] 01957: WER=0.4000, CER=0.2105, Conf=high
+  [1959/2400] 01958: WER=0.4000, CER=0.1163, Conf=high
+  [1960/2400] 01959: WER=0.5833, CER=0.2083, Conf=high
+  [1961/2400] 01960: WER=0.6667, CER=0.3846, Conf=high
+  [1962/2400] 01961: WER=0.3333, CER=0.2769, Conf=high
+  [1963/2400] 01962: WER=0.1111, CER=0.0250, Conf=high
+  [1964/2400] 01963: WER=0.5556, CER=0.3864, Conf=high
+  [1965/2400] 01964: WER=0.6154, CER=0.3077, Conf=medium
+  [1966/2400] 01965: WER=1.0000, CER=0.8305, Conf=medium
+  [1967/2400] 01966: WER=0.8750, CER=0.5250, Conf=high
+  [1968/2400] 01967: WER=0.4286, CER=0.0714, Conf=high
+  [1969/2400] 01968: WER=0.4000, CER=0.2609, Conf=high
+  [1970/2400] 01969: WER=0.6250, CER=0.2500, Conf=high
+  [1971/2400] 01970: WER=0.0000, CER=0.0000, Conf=high
+  [1972/2400] 01971: WER=0.2000, CER=0.0500, Conf=high
+  [1973/2400] 01972: WER=0.0000, CER=0.0000, Conf=high
+  [1974/2400] 01973: WER=0.8000, CER=0.3810, Conf=medium
+  [1975/2400] 01974: WER=0.2500, CER=0.0500, Conf=high
+  [1976/2400] 01975: WER=0.8571, CER=0.4242, Conf=high
+  [1977/2400] 01976: WER=1.0000, CER=0.3750, Conf=medium
+  [1978/2400] 01977: WER=1.0000, CER=0.1667, Conf=high
+  [1979/2400] 01978: WER=0.2857, CER=0.1379, Conf=high
+  [1980/2400] 01979: WER=0.2222, CER=0.1111, Conf=medium
+  [1981/2400] 01980: WER=0.7273, CER=0.2727, Conf=medium
+  [1982/2400] 01981: WER=0.4286, CER=0.1957, Conf=medium
+  [1983/2400] 01982: WER=0.2857, CER=0.0625, Conf=high
+  [1984/2400] 01983: WER=0.5000, CER=0.2000, Conf=high
+  [1985/2400] 01984: WER=0.7273, CER=0.2182, Conf=high
+  [1986/2400] 01985: WER=0.2857, CER=0.0968, Conf=high
+  [1987/2400] 01986: WER=0.5000, CER=0.2500, Conf=high
+  [1988/2400] 01987: WER=0.3636, CER=0.1818, Conf=high
+  [1989/2400] 01988: WER=0.5000, CER=0.3000, Conf=low
+  [1990/2400] 01989: WER=0.3333, CER=0.0690, Conf=high
+  [1991/2400] 01990: WER=0.5000, CER=0.0800, Conf=high
+  [1992/2400] 01991: WER=0.2222, CER=0.0513, Conf=high
+  [1993/2400] 01992: WER=0.3750, CER=0.3438, Conf=high
+  [1994/2400] 01993: WER=0.3333, CER=0.2222, Conf=high
+  [1995/2400] 01994: WER=1.0000, CER=0.6154, Conf=high
+  [1996/2400] 01995: WER=0.6250, CER=0.3500, Conf=low
+  [1997/2400] 01996: WER=0.2500, CER=0.1389, Conf=high
+  [1998/2400] 01997: WER=1.2000, CER=1.1500, Conf=high
+  [1999/2400] 01998: WER=0.4167, CER=0.1176, Conf=high
+  [2000/2400] 01999: WER=0.3333, CER=0.2083, Conf=high
+
+============================================================
+Processing chunk 41/48
+Files 2000 to 2049 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [2001/2400] 02000: WER=0.8333, CER=0.5926, Conf=high
+  [2002/2400] 02001: WER=0.8750, CER=0.3571, Conf=high
+  [2003/2400] 02002: WER=0.5714, CER=0.1250, Conf=high
+  [2004/2400] 02003: WER=0.4000, CER=0.0909, Conf=high
+  [2005/2400] 02004: WER=0.3636, CER=0.1311, Conf=high
+  [2006/2400] 02005: WER=0.4000, CER=0.2857, Conf=high
+  [2007/2400] 02006: WER=0.4444, CER=0.1429, Conf=high
+  [2008/2400] 02007: WER=1.0000, CER=0.8393, Conf=high
+  [2009/2400] 02008: WER=0.3333, CER=0.1803, Conf=high
+  [2010/2400] 02009: WER=0.3333, CER=0.1176, Conf=high
+  [2011/2400] 02010: WER=0.5000, CER=0.2222, Conf=high
+  [2012/2400] 02011: WER=1.0000, CER=0.5385, Conf=high
+  [2013/2400] 02012: WER=0.5000, CER=0.2462, Conf=medium
+  [2014/2400] 02013: WER=2.0000, CER=0.5000, Conf=high
+  [2015/2400] 02014: WER=0.2857, CER=0.0556, Conf=high
+  [2016/2400] 02015: WER=0.2000, CER=0.0625, Conf=high
+  [2017/2400] 02016: WER=0.3333, CER=0.1071, Conf=medium
+  [2018/2400] 02017: WER=0.6000, CER=0.1636, Conf=high
+  [2019/2400] 02018: WER=0.5000, CER=0.1702, Conf=medium
+  [2020/2400] 02019: WER=0.5714, CER=0.3506, Conf=medium
+  [2021/2400] 02020: WER=0.1667, CER=0.1061, Conf=medium
+  [2022/2400] 02021: WER=1.0000, CER=0.4375, Conf=low
+  [2023/2400] 02022: WER=0.8333, CER=0.3929, Conf=medium
+  [2024/2400] 02023: WER=0.5000, CER=0.2857, Conf=high
+  [2025/2400] 02024: WER=1.0000, CER=0.5000, Conf=medium
+  [2026/2400] 02025: WER=0.3000, CER=0.2174, Conf=high
+  [2027/2400] 02026: WER=0.2857, CER=0.1081, Conf=high
+  [2028/2400] 02027: WER=0.6000, CER=0.2500, Conf=high
+  [2029/2400] 02028: WER=0.4286, CER=0.0645, Conf=high
+  [2030/2400] 02029: WER=0.3333, CER=0.1250, Conf=high
+  [2031/2400] 02030: WER=0.2000, CER=0.0526, Conf=high
+  [2032/2400] 02031: WER=0.5714, CER=0.1163, Conf=high
+  [2033/2400] 02032: WER=0.2000, CER=0.0400, Conf=high
+  [2034/2400] 02033: WER=0.3750, CER=0.1143, Conf=high
+  [2035/2400] 02034: WER=0.0000, CER=0.0000, Conf=high
+  [2036/2400] 02035: WER=0.2308, CER=0.0741, Conf=medium
+  [2037/2400] 02036: WER=0.7500, CER=0.1667, Conf=high
+  [2038/2400] 02037: WER=0.7500, CER=0.2857, Conf=medium
+  [2039/2400] 02038: WER=0.2000, CER=0.1000, Conf=high
+  [2040/2400] 02039: WER=0.3333, CER=0.0816, Conf=high
+  [2041/2400] 02040: WER=0.2857, CER=0.0526, Conf=high
+  [2042/2400] 02041: WER=0.5000, CER=0.2143, Conf=high
+  [2043/2400] 02042: WER=0.6667, CER=0.3750, Conf=high
+  [2044/2400] 02043: WER=0.7143, CER=0.1951, Conf=high
+  [2045/2400] 02044: WER=0.6250, CER=0.2000, Conf=high
+  [2046/2400] 02045: WER=0.1667, CER=0.0357, Conf=high
+  [2047/2400] 02046: WER=0.3750, CER=0.0909, Conf=high
+  [2048/2400] 02047: WER=0.3333, CER=0.0833, Conf=high
+  [2049/2400] 02048: WER=0.3750, CER=0.1026, Conf=high
+  [2050/2400] 02049: WER=0.6667, CER=0.1818, Conf=high
+
+============================================================
+Processing chunk 42/48
+Files 2050 to 2099 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [2051/2400] 02050: WER=0.2857, CER=0.0244, Conf=high
+  [2052/2400] 02051: WER=0.0000, CER=0.0000, Conf=high
+  [2053/2400] 02052: WER=0.4000, CER=0.1429, Conf=high
+  [2054/2400] 02053: WER=0.0909, CER=0.0179, Conf=high
+  [2055/2400] 02054: WER=1.7500, CER=1.5263, Conf=medium
+  [2056/2400] 02055: WER=0.5556, CER=0.1395, Conf=high
+  [2057/2400] 02056: WER=0.6000, CER=0.2340, Conf=high
+  [2058/2400] 02057: WER=0.8000, CER=0.2273, Conf=medium
+  [2059/2400] 02058: WER=0.3571, CER=0.1200, Conf=high
+  [2060/2400] 02059: WER=0.8000, CER=0.3214, Conf=medium
+  [2061/2400] 02060: WER=0.1429, CER=0.0441, Conf=high
+  [2062/2400] 02061: WER=0.2500, CER=0.1111, Conf=high
+  [2063/2400] 02062: WER=0.4286, CER=0.2222, Conf=medium
+  [2064/2400] 02063: WER=0.2500, CER=0.0645, Conf=high
+  [2065/2400] 02064: WER=0.2857, CER=0.0938, Conf=high
+  [2066/2400] 02065: WER=0.6000, CER=0.0769, Conf=high
+  [2067/2400] 02066: WER=0.3077, CER=0.0746, Conf=high
+  [2068/2400] 02067: WER=0.3571, CER=0.0909, Conf=high
+  [2069/2400] 02068: WER=0.2000, CER=0.0755, Conf=high
+  [2070/2400] 02069: WER=0.5000, CER=0.0909, Conf=high
+  [2071/2400] 02070: WER=0.2500, CER=0.1000, Conf=high
+  [2072/2400] 02071: WER=0.5714, CER=0.1176, Conf=high
+  [2073/2400] 02072: WER=0.5714, CER=0.0909, Conf=high
+  [2074/2400] 02073: WER=0.1667, CER=0.0676, Conf=high
+  [2075/2400] 02074: WER=0.4167, CER=0.0533, Conf=high
+  [2076/2400] 02075: WER=0.4286, CER=0.1875, Conf=high
+  [2077/2400] 02076: WER=0.0909, CER=0.0189, Conf=high
+  [2078/2400] 02077: WER=0.2222, CER=0.0600, Conf=high
+  [2079/2400] 02078: WER=0.5000, CER=0.0741, Conf=high
+  [2080/2400] 02079: WER=0.2000, CER=0.0476, Conf=high
+  [2081/2400] 02080: WER=0.1111, CER=0.0208, Conf=high
+  [2082/2400] 02081: WER=0.2500, CER=0.0455, Conf=high
+  [2083/2400] 02082: WER=0.1429, CER=0.0294, Conf=high
+  [2084/2400] 02083: WER=0.6667, CER=0.3077, Conf=high
+  [2085/2400] 02084: WER=0.1667, CER=0.0345, Conf=high
+  [2086/2400] 02085: WER=0.3333, CER=0.0435, Conf=high
+  [2087/2400] 02086: WER=0.1250, CER=0.0303, Conf=high
+  [2088/2400] 02087: WER=0.2308, CER=0.0405, Conf=high
+  [2089/2400] 02088: WER=0.8000, CER=0.4000, Conf=high
+  [2090/2400] 02089: WER=0.2727, CER=0.0741, Conf=high
+  [2091/2400] 02090: WER=0.3333, CER=0.0588, Conf=high
+  [2092/2400] 02091: WER=0.6667, CER=0.1250, Conf=high
+  [2093/2400] 02092: WER=0.4286, CER=0.1628, Conf=high
+  [2094/2400] 02093: WER=0.1667, CER=0.0357, Conf=high
+  [2095/2400] 02094: WER=0.4545, CER=0.0580, Conf=high
+  [2096/2400] 02095: WER=0.2000, CER=0.0667, Conf=high
+  [2097/2400] 02096: WER=0.5714, CER=0.3684, Conf=medium
+  [2098/2400] 02097: WER=0.2857, CER=0.0909, Conf=high
+  [2099/2400] 02098: WER=0.2222, CER=0.0588, Conf=high
+  [2100/2400] 02099: WER=0.4000, CER=0.1346, Conf=high
+
+============================================================
+Processing chunk 43/48
+Files 2100 to 2149 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [2101/2400] 02100: WER=0.6667, CER=0.2500, Conf=high
+  [2102/2400] 02101: WER=0.7500, CER=0.3810, Conf=high
+  [2103/2400] 02102: WER=1.0000, CER=0.8228, Conf=high
+  [2104/2400] 02103: WER=0.3333, CER=0.0588, Conf=high
+  [2105/2400] 02104: WER=0.6250, CER=0.2174, Conf=medium
+  [2106/2400] 02105: WER=2.0000, CER=1.3889, Conf=high
+  [2107/2400] 02106: WER=0.5000, CER=0.2222, Conf=high
+  [2108/2400] 02107: WER=0.3636, CER=0.0862, Conf=high
+  [2109/2400] 02108: WER=0.6667, CER=0.5000, Conf=high
+  [2110/2400] 02109: WER=0.2308, CER=0.1111, Conf=high
+  [2111/2400] 02110: WER=2.3333, CER=2.2143, Conf=medium
+  [2112/2400] 02111: WER=0.1429, CER=0.0294, Conf=high
+  [2113/2400] 02112: WER=0.5000, CER=0.1351, Conf=high
+  [2114/2400] 02113: WER=0.6000, CER=0.2000, Conf=high
+  [2115/2400] 02114: WER=0.6667, CER=0.2286, Conf=high
+  [2116/2400] 02115: WER=0.5000, CER=0.2703, Conf=medium
+  [2117/2400] 02116: WER=0.2500, CER=0.1875, Conf=high
+  [2118/2400] 02117: WER=0.2500, CER=0.0556, Conf=high
+  [2119/2400] 02118: WER=0.5000, CER=0.2308, Conf=high
+  [2120/2400] 02119: WER=0.4286, CER=0.1212, Conf=high
+  [2121/2400] 02120: WER=0.3077, CER=0.1852, Conf=high
+  [2122/2400] 02121: WER=0.6667, CER=0.0789, Conf=high
+  [2123/2400] 02122: WER=0.8000, CER=0.1538, Conf=high
+  [2124/2400] 02123: WER=0.5833, CER=0.3462, Conf=medium
+  [2125/2400] 02124: WER=0.8333, CER=0.4545, Conf=high
+  [2126/2400] 02125: WER=0.5000, CER=0.2785, Conf=high
+  [2127/2400] 02126: WER=0.0833, CER=0.0196, Conf=high
+  [2128/2400] 02127: WER=1.0000, CER=0.2500, Conf=medium
+  [2129/2400] 02128: WER=0.7500, CER=0.4375, Conf=medium
+  [2130/2400] 02129: WER=0.2308, CER=0.1803, Conf=high
+  [2131/2400] 02130: WER=0.5000, CER=0.2000, Conf=medium
+  [2132/2400] 02131: WER=0.6000, CER=0.1273, Conf=medium
+  [2133/2400] 02132: WER=0.8000, CER=0.3158, Conf=medium
+  [2134/2400] 02133: WER=0.1000, CER=0.0536, Conf=high
+  [2135/2400] 02134: WER=0.8333, CER=0.1733, Conf=high
+  [2136/2400] 02135: WER=0.7143, CER=0.2778, Conf=medium
+  [2137/2400] 02136: WER=0.8000, CER=0.2955, Conf=high
+  [2138/2400] 02137: WER=0.4000, CER=0.2273, Conf=high
+  [2139/2400] 02138: WER=0.2500, CER=0.0930, Conf=high
+  [2140/2400] 02139: WER=1.0000, CER=0.8226, Conf=high
+  [2141/2400] 02140: WER=1.4000, CER=1.0000, Conf=medium
+  [2142/2400] 02141: WER=1.0000, CER=0.7500, Conf=medium
+  [2143/2400] 02142: WER=0.5000, CER=0.4643, Conf=high
+  [2144/2400] 02143: WER=0.2500, CER=0.0526, Conf=medium
+  [2145/2400] 02144: WER=0.9286, CER=0.7647, Conf=high
+  [2146/2400] 02145: WER=1.2000, CER=0.7083, Conf=medium
+  [2147/2400] 02146: WER=0.6667, CER=0.4348, Conf=medium
+  [2148/2400] 02147: WER=1.0000, CER=0.6944, Conf=medium
+  [2149/2400] 02148: WER=1.0000, CER=0.5417, Conf=low
+  [2150/2400] 02149: WER=0.3333, CER=0.2000, Conf=high
+
+============================================================
+Processing chunk 44/48
+Files 2150 to 2199 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [2151/2400] 02150: WER=1.0000, CER=0.8070, Conf=medium
+  [2152/2400] 02151: WER=1.0000, CER=0.8049, Conf=high
+  [2153/2400] 02152: WER=1.1667, CER=0.7857, Conf=medium
+  [2154/2400] 02153: WER=1.4000, CER=1.1667, Conf=medium
+  [2155/2400] 02154: WER=2.3333, CER=2.5833, Conf=medium
+  [2156/2400] 02155: WER=1.3333, CER=0.6364, Conf=medium
+  [2157/2400] 02156: WER=1.0000, CER=0.6667, Conf=medium
+  [2158/2400] 02157: WER=1.7500, CER=1.6471, Conf=low
+  [2159/2400] 02158: WER=1.0000, CER=0.7105, Conf=medium
+  [2160/2400] 02159: WER=1.0000, CER=0.6591, Conf=medium
+  [2161/2400] 02160: WER=0.8000, CER=0.4000, Conf=low
+  [2162/2400] 02161: WER=1.0000, CER=0.8125, Conf=high
+  [2163/2400] 02162: WER=0.6667, CER=0.3704, Conf=medium
+  [2164/2400] 02163: WER=1.5000, CER=0.6190, Conf=low
+  [2165/2400] 02164: WER=0.4286, CER=0.1481, Conf=high
+  [2166/2400] 02165: WER=3.0000, CER=1.2727, Conf=high
+  [2167/2400] 02166: WER=1.0714, CER=0.5455, Conf=low
+  [2168/2400] 02167: WER=1.0000, CER=0.7576, Conf=medium
+  [2169/2400] 02168: WER=0.8000, CER=0.3846, Conf=high
+  [2170/2400] 02169: WER=1.0000, CER=0.7857, Conf=low
+  [2171/2400] 02170: WER=0.3333, CER=0.1923, Conf=high
+  [2172/2400] 02171: WER=0.2000, CER=0.3158, Conf=high
+  [2173/2400] 02172: WER=0.4167, CER=0.1111, Conf=high
+  [2174/2400] 02173: WER=0.2000, CER=0.0455, Conf=high
+  [2175/2400] 02174: WER=0.7000, CER=0.3333, Conf=medium
+  [2176/2400] 02175: WER=0.2857, CER=0.1692, Conf=medium
+  [2177/2400] 02176: WER=0.2500, CER=0.0526, Conf=high
+  [2178/2400] 02177: WER=0.2308, CER=0.1094, Conf=high
+  [2179/2400] 02178: WER=0.5556, CER=0.1346, Conf=high
+  [2180/2400] 02179: WER=0.1667, CER=0.0345, Conf=high
+  [2181/2400] 02180: WER=0.2000, CER=0.0500, Conf=high
+  [2182/2400] 02181: WER=0.6667, CER=0.1594, Conf=high
+  [2183/2400] 02182: WER=0.6000, CER=0.0833, Conf=high
+  [2184/2400] 02183: WER=0.3750, CER=0.2188, Conf=high
+  [2185/2400] 02184: WER=0.2857, CER=0.0606, Conf=high
+  [2186/2400] 02185: WER=0.3333, CER=0.1020, Conf=high
+  [2187/2400] 02186: WER=0.1250, CER=0.0294, Conf=high
+  [2188/2400] 02187: WER=0.3333, CER=0.1000, Conf=high
+  [2189/2400] 02188: WER=0.7692, CER=0.1688, Conf=high
+  [2190/2400] 02189: WER=0.0000, CER=0.0000, Conf=high
+  [2191/2400] 02190: WER=0.8000, CER=0.2174, Conf=medium
+  [2192/2400] 02191: WER=0.1429, CER=0.0339, Conf=high
+  [2193/2400] 02192: WER=1.0000, CER=0.7500, Conf=high
+  [2194/2400] 02193: WER=0.5000, CER=0.1739, Conf=high
+  [2195/2400] 02194: WER=0.5833, CER=0.1935, Conf=high
+  [2196/2400] 02195: WER=0.2500, CER=0.0588, Conf=high
+  [2197/2400] 02196: WER=0.2308, CER=0.0429, Conf=high
+  [2198/2400] 02197: WER=0.3333, CER=0.0714, Conf=high
+  [2199/2400] 02198: WER=0.5000, CER=0.2037, Conf=medium
+  [2200/2400] 02199: WER=0.7000, CER=0.2203, Conf=medium
+
+============================================================
+Processing chunk 45/48
+Files 2200 to 2249 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [2201/2400] 02200: WER=0.1000, CER=0.0189, Conf=high
+  [2202/2400] 02201: WER=0.6000, CER=0.1739, Conf=high
+  [2203/2400] 02202: WER=0.4167, CER=0.0704, Conf=high
+  [2204/2400] 02203: WER=0.2000, CER=0.0984, Conf=high
+  [2205/2400] 02204: WER=0.5000, CER=0.1918, Conf=medium
+  [2206/2400] 02205: WER=0.3333, CER=0.1282, Conf=high
+  [2207/2400] 02206: WER=0.4000, CER=0.0870, Conf=high
+  [2208/2400] 02207: WER=0.1429, CER=0.0233, Conf=high
+  [2209/2400] 02208: WER=0.0909, CER=0.0469, Conf=high
+  [2210/2400] 02209: WER=0.2143, CER=0.1429, Conf=medium
+  [2211/2400] 02210: WER=0.2857, CER=0.0588, Conf=high
+  [2212/2400] 02211: WER=0.2857, CER=0.0769, Conf=high
+  [2213/2400] 02212: WER=0.1667, CER=0.0385, Conf=high
+  [2214/2400] 02213: WER=0.1667, CER=0.0909, Conf=high
+  [2215/2400] 02214: WER=0.4000, CER=0.1458, Conf=high
+  [2216/2400] 02215: WER=0.0833, CER=0.0175, Conf=high
+  [2217/2400] 02216: WER=0.1429, CER=0.0455, Conf=high
+  [2218/2400] 02217: WER=0.7500, CER=0.1905, Conf=high
+  [2219/2400] 02218: WER=0.2000, CER=0.1395, Conf=high
+  [2220/2400] 02219: WER=0.2857, CER=0.1724, Conf=high
+  [2221/2400] 02220: WER=0.9000, CER=0.2537, Conf=high
+  [2222/2400] 02221: WER=0.2500, CER=0.0526, Conf=high
+  [2223/2400] 02222: WER=0.1429, CER=0.0455, Conf=high
+  [2224/2400] 02223: WER=0.7000, CER=0.1290, Conf=high
+  [2225/2400] 02224: WER=0.4167, CER=0.1746, Conf=medium
+  [2226/2400] 02225: WER=1.0000, CER=0.5217, Conf=high
+  [2227/2400] 02226: WER=0.2500, CER=0.0476, Conf=high
+  [2228/2400] 02227: WER=1.0000, CER=0.5500, Conf=high
+  [2229/2400] 02228: WER=0.8571, CER=0.3571, Conf=high
+  [2230/2400] 02229: WER=0.0909, CER=0.0508, Conf=medium
+  [2231/2400] 02230: WER=0.8333, CER=0.3143, Conf=medium
+  [2232/2400] 02231: WER=0.0000, CER=0.0000, Conf=high
+  [2233/2400] 02232: WER=0.4000, CER=0.2222, Conf=high
+  [2234/2400] 02233: WER=0.1250, CER=0.0541, Conf=high
+  [2235/2400] 02234: WER=0.5000, CER=0.1875, Conf=high
+  [2236/2400] 02235: WER=0.1667, CER=0.0417, Conf=high
+  [2237/2400] 02236: WER=0.4167, CER=0.2069, Conf=high
+  [2238/2400] 02237: WER=0.4000, CER=0.2333, Conf=high
+  [2239/2400] 02238: WER=0.1111, CER=0.0526, Conf=high
+  [2240/2400] 02239: WER=0.3571, CER=0.2154, Conf=medium
+  [2241/2400] 02240: WER=0.1000, CER=0.0192, Conf=high
+  [2242/2400] 02241: WER=0.6667, CER=0.4167, Conf=high
+  [2243/2400] 02242: WER=0.0000, CER=0.0000, Conf=high
+  [2244/2400] 02243: WER=0.4545, CER=0.1077, Conf=high
+  [2245/2400] 02244: WER=0.4286, CER=0.1515, Conf=high
+  [2246/2400] 02245: WER=1.0000, CER=0.3636, Conf=low
+  [2247/2400] 02246: WER=0.0909, CER=0.0204, Conf=high
+  [2248/2400] 02247: WER=0.4167, CER=0.0769, Conf=high
+  [2249/2400] 02248: WER=0.2500, CER=0.0208, Conf=high
+  [2250/2400] 02249: WER=0.2500, CER=0.0392, Conf=high
+
+============================================================
+Processing chunk 46/48
+Files 2250 to 2299 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [2251/2400] 02250: WER=0.6250, CER=0.3158, Conf=high
+  [2252/2400] 02251: WER=0.4286, CER=0.2121, Conf=high
+  [2253/2400] 02252: WER=0.4000, CER=0.2000, Conf=high
+  [2254/2400] 02253: WER=0.4545, CER=0.1897, Conf=medium
+  [2255/2400] 02254: WER=0.3750, CER=0.2500, Conf=high
+  [2256/2400] 02255: WER=0.6667, CER=0.1667, Conf=medium
+  [2257/2400] 02256: WER=0.7500, CER=0.7755, Conf=medium
+  [2258/2400] 02257: WER=0.2500, CER=0.1951, Conf=medium
+  [2259/2400] 02258: WER=0.2500, CER=0.0526, Conf=high
+  [2260/2400] 02259: WER=0.5556, CER=0.3000, Conf=high
+  [2261/2400] 02260: WER=0.3636, CER=0.2653, Conf=high
+  [2262/2400] 02261: WER=0.6000, CER=0.3200, Conf=high
+  [2263/2400] 02262: WER=0.2222, CER=0.0588, Conf=high
+  [2264/2400] 02263: WER=0.2857, CER=0.0833, Conf=high
+  [2265/2400] 02264: WER=0.5714, CER=0.3182, Conf=medium
+  [2266/2400] 02265: WER=0.5000, CER=0.1053, Conf=high
+  [2267/2400] 02266: WER=0.5000, CER=0.1970, Conf=medium
+  [2268/2400] 02267: WER=0.5000, CER=0.4667, Conf=high
+  [2269/2400] 02268: WER=0.5833, CER=0.2059, Conf=medium
+  [2270/2400] 02269: WER=0.1429, CER=0.0312, Conf=high
+  [2271/2400] 02270: WER=0.7500, CER=0.4444, Conf=high
+  [2272/2400] 02271: WER=0.2727, CER=0.1731, Conf=high
+  [2273/2400] 02272: WER=0.8000, CER=0.3750, Conf=high
+  [2274/2400] 02273: WER=0.2857, CER=0.1026, Conf=high
+  [2275/2400] 02274: WER=0.5000, CER=0.0926, Conf=high
+  [2276/2400] 02275: WER=0.5000, CER=0.2105, Conf=high
+  [2277/2400] 02276: WER=1.0000, CER=0.1923, Conf=high
+  [2278/2400] 02277: WER=0.1538, CER=0.0375, Conf=high
+  [2279/2400] 02278: WER=0.4167, CER=0.2540, Conf=high
+  [2280/2400] 02279: WER=0.2857, CER=0.0588, Conf=high
+  [2281/2400] 02280: WER=0.3333, CER=0.0769, Conf=high
+  [2282/2400] 02281: WER=0.6667, CER=0.2381, Conf=high
+  [2283/2400] 02282: WER=0.4000, CER=0.1429, Conf=medium
+  [2284/2400] 02283: WER=0.3333, CER=0.0938, Conf=high
+  [2285/2400] 02284: WER=0.4444, CER=0.0682, Conf=high
+  [2286/2400] 02285: WER=0.4286, CER=0.2727, Conf=high
+  [2287/2400] 02286: WER=0.8000, CER=0.2632, Conf=high
+  [2288/2400] 02287: WER=0.3333, CER=0.1333, Conf=high
+  [2289/2400] 02288: WER=0.6667, CER=0.5714, Conf=high
+  [2290/2400] 02289: WER=0.2500, CER=0.1087, Conf=high
+  [2291/2400] 02290: WER=0.5714, CER=0.2162, Conf=medium
+  [2292/2400] 02291: WER=0.5385, CER=0.2000, Conf=high
+  [2293/2400] 02292: WER=0.1818, CER=0.0444, Conf=high
+  [2294/2400] 02293: WER=0.4545, CER=0.0615, Conf=high
+  [2295/2400] 02294: WER=0.1538, CER=0.0299, Conf=high
+  [2296/2400] 02295: WER=0.4000, CER=0.2407, Conf=high
+  [2297/2400] 02296: WER=0.0000, CER=0.0000, Conf=high
+  [2298/2400] 02297: WER=0.6000, CER=0.1698, Conf=medium
+  [2299/2400] 02298: WER=0.1818, CER=0.0526, Conf=high
+  [2300/2400] 02299: WER=0.3077, CER=0.1250, Conf=high
+
+============================================================
+Processing chunk 47/48
+Files 2300 to 2349 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [2301/2400] 02300: WER=0.5000, CER=0.1500, Conf=high
+  [2302/2400] 02301: WER=0.4000, CER=0.2273, Conf=high
+  [2303/2400] 02302: WER=0.1429, CER=0.0606, Conf=high
+  [2304/2400] 02303: WER=0.4167, CER=0.1667, Conf=high
+  [2305/2400] 02304: WER=0.2000, CER=0.0345, Conf=high
+  [2306/2400] 02305: WER=0.3333, CER=0.0556, Conf=high
+  [2307/2400] 02306: WER=0.6667, CER=0.2143, Conf=medium
+  [2308/2400] 02307: WER=0.3750, CER=0.1316, Conf=high
+  [2309/2400] 02308: WER=0.7500, CER=0.2941, Conf=high
+  [2310/2400] 02309: WER=0.5000, CER=0.2500, Conf=high
+  [2311/2400] 02310: WER=0.6000, CER=0.3333, Conf=high
+  [2312/2400] 02311: WER=0.4167, CER=0.1458, Conf=medium
+  [2313/2400] 02312: WER=0.2500, CER=0.0500, Conf=high
+  [2314/2400] 02313: WER=0.2500, CER=0.0526, Conf=high
+  [2315/2400] 02314: WER=0.3750, CER=0.2059, Conf=high
+  [2316/2400] 02315: WER=0.1429, CER=0.0345, Conf=high
+  [2317/2400] 02316: WER=0.8000, CER=0.3529, Conf=high
+  [2318/2400] 02317: WER=0.7500, CER=0.4444, Conf=medium
+  [2319/2400] 02318: WER=0.2500, CER=0.0667, Conf=high
+  [2320/2400] 02319: WER=0.4286, CER=0.0870, Conf=high
+  [2321/2400] 02320: WER=0.7500, CER=0.1250, Conf=high
+  [2322/2400] 02321: WER=0.4000, CER=0.2609, Conf=high
+  [2323/2400] 02322: WER=0.6250, CER=0.4359, Conf=medium
+  [2324/2400] 02323: WER=1.1667, CER=1.1818, Conf=high
+  [2325/2400] 02324: WER=0.2500, CER=0.1429, Conf=high
+  [2326/2400] 02325: WER=0.5000, CER=0.2500, Conf=high
+  [2327/2400] 02326: WER=0.3000, CER=0.1500, Conf=medium
+  [2328/2400] 02327: WER=0.6667, CER=0.1724, Conf=high
+  [2329/2400] 02328: WER=0.2000, CER=0.0408, Conf=high
+  [2330/2400] 02329: WER=0.5000, CER=0.0556, Conf=high
+  [2331/2400] 02330: WER=0.3333, CER=0.0513, Conf=high
+  [2332/2400] 02331: WER=0.2857, CER=0.2500, Conf=high
+  [2333/2400] 02332: WER=0.6250, CER=0.2069, Conf=high
+  [2334/2400] 02333: WER=1.0000, CER=0.6154, Conf=medium
+  [2335/2400] 02334: WER=0.1667, CER=0.0357, Conf=high
+  [2336/2400] 02335: WER=0.2000, CER=0.0556, Conf=high
+  [2337/2400] 02336: WER=0.8333, CER=0.3182, Conf=medium
+  [2338/2400] 02337: WER=0.3750, CER=0.2683, Conf=high
+  [2339/2400] 02338: WER=0.3750, CER=0.0667, Conf=high
+  [2340/2400] 02339: WER=0.2000, CER=0.0435, Conf=medium
+  [2341/2400] 02340: WER=0.4286, CER=0.2154, Conf=medium
+  [2342/2400] 02341: WER=0.6000, CER=0.1600, Conf=high
+  [2343/2400] 02342: WER=0.8000, CER=0.4091, Conf=high
+  [2344/2400] 02343: WER=0.5000, CER=0.0588, Conf=high
+  [2345/2400] 02344: WER=0.6667, CER=0.1429, Conf=high
+  [2346/2400] 02345: WER=0.4000, CER=0.1500, Conf=high
+  [2347/2400] 02346: WER=0.3333, CER=0.0714, Conf=high
+  [2348/2400] 02347: WER=0.3333, CER=0.0714, Conf=high
+  [2349/2400] 02348: WER=0.0000, CER=0.0000, Conf=high
+  [2350/2400] 02349: WER=0.0769, CER=0.0169, Conf=high
+
+============================================================
+Processing chunk 48/48
+Files 2350 to 2399 (total: 50)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 50 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 50 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    LLAMA batch 1/3 (24 prompts)...
+    LLAMA batch 2/3 (24 prompts)...
+    LLAMA batch 3/3 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [2351/2400] 02350: WER=0.2000, CER=0.0465, Conf=high
+  [2352/2400] 02351: WER=0.4000, CER=0.1667, Conf=high
+  [2353/2400] 02352: WER=0.1429, CER=0.0303, Conf=high
+  [2354/2400] 02353: WER=0.2000, CER=0.0426, Conf=medium
+  [2355/2400] 02354: WER=0.7778, CER=0.2222, Conf=high
+  [2356/2400] 02355: WER=0.8000, CER=0.2692, Conf=high
+  [2357/2400] 02356: WER=0.1429, CER=0.0333, Conf=high
+  [2358/2400] 02357: WER=0.5000, CER=0.2353, Conf=high
+  [2359/2400] 02358: WER=0.3333, CER=0.0851, Conf=high
+  [2360/2400] 02359: WER=0.3333, CER=0.0877, Conf=high
+  [2361/2400] 02360: WER=0.4444, CER=0.0952, Conf=high
+  [2362/2400] 02361: WER=0.3000, CER=0.1163, Conf=high
+  [2363/2400] 02362: WER=0.2222, CER=0.0444, Conf=high
+  [2364/2400] 02363: WER=0.2000, CER=0.1207, Conf=high
+  [2365/2400] 02364: WER=0.8000, CER=0.4167, Conf=high
+  [2366/2400] 02365: WER=1.0000, CER=0.4474, Conf=medium
+  [2367/2400] 02366: WER=0.7778, CER=0.3158, Conf=medium
+  [2368/2400] 02367: WER=0.7143, CER=0.2222, Conf=medium
+  [2369/2400] 02368: WER=0.2500, CER=0.0588, Conf=high
+  [2370/2400] 02369: WER=0.5000, CER=0.1379, Conf=high
+  [2371/2400] 02370: WER=0.1429, CER=0.0317, Conf=high
+  [2372/2400] 02371: WER=0.7000, CER=0.2319, Conf=high
+  [2373/2400] 02372: WER=0.6429, CER=0.3165, Conf=medium
+  [2374/2400] 02373: WER=0.1667, CER=0.0345, Conf=high
+  [2375/2400] 02374: WER=0.0909, CER=0.0455, Conf=high
+  [2376/2400] 02375: WER=0.2500, CER=0.0513, Conf=high
+  [2377/2400] 02376: WER=0.8000, CER=0.1481, Conf=high
+  [2378/2400] 02377: WER=0.4000, CER=0.1739, Conf=high
+  [2379/2400] 02378: WER=0.4000, CER=0.0769, Conf=high
+  [2380/2400] 02379: WER=0.4286, CER=0.0789, Conf=high
+  [2381/2400] 02380: WER=0.6000, CER=0.2308, Conf=high
+  [2382/2400] 02381: WER=1.0000, CER=0.3158, Conf=medium
+  [2383/2400] 02382: WER=0.2500, CER=0.0556, Conf=high
+  [2384/2400] 02383: WER=0.5000, CER=0.2143, Conf=high
+  [2385/2400] 02384: WER=1.4000, CER=0.9667, Conf=low
+  [2386/2400] 02385: WER=0.2222, CER=0.0566, Conf=high
+  [2387/2400] 02386: WER=0.3333, CER=0.0645, Conf=high
+  [2388/2400] 02387: WER=0.3333, CER=0.1190, Conf=high
+  [2389/2400] 02388: WER=0.7143, CER=0.4875, Conf=medium
+  [2390/2400] 02389: WER=0.5455, CER=0.1667, Conf=high
+  [2391/2400] 02390: WER=0.4444, CER=0.3542, Conf=high
+  [2392/2400] 02391: WER=0.2000, CER=0.0417, Conf=high
+  [2393/2400] 02392: WER=0.1000, CER=0.0392, Conf=high
+  [2394/2400] 02393: WER=0.6000, CER=0.2105, Conf=high
+  [2395/2400] 02394: WER=0.1429, CER=0.0323, Conf=high
+  [2396/2400] 02395: WER=0.3333, CER=0.2222, Conf=medium
+  [2397/2400] 02396: WER=0.1667, CER=0.0385, Conf=high
+  [2398/2400] 02397: WER=0.6250, CER=0.2917, Conf=high
+  [2399/2400] 02398: WER=0.8750, CER=0.2667, Conf=high
+  [2400/2400] 02399: WER=0.6667, CER=0.4889, Conf=medium
+
+================================================================================
+LLAMA AGENT - FINAL SUMMARY
+================================================================================
+Total files processed: 2400
+Average WER: 0.4449
+Average CER: 0.1871
+================================================================================
+
+Saving results to: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/results/llama_agent
+
+================================================================================
+✓ All results saved
+  Individual results: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/results/llama_agent
+  Summary: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/results/llama_agent/hi_agent_summary.json
+================================================================================
+
+
+==========================================
+Job finished at: Tue Jan 13 08:53:23 AM CET 2026
+==========================================
