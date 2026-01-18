@@ -23,6 +23,8 @@ OTHER_TSV = "other.tsv"
 # Transcription files
 TRANSCRIPTIONS_FILE = "transcriptions.txt"
 TRANSCRIPTIONS_UROMAN_FILE = "transcriptions_uroman.txt"
+WORDS_FILE = "words.txt" 
+LEXICON_FILE = "lexicon.txt" 
 
 # Uroman configuration
 UROMAN_DIR = REPO_ROOT / "uroman" / "uroman"

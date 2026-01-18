@@ -10,13 +10,13 @@ from jiwer import wer, cer
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from datetime import datetime
 
-
 # Import config
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import (
     DATA_ROOT,
     LANGUAGE,
     TRANSCRIPTIONS_FILE,
+    LEXICON_FILE,  # ✅ Added for constrained decoder
     CURRENT_RESULTS_DIR,
     CURRENT_MODEL_NAME,
     LOAD_8BIT,
@@ -37,16 +37,9 @@ from config import (
 
 from eval_engine import evaluate_model
 
-
 class ASRJudgeAgent:
     """
-    Optimized agent for single-GPU inference using a configurable LLM (Qwen or Llama)
-    as an ASR judge.
-
-    Key optimizations:
-    - Pre-loads baseline configs
-    - Processes baseline models in simple per-file batches
-    - Batched LLM inference with mixed precision
+    Optimized agent with MMS-ZeroShot Constrained (lexicon-based native script output).
     """
 
     def __init__(
@@ -62,7 +55,7 @@ class ASRJudgeAgent:
         print(f"Model: {model_name}")
         print(f"8-bit quantization: {load_in_8bit}")
         print(f"Flash attention: {use_flash_attention}")
-        print(f"Optimization: Pre-loading baseline configs, batched LLM inference")
+        print(f"MMS-ZS: Lexicon-constrained (native Devanagari)")  # ✅ Updated
         print(f"{'='*80}\n")
 
         self.model_name = model_name
@@ -87,7 +80,6 @@ class ASRJudgeAgent:
             )
         else:
             model_kwargs = {
-                #"dtype": torch.bfloat16,
                 "device_map": "auto",
                 "trust_remote_code": True,
             }
@@ -112,7 +104,7 @@ class ASRJudgeAgent:
         print("✓ Baseline configs ready\n")
 
     def _init_baseline_configs(self) -> None:
-        """Cache baseline configs for Whisper, MMS, MMS-ZS, Omni."""
+        """Cache baseline configs - MMS-ZS now uses lexicon-constrained mode."""
         self.baseline_configs = {
             "whisper": {
                 "backend": "whisper",
@@ -124,9 +116,10 @@ class ASRJudgeAgent:
                 "model_name": MMS_MODEL_ID,
                 "target_lang": MMS_TARGET_LANG,
             },
-            "mms_zs": {
-                "backend": "mms_zeroshot",
+            "mms_zs": {  # ✅ Updated to constrained mode
+                "backend": "mms_zeroshot_constrained",
                 "model_name": MMS_ZEROSHOT_MODEL_ID,
+                "lexicon_file": LEXICON_FILE,  # Uses validated lexicon
             },
             "omni": {
                 "backend": "omni",
@@ -167,9 +160,7 @@ class ASRJudgeAgent:
         data_root: Path,
         language: str = LANGUAGE,
     ) -> List[Dict[str, Any]]:
-        """
-        Run all baseline models efficiently for a batch of files.
-        """
+        """Run all baseline models efficiently for a batch of files."""
         print(f"  Running ALL baseline models on {len(audio_indices)} files...")
 
         whisper_results = self._run_single_model_batch(
@@ -178,7 +169,7 @@ class ASRJudgeAgent:
         mms_results = self._run_single_model_batch(
             "mms", audio_indices, data_root, language
         )
-        mms_zs_results = self._run_single_model_batch(
+        mms_zs_results = self._run_single_model_batch(  # ✅ Now native Devanagari
             "mms_zs", audio_indices, data_root, language
         )
         omni_results = self._run_single_model_batch(
@@ -192,7 +183,7 @@ class ASRJudgeAgent:
                     "audio_idx": idx,
                     "whisper": whisper_results[i]["hyps"][0],
                     "mms_1b": mms_results[i]["hyps"][0],
-                    "mms_zs_uroman": mms_zs_results[i]["hyps"][0],
+                    "mms_zs_native": mms_zs_results[i]["hyps"][0],  # ✅ Renamed: now Devanagari
                     "omni": omni_results[i]["hyps"][0],
                     "ref_dev": whisper_results[i]["refs"][0],
                 }
@@ -208,7 +199,7 @@ class ASRJudgeAgent:
             "from different systems:\n"
             "- Whisper (OpenAI)\n"
             "- MMS-1B (Meta)\n"
-            "- MMS-ZeroShot (Meta, romanized)\n"
+            "- MMS-ZeroShot-Constrained (Meta, lexicon-based native Devanagari)\n"  # ✅ Updated
             "- OmniASR (multilingual)\n\n"
             "Your task:\n"
             "1. Carefully analyze all candidate transcriptions\n"
@@ -244,9 +235,7 @@ class ASRJudgeAgent:
         prompts: List[tuple],
         batch_size: int = BATCH_SIZE,
     ) -> List[str]:
-        """
-        Batched LLM inference with mixed precision.
-        """
+        """Batched LLM inference with mixed precision."""
         responses: List[str] = []
         num_batches = (len(prompts) + batch_size - 1) // batch_size
 
@@ -337,9 +326,7 @@ class ASRJudgeAgent:
         batch_size: int = BATCH_SIZE,
         verbose: bool = True,
     ) -> List[Dict[str, Any]]:
-        """
-        Process dataset with batched baselines + LLM judging.
-        """
+        """Process dataset with batched baselines + LLM judging."""
         print(f"\n{'='*80}")
         print(f"{CURRENT_ENGINE_LABEL} ASR AGENT - OPTIMIZED FOR SINGLE GPU")
         print(f"{'='*80}")
@@ -387,7 +374,7 @@ class ASRJudgeAgent:
                     {
                         "whisper": result["whisper"],
                         "mms_1b": result["mms_1b"],
-                        "mms_zeroshot": result["mms_zs_uroman"],
+                        "mms_zeroshot_constrained": result["mms_zs_native"],  # ✅ Native output
                         "omni": result["omni"],
                     },
                 )
@@ -415,7 +402,7 @@ class ASRJudgeAgent:
                         "audio_name": f"{language}_{result['audio_idx']:05d}",
                         "whisper_hyp": result["whisper"],
                         "mms_1b_hyp": result["mms_1b"],
-                        "mms_zs_hyp": result["mms_zs_uroman"],
+                        "mms_zs_constrained_hyp": result["mms_zs_native"],  # ✅ Renamed
                         "omni_hyp": result["omni"],
                         "ref_dev": ref,
                         "llm_decision": parsed,
@@ -444,22 +431,21 @@ class ASRJudgeAgent:
 
         return all_final_results
 
-
 def main() -> None:
     """Main entry point."""
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Run OPTIMIZED ASR Judge Agent (Qwen/Llama selectable via config)"
+        description="Run OPTIMIZED ASR Judge Agent with MMS-ZS Constrained"
     )
     parser.add_argument("--language", default=LANGUAGE, help="Language code")
     parser.add_argument(
         "--model-name",
         default=CURRENT_MODEL_NAME,
-        help="LLM model name (overrides config if set)",
+        help="LLM model name",
     )
     parser.add_argument(
-        "--max-files", type=int, default=AGENT_MAX_FILES, help="Number of files to process"
+        "--max-files", type=int, default=AGENT_MAX_FILES, help="Number of files"
     )
     parser.add_argument(
         "--start-idx", type=int, default=AGENT_START_IDX, help="Starting audio index"
@@ -468,22 +454,22 @@ def main() -> None:
         "--batch-size",
         type=int,
         default=BATCH_SIZE,
-        help="LLM inference batch size",
+        help="LLM batch size",
     )
     parser.add_argument(
-        "--load-8bit", action="store_true", help="Load model in 8-bit mode"
+        "--load-8bit", action="store_true", help="8-bit mode"
     )
     parser.add_argument(
         "--no-flash-attention", action="store_true", help="Disable flash attention"
     )
     parser.add_argument(
-        "--quiet", action="store_true", help="Reduce output verbosity"
+        "--quiet", action="store_true", help="Reduce verbosity"
     )
     args = parser.parse_args()
 
     data_root = DATA_ROOT / args.language
     if not data_root.exists():
-        raise FileNotFoundError(f"Data directory not found: {data_root}")
+        raise FileNotFoundError(f"Data directory: {data_root}")
 
     agent = ASRJudgeAgent(
         model_name=args.model_name,
@@ -503,10 +489,8 @@ def main() -> None:
     CURRENT_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
     print(f"Saving results to: {CURRENT_RESULTS_DIR}")
-    print(f"Saving results to: {CURRENT_RESULTS_DIR}")
 
-    # Choose which samples to save individually:
-    sample_results = results[:10]  # first 10; change selection logic if you want random
+    sample_results = results[:10]
 
     for res in sample_results:
         out_path = (
@@ -516,7 +500,6 @@ def main() -> None:
         with out_path.open("w", encoding="utf-8") as f:
             json.dump(res, f, indent=2, ensure_ascii=False)
 
-
     summary = {
         "model": args.model_name,
         "backbone": CURRENT_BACKBONE,
@@ -525,10 +508,8 @@ def main() -> None:
         "start_idx": args.start_idx,
         "avg_wer": sum(r["wer"] for r in results) / len(results),
         "avg_cer": sum(r["cer"] for r in results) / len(results),
-        # optionally store just IDs or sample_ids instead of full results
         "sampled_audio_indices": [r["audio_idx"] for r in sample_results],
     }
-
 
     today = datetime.today().strftime("%d-%m")
     summary_path = CURRENT_RESULTS_DIR / f"{args.language}_agent_summary_{today}.json"
@@ -541,7 +522,6 @@ def main() -> None:
     print(f"  Individual results: {CURRENT_RESULTS_DIR}")
     print(f"  Summary: {summary_path}")
     print(f"{'='*80}\n")
-
 
 if __name__ == "__main__":
     main()
