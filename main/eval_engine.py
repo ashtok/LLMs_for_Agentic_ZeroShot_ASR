@@ -12,19 +12,21 @@ from config import (
     LANGUAGE,
     TRANSCRIPTIONS_FILE,
     TRANSCRIPTIONS_UROMAN_FILE,
+    LEXICON_FILE,
     ASR_SAMPLING_RATE,
     AUDIO_FILE_PATTERN,
     CLIPS_SUBDIR,
     DEFAULT_MAX_SAMPLES,
     DEFAULT_START_IDX,
     DEFAULT_QUIET,
+    MMS_ZEROSHOT_MODEL_ID,
 )
 
 from audio_loader import HFAudioLoader
 from asr_whisper_baseline import run_whisper_baseline
 from asr_mms_1b_baseline_with_lang import run_mms_baseline
 from asr_mms_zeroshot_baseline import run_mms_zeroshot_baseline_basic
-
+from asr_mms_zeroshot import run_mms_zeroshot_constrained
 
 def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -33,7 +35,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
     Args:
         config: Dictionary containing evaluation configuration
             Required keys:
-                - backend: str - Model backend (whisper, mms, omni, mms_zeroshot)
+                - backend: str - Model backend (whisper, mms, omni, mms_zeroshot, mms_zeroshot_constrained)
                 - model_name: str - Model identifier
             Optional keys:
                 - data_root: Path - Data directory (default: from config)
@@ -41,6 +43,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 - transcription_file: str - Transcription filename (default: from config)
                 - target_lang: str - Target language for MMS
                 - lang_tag: str - Language tag for OmniASR
+                - lexicon_file: str - Lexicon for constrained decoding
                 - max_samples: int - Limit number of samples
                 - start_idx: int - Starting index (default: 0)
                 - quiet: bool - Reduce verbosity (default: False)
@@ -72,7 +75,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
         raise FileNotFoundError(f"Transcription file not found: {trans_path}")
     
     # 🔇 OPTIMIZATION: Minimal logging for batch operations
-    if not quiet and max_samples != 1:  # Only log for multi-file operations
+    if not quiet and max_samples != 1:
         print(f"\n{'='*60}")
         print(f"Evaluating: {backend} - {model_name}")
         print(f"{'='*60}")
@@ -120,7 +123,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 ds=ds,
                 model_name=model_name,
                 language=config.get("whisper_lang", language if language == "hi" else "en"),
-                verbose=False,  # Force quiet for repetitive calls
+                verbose=False,
             )
         
         elif backend == "mms":
@@ -129,7 +132,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 ds=ds,
                 model_id=model_name,
                 target_lang=target_lang or "hin",
-                verbose=False,  # Force quiet
+                verbose=False,
             )
         
         elif backend == "omni":
@@ -140,17 +143,15 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 ds=ds,
                 model_card=model_name,
                 lang_tag=config.get("lang_tag", "hin_Deva"),
-                verbose=False,  # Force quiet
+                verbose=False,
             )
         
         elif backend == "mms_zeroshot":
-            # Load romanized transcriptions
             roman_path = data_root / TRANSCRIPTIONS_UROMAN_FILE
             
             if not roman_path.exists():
                 raise FileNotFoundError(f"Romanized transcriptions not found: {roman_path}")
             
-            # Load romanized refs into a dictionary keyed by filename
             refs_roman_map = {}
             with roman_path.open("r", encoding="utf-8") as f:
                 for line in f:
@@ -162,7 +163,6 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                         filename, rom_text = parts
                         refs_roman_map[filename] = rom_text.strip()
             
-            # Build refs_roman list aligned with dataset order
             refs_roman = []
             for i in range(len(ds)):
                 audio_info = ds[i]["audio"]
@@ -178,15 +178,23 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 loader=loader,
                 ds=ds,
                 refs_roman=refs_roman,
-                model_id=config.get("model_id", "mms-meta/mms-zeroshot-300m"),
-                verbose=False,  # Force quiet
+                model_id=config.get("model_id", MMS_ZEROSHOT_MODEL_ID),
+                verbose=False,
+            )
+        
+        elif backend == "mms_zeroshot_constrained":  # ✅ CLEAN VERSION
+            result = run_mms_zeroshot_constrained(
+                loader=loader,
+                ds=ds,
+                lexicon_path=data_root / config.get("lexicon_file", LEXICON_FILE),
+                model_id=config.get("model_id", MMS_ZEROSHOT_MODEL_ID),
+                verbose=False,
             )
         
         else:
             raise ValueError(f"Unknown backend: {backend}")
     
     finally:
-        # Restore stdout in case of error
         if quiet or max_samples == 1:
             sys.stdout.close()
             sys.stdout = original_stdout
@@ -201,19 +209,16 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
     
     return result
 
-
 def main():
     """Example usage of evaluate_model function"""
     
-    # Example 1: Evaluate Whisper small model
     config_whisper = {
         "backend": "whisper",
         "model_name": "small",
-        "max_samples": 10,  # Evaluate on first 10 samples
+        "max_samples": 10,
         "quiet": False,
     }
     
-    # Example 2: Evaluate MMS model
     config_mms = {
         "backend": "mms",
         "model_name": "facebook/mms-1b-all",
@@ -222,7 +227,6 @@ def main():
         "quiet": False,
     }
     
-    # Example 3: Evaluate MMS zero-shot
     config_mms_zs = {
         "backend": "mms_zeroshot",
         "model_name": "mms-meta/mms-zeroshot-300m",
@@ -230,7 +234,14 @@ def main():
         "quiet": False,
     }
     
-    # Example 4: Evaluate OmniASR
+    config_mms_zs_constrained = {
+        "backend": "mms_zeroshot_constrained",
+        "model_name": "mms-meta/mms-zeroshot-300m",
+        "lexicon_file": "lexicon.txt",
+        "max_samples": 10,
+        "quiet": False,
+    }
+    
     config_omni = {
         "backend": "omni",
         "model_name": "omniASR_CTC_300M",
@@ -239,20 +250,21 @@ def main():
         "quiet": False,
     }
     
-    # Choose which config to run
     print("Choose evaluation to run:")
     print("1. Whisper")
     print("2. MMS")
-    print("3. MMS Zero-shot")
-    print("4. OmniASR")
+    print("3. MMS Zero-shot (greedy)")
+    print("4. MMS Zero-shot Constrained (lexicon)")
+    print("5. OmniASR")
     
-    choice = input("Enter choice (1-4): ").strip()
+    choice = input("Enter choice (1-5): ").strip()
     
     config_map = {
         "1": config_whisper,
         "2": config_mms,
         "3": config_mms_zs,
-        "4": config_omni,
+        "4": config_mms_zs_constrained,
+        "5": config_omni,
     }
     
     if choice in config_map:
@@ -262,13 +274,12 @@ def main():
         print("EVALUATION RESULTS")
         print(f"{'='*60}")
         print(f"Model: {result['model']}")
-        print(f"WER: {result['wer']:.4f}")
-        print(f"CER: {result['cer']:.4f}")
+        print(f"WER: {result.get('wer_native', result.get('wer')):.4f}")
+        print(f"CER: {result.get('cer_native', result.get('cer')):.4f}")
         print(f"Samples: {result['n_samples']}")
         print(f"{'='*60}\n")
     else:
         print("Invalid choice!")
-
 
 if __name__ == "__main__":
     main()

@@ -4,7 +4,6 @@ from pathlib import Path
 import librosa 
 from typing import Any, Dict, List
 import sys
-import re
 import numpy as np
 import torch
 from jiwer import wer, cer
@@ -32,10 +31,7 @@ def _get_device() -> torch.device:
     return torch.device("cpu")
 
 def validate_lexicon(lexicon_path: Path, token_file: Path, verbose: bool = True) -> Path:
-    """
-    Filter lexicon to only valid MMS character-level tokens.
-    Expects lexicon format: word c h a r s |
-    """
+    """Filter lexicon to only valid MMS character-level tokens."""
     with open(token_file, 'r', encoding='utf-8') as f_tok:
         tokens_set = set(line.strip() for line in f_tok)
     
@@ -60,7 +56,6 @@ def validate_lexicon(lexicon_path: Path, token_file: Path, verbose: bool = True)
             uroman_clean = uroman_spell.rstrip('|').strip()
             spell_tokens = uroman_clean.split()
             
-            # Check each character token
             invalid_tokens = [tok for tok in spell_tokens if tok not in tokens_set]
             
             if not invalid_tokens:
@@ -100,7 +95,6 @@ def validate_lexicon(lexicon_path: Path, token_file: Path, verbose: bool = True)
 def run_mms_zeroshot_constrained(
     loader: HFAudioLoader,
     ds: Any,
-    refs_dev: List[str],
     lexicon_path: Path,
     model_id: str = MODEL_ID,
     verbose: bool = True,
@@ -119,7 +113,6 @@ def run_mms_zeroshot_constrained(
     if not lexicon_path.exists():
         raise FileNotFoundError(f"Lexicon missing: {lexicon_path}\nRun: python main/collect_words.py")
     
-    # Validate lexicon format
     validated_lexicon = validate_lexicon(lexicon_path, Path(token_file), verbose=verbose)
     
     if verbose:
@@ -128,9 +121,9 @@ def run_mms_zeroshot_constrained(
     
     # Meta decoder parameters
     WORD_SCORE = -0.18
-    LM_WEIGHT = 0  # No LM
+    LM_WEIGHT = 0
     
-    # Create decoder ONCE (critical for performance)
+    # Create decoder ONCE
     decoder = ctc_decoder(
         lexicon=str(validated_lexicon),
         tokens=token_file,
@@ -144,6 +137,7 @@ def run_mms_zeroshot_constrained(
     )
     
     hyps_native: List[str] = []
+    refs_dev: List[str] = []
     N = len(ds)
     
     if verbose:
@@ -162,17 +156,19 @@ def run_mms_zeroshot_constrained(
         
         result = decoder(logits)
         hyp_native = " ".join(result[0][0].words).strip()
-        hyps_native.append(hyp_native)
         
-        # Progress reporting
+        # ✅ Get ref from dataset like Whisper does
+        ref = ds[i]["text"]
+        
+        hyps_native.append(hyp_native)
+        refs_dev.append(ref)
+        
         if verbose and (i % 100 == 0 or i < 5):
             filename = Path(path).name
-            ref_dev = refs_dev[i]
             print(f"[MMS-ZS] {i+1}/{N} {filename}")
-            print(f"  REF: {ref_dev}")
+            print(f"  REF: {ref}")
             print(f"  HYP: {hyp_native}\n")
     
-    # Compute metrics
     wer_native = float(wer(refs_dev, hyps_native))
     cer_native = float(cer(refs_dev, hyps_native))
     
@@ -185,12 +181,12 @@ def run_mms_zeroshot_constrained(
         print(f"{'='*60}\n")
     
     return {
-        "model": f"{model_id} (lexicon-beam-500)",
+        "model": f"{model_id} (constrained)",
         "wer_native": wer_native,
         "cer_native": cer_native,
         "n_samples": N,
-        "hyps_dev": hyps_native,
-        "refs_dev": refs_dev,
+        "hyps": hyps_native,
+        "refs": refs_dev,
     }
 
 def main() -> None:
@@ -198,13 +194,9 @@ def main() -> None:
     transcriptions_path = data_dir / TRANSCRIPTIONS_FILE
     lexicon_path = data_dir / LEXICON_FILE
     
-    # Validate required files
     for path in [transcriptions_path, lexicon_path]:
         if not path.exists():
-            raise FileNotFoundError(
-                f"Missing required file: {path}\n"
-                f"Run: python main/collect_words.py to generate lexicon"
-            )
+            raise FileNotFoundError(f"Missing: {path}\nRun: python main/collect_words.py")
     
     print(f"{'='*60}")
     print(f"MMS Zero-Shot Constrained ASR Evaluation")
@@ -213,35 +205,16 @@ def main() -> None:
     print(f"Lexicon: {lexicon_path}")
     print(f"Language: {LANGUAGE}\n")
     
-    # Load dataset
     loader = HFAudioLoader(target_sr=ASR_SAMPLING_RATE)
     ds = loader.from_dir_with_text(
         str(data_dir), str(transcriptions_path),
         pattern=AUDIO_FILE_PATTERN, clips_subdir=CLIPS_SUBDIR,
     )
     
-    # Load references
-    refs_dev_map = {}
-    with transcriptions_path.open("r", encoding="utf-8") as f:
-        for line in f:
-            parts = line.rstrip("\n").split(maxsplit=1)
-            if len(parts) == 2:
-                filename, dev_text = parts
-                refs_dev_map[filename] = dev_text.strip()
+    print(f"Loaded {len(ds)} audio files\n")
     
-    refs_dev = []
-    for i in range(len(ds)):
-        audio_info = ds[i]["audio"]
-        path = audio_info["path"] if isinstance(audio_info, dict) else audio_info
-        filename = Path(path).name
-        refs_dev.append(refs_dev_map.get(filename, ""))
-    
-    print(f"Loaded {len(ds)} audio files")
-    print(f"Loaded {len(refs_dev)} Devanagari references\n")
-    
-    # Run evaluation
     result = run_mms_zeroshot_constrained(
-        loader, ds, refs_dev, lexicon_path, verbose=True
+        loader, ds, lexicon_path=lexicon_path, verbose=True
     )
     
     print("\n✅ Evaluation Complete!")

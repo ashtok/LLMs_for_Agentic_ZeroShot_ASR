@@ -63,7 +63,7 @@ LLAMA_MODEL_NAME = "meta-llama/Llama-3.1-8B-Instruct"
 # ---- CURRENT SELECTION SWITCHES ----
 
 # Choose which LLM to use for the agent: "qwen" or "llama"
-CURRENT_BACKBONE = "qwen"  # or "qwen"
+CURRENT_BACKBONE = "llama"  # llama or "qwen"
 
 if CURRENT_BACKBONE == "qwen":
     CURRENT_MODEL_NAME = QWEN_MODEL_NAME
