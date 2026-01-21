@@ -1,0 +1,18 @@
+{
+  "audio_idx": 9,
+  "audio_name": "hi_00009",
+  "whisper_hyp": "",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैन",
+  "mms_zs_constrained_hyp": "",
+  "omni_hyp": "उसने अबसे बहुत देर तक इंतजार करवाया",
+  "ref_dev": "",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: MMS-1B provides a grammatically correct and contextually plausible transcription that matches common Hindi phrasing. The phrase \"तीन महीने बच्चे\" (three-month-old child) is a natural expression in Hindi. The original hypothesis from MMS-1B has a minor typo (\"हैन\" instead of \"हैं\"), which is likely a transcription error. The other systems either provide unrelated or semantically distant transcriptions (e.g., \"अबसे बहुत देर तक इंतजार करवाया\" is unrelated in context). Given the coherence, grammar, and plausibility, the corrected version of MMS-1B is selected with high confidence.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "MMS-1B provides a grammatically correct and contextually plausible transcription that matches common Hindi phrasing. The phrase \"तीन महीने बच्चे\" (three-month-old child) is a natural expression in Hindi. The original hypothesis from MMS-1B has a minor typo (\"हैन\" instead of \"हैं\"), which is likely a transcription error. The other systems either provide unrelated or semantically distant transcriptions (e.g., \"अबसे बहुत देर तक इंतजार करवाया\" is unrelated in context). Given the coherence, grammar, and plausibility, the corrected version of MMS-1B is selected with high confidence."
+  },
+  "wer": 6.0,
+  "cer": 32.0
+}

@@ -1,0 +1,80 @@
+==========================================
+ASR Judge Agent (Optimized Single-GPU)
+Job ID: 2195038
+Start time: Mon Jan 19 08:29:22 PM CET 2026
+Optimizations:
+  - Parallel baseline processing (4 threads)
+  - Flash Attention 2 enabled
+  - Increased batch size
+  - 16 CPU cores for threading
+==========================================
+Mon Jan 19 20:29:22 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:81:00.0 Off |                  Off |
+| N/A   37C    P8             71W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running ASR Agent with optimizations...
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED QWEN ASR Agent
+================================================================================
+Model: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8
+8-bit quantization: False
+Flash attention: True
+MMS-ZS: Lexicon-constrained (native Devanagari)
+Parallel baseline processing: ENABLED (Threading)
+================================================================================
+
+Loading tokenizer...
+Loading model...
+Attempting to use Flash Attention 2...
+✓ QWEN model ready
+
+Pre-loading baseline configs (one-time setup)...
+✓ Baseline configs ready
+
+
+================================================================================
+QWEN ASR AGENT - OPTIMIZED FOR SINGLE GPU
+================================================================================
+Model: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8
+Files to process: 750 (starting from index 0)
+Batch size: 16
+Language: hi
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi
+Parallel baseline processing: ENABLED
+================================================================================
+
+
+============================================================
+Processing chunk 1/25
+Files 0 to 29 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models (in parallel)...
+------------------------------------------------------------
+ Running baseline models with 4 parallel threads...
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+
+==========================================
+Job finished at: Mon Jan 19 08:46:04 PM CET 2026 (status 1)
+GPU log: logs/gpu_usage_2195038.csv
+==========================================

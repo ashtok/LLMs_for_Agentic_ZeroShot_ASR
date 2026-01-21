@@ -1,0 +1,18 @@
+{
+  "audio_idx": 3,
+  "audio_name": "hi_00003",
+  "whisper_hyp": "",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_constrained_hyp": "",
+  "omni_hyp": "यह सैही सबसे अच्छी है",
+  "ref_dev": "",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: Among all the hypotheses, MMS-1B provides a grammatically correct and contextually coherent Hindi sentence in Devanagari. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have three-month-old children) is a natural and plausible interpretation of the audio. OmniASR's output \"यह सैही सबसे अच्छी है\" (This is the best one) is semantically unrelated and likely a misinterpretation or hallucination. Whisper has no output, and MMS-ZeroShot-Constrained is missing. Therefore, MMS-1B's hypothesis is the most accurate and reliable.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "Among all the hypotheses, MMS-1B provides a grammatically correct and contextually coherent Hindi sentence in Devanagari. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have three-month-old children) is a natural and plausible interpretation of the audio. OmniASR's output \"यह सैही सबसे अच्छी है\" (This is the best one) is semantically unrelated and likely a misinterpretation or hallucination. Whisper has no output, and MMS-ZeroShot-Constrained is missing. Therefore, MMS-1B's hypothesis is the most accurate and reliable."
+  },
+  "wer": 6.0,
+  "cer": 32.0
+}

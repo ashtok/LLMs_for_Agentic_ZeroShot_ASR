@@ -1,0 +1,18 @@
+{
+  "audio_idx": 5,
+  "audio_name": "hi_00005",
+  "whisper_hyp": "",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_constrained_hyp": "",
+  "omni_hyp": "vi kuछ kartekju nehín",
+  "ref_dev": "",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: The MMS-1B hypothesis is grammatically correct, contextually coherent, and matches expected Hindi phrasing. It clearly states \"you have three-month-old child,\" which is a natural and plausible utterance. The OmniASR output (\"vi kuछ kartekju nehín\") is non-sensical and appears to be a corrupted or misaligned transcription. Whisper provides no output, so it is not usable. The MMS-ZeroShot-Constrained system has no output, so it is not available for comparison. Among the available and plausible options, MMS-1B offers the most accurate and meaningful Hindi transcription. Hence, it is selected with high confidence.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "The MMS-1B hypothesis is grammatically correct, contextually coherent, and matches expected Hindi phrasing. It clearly states \"you have three-month-old child,\" which is a natural and plausible utterance. The OmniASR output (\"vi kuछ kartekju nehín\") is non-sensical and appears to be a corrupted or misaligned transcription. Whisper provides no output, so it is not usable. The MMS-ZeroShot-Constrained system has no output, so it is not available for comparison. Among the available and plausible options, MMS-1B offers the most accurate and meaningful Hindi transcription. Hence, it is selected with high confidence."
+  },
+  "wer": 6.0,
+  "cer": 32.0
+}

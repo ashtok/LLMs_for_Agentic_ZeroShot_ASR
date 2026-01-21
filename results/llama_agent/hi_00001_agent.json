@@ -3,15 +3,15 @@
   "audio_name": "hi_00001",
   "whisper_hyp": "मैं करती हों",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_hyp": "ma khati hum",
+  "mms_zs_constrained_hyp": "मन खाती हुँ",
   "omni_hyp": "مي کاتي ھو",
   "ref_dev": "मैं खाती हूँ।",
   "llm_decision": {
-    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: मैं करती हूँ\nCONFIDENCE: high\nREASONING: The whisper and omni transcriptions are close to each other, suggesting a possible correct transcription. However, whisper's transcription \"मैं करती हों\" is more grammatically correct in Hindi. The mms_1b transcription is unrelated to the actual audio, and mms_zeroshot's transcription \"ma khati hum\" seems to be a mix of Hindi and another language, possibly Urdu.",
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: मैं करती हूँ\nCONFIDENCE: high\nREASONING: Whisper's transcription \"मैं करती हों\" is close, but the correct conjugation of the verb \"करना\" in the present continuous tense is \"करती हूँ\". MMS-ZeroShot-Constrained's transcription \"मन खाती हुँ\" is incorrect as it uses the verb \"खाना\" instead of \"करना\". MMS-1B's transcription is unrelated to the context. OmniASR's transcription is in a different script and language. Therefore, I have selected Whisper's transcription and corrected it to \"मैं करती हूँ\" to get the most accurate result.",
     "language": "Hindi",
     "transcription": "मैं करती हूँ",
     "confidence": "high",
-    "reasoning": "The whisper and omni transcriptions are close to each other, suggesting a possible correct transcription. However, whisper's transcription \"मैं करती हों\" is more grammatically correct in Hindi. The mms_1b transcription is unrelated to the actual audio, and mms_zeroshot's transcription \"ma khati hum\" seems to be a mix of Hindi and another language, possibly Urdu."
+    "reasoning": "Whisper's transcription \"मैं करती हों\" is close, but the correct conjugation of the verb \"करना\" in the present continuous tense is \"करती हूँ\". MMS-ZeroShot-Constrained's transcription \"मन खाती हुँ\" is incorrect as it uses the verb \"खाना\" instead of \"करना\". MMS-1B's transcription is unrelated to the context. OmniASR's transcription is in a different script and language. Therefore, I have selected Whisper's transcription and corrected it to \"मैं करती हूँ\" to get the most accurate result."
   },
   "wer": 0.6666666666666666,
   "cer": 0.23076923076923078

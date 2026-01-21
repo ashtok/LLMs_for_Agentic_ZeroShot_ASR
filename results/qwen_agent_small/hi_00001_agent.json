@@ -1,0 +1,18 @@
+{
+  "audio_idx": 1,
+  "audio_name": "hi_00001",
+  "whisper_hyp": "",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_constrained_hyp": "",
+  "omni_hyp": "مي کاتي ھو",
+  "ref_dev": "",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: The MMS-1B hypothesis is grammatically correct, contextually coherent, and in proper Hindi (Devanagari). It matches the expected structure of a natural spoken sentence. The Whisper hypothesis is missing, and OmniASR's output is in Urdu, which is clearly a mismatch for the audio context. The MMS-ZeroShot-Constrained hypothesis is not provided, so it cannot be evaluated. Given that only MMS-1B provides a valid, native Hindi transcription, and no other system offers a plausible Hindi output, it is the most reliable choice.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "The MMS-1B hypothesis is grammatically correct, contextually coherent, and in proper Hindi (Devanagari). It matches the expected structure of a natural spoken sentence. The Whisper hypothesis is missing, and OmniASR's output is in Urdu, which is clearly a mismatch for the audio context. The MMS-ZeroShot-Constrained hypothesis is not provided, so it cannot be evaluated. Given that only MMS-1B provides a valid, native Hindi transcription, and no other system offers a plausible Hindi output, it is the most reliable choice."
+  },
+  "wer": 6.0,
+  "cer": 32.0
+}

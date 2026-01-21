@@ -1,0 +1,21 @@
+{
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507-FP8",
+  "backbone": "qwen",
+  "language": "hi",
+  "num_files": 750,
+  "start_idx": 0,
+  "avg_wer": 0.6318710622710626,
+  "avg_cer": 0.5250597815088873,
+  "sampled_audio_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

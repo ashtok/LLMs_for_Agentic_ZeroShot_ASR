@@ -3,16 +3,16 @@
   "audio_name": "hi_00005",
   "whisper_hyp": "वे कुछ करते कियो नहीं",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_hyp": "ve kuch krte ko nhi",
+  "mms_zs_constrained_hyp": "वे कुछ करते को नही",
   "omni_hyp": "vi kuछ kartekju nehín",
   "ref_dev": "वे कुछ करते क्यों नहीं?",
   "llm_decision": {
-    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: वे कुछ करते नहीं\nCONFIDENCE: high\nREASONING: Whisper's transcription \"वे कुछ करते कियो नहीं\" is close, but it contains a typo (\"कियो\" instead of \"कहीं\"). MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. MMS-ZeroShot's transcription \"ve kuch krte ko nhi\" is close but contains romanization errors. OmniASR's transcription \"vi kuछ kartekju nehín\" is also incorrect. The most accurate transcription is from Whisper, with a correction for the typo.",
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: वे कुछ करते ही नहीं\nCONFIDENCE: high\nREASONING: Whisper's transcription \"वे कुछ करते कियो नहीं\" is close, but the correct word is \"ही\" instead of \"कियो\". MMS-ZeroShot-Constrained's transcription \"वे कुछ करते को नही\" is also close, but it has a small typo. OmniASR's transcription \"vi kuछ kartekju nehín\" is not accurate. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is completely unrelated to the actual audio. Therefore, I combined the best elements from Whisper and MMS-ZeroShot-Constrained to get the most accurate transcription.",
     "language": "Hindi",
-    "transcription": "वे कुछ करते नहीं",
+    "transcription": "वे कुछ करते ही नहीं",
     "confidence": "high",
-    "reasoning": "Whisper's transcription \"वे कुछ करते कियो नहीं\" is close, but it contains a typo (\"कियो\" instead of \"कहीं\"). MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. MMS-ZeroShot's transcription \"ve kuch krte ko nhi\" is close but contains romanization errors. OmniASR's transcription \"vi kuछ kartekju nehín\" is also incorrect. The most accurate transcription is from Whisper, with a correction for the typo."
+    "reasoning": "Whisper's transcription \"वे कुछ करते कियो नहीं\" is close, but the correct word is \"ही\" instead of \"कियो\". MMS-ZeroShot-Constrained's transcription \"वे कुछ करते को नही\" is also close, but it has a small typo. OmniASR's transcription \"vi kuछ kartekju nehín\" is not accurate. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is completely unrelated to the actual audio. Therefore, I combined the best elements from Whisper and MMS-ZeroShot-Constrained to get the most accurate transcription."
   },
   "wer": 0.4,
-  "cer": 0.30434782608695654
+  "cer": 0.2608695652173913
 }

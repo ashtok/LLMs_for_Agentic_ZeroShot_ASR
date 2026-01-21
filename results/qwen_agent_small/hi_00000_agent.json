@@ -1,0 +1,18 @@
+{
+  "audio_idx": 0,
+  "audio_name": "hi_00000",
+  "whisper_hyp": "",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_constrained_hyp": "",
+  "omni_hyp": "तुम्हारे पास तीन महीने बच्चे है",
+  "ref_dev": "",
+  "llm_decision": {
+    "raw": "तुम्हारे पास तीन महीने बच्चे हैं\n\nCONFIDENCE: high  \nREASONING: Both MMS-1B and OmniASR provide identical and grammatically correct transcription: \"तुम्हारे पास तीन महीने बच्चे हैं\", which is a natural and contextually appropriate Hindi sentence. Whisper is missing, so no comparison can be made. The constrained zero-shot model is not provided, but the other two systems agree on the same output, indicating high confidence in the accuracy of the transcription. The sentence is semantically and syntactically valid in Hindi.",
+    "language": "",
+    "transcription": "",
+    "confidence": "high",
+    "reasoning": "Both MMS-1B and OmniASR provide identical and grammatically correct transcription: \"तुम्हारे पास तीन महीने बच्चे हैं\", which is a natural and contextually appropriate Hindi sentence. Whisper is missing, so no comparison can be made. The constrained zero-shot model is not provided, but the other two systems agree on the same output, indicating high confidence in the accuracy of the transcription. The sentence is semantically and syntactically valid in Hindi."
+  },
+  "wer": 1.0,
+  "cer": 1.0
+}

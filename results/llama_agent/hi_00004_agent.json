@@ -3,16 +3,16 @@
   "audio_name": "hi_00004",
   "whisper_hyp": "दबा इतना बारी ता की में ल्से हिला नहीं सगा",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_hyp": "dabaitna bharii thakii min lsye hila niim ska",
+  "mms_zs_constrained_hyp": "दबा इतना भरी था। की में उसे हिला नम सके",
   "omni_hyp": "डबा इतنा भारी थا कि मैं उसे हिला नہीं सका",
   "ref_dev": "डब्बा इतना भारी था कि मैं उसे हिला नहीं सका।",
   "llm_decision": {
-    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: दबा इतना भारी था कि मैं उसे हिला नहीं सका\nCONFIDENCE: high\nREASONING: Whisper's transcription \"दबा इतना बारी ता की में ल्से हिला नहीं सगा\" has some errors, but it captures the essence of the sentence. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is completely off-topic. MMS-ZeroShot's transcription \"dabaitna bharii thakii min lsye hila niim ska\" has some errors and romanization issues. OmniASR's transcription \"डबा इतना भारी था कि मैं उसे हिला नہीं सका\" is the most accurate, but it has a non-standard use of \"नہीं\" instead of \"नहीं\". Combining the best elements, I select OmniASR's transcription with the correction of \"नहीं\" to get the final result.",
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: दबा इतना भरी था कि मैं उसे हिला न सका\nCONFIDENCE: high\nREASONING: Whisper's \"बारी ता\" is incorrect, while MMS-1B's transcription is unrelated to the context. MMS-ZeroShot-Constrained's \"भरी था\" is close to Whisper's \"भरी\" but lacks the crucial \"था\". OmniASR's \"डबा\" is incorrect, but \"भारी था\" is correct. Combining the best elements, the correct transcription is \"दबा इतना भरी था कि मैं उसे हिला न सका\".",
     "language": "Hindi",
-    "transcription": "दबा इतना भारी था कि मैं उसे हिला नहीं सका",
+    "transcription": "दबा इतना भरी था कि मैं उसे हिला न सका",
     "confidence": "high",
-    "reasoning": "Whisper's transcription \"दबा इतना बारी ता की में ल्से हिला नहीं सगा\" has some errors, but it captures the essence of the sentence. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is completely off-topic. MMS-ZeroShot's transcription \"dabaitna bharii thakii min lsye hila niim ska\" has some errors and romanization issues. OmniASR's transcription \"डबा इतना भारी था कि मैं उसे हिला नہीं सका\" is the most accurate, but it has a non-standard use of \"नہीं\" instead of \"नहीं\". Combining the best elements, I select OmniASR's transcription with the correction of \"नहीं\" to get the final result."
+    "reasoning": "Whisper's \"बारी ता\" is incorrect, while MMS-1B's transcription is unrelated to the context. MMS-ZeroShot-Constrained's \"भरी था\" is close to Whisper's \"भरी\" but lacks the crucial \"था\". OmniASR's \"डबा\" is incorrect, but \"भारी था\" is correct. Combining the best elements, the correct transcription is \"दबा इतना भरी था कि मैं उसे हिला न सका\"."
   },
-  "wer": 0.2,
-  "cer": 0.09090909090909091
+  "wer": 0.4,
+  "cer": 0.18181818181818182
 }

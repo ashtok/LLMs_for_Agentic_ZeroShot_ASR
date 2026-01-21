@@ -1,0 +1,18 @@
+{
+  "audio_idx": 4,
+  "audio_name": "hi_00004",
+  "whisper_hyp": "",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_constrained_hyp": "",
+  "omni_hyp": "डबा इतنा भारी था कि मैं उसे हिला नہीं सका",
+  "ref_dev": "",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: Among the given hypotheses, MMS-1B provides a coherent and grammatically correct Hindi sentence that is contextually plausible. The other hypotheses (Whisper and Omni) either lack content or offer a completely different meaning that does not align with the structure or likely content of the original utterance. Since no other system provides a matching or contextually relevant transcription, and MMS-1B's output is well-formed and native-sounding in Devanagari, it is selected as the most accurate and reliable transcription. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have a three-month-old child) is a natural and common expression in Hindi, making it the most likely correct interpretation.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "Among the given hypotheses, MMS-1B provides a coherent and grammatically correct Hindi sentence that is contextually plausible. The other hypotheses (Whisper and Omni) either lack content or offer a completely different meaning that does not align with the structure or likely content of the original utterance. Since no other system provides a matching or contextually relevant transcription, and MMS-1B's output is well-formed and native-sounding in Devanagari, it is selected as the most accurate and reliable transcription. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have a three-month-old child) is a natural and common expression in Hindi, making it the most likely correct interpretation."
+  },
+  "wer": 6.0,
+  "cer": 32.0
+}

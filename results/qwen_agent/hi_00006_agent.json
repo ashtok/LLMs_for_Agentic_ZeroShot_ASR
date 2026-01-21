@@ -3,11 +3,11 @@
   "audio_name": "hi_00006",
   "whisper_hyp": "मैं पूरी राट्रोईं",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_hyp": "me purirotroinge",
+  "mms_zs_constrained_hyp": "ने पुरी रो रोई",
   "omni_hyp": "م پوری رادروین",
   "ref_dev": "मैं पूरी रात रोई।",
   "llm_decision": {
-    "raw": "Write a detailed, long answer.",
+    "raw": "I'll analyze the ASR hypotheses for the Hindi utterance:\n\n1. Whisper: \"मैं पूरी राट्रोईं\" - This appears to be a misrecognition. \"राट्रोईं\" doesn't make sense in Hindi.\n\n2. MMS-1B: \"तुम्हारे पास तीन महीने बच्चे हैं\" - This is grammatically correct but seems to be a complete sentence about three months of children, which doesn't match the audio context.\n\n3. MMS-ZeroShot-Constrained: \"ने पुरी रो रोई\" - This appears to be a partial sentence with \"पुरी रो रोई\" which could be a misrecognition of \"पूरी रो रोई\" (meaning \"the whole one cried\"), but \"ने\" at the beginning is odd.\n\n4. Omni: \"م پوری رادروین\" - This is clearly Arabic/Persian script, not Hindi, and appears to be a complete misrecognition.\n\nLooking at",
     "language": "",
     "transcription": "",
     "confidence": "",

@@ -1,0 +1,370 @@
+==========================================
+ASR Judge Agent (Single-GPU)
+Job ID: 2213122
+Start time: Wed Jan 21 01:55:19 AM CET 2026
+==========================================
+Wed Jan 21 01:55:19 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:E2:00.0 Off |                    0 |
+| N/A   29C    P8             35W /  300W |       1MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running ASR Agent (using config defaults)...
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED QWEN ASR Agent
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+8-bit quantization: False
+Flash attention: False
+MMS-ZS: Lexicon-constrained (native Devanagari)
+Parallel baseline processing: ENABLED (Threading)
+================================================================================
+
+Loading tokenizer...
+Loading model...
+Using eager attention
+✓ QWEN model ready
+
+Pre-loading baseline configs (one-time setup)...
+✓ Baseline configs ready
+
+
+================================================================================
+QWEN ASR AGENT - OPTIMIZED FOR SINGLE GPU
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+Files to process: 750 (starting from index 0)
+Batch size: 16
+Language: hi
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi
+Parallel baseline processing: ENABLED
+================================================================================
+
+
+============================================================
+Processing chunk 1/25
+Files 0 to 29 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models (in parallel)...
+------------------------------------------------------------
+ Running baseline models with 4 parallel threads...
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+  ✓ mms completed
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/2 (16 prompts)...
+    QWEN batch 2/2 (14 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1/750] 00000: WER=6.0000, CER=32.0000, Conf=high
+  [2/750] 00001: WER=6.0000, CER=32.0000, Conf=high
+  [3/750] 00002: WER=6.0000, CER=32.0000, Conf=high
+  [4/750] 00003: WER=6.0000, CER=32.0000, Conf=high
+  [5/750] 00004: WER=6.0000, CER=32.0000, Conf=high
+  [6/750] 00005: WER=7.0000, CER=34.0000, Conf=high
+  [7/750] 00006: WER=7.0000, CER=34.0000, Conf=high
+  [8/750] 00007: WER=6.0000, CER=32.0000, Conf=high
+  [9/750] 00008: WER=7.0000, CER=34.0000, Conf=high
+  [10/750] 00009: WER=7.0000, CER=34.0000, Conf=high
+  [11/750] 00010: WER=7.0000, CER=34.0000, Conf=high
+  [12/750] 00011: WER=7.0000, CER=34.0000, Conf=high
+  [13/750] 00012: WER=7.0000, CER=34.0000, Conf=high
+  [14/750] 00013: WER=7.0000, CER=34.0000, Conf=high
+  [15/750] 00014: WER=7.0000, CER=34.0000, Conf=high
+  [16/750] 00015: WER=7.0000, CER=34.0000, Conf=high
+  [17/750] 00016: WER=7.0000, CER=34.0000, Conf=high
+  [18/750] 00017: WER=7.0000, CER=34.0000, Conf=high
+  [19/750] 00018: WER=7.0000, CER=34.0000, Conf=high
+  [20/750] 00019: WER=7.0000, CER=34.0000, Conf=high
+  [21/750] 00020: WER=7.0000, CER=34.0000, Conf=high
+  [22/750] 00021: WER=7.0000, CER=34.0000, Conf=high
+  [23/750] 00022: WER=7.0000, CER=34.0000, Conf=high
+  [24/750] 00023: WER=7.0000, CER=34.0000, Conf=high
+  [25/750] 00024: WER=7.0000, CER=34.0000, Conf=high
+  [26/750] 00025: WER=7.0000, CER=34.0000, Conf=high
+  [27/750] 00026: WER=7.0000, CER=34.0000, Conf=high
+  [28/750] 00027: WER=7.0000, CER=34.0000, Conf=high
+  [29/750] 00028: WER=7.0000, CER=34.0000, Conf=high
+  [30/750] 00029: WER=7.0000, CER=34.0000, Conf=high
+
+============================================================
+Processing chunk 2/25
+Files 30 to 59 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models (in parallel)...
+------------------------------------------------------------
+ Running baseline models with 4 parallel threads...
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips  ✗ whisper error: load_model() got an unexpected keyword argument 'dtype'
+
+
+==========================================
+Job finished at: Wed Jan 21 03:29:59 AM CET 2026 (status 0)
+GPU log: logs/gpu_usage_2213122.csv
+==========================================
+==========================================
+ASR Judge Agent (Single-GPU)
+Job ID: 2213122
+Start time: Wed Jan 21 03:29:59 AM CET 2026
+==========================================
+Wed Jan 21 03:29:59 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:E2:00.0 Off |                    0 |
+| N/A   39C    P0             84W /  300W |       1MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running ASR Agent (using config defaults)...
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED QWEN ASR Agent
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+8-bit quantization: False
+Flash attention: False
+MMS-ZS: Lexicon-constrained (native Devanagari)
+Parallel baseline processing: ENABLED (Threading)
+================================================================================
+
+Loading tokenizer...
+Loading model...
+Using eager attention
+✓ QWEN model ready
+
+Pre-loading baseline configs (one-time setup)...
+✓ Baseline configs ready
+
+
+================================================================================
+QWEN ASR AGENT - OPTIMIZED FOR SINGLE GPU
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+Files to process: 750 (starting from index 0)
+Batch size: 16
+Language: hi
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi
+Parallel baseline processing: ENABLED
+================================================================================
+
+
+============================================================
+Processing chunk 1/25
+Files 0 to 29 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models (in parallel)...
+------------------------------------------------------------
+ Running baseline models with 4 parallel threads...
+  ✗ whisper error: load_model() got an unexpected keyword argument 'dtype'
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+  ✓ mms completed
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/2 (16 prompts)...
+    QWEN batch 2/2 (14 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1/750] 00000: WER=1.0000, CER=1.0000, Conf=high
+  [2/750] 00001: WER=6.0000, CER=32.0000, Conf=high
+  [3/750] 00002: WER=1.0000, CER=1.0000, Conf=
+  [4/750] 00003: WER=6.0000, CER=32.0000, Conf=high
+  [5/750] 00004: WER=6.0000, CER=32.0000, Conf=high
+  [6/750] 00005: WER=6.0000, CER=32.0000, Conf=high
+  [7/750] 00006: WER=1.0000, CER=1.0000, Conf=
+  [8/750] 00007: WER=6.0000, CER=32.0000, Conf=high
+  [9/750] 00008: WER=6.0000, CER=32.0000, Conf=high
+  [10/750] 00009: WER=6.0000, CER=32.0000, Conf=high
+  [11/750] 00010: WER=6.0000, CER=32.0000, Conf=high
+  [12/750] 00011: WER=6.0000, CER=32.0000, Conf=high
+  [13/750] 00012: WER=6.0000, CER=32.0000, Conf=high
+  [14/750] 00013: WER=6.0000, CER=32.0000, Conf=high
+  [15/750] 00014: WER=6.0000, CER=32.0000, Conf=high
+  [16/750] 00015: WER=6.0000, CER=32.0000, Conf=high
+  [17/750] 00016: WER=6.0000, CER=31.0000, Conf=medium
+  [18/750] 00017: WER=6.0000, CER=32.0000, Conf=high
+  [19/750] 00018: WER=6.0000, CER=32.0000, Conf=high
+  [20/750] 00019: WER=6.0000, CER=32.0000, Conf=medium
+  [21/750] 00020: WER=1.0000, CER=1.0000, Conf=
+  [22/750] 00021: WER=6.0000, CER=32.0000, Conf=high
+  [23/750] 00022: WER=6.0000, CER=32.0000, Conf=high
+  [24/750] 00023: WER=6.0000, CER=32.0000, Conf=high
+  [25/750] 00024: WER=7.0000, CER=34.0000, Conf=high
+  [26/750] 00025: WER=6.0000, CER=32.0000, Conf=high
+  [27/750] 00026: WER=6.0000, CER=32.0000, Conf=high
+  [28/750] 00027: WER=6.0000, CER=32.0000, Conf=medium
+  [29/750] 00028: WER=6.0000, CER=32.0000, Conf=medium
+  [30/750] 00029: WER=6.0000, CER=32.0000, Conf=high
+
+============================================================
+Processing chunk 2/25
+Files 30 to 59 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models (in parallel)...
+------------------------------------------------------------
+ Running baseline models with 4 parallel threads...
+  ✓ mms completed
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/2 (16 prompts)...
+    QWEN batch 2/2 (14 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [31/750] 00030: WER=7.0000, CER=34.0000, Conf=high
+  [32/750] 00031: WER=7.0000, CER=34.0000, Conf=high
+  [33/750] 00032: WER=7.0000, CER=34.0000, Conf=high
+  [34/750] 00033: WER=7.0000, CER=34.0000, Conf=high
+  [35/750] 00034: WER=7.0000, CER=34.0000, Conf=high
+  [36/750] 00035: WER=7.0000, CER=34.0000, Conf=high
+  [37/750] 00036: WER=7.0000, CER=34.0000, Conf=high
+  [38/750] 00037: WER=7.0000, CER=34.0000, Conf=high
+  [39/750] 00038: WER=7.0000, CER=34.0000, Conf=high
+  [40/750] 00039: WER=7.0000, CER=34.0000, Conf=high
+  [41/750] 00040: WER=7.0000, CER=34.0000, Conf=high
+  [42/750] 00041: WER=7.0000, CER=34.0000, Conf=high
+  [43/750] 00042: WER=7.0000, CER=34.0000, Conf=high
+  [44/750] 00043: WER=7.0000, CER=34.0000, Conf=high
+  [45/750] 00044: WER=7.0000, CER=34.0000, Conf=high
+  [46/750] 00045: WER=7.0000, CER=34.0000, Conf=high
+  [47/750] 00046: WER=7.0000, CER=34.0000, Conf=high
+  [48/750] 00047: WER=7.0000, CER=34.0000, Conf=high
+  [49/750] 00048: WER=7.0000, CER=34.0000, Conf=high
+  [50/750] 00049: WER=7.0000, CER=34.0000, Conf=high
+  [51/750] 00050: WER=7.0000, CER=34.0000, Conf=high
+  [52/750] 00051: WER=7.0000, CER=34.0000, Conf=high
+  [53/750] 00052: WER=7.0000, CER=34.0000, Conf=high
+  [54/750] 00053: WER=7.0000, CER=34.0000, Conf=high
+  [55/750] 00054: WER=7.0000, CER=34.0000, Conf=high
+  [56/750] 00055: WER=7.0000, CER=34.0000, Conf=high
+  [57/750] 00056: WER=7.0000, CER=34.0000, Conf=high
+  [58/750] 00057: WER=7.0000, CER=34.0000, Conf=high
+  [59/750] 00058: WER=7.0000, CER=34.0000, Conf=high
+  [60/750] 00059: WER=7.0000, CER=34.0000, Conf=high
+
+============================================================
+Processing chunk 3/25
+Files 60 to 89 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models (in parallel)...
+------------------------------------------------------------
+ Running baseline models with 4 parallel threads...
+  ✓ mms completed
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/2 (16 prompts)...
+    QWEN batch 2/2 (14 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [61/750] 00060: WER=7.0000, CER=34.0000, Conf=high
+  [62/750] 00061: WER=7.0000, CER=34.0000, Conf=high
+  [63/750] 00062: WER=7.0000, CER=34.0000, Conf=high
+  [64/750] 00063: WER=7.0000, CER=34.0000, Conf=high
+  [65/750] 00064: WER=7.0000, CER=34.0000, Conf=high
+  [66/750] 00065: WER=7.0000, CER=34.0000, Conf=high
+  [67/750] 00066: WER=7.0000, CER=34.0000, Conf=high
+  [68/750] 00067: WER=7.0000, CER=34.0000, Conf=high
+  [69/750] 00068: WER=7.0000, CER=34.0000, Conf=high
+  [70/750] 00069: WER=7.0000, CER=34.0000, Conf=high
+  [71/750] 00070: WER=7.0000, CER=34.0000, Conf=high
+  [72/750] 00071: WER=7.0000, CER=34.0000, Conf=high
+  [73/750] 00072: WER=7.0000, CER=34.0000, Conf=high
+  [74/750] 00073: WER=7.0000, CER=34.0000, Conf=high
+  [75/750] 00074: WER=7.0000, CER=34.0000, Conf=high
+  [76/750] 00075: WER=7.0000, CER=34.0000, Conf=high
+  [77/750] 00076: WER=7.0000, CER=34.0000, Conf=high
+  [78/750] 00077: WER=7.0000, CER=34.0000, Conf=high
+  [79/750] 00078: WER=7.0000, CER=34.0000, Conf=high
+  [80/750] 00079: WER=7.0000, CER=34.0000, Conf=high
+  [81/750] 00080: WER=7.0000, CER=34.0000, Conf=high
+  [82/750] 00081: WER=7.0000, CER=34.0000, Conf=high
+  [83/750] 00082: WER=7.0000, CER=34.0000, Conf=high
+  [84/750] 00083: WER=7.0000, CER=34.0000, Conf=high
+  [85/750] 00084: WER=7.0000, CER=34.0000, Conf=high
+  [86/750] 00085: WER=7.0000, CER=34.0000, Conf=high
+  [87/750] 00086: WER=7.0000, CER=34.0000, Conf=high
+  [88/750] 00087: WER=7.0000, CER=34.0000, Conf=high
+  [89/750] 00088: WER=7.0000, CER=34.0000, Conf=high
+  [90/750] 00089: WER=7.0000, CER=34.0000, Conf=high
+
+============================================================
+Processing chunk 4/25
+Files 90 to 119 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models (in parallel)...
+------------------------------------------------------------
+ Running baseline models with 4 parallel threads...
+  ✗ whisper error: load_model() got an unexpected keyword argument 'dtype'
+Loaded 11017 audio files with transcriptions from /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/hi/clips
+
+==========================================
+Job finished at: Wed Jan 21 05:02:04 AM CET 2026
+==========================================

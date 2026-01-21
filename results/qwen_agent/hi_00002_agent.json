@@ -3,15 +3,15 @@
   "audio_name": "hi_00002",
   "whisper_hyp": "बाई और को एक बुप तरास्ता हैं",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_hyp": "bai aur ko ek buk traastaa hai",
+  "mms_zs_constrained_hyp": "बैन और को एक बुक रास्ता है",
   "omni_hyp": "بائی اور کو ایک گوپت راستا ہے",
   "ref_dev": "बाईं ओर को एक गुप्त रास्ता है।",
   "llm_decision": {
-    "raw": "LANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: The MMS-1B hypothesis \"तुम्हारे पास तीन महीने बच्चे हैं\" is the most accurate and grammatically correct among all options. It correctly interprets the likely intended meaning: \"You have three months left\" or \"You have a three-month-old child\" (context-dependent). The Whisper output contains garbled words (\"बाई\", \"बुप तरास्ता\"), MMS-ZeroShot is in romanized form and contains errors (\"buk traastaa\"), and OmniASR is in Urdu script with incorrect transliteration (\"بائی اور کو ایک گوپت راستا ہے\"). MMS-1B's output is consistent with natural Hindi syntax and phonetic accuracy, making it the best choice.",
+    "raw": "LANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: The MMS-1B hypothesis is the most coherent and grammatically correct in Hindi, matching the expected meaning of \"You have three months left\" (likely referring to a time period, e.g., in a pregnancy or deadline). The other hypotheses contain significant errors: Whisper and MMS-ZeroShot-Constrained have garbled words (\"बाई\", \"बुप तरास्ता\", \"बैन\", \"गोपत रास्ता\") that do not form meaningful Hindi phrases. OmniASR outputs in Urdu script, which is incorrect for a Hindi utterance. MMS-1B's transcription is the only one that is semantically and linguistically accurate.",
     "language": "Hindi",
     "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
     "confidence": "high",
-    "reasoning": "The MMS-1B hypothesis \"तुम्हारे पास तीन महीने बच्चे हैं\" is the most accurate and grammatically correct among all options. It correctly interprets the likely intended meaning: \"You have three months left\" or \"You have a three-month-old child\" (context-dependent). The Whisper output contains garbled words (\"बाई\", \"बुप तरास्ता\"), MMS-ZeroShot is in romanized form and contains errors (\"buk traastaa\"), and OmniASR is in Urdu script with incorrect transliteration (\"بائی اور کو ایک گوپت راستا ہے\"). MMS-1B's output is consistent with natural Hindi syntax and phonetic accuracy, making it the best choice."
+    "reasoning": "The MMS-1B hypothesis is the most coherent and grammatically correct in Hindi, matching the expected meaning of \"You have three months left\" (likely referring to a time period, e.g., in a pregnancy or deadline). The other hypotheses contain significant errors: Whisper and MMS-ZeroShot-Constrained have garbled words (\"बाई\", \"बुप तरास्ता\", \"बैन\", \"गोपत रास्ता\") that do not form meaningful Hindi phrases. OmniASR outputs in Urdu script, which is incorrect for a Hindi utterance. MMS-1B's transcription is the only one that is semantically and linguistically accurate."
   },
   "wer": 1.0,
   "cer": 0.8

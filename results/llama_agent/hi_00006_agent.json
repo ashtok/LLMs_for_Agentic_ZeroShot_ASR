@@ -3,15 +3,15 @@
   "audio_name": "hi_00006",
   "whisper_hyp": "मैं पूरी राट्रोईं",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_hyp": "me purirotroinge",
+  "mms_zs_constrained_hyp": "ने पुरी रो रोई",
   "omni_hyp": "م پوری رادروین",
   "ref_dev": "मैं पूरी रात रोई।",
   "llm_decision": {
-    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: मैं पूरी रात रोती हूँ\nCONFIDENCE: high\nREASONING: Whisper's transcription \"मैं पूरी राट्रोईं\" is close but has a typo. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. MMS-ZeroShot's transcription \"me purirotroinge\" is also incorrect due to romanization and typo. OmniASR's transcription \"م پوری رادروین\" is a transliteration of the audio, but not in Devanagari script. The correct transcription \"मैं पूरी रात रोती हूँ\" is a combination of Whisper's and OmniASR's elements, with the correct Devanagari script and the correct phrase \"रात रोती हूँ\" from the audio context.",
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: मैं पूरी रोती हूँ\nCONFIDENCE: high\nREASONING: The correct transcription is a combination of elements from different systems. Whisper's \"पूरी राट्रोईं\" is close but has a typo. MMS-ZeroShot-Constrained's \"ने पुरी रो रोई\" is also close but the verb conjugation is incorrect. MMS-1B's \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. OmniASR's transcription is not in Hindi script. However, Whisper's \"पूरी राट्रोईं\" is the closest to the correct transcription, and the verb conjugation is corrected to \"हूँ\" to match the feminine subject \"मैं\".",
     "language": "Hindi",
-    "transcription": "मैं पूरी रात रोती हूँ",
+    "transcription": "मैं पूरी रोती हूँ",
     "confidence": "high",
-    "reasoning": "Whisper's transcription \"मैं पूरी राट्रोईं\" is close but has a typo. MMS-1B's transcription \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. MMS-ZeroShot's transcription \"me purirotroinge\" is also incorrect due to romanization and typo. OmniASR's transcription \"م پوری رادروین\" is a transliteration of the audio, but not in Devanagari script. The correct transcription \"मैं पूरी रात रोती हूँ\" is a combination of Whisper's and OmniASR's elements, with the correct Devanagari script and the correct phrase \"रात रोती हूँ\" from the audio context."
+    "reasoning": "The correct transcription is a combination of elements from different systems. Whisper's \"पूरी राट्रोईं\" is close but has a typo. MMS-ZeroShot-Constrained's \"ने पुरी रो रोई\" is also close but the verb conjugation is incorrect. MMS-1B's \"तुम्हारे पास तीन महीने बच्चे हैं\" is unrelated to the audio. OmniASR's transcription is not in Hindi script. However, Whisper's \"पूरी राट्रोईं\" is the closest to the correct transcription, and the verb conjugation is corrected to \"हूँ\" to match the feminine subject \"मैं\"."
   },
   "wer": 0.5,
   "cer": 0.35294117647058826

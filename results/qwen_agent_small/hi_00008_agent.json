@@ -1,0 +1,18 @@
+{
+  "audio_idx": 8,
+  "audio_name": "hi_00008",
+  "whisper_hyp": "",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैन",
+  "mms_zs_constrained_hyp": "",
+  "omni_hyp": "آبا نے راٹھور سے چیل میں ملاقات کی",
+  "ref_dev": "",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: MMS-1B provides a Hindi transcription that is grammatically correct and contextually coherent. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have a three-month-old child) is a natural and plausible utterance in Hindi. The other hypotheses either lack Hindi content (OmniASR outputs Urdu/Persian) or are incomplete/missing. MMS-ZeroShot-Constrained is not provided, so it cannot be evaluated. Whisper has no output, making it unusable. Thus, MMS-1B is the most reliable and accurate candidate. The corrected form \"हैं\" (are) instead of \"हैन\" is used for grammatical accuracy.",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "confidence": "high",
+    "reasoning": "MMS-1B provides a Hindi transcription that is grammatically correct and contextually coherent. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have a three-month-old child) is a natural and plausible utterance in Hindi. The other hypotheses either lack Hindi content (OmniASR outputs Urdu/Persian) or are incomplete/missing. MMS-ZeroShot-Constrained is not provided, so it cannot be evaluated. Whisper has no output, making it unusable. Thus, MMS-1B is the most reliable and accurate candidate. The corrected form \"हैं\" (are) instead of \"हैन\" is used for grammatical accuracy."
+  },
+  "wer": 6.0,
+  "cer": 32.0
+}

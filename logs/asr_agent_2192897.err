@@ -1,0 +1,40 @@
+Traceback (most recent call last):
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/.venv/lib/python3.10/site-packages/torchaudio/models/decoder/__init__.py", line 21, in __getattr__
+    from . import _ctc_decoder
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/.venv/lib/python3.10/site-packages/torchaudio/models/decoder/_ctc_decoder.py", line 11, in <module>
+    from flashlight.lib.text.decoder import (
+ModuleNotFoundError: No module named 'flashlight'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/main/orchestrator.py", line 38, in <module>
+    from eval_engine import evaluate_model
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/main/eval_engine.py", line 29, in <module>
+    from asr_mms_zeroshot import run_mms_zeroshot_constrained
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/main/asr_mms_zeroshot.py", line 12, in <module>
+    from torchaudio.models.decoder import ctc_decoder
+  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/.venv/lib/python3.10/site-packages/torchaudio/models/decoder/__init__.py", line 23, in __getattr__
+    raise RuntimeError(
+RuntimeError: CTC Decoder suit requires flashlight-text package and optionally KenLM. Please install them.
+Traceback (most recent call last):
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/.venv/lib/python3.10/site-packages/torchaudio/models/decoder/__init__.py", line 21, in __getattr__
+    from . import _ctc_decoder
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/.venv/lib/python3.10/site-packages/torchaudio/models/decoder/_ctc_decoder.py", line 11, in <module>
+    from flashlight.lib.text.decoder import (
+ModuleNotFoundError: No module named 'flashlight'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/main/orchestrator.py", line 38, in <module>
+    from eval_engine import evaluate_model
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/main/eval_engine.py", line 29, in <module>
+    from asr_mms_zeroshot import run_mms_zeroshot_constrained
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/main/asr_mms_zeroshot.py", line 12, in <module>
+    from torchaudio.models.decoder import ctc_decoder
+  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
+  File "/data/42-julia-hpc-rz-wuenlp/s472389/thesis/.venv/lib/python3.10/site-packages/torchaudio/models/decoder/__init__.py", line 23, in __getattr__
+    raise RuntimeError(
+RuntimeError: CTC Decoder suit requires flashlight-text package and optionally KenLM. Please install them.

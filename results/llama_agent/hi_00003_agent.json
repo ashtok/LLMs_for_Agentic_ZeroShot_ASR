@@ -3,15 +3,15 @@
   "audio_name": "hi_00003",
   "whisper_hyp": "यह सब से अची हैं",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_hyp": "ihasahi sbsychiha",
+  "mms_zs_constrained_hyp": "यह सह सब से छः",
   "omni_hyp": "यह सैही सबसे अच्छी है",
   "ref_dev": "यह स्याही सबसे अच्छी है।",
   "llm_decision": {
-    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: यह सब से अच्छी है\nCONFIDENCE: high\nREASONING: Whisper and OmniASR provide similar transcriptions, \"यह सब से अच्छी है\", which seems to be the most accurate. MMS-1B's transcription is quite different and doesn't match the other two. MMS-ZeroShot's transcription is not readable, likely due to the romanization issue.",
+    "raw": "LANGUAGE: Hindi\nTRANSCRIPTION: यह सब से अच्छी हैं\nCONFIDENCE: high\nREASONING: Whisper and OmniASR provide similar transcriptions, \"यह सब से अच्छी हैं\", which seems to be the most accurate. MMS-1B's transcription is quite different and doesn't match the other two. MMS-ZeroShot-Constrained's transcription has a typo (\"छः\" instead of \"अच्छी\"). Therefore, I'm choosing the transcription from Whisper and OmniASR as the most accurate.",
     "language": "Hindi",
-    "transcription": "यह सब से अच्छी है",
+    "transcription": "यह सब से अच्छी हैं",
     "confidence": "high",
-    "reasoning": "Whisper and OmniASR provide similar transcriptions, \"यह सब से अच्छी है\", which seems to be the most accurate. MMS-1B's transcription is quite different and doesn't match the other two. MMS-ZeroShot's transcription is not readable, likely due to the romanization issue."
+    "reasoning": "Whisper and OmniASR provide similar transcriptions, \"यह सब से अच्छी हैं\", which seems to be the most accurate. MMS-1B's transcription is quite different and doesn't match the other two. MMS-ZeroShot-Constrained's transcription has a typo (\"छः\" instead of \"अच्छी\"). Therefore, I'm choosing the transcription from Whisper and OmniASR as the most accurate."
   },
   "wer": 0.6,
   "cer": 0.3333333333333333
