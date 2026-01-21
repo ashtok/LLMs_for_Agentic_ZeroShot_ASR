@@ -210,76 +210,55 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
     return result
 
 def main():
-    """Example usage of evaluate_model function"""
-    
-    config_whisper = {
-        "backend": "whisper",
-        "model_name": "small",
-        "max_samples": 10,
-        "quiet": False,
-    }
-    
-    config_mms = {
-        "backend": "mms",
-        "model_name": "facebook/mms-1b-all",
-        "target_lang": "hin",
-        "max_samples": 10,
-        "quiet": False,
-    }
-    
-    config_mms_zs = {
-        "backend": "mms_zeroshot",
-        "model_name": "mms-meta/mms-zeroshot-300m",
-        "max_samples": 10,
-        "quiet": False,
-    }
-    
-    config_mms_zs_constrained = {
-        "backend": "mms_zeroshot_constrained",
-        "model_name": "mms-meta/mms-zeroshot-300m",
-        "lexicon_file": "lexicon.txt",
-        "max_samples": 10,
-        "quiet": False,
-    }
-    
-    config_omni = {
-        "backend": "omni",
-        "model_name": "omniASR_CTC_300M",
-        "lang_tag": "hin_Deva",
-        "max_samples": 10,
-        "quiet": False,
-    }
-    
-    print("Choose evaluation to run:")
-    print("1. Whisper")
-    print("2. MMS")
-    print("3. MMS Zero-shot (greedy)")
-    print("4. MMS Zero-shot Constrained (lexicon)")
-    print("5. OmniASR")
-    
-    choice = input("Enter choice (1-5): ").strip()
-    
+    """Test all model configs one by one."""
     config_map = {
-        "1": config_whisper,
-        "2": config_mms,
-        "3": config_mms_zs,
-        "4": config_mms_zs_constrained,
-        "5": config_omni,
+        "Whisper": {
+            "backend": "whisper",
+            "model_name": "small",
+            "max_samples": 1,  # Test 1 sample for speed
+            "quiet": False,
+        },
+        "MMS": {
+            "backend": "mms",
+            "model_name": "facebook/mms-1b-all",
+            "target_lang": "hin",
+            "max_samples": 1,
+            "quiet": False,
+        },
+        "MMS Zero-shot (greedy)": {
+            "backend": "mms_zeroshot",
+            "model_name": "mms-meta/mms-zeroshot-300m",
+            "max_samples": 1,
+            "quiet": False,
+        },
+        "MMS Zero-shot Constrained": {
+            "backend": "mms_zeroshot_constrained",
+            "model_name": "mms-meta/mms-zeroshot-300m",
+            "lexicon_file": "lexicon.txt",
+            "max_samples": 1,
+            "quiet": False,
+        },
+        "OmniASR": {
+            "backend": "omni",
+            "model_name": "omniASR_CTC_300M",
+            "lang_tag": "hin_Deva",
+            "max_samples": 1,
+            "quiet": False,
+        },
     }
     
-    if choice in config_map:
-        result = evaluate_model(config_map[choice])
-        
-        print(f"\n{'='*60}")
-        print("EVALUATION RESULTS")
-        print(f"{'='*60}")
-        print(f"Model: {result['model']}")
-        print(f"WER: {result.get('wer_native', result.get('wer')):.4f}")
-        print(f"CER: {result.get('cer_native', result.get('cer')):.4f}")
-        print(f"Samples: {result['n_samples']}")
-        print(f"{'='*60}\n")
-    else:
-        print("Invalid choice!")
+    for name, config in config_map.items():
+        print(f"\n{'='*80}")
+        print(f"TESTING: {name}")
+        print(f"{'='*80}")
+        try:
+            result = evaluate_model(config)
+            print(f"SUCCESS - WER: {result.get('wer_native', result.get('wer', 'N/A')):.4f}")
+            print(f"CER: {result.get('cer_native', result.get('cer', 'N/A')):.4f}")
+            print(f"Samples: {result.get('n_samples', 'N/A')}")
+        except Exception as e:
+            print(f"FAILED: {str(e)}")
+        print("-" * 80)
 
 if __name__ == "__main__":
     main()
