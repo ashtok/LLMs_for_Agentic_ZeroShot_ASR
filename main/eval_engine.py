@@ -1,5 +1,5 @@
 from __future__ import annotations
-
+import argparse
 from pathlib import Path
 from typing import Any, Dict
 import sys
@@ -211,54 +211,85 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
 
 def main():
     """Test all model configs one by one."""
+    parser = argparse.ArgumentParser(description="Test ASR baselines with configurable samples")
+    parser.add_argument("--max-samples", type=int, default=1, help="Number of samples per test (default: 1)")
+    parser.add_argument("--quiet", action="store_true", help="Suppress baseline logs (default: False)")
+    parser.add_argument("--start-idx", type=int, default=0, help="Starting sample index (default: 0)")
+    parser.add_argument("--backends", nargs="*", default=None, 
+                       help="Specific backends to test (whisper,mms,mms_zeroshot,mms_zeroshot_constrained,omni) or 'all'")
+    
+    args = parser.parse_args()
+    
     config_map = {
         "Whisper": {
             "backend": "whisper",
             "model_name": "small",
-            "max_samples": 1,  # Test 1 sample for speed
-            "quiet": False,
+            "max_samples": args.max_samples,
+            "quiet": args.quiet,
+            "start_idx": args.start_idx,
         },
         "MMS": {
             "backend": "mms",
             "model_name": "facebook/mms-1b-all",
             "target_lang": "hin",
-            "max_samples": 1,
-            "quiet": False,
+            "max_samples": args.max_samples,
+            "quiet": args.quiet,
+            "start_idx": args.start_idx,
         },
         "MMS Zero-shot (greedy)": {
             "backend": "mms_zeroshot",
             "model_name": "mms-meta/mms-zeroshot-300m",
-            "max_samples": 1,
-            "quiet": False,
+            "max_samples": args.max_samples,
+            "quiet": args.quiet,
+            "start_idx": args.start_idx,
         },
         "MMS Zero-shot Constrained": {
             "backend": "mms_zeroshot_constrained",
             "model_name": "mms-meta/mms-zeroshot-300m",
             "lexicon_file": "lexicon.txt",
-            "max_samples": 1,
-            "quiet": False,
+            "max_samples": args.max_samples,
+            "quiet": args.quiet,
+            "start_idx": args.start_idx,
         },
         "OmniASR": {
             "backend": "omni",
             "model_name": "omniASR_CTC_300M",
             "lang_tag": "hin_Deva",
-            "max_samples": 1,
-            "quiet": False,
+            "max_samples": args.max_samples,
+            "quiet": args.quiet,
+            "start_idx": args.start_idx,
         },
     }
+    
+    # Filter backends if specified
+    if args.backends and args.backends != ['all']:
+        filtered_map = {k: v for k, v in config_map.items() 
+                       if any(b.lower() in k.lower() for b in args.backends)}
+        if not filtered_map:
+            print(f"No matching backends for: {args.backends}")
+            return
+        config_map = filtered_map
+    else:
+        print(f"Running ALL backends with max_samples={args.max_samples}, quiet={args.quiet}")
+    
+    print(f"Start index: {args.start_idx}")
+    print("-" * 80)
     
     for name, config in config_map.items():
         print(f"\n{'='*80}")
         print(f"TESTING: {name}")
+        print(f"Config: {config}")
         print(f"{'='*80}")
         try:
             result = evaluate_model(config)
             print(f"SUCCESS - WER: {result.get('wer_native', result.get('wer', 'N/A')):.4f}")
             print(f"CER: {result.get('cer_native', result.get('cer', 'N/A')):.4f}")
             print(f"Samples: {result.get('n_samples', 'N/A')}")
+            print(f"Range: {result.get('sample_range', 'N/A')}")
         except Exception as e:
             print(f"FAILED: {str(e)}")
         print("-" * 80)
+
 
 if __name__ == "__main__":
     main()
