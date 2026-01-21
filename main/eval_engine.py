@@ -5,6 +5,7 @@ from typing import Any, Dict
 import sys
 import os
 
+
 # Import config
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import (
@@ -22,11 +23,13 @@ from config import (
     MMS_ZEROSHOT_MODEL_ID,
 )
 
+
 from audio_loader import HFAudioLoader
 from asr_whisper_baseline import run_whisper_baseline
 from asr_mms_1b_baseline_with_lang import run_mms_baseline
 from asr_mms_zeroshot_baseline import run_mms_zeroshot_baseline_basic
 from asr_mms_zeroshot import run_mms_zeroshot_constrained
+
 
 def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -35,14 +38,13 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
     Args:
         config: Dictionary containing evaluation configuration
             Required keys:
-                - backend: str - Model backend (whisper, mms, omni, mms_zeroshot, mms_zeroshot_constrained)
+                - backend: str - Model backend (whisper, mms, mms_zeroshot, mms_zeroshot_constrained)
                 - model_name: str - Model identifier
             Optional keys:
                 - data_root: Path - Data directory (default: from config)
                 - language: str - Language code (default: from config)
                 - transcription_file: str - Transcription filename (default: from config)
                 - target_lang: str - Target language for MMS
-                - lang_tag: str - Language tag for OmniASR
                 - lexicon_file: str - Lexicon for constrained decoding
                 - max_samples: int - Limit number of samples
                 - start_idx: int - Starting index (default: 0)
@@ -123,7 +125,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 ds=ds,
                 model_name=model_name,
                 language=config.get("whisper_lang", language if language == "hi" else "en"),
-                verbose=False,
+                verbose=not quiet,  # ✅ FIXED: Pass verbose=not quiet
             )
         
         elif backend == "mms":
@@ -132,7 +134,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 ds=ds,
                 model_id=model_name,
                 target_lang=target_lang or "hin",
-                verbose=False,
+                verbose=not quiet,  # ✅ FIXED: Pass verbose=not quiet
             )
         
         elif backend == "omni":
@@ -143,15 +145,15 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 ds=ds,
                 model_card=model_name,
                 lang_tag=config.get("lang_tag", "hin_Deva"),
-                verbose=False,
+                verbose=not quiet,
             )
         
         elif backend == "mms_zeroshot":
             roman_path = data_root / TRANSCRIPTIONS_UROMAN_FILE
-            
+        
             if not roman_path.exists():
                 raise FileNotFoundError(f"Romanized transcriptions not found: {roman_path}")
-            
+        
             refs_roman_map = {}
             with roman_path.open("r", encoding="utf-8") as f:
                 for line in f:
@@ -179,7 +181,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 ds=ds,
                 refs_roman=refs_roman,
                 model_id=config.get("model_id", MMS_ZEROSHOT_MODEL_ID),
-                verbose=False,
+                verbose=not quiet,  # ✅ FIXED: Pass verbose=not quiet
             )
         
         elif backend == "mms_zeroshot_constrained":  # ✅ CLEAN VERSION
@@ -188,7 +190,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 ds=ds,
                 lexicon_path=data_root / config.get("lexicon_file", LEXICON_FILE),
                 model_id=config.get("model_id", MMS_ZEROSHOT_MODEL_ID),
-                verbose=False,
+                verbose=not quiet,  # ✅ FIXED: Pass verbose=not quiet
             )
         
         else:
@@ -209,6 +211,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
     
     return result
 
+
 def main():
     """Test all model configs one by one."""
     parser = argparse.ArgumentParser(description="Test ASR baselines with configurable samples")
@@ -216,7 +219,7 @@ def main():
     parser.add_argument("--quiet", action="store_true", help="Suppress baseline logs (default: False)")
     parser.add_argument("--start-idx", type=int, default=0, help="Starting sample index (default: 0)")
     parser.add_argument("--backends", nargs="*", default=None, 
-                       help="Specific backends to test (whisper,mms,mms_zeroshot,mms_zeroshot_constrained,omni) or 'all'")
+                       help="Specific backends to test (whisper,mms,mms_zeroshot,mms_zeroshot_constrained) or 'all'")
     
     args = parser.parse_args()
     
