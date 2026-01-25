@@ -1,21 +1,29 @@
 from pathlib import Path
 from typing import Dict, Tuple
-import sys
 from collections import Counter
 import re
+import sys
 
-# Import config
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import (
-    DATA_ROOT, LANGUAGE, TRANSCRIPTIONS_FILE, WORDS_FILE, LEXICON_FILE,  # ✅ Added LEXICON_FILE
-    REPO_ROOT  # For uroman path
+    DATA_ROOT,
+    LANGUAGE,
+    TRANSCRIPTIONS_FILE,
+    WORDS_FILE,
+    LEXICON_FILE,
+    UROMAN_DIR,
+    UROMAN_LANG_CODE,
 )
 
+
 def text_normalize(text: str) -> str:
+    """Normalize text for Bulgarian (Cyrillic script)"""
     text = re.sub(r'^[^ ]+\.mp3\s+', '', text.strip())
-    text = re.sub(r'[^\u0900-\u097F\s]', ' ', text)
+    # Bulgarian Cyrillic range: \u0400-\u04FF (Cyrillic block)
+    text = re.sub(r'[^\u0400-\u04FF\s]', ' ', text)
     text = re.sub(r'\s+', ' ', text.strip())
     return text
+
 
 def norm_uroman(text: str) -> str:
     text = text.lower().replace("'", "'")
@@ -23,21 +31,21 @@ def norm_uroman(text: str) -> str:
     text = re.sub(r" +", " ", text)
     return text.strip()
 
+
 def uromanize_python(words: list) -> Dict[str, str]:
     """Python uroman - split into character tokens for torchaudio."""
-    uroman_dir = REPO_ROOT / "uroman" / "uroman"
-    if str(uroman_dir) not in sys.path:
-        sys.path.insert(0, str(uroman_dir))
+    if str(UROMAN_DIR) not in sys.path:
+        sys.path.insert(0, str(UROMAN_DIR))
     
     import uroman as ur
     u = ur.Uroman()
     
     lexicon = {}
     for dev_word in words:
-        rom_text = u.romanize_string(dev_word, lcode="hin")
+        rom_text = u.romanize_string(dev_word, lcode=UROMAN_LANG_CODE)
         uroman_clean = re.sub(r"\s+", "", norm_uroman(rom_text)).strip()
         
-        # ✅ FIX: Split into character tokens with spaces
+        # Split into character tokens with spaces
         char_tokens = " ".join(list(uroman_clean))
         lexicon[dev_word] = char_tokens + " |"
     
@@ -56,6 +64,7 @@ def filter_lexicon(lexicon: Dict[str, str], word_counts: Dict[str, int]) -> Dict
         filtered_lexicon[dev_words[0]] = uroman_spell
     return filtered_lexicon
 
+
 def create_word_list_and_lexicon(transcriptions_path: Path, words_path: Path, 
                                 lexicon_path: Path, min_count: int = 2) -> Tuple[Dict[str, int], Dict[str, str]]:
     word_counts: Dict[str, int] = Counter()
@@ -72,8 +81,9 @@ def create_word_list_and_lexicon(transcriptions_path: Path, words_path: Path,
                     word_counts[word] += 1
             sentences += 1
     
+    # Updated filter for Bulgarian Cyrillic characters
     filtered_counts = {w: c for w, c in word_counts.items() 
-                      if c >= min_count and re.match(r'[\u0900-\u097F]', w)}
+                      if c >= min_count and re.match(r'[\u0400-\u04FF]', w)}
     
     sorted_words = sorted(filtered_counts.items(), key=lambda x: (-x[1], x[0]))
     
@@ -95,16 +105,18 @@ def create_word_list_and_lexicon(transcriptions_path: Path, words_path: Path,
     
     return dict(sorted_words), filtered_lexicon
 
+
 def main():
     data_dir = DATA_ROOT / LANGUAGE
     transcriptions_path = data_dir / TRANSCRIPTIONS_FILE
     words_output = data_dir / WORDS_FILE
-    lexicon_output = data_dir / LEXICON_FILE  # ✅ Config-driven
+    lexicon_output = data_dir / LEXICON_FILE
     
     word_counts, lexicon = create_word_list_and_lexicon(
         transcriptions_path, words_output, lexicon_output
     )
     print("\n✅ Ready for torchaudio ctc_decoder!")
+
 
 if __name__ == "__main__":
     main()

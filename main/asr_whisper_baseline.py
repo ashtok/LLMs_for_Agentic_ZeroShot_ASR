@@ -16,6 +16,7 @@ from config import (
     ASR_SAMPLING_RATE,
     AUDIO_FILE_PATTERN,
     CLIPS_SUBDIR,
+    WHISPER_LANG_CODE,  # ← Add this
 )
 
 from audio_loader import HFAudioLoader
@@ -118,7 +119,7 @@ def main():
     parser.add_argument("--model-name", default="small", 
                        choices=["tiny", "base", "small", "medium", "large", "large-v2", "large-v3"],
                        help="Whisper model size")
-    parser.add_argument("--whisper-lang", default="hi", help="Language code for Whisper")
+    parser.add_argument("--whisper-lang", default=WHISPER_LANG_CODE, help="Language code for Whisper")
     parser.add_argument("--quiet", action="store_true", help="Reduce output verbosity")
     parser.add_argument("--transcriptions", default=TRANSCRIPTIONS_FILE, help="Transcriptions filename")
     parser.add_argument("--max-samples", type=int, default=None, help="Limit number of samples")

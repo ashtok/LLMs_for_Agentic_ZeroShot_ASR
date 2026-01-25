@@ -2,9 +2,14 @@ import csv
 from pathlib import Path
 import sys
 
-# Add parent directory to path to import config
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from config import DATA_ROOT, AUDIO_ROOT, TRANSCRIPTIONS_FILE
+from config import (
+    DATA_ROOT,
+    LANGUAGE,
+    AUDIO_ROOT,
+    VALIDATED_TSV,
+    TRANSCRIPTIONS_FILE,
+)
 
 
 def create_transcriptions_txt(
@@ -88,9 +93,9 @@ def create_transcriptions_txt(
 
 if __name__ == "__main__":
     create_transcriptions_txt(
-        data_dir=DATA_ROOT / "hi",
+        data_dir=DATA_ROOT / LANGUAGE,
         clips_dir=AUDIO_ROOT,
         output_name=TRANSCRIPTIONS_FILE,
-        tsv_name="validated.tsv",
+        tsv_name=VALIDATED_TSV,
         delete_unvalidated=True,
     )
