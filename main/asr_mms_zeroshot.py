@@ -11,8 +11,6 @@ from transformers import AutoProcessor, Wav2Vec2ForCTC
 from huggingface_hub import hf_hub_download
 from torchaudio.models.decoder import ctc_decoder
 
-# Import config
-sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import (
     DATA_ROOT, LANGUAGE, TRANSCRIPTIONS_FILE,
     WORDS_FILE, LEXICON_FILE,
@@ -23,12 +21,14 @@ from audio_loader import HFAudioLoader
 
 MODEL_ID = "mms-meta/mms-zeroshot-300m"
 
+
 def _get_device() -> torch.device:
     if torch.cuda.is_available():
         return torch.device("cuda")
     elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available() and torch.backends.mps.is_built():
         return torch.device("mps")
     return torch.device("cpu")
+
 
 def validate_lexicon(lexicon_path: Path, token_file: Path, verbose: bool = True) -> Path:
     """Filter lexicon to only valid MMS character-level tokens."""
@@ -78,7 +78,7 @@ def validate_lexicon(lexicon_path: Path, token_file: Path, verbose: bool = True)
     if len(valid_entries) == 0:
         raise ValueError(
             "No valid lexicon entries! Lexicon format must be: word c h a r s |\n"
-            "Example: मुद्दे m u m d d e |\n"
+            "Example: мудде m u m d d e |\n"
             "Run collect_words.py with updated character-level tokenization."
         )
     
@@ -91,6 +91,7 @@ def validate_lexicon(lexicon_path: Path, token_file: Path, verbose: bool = True)
         print(f"✅ Filtered: {len(valid_entries)}/{total_entries} valid entries\n")
     
     return validated_path
+
 
 def run_mms_zeroshot_constrained(
     loader: HFAudioLoader,
@@ -189,8 +190,20 @@ def run_mms_zeroshot_constrained(
         "refs": refs_dev,
     }
 
+
 def main() -> None:
-    data_dir = DATA_ROOT / LANGUAGE
+    import argparse
+    
+    # ✅ ADD ARGUMENT PARSER
+    parser = argparse.ArgumentParser(description="Run MMS Zero-shot Constrained ASR")
+    parser.add_argument("--language", default=LANGUAGE, help="Language code")
+    parser.add_argument("--model-id", default=MODEL_ID, help="Model ID")
+    parser.add_argument("--max-samples", type=int, default=None, help="Limit number of samples")
+    parser.add_argument("--start-idx", type=int, default=0, help="Starting index")
+    parser.add_argument("--quiet", action="store_true", help="Reduce output verbosity")
+    args = parser.parse_args()
+    
+    data_dir = DATA_ROOT / args.language
     transcriptions_path = data_dir / TRANSCRIPTIONS_FILE
     lexicon_path = data_dir / LEXICON_FILE
     
@@ -198,12 +211,13 @@ def main() -> None:
         if not path.exists():
             raise FileNotFoundError(f"Missing: {path}\nRun: python main/collect_words.py")
     
-    print(f"{'='*60}")
-    print(f"MMS Zero-Shot Constrained ASR Evaluation")
-    print(f"{'='*60}")
-    print(f"Transcriptions: {transcriptions_path}")
-    print(f"Lexicon: {lexicon_path}")
-    print(f"Language: {LANGUAGE}\n")
+    if not args.quiet:
+        print(f"{'='*60}")
+        print(f"MMS Zero-Shot Constrained ASR Evaluation")
+        print(f"{'='*60}")
+        print(f"Transcriptions: {transcriptions_path}")
+        print(f"Lexicon: {lexicon_path}")
+        print(f"Language: {args.language}\n")
     
     loader = HFAudioLoader(target_sr=ASR_SAMPLING_RATE)
     ds = loader.from_dir_with_text(
@@ -211,14 +225,25 @@ def main() -> None:
         pattern=AUDIO_FILE_PATTERN, clips_subdir=CLIPS_SUBDIR,
     )
     
-    print(f"Loaded {len(ds)} audio files\n")
+    # ✅ LIMIT SAMPLES IF REQUESTED
+    if args.max_samples:
+        end_idx = args.start_idx + args.max_samples
+        ds = ds.select(range(args.start_idx, min(end_idx, len(ds))))
+    
+    if not args.quiet:
+        print(f"Loaded {len(ds)} audio files\n")
     
     result = run_mms_zeroshot_constrained(
-        loader, ds, lexicon_path=lexicon_path, verbose=True
+        loader, ds, 
+        lexicon_path=lexicon_path, 
+        model_id=args.model_id,
+        verbose=not args.quiet
     )
     
-    print("\n✅ Evaluation Complete!")
-    print(f"Final Results: {result}")
+    if not args.quiet:
+        print("\n✅ Evaluation Complete!")
+        print(f"Final Results: {result}")
+
 
 if __name__ == "__main__":
     main()

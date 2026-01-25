@@ -1,3 +1,6 @@
+import os
+os.environ["FAIRSEQ2_NO_LIBSNDFILE"] = "1"  # Move this to the very top
+
 from pathlib import Path
 from typing import Dict, List, Any
 import sys
@@ -7,8 +10,6 @@ import torchaudio
 import numpy as np
 from jiwer import wer, cer
 
-# Import config
-sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import (
     DATA_ROOT,
     LANGUAGE,
@@ -16,7 +17,7 @@ from config import (
     ASR_SAMPLING_RATE,
     AUDIO_FILE_PATTERN,
     CLIPS_SUBDIR,
-    WHISPER_LANG_CODE,  # ← Add this
+    WHISPER_LANG_CODE,
 )
 
 from audio_loader import HFAudioLoader
@@ -26,7 +27,7 @@ def run_whisper_baseline(
     loader: HFAudioLoader,
     ds: Any,
     model_name: str = "small",
-    language: str = "hi",
+    language: str = "bg",
     verbose: bool = True,
 ) -> Dict[str, float]:
     """
@@ -37,7 +38,7 @@ def run_whisper_baseline(
         loader: Audio loader instance
         ds: Dataset loaded by audio_loader
         model_name: Whisper model size (tiny, base, small, medium, large)
-        language: Language code for Whisper (e.g., "hi" for Hindi)
+        language: Language code for Whisper (e.g., "bg" for Bulgarian)
         verbose: Whether to print detailed output
     
     Returns:
