@@ -42,7 +42,7 @@ echo "Max files: 750, No Flash Attention"
 echo ""
 
 # Run orchestrator with error handling
-uv run main/orchestrator.py --max-files 750 --no-flash-attention
+uv run main/orchestrator.py --max-files 50 --no-flash-attention
 JOB_STATUS=$?
 
 # Stop GPU logger
