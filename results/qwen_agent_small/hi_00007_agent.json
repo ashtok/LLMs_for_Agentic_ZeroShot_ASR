@@ -1,18 +1,18 @@
 {
   "audio_idx": 7,
   "audio_name": "hi_00007",
-  "whisper_hyp": "",
-  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैन",
-  "mms_zs_constrained_hyp": "",
+  "whisper_hyp": "तुम गलत मनजील पर हों",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_constrained_hyp": "तुम गलत मंजिल पर हो",
   "omni_hyp": "तुम गलत मंजिल पर हो",
-  "ref_dev": "",
+  "ref_dev": "तुम गलत मंज़िल पर हो।",
   "llm_decision": {
-    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: MMS-1B provides a grammatically coherent and contextually plausible hypothesis that matches common Hindi phrasing. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have a three-month-old child) is a natural and meaningful statement in Hindi. While \"तुम गलत मंजिल पर हो\" (You are on the wrong path) is a possible interpretation, it lacks contextual grounding and is less likely given the absence of any reference to \"path\" or \"wrong direction\" in the audio. MMS-ZeroShot-Constrained and Whisper provide no output, so MMS-1B is the most reliable and contextually accurate. The correction \"हैं\" (plural form) instead of \"हैन\" is linguistically accurate in Hindi.",
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम गलत मंजिल पर हो  \nCONFIDENCE: high  \nREASONING: Among all the hypotheses, \"मंजिल\" is the correct spelling of \"मंजिल\" (meaning \"path\" or \"destination\") as opposed to \"मनजील\", which is not a valid Hindi word. The MMS-ZeroShot-Constrained and OmniASR systems both correctly transcribe \"मंजिल\", and the latter is a multilingual system that likely has better lexical consistency. Whisper's version contains a phonetic error (\"मनजील\" instead of \"मंजिल\"), and MMS-1B's hypothesis is semantically and linguistically incorrect (referring to \"three months old child\" which does not match the context). Therefore, the most accurate and contextually valid transcription is \"तुम गलत मंजिल पर हो\".",
     "language": "Hindi",
-    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "transcription": "तुम गलत मंजिल पर हो",
     "confidence": "high",
-    "reasoning": "MMS-1B provides a grammatically coherent and contextually plausible hypothesis that matches common Hindi phrasing. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have a three-month-old child) is a natural and meaningful statement in Hindi. While \"तुम गलत मंजिल पर हो\" (You are on the wrong path) is a possible interpretation, it lacks contextual grounding and is less likely given the absence of any reference to \"path\" or \"wrong direction\" in the audio. MMS-ZeroShot-Constrained and Whisper provide no output, so MMS-1B is the most reliable and contextually accurate. The correction \"हैं\" (plural form) instead of \"हैन\" is linguistically accurate in Hindi."
+    "reasoning": "Among all the hypotheses, \"मंजिल\" is the correct spelling of \"मंजिल\" (meaning \"path\" or \"destination\") as opposed to \"मनजील\", which is not a valid Hindi word. The MMS-ZeroShot-Constrained and OmniASR systems both correctly transcribe \"मंजिल\", and the latter is a multilingual system that likely has better lexical consistency. Whisper's version contains a phonetic error (\"मनजील\" instead of \"मंजिल\"), and MMS-1B's hypothesis is semantically and linguistically incorrect (referring to \"three months old child\" which does not match the context). Therefore, the most accurate and contextually valid transcription is \"तुम गलत मंजिल पर हो\"."
   },
-  "wer": 6.0,
-  "cer": 32.0
+  "wer": 0.4,
+  "cer": 0.09523809523809523
 }

@@ -1,18 +1,18 @@
 {
   "audio_idx": 2,
   "audio_name": "hi_00002",
-  "whisper_hyp": "",
+  "whisper_hyp": "बाई और को एक बुप तरास्ता हैं",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_constrained_hyp": "",
+  "mms_zs_constrained_hyp": "बैन और को एक बुक रास्ता है",
   "omni_hyp": "بائی اور کو ایک گوپت راستا ہے",
-  "ref_dev": "",
+  "ref_dev": "बाईं ओर को एक गुप्त रास्ता है।",
   "llm_decision": {
-    "raw": "आपके दिए गए ऑडियो के लिए दिए गए ASR हाइपोथेस में से सही और संगत ट्रांसक्रिप्शन चुनने के लिए विश्लेषण करें:\n\n- **Whisper**: निर्दिष्ट नहीं (अनुपस्थित)\n- **MMS-1B**: \"तुम्हारे पास तीन महीने बच्चे हैं\" → यह एक असंगत वाक्य है। \"तीन महीने\" बच्चे के लिए असंभव है, क्योंकि \"महीने\" एक समय अवधि है, न कि बच",
-    "language": "",
-    "transcription": "",
+    "raw": "(\"whisper\" and \"mms_zeroshot_constrained\" both suggest \"बैन और को एक बुक रास्ता है\", but \"बुक\" is likely a mishearing of \"बुप\" or \"बुप्त\" — possibly intended as \"बुप्त\" or \"बुप\" meaning \"a group\" or \"a path\", but more plausibly, \"बुप\" is a phonetic error. The phrase \"बाई और को एक बुप तरास्ता हैं\" from Whisper seems to have a phonetic misalignment — \"तरास्ता\" is not a valid Hindi word. \"महीने बच्चे\" in MMS-1B is semantically plausible but contradicts the context of \"path\" or \"route\". \"Omni\" is in Urdu/Persian script, so it's not a valid Hindi transcription.)\n\nThe most plausible Hindi transcription, considering phonetic and semantic coherence, is:\n\nLANGUAGE: Hindi  \nTRANSCRIPTION: बैन �",
+    "language": "Hindi",
+    "transcription": "बैन �",
     "confidence": "",
     "reasoning": ""
   },
   "wer": 1.0,
-  "cer": 1.0
+  "cer": 0.9333333333333333
 }

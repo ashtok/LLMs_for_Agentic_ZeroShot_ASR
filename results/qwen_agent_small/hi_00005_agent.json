@@ -1,18 +1,18 @@
 {
   "audio_idx": 5,
   "audio_name": "hi_00005",
-  "whisper_hyp": "",
+  "whisper_hyp": "वे कुछ करते कियो नहीं",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_constrained_hyp": "",
+  "mms_zs_constrained_hyp": "वे कुछ करते को नही",
   "omni_hyp": "vi kuछ kartekju nehín",
-  "ref_dev": "",
+  "ref_dev": "वे कुछ करते क्यों नहीं?",
   "llm_decision": {
-    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: The MMS-1B hypothesis is grammatically correct, contextually coherent, and matches expected Hindi phrasing. It clearly states \"you have three-month-old child,\" which is a natural and plausible utterance. The OmniASR output (\"vi kuछ kartekju nehín\") is non-sensical and appears to be a corrupted or misaligned transcription. Whisper provides no output, so it is not usable. The MMS-ZeroShot-Constrained system has no output, so it is not available for comparison. Among the available and plausible options, MMS-1B offers the most accurate and meaningful Hindi transcription. Hence, it is selected with high confidence.",
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: वे कुछ करते कियो नहीं  \nCONFIDENCE: medium  \nREASONING: Among all the hypotheses, \"वे कुछ करते कियो नहीं\" (Whisper) is the most grammatically correct and contextually natural in Hindi, despite minor phonetic variations. The MMS-1B hypothesis is semantically inconsistent and likely a misinterpretation of the audio. MMS-ZeroShot-Constrained is incomplete and lacks proper structure. OmniASR's output is in a corrupted script (vi kuछ kartekju nehín), which appears to be a failed multilingual transcription. Whisper, being a well-trained general-purpose model, produces a plausible and native-sounding Hindi sentence. The phrase \"करते कियो नहीं\" is a colloquial or regional variant of \"करते हैं नहीं\" or \"करते नहीं\", and the context suggests a negative action. Thus, the best available option is selected with medium confidence due to the lack of definitive audio clarity.",
     "language": "Hindi",
-    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
-    "confidence": "high",
-    "reasoning": "The MMS-1B hypothesis is grammatically correct, contextually coherent, and matches expected Hindi phrasing. It clearly states \"you have three-month-old child,\" which is a natural and plausible utterance. The OmniASR output (\"vi kuछ kartekju nehín\") is non-sensical and appears to be a corrupted or misaligned transcription. Whisper provides no output, so it is not usable. The MMS-ZeroShot-Constrained system has no output, so it is not available for comparison. Among the available and plausible options, MMS-1B offers the most accurate and meaningful Hindi transcription. Hence, it is selected with high confidence."
+    "transcription": "वे कुछ करते कियो नहीं",
+    "confidence": "medium",
+    "reasoning": "Among all the hypotheses, \"वे कुछ करते कियो नहीं\" (Whisper) is the most grammatically correct and contextually natural in Hindi, despite minor phonetic variations. The MMS-1B hypothesis is semantically inconsistent and likely a misinterpretation of the audio. MMS-ZeroShot-Constrained is incomplete and lacks proper structure. OmniASR's output is in a corrupted script (vi kuछ kartekju nehín), which appears to be a failed multilingual transcription. Whisper, being a well-trained general-purpose model, produces a plausible and native-sounding Hindi sentence. The phrase \"करते कियो नहीं\" is a colloquial or regional variant of \"करते हैं नहीं\" or \"करते नहीं\", and the context suggests a negative action. Thus, the best available option is selected with medium confidence due to the lack of definitive audio clarity."
   },
-  "wer": 6.0,
-  "cer": 32.0
+  "wer": 0.4,
+  "cer": 0.13043478260869565
 }

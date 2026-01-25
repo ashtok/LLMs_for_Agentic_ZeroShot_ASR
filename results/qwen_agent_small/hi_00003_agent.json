@@ -1,18 +1,18 @@
 {
   "audio_idx": 3,
   "audio_name": "hi_00003",
-  "whisper_hyp": "",
+  "whisper_hyp": "यह सब से अची हैं",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_constrained_hyp": "",
+  "mms_zs_constrained_hyp": "यह सह सब से छः",
   "omni_hyp": "यह सैही सबसे अच्छी है",
-  "ref_dev": "",
+  "ref_dev": "यह स्याही सबसे अच्छी है।",
   "llm_decision": {
-    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: Among all the hypotheses, MMS-1B provides a grammatically correct and contextually coherent Hindi sentence in Devanagari. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have three-month-old children) is a natural and plausible interpretation of the audio. OmniASR's output \"यह सैही सबसे अच्छी है\" (This is the best one) is semantically unrelated and likely a misinterpretation or hallucination. Whisper has no output, and MMS-ZeroShot-Constrained is missing. Therefore, MMS-1B's hypothesis is the most accurate and reliable.",
+    "raw": "\nLANGUAGE: Hindi  \nTRANSCRIPTION: यह सब से अच्छी है  \nCONFIDENCE: high  \nREASONING: Among all the hypotheses, \"यह सब से अच्छी है\" is the most coherent, grammatically correct, and contextually natural Hindi phrase. While \"महीने बच्चे\" and \"सह सब से छः\" are semantically unclear or nonsensical in this context, \"सैही\" (a misspelling of \"सही\") and \"अची\" (a common colloquial form of \"अच्छी\") suggest a phonetic or lexical error. \"Whisper\" and \"Omni\" both contain \"अच्छी\", with \"whisper\" using \"अची\" (slightly less standard) and \"omni\" using \"सैही\" (likely a mishearing of \"सही\"). The constrained model (MMS-ZeroShot-Constrained) has \"सह सब से छः\", which is incoherent. Therefore, the most accurate and",
     "language": "Hindi",
-    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "transcription": "यह सब से अच्छी है",
     "confidence": "high",
-    "reasoning": "Among all the hypotheses, MMS-1B provides a grammatically correct and contextually coherent Hindi sentence in Devanagari. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have three-month-old children) is a natural and plausible interpretation of the audio. OmniASR's output \"यह सैही सबसे अच्छी है\" (This is the best one) is semantically unrelated and likely a misinterpretation or hallucination. Whisper has no output, and MMS-ZeroShot-Constrained is missing. Therefore, MMS-1B's hypothesis is the most accurate and reliable."
+    "reasoning": "Among all the hypotheses, \"यह सब से अच्छी है\" is the most coherent, grammatically correct, and contextually natural Hindi phrase. While \"महीने बच्चे\" and \"सह सब से छः\" are semantically unclear or nonsensical in this context, \"सैही\" (a misspelling of \"सही\") and \"अची\" (a common colloquial form of \"अच्छी\") suggest a phonetic or lexical error. \"Whisper\" and \"Omni\" both contain \"अच्छी\", with \"whisper\" using \"अची\" (slightly less standard) and \"omni\" using \"सैही\" (likely a mishearing of \"सही\"). The constrained model (MMS-ZeroShot-Constrained) has \"सह सब से छः\", which is incoherent. Therefore, the most accurate and"
   },
-  "wer": 6.0,
-  "cer": 32.0
+  "wer": 0.6,
+  "cer": 0.3333333333333333
 }

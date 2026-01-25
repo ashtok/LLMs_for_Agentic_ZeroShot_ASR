@@ -1,18 +1,18 @@
 {
   "audio_idx": 1,
   "audio_name": "hi_00001",
-  "whisper_hyp": "",
+  "whisper_hyp": "मैं करती हों",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_constrained_hyp": "",
+  "mms_zs_constrained_hyp": "मन खाती हुँ",
   "omni_hyp": "مي کاتي ھو",
-  "ref_dev": "",
+  "ref_dev": "मैं खाती हूँ।",
   "llm_decision": {
-    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: The MMS-1B hypothesis is grammatically correct, contextually coherent, and in proper Hindi (Devanagari). It matches the expected structure of a natural spoken sentence. The Whisper hypothesis is missing, and OmniASR's output is in Urdu, which is clearly a mismatch for the audio context. The MMS-ZeroShot-Constrained hypothesis is not provided, so it cannot be evaluated. Given that only MMS-1B provides a valid, native Hindi transcription, and no other system offers a plausible Hindi output, it is the most reliable choice.",
-    "language": "Hindi",
-    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
-    "confidence": "high",
-    "reasoning": "The MMS-1B hypothesis is grammatically correct, contextually coherent, and in proper Hindi (Devanagari). It matches the expected structure of a natural spoken sentence. The Whisper hypothesis is missing, and OmniASR's output is in Urdu, which is clearly a mismatch for the audio context. The MMS-ZeroShot-Constrained hypothesis is not provided, so it cannot be evaluated. Given that only MMS-1B provides a valid, native Hindi transcription, and no other system offers a plausible Hindi output, it is the most reliable choice."
+    "raw": "मान लीजिए कि आवाज़ का वास्तविक संदेश एक भावनात्मक या भाषाई विशिष्ट वाक्य है, जो अपने अर्थ के अनुसार अन्य विकल्पों से अधिक संगत हो सकता है।\n\nप्रत्येक विकल्प का विश्लेषण:\n\n- **Whisper**: \"मैं करती हों\" – यह एक व्यक्तिगत विवरण देता है, लेकिन इसमें अस्पष्टता है (करती हों → करती हैं या करत",
+    "language": "",
+    "transcription": "",
+    "confidence": "",
+    "reasoning": ""
   },
-  "wer": 6.0,
-  "cer": 32.0
+  "wer": 1.0,
+  "cer": 1.0
 }

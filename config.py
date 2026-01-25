@@ -33,7 +33,7 @@ UROMAN_LANG_CODE = "hin"
 # Results directories
 RESULTS_ROOT = REPO_ROOT / "results"
 BASELINES_RESULTS_DIR = RESULTS_ROOT / "baselines"
-QWEN_AGENT_RESULTS_DIR = RESULTS_ROOT / "qwen_agent"
+QWEN_AGENT_RESULTS_DIR = RESULTS_ROOT / "qwen_agent_small"
 LLAMA_AGENT_RESULTS_DIR = RESULTS_ROOT / "llama_agent"
 
 # Audio processing

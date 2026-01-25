@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any, Dict
 import sys
 import os
-
+os.environ["FAIRSEQ2_NO_LIBSNDFILE"] = "1"
 
 # Import config
 sys.path.append(str(Path(__file__).resolve().parent.parent))

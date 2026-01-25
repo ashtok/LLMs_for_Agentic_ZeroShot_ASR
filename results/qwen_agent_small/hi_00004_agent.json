@@ -1,18 +1,18 @@
 {
   "audio_idx": 4,
   "audio_name": "hi_00004",
-  "whisper_hyp": "",
+  "whisper_hyp": "दबा इतना बारी ता की में ल्से हिला नहीं सगा",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_constrained_hyp": "",
-  "omni_hyp": "डबा इतنा भारी था कि मैं उसे हिला नہीं सका",
-  "ref_dev": "",
+  "mms_zs_constrained_hyp": "दबा इतना भरी था। की में उसे हिला नम सके",
+  "omni_hyp": "डबा इतنा भारी थا कि मैं उसे हिला नہीं सका",
+  "ref_dev": "डब्बा इतना भारी था कि मैं उसे हिला नहीं सका।",
   "llm_decision": {
-    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: Among the given hypotheses, MMS-1B provides a coherent and grammatically correct Hindi sentence that is contextually plausible. The other hypotheses (Whisper and Omni) either lack content or offer a completely different meaning that does not align with the structure or likely content of the original utterance. Since no other system provides a matching or contextually relevant transcription, and MMS-1B's output is well-formed and native-sounding in Devanagari, it is selected as the most accurate and reliable transcription. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have a three-month-old child) is a natural and common expression in Hindi, making it the most likely correct interpretation.",
-    "language": "Hindi",
-    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "raw": "डबा इतना भारी था कि मैं उसे हिला नहीं सका\n\nCONFIDENCE: high  \nREASONING: The hypothesis from OmniASR is the most grammatically correct and contextually coherent in Hindi. It accurately reflects the intended meaning of \"it was so heavy that I couldn't move it.\" While the other systems have variations (e.g., \"दबा\", \"भरी था\", \"ल्से हिला\"), OmniASR uses proper Devanagari spelling, correct verb forms (\"हिला नहीं सका\"), and natural phrasing. The constrained zero-shot model has a similar idea but with incorrect or awkward phrasing (\"की में उसे हिला नम सके\" is nonsensical). Whisper and MMS-1B introduce unrelated or incorrect content. Thus, OmniASR's version is the most accurate and plausible.",
+    "language": "",
+    "transcription": "",
     "confidence": "high",
-    "reasoning": "Among the given hypotheses, MMS-1B provides a coherent and grammatically correct Hindi sentence that is contextually plausible. The other hypotheses (Whisper and Omni) either lack content or offer a completely different meaning that does not align with the structure or likely content of the original utterance. Since no other system provides a matching or contextually relevant transcription, and MMS-1B's output is well-formed and native-sounding in Devanagari, it is selected as the most accurate and reliable transcription. The phrase \"तुम्हारे पास तीन महीने बच्चे हैं\" (You have a three-month-old child) is a natural and common expression in Hindi, making it the most likely correct interpretation."
+    "reasoning": "The hypothesis from OmniASR is the most grammatically correct and contextually coherent in Hindi. It accurately reflects the intended meaning of \"it was so heavy that I couldn't move it.\" While the other systems have variations (e.g., \"दबा\", \"भरी था\", \"ल्से हिला\"), OmniASR uses proper Devanagari spelling, correct verb forms (\"हिला नहीं सका\"), and natural phrasing. The constrained zero-shot model has a similar idea but with incorrect or awkward phrasing (\"की में उसे हिला नम सके\" is nonsensical). Whisper and MMS-1B introduce unrelated or incorrect content. Thus, OmniASR's version is the most accurate and plausible."
   },
-  "wer": 6.0,
-  "cer": 32.0
+  "wer": 1.0,
+  "cer": 1.0
 }
