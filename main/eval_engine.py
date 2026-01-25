@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 import argparse
 from pathlib import Path
@@ -6,8 +7,8 @@ import sys
 import os
 os.environ["FAIRSEQ2_NO_LIBSNDFILE"] = "1"
 
-# Import config
 sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 from config import (
     DATA_ROOT,
     LANGUAGE,
@@ -21,8 +22,10 @@ from config import (
     DEFAULT_START_IDX,
     DEFAULT_QUIET,
     MMS_ZEROSHOT_MODEL_ID,
+    MMS_TARGET_LANG,
+    WHISPER_LANG_CODE,
+    OMNI_LANG_TAG,
 )
-
 
 from audio_loader import HFAudioLoader
 from asr_whisper_baseline import run_whisper_baseline
@@ -124,8 +127,8 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 loader=loader,
                 ds=ds,
                 model_name=model_name,
-                language=config.get("whisper_lang", language if language == "hi" else "en"),
-                verbose=not quiet,  # ✅ FIXED: Pass verbose=not quiet
+                language=config.get("whisper_lang", WHISPER_LANG_CODE),  # ← FIXED: Use config
+                verbose=not quiet,
             )
         
         elif backend == "mms":
@@ -133,8 +136,8 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 loader=loader,
                 ds=ds,
                 model_id=model_name,
-                target_lang=target_lang or "hin",
-                verbose=not quiet,  # ✅ FIXED: Pass verbose=not quiet
+                target_lang=target_lang or MMS_TARGET_LANG,  # ← FIXED: Use config
+                verbose=not quiet,
             )
         
         elif backend == "omni":
@@ -144,7 +147,7 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 loader=loader,
                 ds=ds,
                 model_card=model_name,
-                lang_tag=config.get("lang_tag", "hin_Deva"),
+                lang_tag=config.get("lang_tag", OMNI_LANG_TAG),  # ← FIXED: Use config
                 verbose=not quiet,
             )
         
@@ -181,16 +184,16 @@ def evaluate_model(config: Dict[str, Any]) -> Dict[str, Any]:
                 ds=ds,
                 refs_roman=refs_roman,
                 model_id=config.get("model_id", MMS_ZEROSHOT_MODEL_ID),
-                verbose=not quiet,  # ✅ FIXED: Pass verbose=not quiet
+                verbose=not quiet,
             )
         
-        elif backend == "mms_zeroshot_constrained":  # ✅ CLEAN VERSION
+        elif backend == "mms_zeroshot_constrained":
             result = run_mms_zeroshot_constrained(
                 loader=loader,
                 ds=ds,
                 lexicon_path=data_root / config.get("lexicon_file", LEXICON_FILE),
                 model_id=config.get("model_id", MMS_ZEROSHOT_MODEL_ID),
-                verbose=not quiet,  # ✅ FIXED: Pass verbose=not quiet
+                verbose=not quiet,
             )
         
         else:
@@ -227,6 +230,7 @@ def main():
         "Whisper": {
             "backend": "whisper",
             "model_name": "small",
+            "whisper_lang": WHISPER_LANG_CODE,  # ← FIXED: Use config
             "max_samples": args.max_samples,
             "quiet": args.quiet,
             "start_idx": args.start_idx,
@@ -234,7 +238,7 @@ def main():
         "MMS": {
             "backend": "mms",
             "model_name": "facebook/mms-1b-all",
-            "target_lang": "hin",
+            "target_lang": MMS_TARGET_LANG,  # ← FIXED: Use config
             "max_samples": args.max_samples,
             "quiet": args.quiet,
             "start_idx": args.start_idx,
@@ -257,7 +261,7 @@ def main():
         "OmniASR": {
             "backend": "omni",
             "model_name": "omniASR_CTC_300M",
-            "lang_tag": "hin_Deva",
+            "lang_tag": OMNI_LANG_TAG,  # ← FIXED: Use config
             "max_samples": args.max_samples,
             "quiet": args.quiet,
             "start_idx": args.start_idx,
