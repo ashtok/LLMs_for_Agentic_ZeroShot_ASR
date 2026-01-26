@@ -1,0 +1,18 @@
+{
+  "audio_idx": 9,
+  "audio_name": "bg_00009",
+  "whisper_hyp": "अको न्मखध नुजदड, बच्छ्टा यी मैगगग, न्मखध ये नप्रावत उचिटोग.",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "ако нямаха нужда баща ей майка нямаше да направят учителки",
+  "omni_hyp": "ако нямаха нужда бащаи и майкай нямаше да я направят учитълка",
+  "ref_dev": "Ако нямаха нужда, баща й и майка й нямаше да я направят учителка.",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: ако нямаха нужда баща и майка нямаше да направят учителка\nCONFIDENCE: high\nREASONING: The correct transcription is a combination of the MMS-ZeroShot-Constrained and OmniASR hypotheses. MMS-ZeroShot-Constrained provides the correct word order and most of the words, while OmniASR corrects the word \"баща\" to \"баща и\" and \"учителка\" instead of \"учителки\". Whisper's and MMS-1B's hypotheses are not accurate.",
+    "language": "Bulgarian",
+    "transcription": "ако нямаха нужда баща и майка нямаше да направят учителка",
+    "confidence": "high",
+    "reasoning": "The correct transcription is a combination of the MMS-ZeroShot-Constrained and OmniASR hypotheses. MMS-ZeroShot-Constrained provides the correct word order and most of the words, while OmniASR corrects the word \"баща\" to \"баща и\" and \"учителка\" instead of \"учителки\". Whisper's and MMS-1B's hypotheses are not accurate."
+  },
+  "wer": 0.46153846153846156,
+  "cer": 0.13846153846153847
+}

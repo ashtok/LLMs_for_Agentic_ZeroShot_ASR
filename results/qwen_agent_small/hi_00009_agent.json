@@ -1,18 +1,18 @@
 {
   "audio_idx": 9,
   "audio_name": "hi_00009",
-  "whisper_hyp": "",
-  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैन",
-  "mms_zs_constrained_hyp": "",
+  "whisper_hyp": "उसे बहुत देड ताक्के नतेजार कर वहाया.",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_constrained_hyp": "उस ने हँसे। बहुत देर तक नज़र करा",
   "omni_hyp": "उसने अबसे बहुत देर तक इंतजार करवाया",
-  "ref_dev": "",
+  "ref_dev": "उसने हमसे बहुत देर तक इंतेज़ार करवाया।",
   "llm_decision": {
-    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: MMS-1B provides a grammatically correct and contextually plausible transcription that matches common Hindi phrasing. The phrase \"तीन महीने बच्चे\" (three-month-old child) is a natural expression in Hindi. The original hypothesis from MMS-1B has a minor typo (\"हैन\" instead of \"हैं\"), which is likely a transcription error. The other systems either provide unrelated or semantically distant transcriptions (e.g., \"अबसे बहुत देर तक इंतजार करवाया\" is unrelated in context). Given the coherence, grammar, and plausibility, the corrected version of MMS-1B is selected with high confidence.",
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: उसने बहुत देर तक इंतजार करवाया  \nCONFIDENCE: high  \nREASONING: Among all the hypotheses, \"omni\" provides a grammatically correct and contextually coherent sentence in Hindi. While \"mms_zeroshot_constrained\" is close in structure, it is incomplete and lacks proper verb form (\"हँसे\" is unrelated to the context). \"Whisper\" and \"mms_1b\" contain errors in grammar, word choice, and meaning. \"Omni\" correctly captures the intended meaning — someone made someone wait for a long time — with accurate Devanagari script and verb usage. The phrase \"बहुत देर तक इंतजार करवाया\" is a natural and idiomatic expression in Hindi, and \"करवाया\" (caused to wait) fits the context better than \"नतेजार\" or \"नज़र करा\". Thus, the omni hypothesis is the most accurate and reliable.",
     "language": "Hindi",
-    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
+    "transcription": "उसने बहुत देर तक इंतजार करवाया",
     "confidence": "high",
-    "reasoning": "MMS-1B provides a grammatically correct and contextually plausible transcription that matches common Hindi phrasing. The phrase \"तीन महीने बच्चे\" (three-month-old child) is a natural expression in Hindi. The original hypothesis from MMS-1B has a minor typo (\"हैन\" instead of \"हैं\"), which is likely a transcription error. The other systems either provide unrelated or semantically distant transcriptions (e.g., \"अबसे बहुत देर तक इंतजार करवाया\" is unrelated in context). Given the coherence, grammar, and plausibility, the corrected version of MMS-1B is selected with high confidence."
+    "reasoning": "Among all the hypotheses, \"omni\" provides a grammatically correct and contextually coherent sentence in Hindi. While \"mms_zeroshot_constrained\" is close in structure, it is incomplete and lacks proper verb form (\"हँसे\" is unrelated to the context). \"Whisper\" and \"mms_1b\" contain errors in grammar, word choice, and meaning. \"Omni\" correctly captures the intended meaning — someone made someone wait for a long time — with accurate Devanagari script and verb usage. The phrase \"बहुत देर तक इंतजार करवाया\" is a natural and idiomatic expression in Hindi, and \"करवाया\" (caused to wait) fits the context better than \"नतेजार\" or \"नज़र करा\". Thus, the omni hypothesis is the most accurate and reliable."
   },
-  "wer": 6.0,
-  "cer": 32.0
+  "wer": 0.42857142857142855,
+  "cer": 0.21052631578947367
 }

@@ -1,0 +1,18 @@
+{
+  "audio_idx": 0,
+  "audio_name": "bg_00000",
+  "whisper_hyp": "इनदुत्यत्मु कत बवाँं कोरेम जाएड़े से सबीरा।",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "им на лудият му като буен ко рев взе да се събира",
+  "omni_hyp": "и надутият му ката бъламкорем взе да се събира",
+  "ref_dev": "И надутият му като балон корем взе да се събира.",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Bulgarian  \nTRANSCRIPTION: и надутият му ката буен корем взе да се събира  \nCONFIDENCE: high  \nREASONING: The most accurate and coherent transcription is derived from the MMS-ZeroShot-Constrained hypothesis, which uses a constrained lexicon in native Cyrillic and produces \"им на лудият му като буен ко рев взе да се събира\" — but this contains errors in word formation. The OmniASR hypothesis (\"и надутият му ката бъламкорем взе да се събира\") has a plausible root (\"надутият му ката\") but \"бъламкорем\" is clearly a mishearing. The MMS-1B hypothesis (\"и надутият му ката болон корен взе да се събира\") is close in structure but \"болон\" and \"корен\" are incorrect. The best combination is \"и надутият му ката буен корем взе да се събира\", which aligns with natural Bulgarian phrasing, correct word forms (\"бу",
+    "language": "Bulgarian",
+    "transcription": "и надутият му ката буен корем взе да се събира",
+    "confidence": "high",
+    "reasoning": "The most accurate and coherent transcription is derived from the MMS-ZeroShot-Constrained hypothesis, which uses a constrained lexicon in native Cyrillic and produces \"им на лудият му като буен ко рев взе да се събира\" — but this contains errors in word formation. The OmniASR hypothesis (\"и надутият му ката бъламкорем взе да се събира\") has a plausible root (\"надутият му ката\") but \"бъламкорем\" is clearly a mishearing. The MMS-1B hypothesis (\"и надутият му ката болон корен взе да се събира\") is close in structure but \"болон\" and \"корен\" are incorrect. The best combination is \"и надутият му ката буен корем взе да се събира\", which aligns with natural Bulgarian phrasing, correct word forms (\"бу"
+  },
+  "wer": 0.4,
+  "cer": 0.125
+}

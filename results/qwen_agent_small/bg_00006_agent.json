@@ -1,0 +1,18 @@
+{
+  "audio_idx": 6,
+  "audio_name": "bg_00006",
+  "whisper_hyp": "तो ये पुल्चेते स्लेडे यटेरे दूवे ग्राव्चे",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "той прочете следующите редове градче",
+  "omni_hyp": "той прочете следаещите редове гравче",
+  "ref_dev": "Той прочете следующите редове: „Графче!“",
+  "llm_decision": {
+    "raw": "я: български  \nTRANSCRIPTION: той прочете следващите редове градче  \nCONFIDENCE: medium  \nREASONING: The most accurate and contextually coherent hypothesis is \"той прочете следващите редове градче\" from MMS-ZeroShot-Constrained, which is consistent with Bulgarian grammar and vocabulary. While \"омни\" has a similar structure, it contains a spelling error (\"гравче\" vs. \"градче\"). \"MMS-1B\" is semantically off (mentions \"надутият му ката\" which is nonsensical in context). \"Whisper\" is in Devanagari script and clearly incorrect. The constrained model with native Cyrillic lexicon provides the most plausible and grammatically correct version. The word \"градче\" (village) is a natural fit for the context of reading text. Minor spelling variation (\"следаещите\" vs. \"следващите\") is likely due to ASR error, but \"следващите\" is the correct form. Thus, we adopt the corrected version from the constrained model.",
+    "language": "",
+    "transcription": "той прочете следващите редове градче",
+    "confidence": "medium",
+    "reasoning": "The most accurate and contextually coherent hypothesis is \"той прочете следващите редове градче\" from MMS-ZeroShot-Constrained, which is consistent with Bulgarian grammar and vocabulary. While \"омни\" has a similar structure, it contains a spelling error (\"гравче\" vs. \"градче\"). \"MMS-1B\" is semantically off (mentions \"надутият му ката\" which is nonsensical in context). \"Whisper\" is in Devanagari script and clearly incorrect. The constrained model with native Cyrillic lexicon provides the most plausible and grammatically correct version. The word \"градче\" (village) is a natural fit for the context of reading text. Minor spelling variation (\"следаещите\" vs. \"следващите\") is likely due to ASR error, but \"следващите\" is the correct form. Thus, we adopt the corrected version from the constrained model."
+  },
+  "wer": 0.8,
+  "cer": 0.225
+}

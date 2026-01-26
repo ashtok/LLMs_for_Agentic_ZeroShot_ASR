@@ -1,0 +1,1004 @@
+==========================================
+ASR Judge Agent (Single-GPU)
+Job ID: 2240155
+Start time: Mon Jan 26 02:34:05 AM CET 2026
+==========================================
+
+GPU Info:
+Mon Jan 26 02:34:05 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:E2:00.0 Off |                  Off |
+| N/A   34C    P8             34W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running ASR Agent (Qwen/Llama/Gemma via config.CURRENT_BACKBONE)...
+Max files: 750, No Flash Attention
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED QWEN ASR Agent
+================================================================================
+Model: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8
+8-bit quantization: False
+Flash attention: False
+MMS-ZS: Lexicon-constrained (native Devanagari)
+================================================================================
+
+Loading tokenizer...
+Loading model...
+Using eager attention
+✓ QWEN model ready
+
+Pre-loading baseline configs (one-time setup)...
+✓ Baseline configs ready
+
+
+================================================================================
+QWEN ASR AGENT - OPTIMIZED FOR SINGLE GPU
+================================================================================
+Model: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8
+Files to process: 750 (starting from index 0)
+Batch size: 2
+Language: bg
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/bg
+================================================================================
+
+
+============================================================
+Processing chunk 1/25
+Files 0 to 29 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1/750] 00000: WER=1.0000, CER=1.0000, Conf=
+  [2/750] 00001: WER=0.2500, CER=0.0833, Conf=high
+  [3/750] 00002: WER=0.6000, CER=0.1613, Conf=high
+  [4/750] 00003: WER=1.0000, CER=1.0000, Conf=
+  [5/750] 00004: WER=1.0000, CER=1.0000, Conf=
+  [6/750] 00005: WER=0.2857, CER=0.1310, Conf=high
+  [7/750] 00006: WER=1.0000, CER=1.0000, Conf=
+  [8/750] 00007: WER=1.3750, CER=0.2308, Conf=high
+  [9/750] 00008: WER=1.0000, CER=1.0000, Conf=
+  [10/750] 00009: WER=0.3846, CER=0.1231, Conf=high
+  [11/750] 00010: WER=1.0000, CER=1.0000, Conf=
+  [12/750] 00011: WER=0.2500, CER=0.0377, Conf=high
+  [13/750] 00012: WER=0.4444, CER=0.0758, Conf=high
+  [14/750] 00013: WER=1.0000, CER=1.0000, Conf=
+  [15/750] 00014: WER=1.0000, CER=1.0000, Conf=
+  [16/750] 00015: WER=0.3077, CER=0.0353, Conf=high
+  [17/750] 00016: WER=1.0000, CER=1.0000, Conf=
+  [18/750] 00017: WER=0.5000, CER=0.1125, Conf=high
+  [19/750] 00018: WER=1.0000, CER=1.0000, Conf=
+  [20/750] 00019: WER=0.2143, CER=0.0375, Conf=high
+  [21/750] 00020: WER=1.0000, CER=1.0000, Conf=
+  [22/750] 00021: WER=0.5455, CER=0.1967, Conf=high
+  [23/750] 00022: WER=0.2500, CER=0.0448, Conf=high
+  [24/750] 00023: WER=1.0000, CER=1.0000, Conf=
+  [25/750] 00024: WER=1.0000, CER=1.0000, Conf=
+  [26/750] 00025: WER=0.6667, CER=0.1754, Conf=high
+  [27/750] 00026: WER=1.0000, CER=1.0000, Conf=
+  [28/750] 00027: WER=0.4000, CER=0.1186, Conf=high
+  [29/750] 00028: WER=1.0000, CER=1.0000, Conf=
+  [30/750] 00029: WER=0.5000, CER=0.0750, Conf=high
+
+============================================================
+Processing chunk 2/25
+Files 30 to 59 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [31/750] 00030: WER=0.7143, CER=0.2105, Conf=high
+  [32/750] 00031: WER=0.4000, CER=0.0806, Conf=high
+  [33/750] 00032: WER=0.4286, CER=0.1194, Conf=high
+  [34/750] 00033: WER=1.0000, CER=1.0000, Conf=
+  [35/750] 00034: WER=1.0000, CER=1.0000, Conf=
+  [36/750] 00035: WER=0.4444, CER=0.0588, Conf=high
+  [37/750] 00036: WER=0.2500, CER=0.0392, Conf=high
+  [38/750] 00037: WER=1.0000, CER=1.0000, Conf=
+  [39/750] 00038: WER=1.0000, CER=1.0000, Conf=
+  [40/750] 00039: WER=0.3000, CER=0.0714, Conf=high
+  [41/750] 00040: WER=0.3846, CER=0.0930, Conf=high
+  [42/750] 00041: WER=1.0000, CER=1.0000, Conf=
+  [43/750] 00042: WER=1.0000, CER=1.0000, Conf=
+  [44/750] 00043: WER=0.5000, CER=0.1558, Conf=high
+  [45/750] 00044: WER=0.1429, CER=0.0380, Conf=high
+  [46/750] 00045: WER=1.0000, CER=1.0000, Conf=
+  [47/750] 00046: WER=0.7143, CER=0.1719, Conf=high
+  [48/750] 00047: WER=1.0000, CER=1.0000, Conf=
+  [49/750] 00048: WER=1.0000, CER=1.0000, Conf=
+  [50/750] 00049: WER=0.4545, CER=0.1316, Conf=high
+  [51/750] 00050: WER=0.2727, CER=0.0597, Conf=high
+  [52/750] 00051: WER=0.2222, CER=0.0714, Conf=high
+  [53/750] 00052: WER=0.4615, CER=0.2069, Conf=high
+  [54/750] 00053: WER=0.6667, CER=0.1471, Conf=high
+  [55/750] 00054: WER=0.4000, CER=0.1111, Conf=high
+  [56/750] 00055: WER=1.0000, CER=1.0000, Conf=
+  [57/750] 00056: WER=0.4000, CER=0.1772, Conf=high
+  [58/750] 00057: WER=1.0000, CER=1.0000, Conf=
+  [59/750] 00058: WER=0.6667, CER=0.0959, Conf=high
+  [60/750] 00059: WER=1.0000, CER=1.0000, Conf=
+
+============================================================
+Processing chunk 3/25
+Files 60 to 89 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [61/750] 00060: WER=0.2143, CER=0.0353, Conf=high
+  [62/750] 00061: WER=1.0000, CER=1.0000, Conf=
+  [63/750] 00062: WER=0.7273, CER=0.2222, Conf=high
+  [64/750] 00063: WER=1.0000, CER=1.0000, Conf=
+  [65/750] 00064: WER=0.9000, CER=0.4000, Conf=high
+  [66/750] 00065: WER=0.6250, CER=0.1750, Conf=high
+  [67/750] 00066: WER=1.0000, CER=1.0000, Conf=
+  [68/750] 00067: WER=0.2222, CER=0.0526, Conf=high
+  [69/750] 00068: WER=1.0000, CER=1.0000, Conf=
+  [70/750] 00069: WER=0.4545, CER=0.1944, Conf=high
+  [71/750] 00070: WER=0.3000, CER=0.0984, Conf=high
+  [72/750] 00071: WER=1.0000, CER=1.0000, Conf=
+  [73/750] 00072: WER=1.0000, CER=1.0000, Conf=
+  [74/750] 00073: WER=0.3571, CER=0.0822, Conf=high
+  [75/750] 00074: WER=0.4615, CER=0.1096, Conf=high
+  [76/750] 00075: WER=1.0000, CER=1.0000, Conf=
+  [77/750] 00076: WER=0.7000, CER=0.1961, Conf=high
+  [78/750] 00077: WER=1.0000, CER=1.0000, Conf=
+  [79/750] 00078: WER=0.5714, CER=0.1383, Conf=high
+  [80/750] 00079: WER=1.0000, CER=1.0000, Conf=
+  [81/750] 00080: WER=0.5556, CER=0.0816, Conf=high
+  [82/750] 00081: WER=1.0000, CER=1.0000, Conf=
+  [83/750] 00082: WER=1.0000, CER=1.0000, Conf=
+  [84/750] 00083: WER=0.2727, CER=0.0526, Conf=high
+  [85/750] 00084: WER=0.3333, CER=0.0923, Conf=high
+  [86/750] 00085: WER=1.0000, CER=1.0000, Conf=
+  [87/750] 00086: WER=1.0000, CER=1.0000, Conf=
+  [88/750] 00087: WER=0.6667, CER=0.3478, Conf=high
+  [89/750] 00088: WER=1.0000, CER=1.0000, Conf=
+  [90/750] 00089: WER=1.1111, CER=0.9750, Conf=high
+
+============================================================
+Processing chunk 4/25
+Files 90 to 119 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [91/750] 00090: WER=1.0000, CER=1.0000, Conf=
+  [92/750] 00091: WER=0.7500, CER=0.1558, Conf=high
+  [93/750] 00092: WER=0.4444, CER=0.0851, Conf=high
+  [94/750] 00093: WER=1.0000, CER=1.0000, Conf=
+  [95/750] 00094: WER=1.0000, CER=1.0000, Conf=
+  [96/750] 00095: WER=0.3333, CER=0.0526, Conf=high
+  [97/750] 00096: WER=1.0000, CER=0.8400, Conf=
+  [98/750] 00097: WER=0.4286, CER=0.0645, Conf=high
+  [99/750] 00098: WER=1.0000, CER=1.0000, Conf=
+  [100/750] 00099: WER=0.2143, CER=0.0563, Conf=high
+  [101/750] 00100: WER=0.6250, CER=0.2571, Conf=high
+  [102/750] 00101: WER=1.0000, CER=1.0000, Conf=
+  [103/750] 00102: WER=0.4615, CER=0.1667, Conf=high
+  [104/750] 00103: WER=0.5714, CER=0.1026, Conf=high
+  [105/750] 00104: WER=1.0000, CER=0.9474, Conf=<high|medium|low>
+  [106/750] 00105: WER=0.5385, CER=0.1299, Conf=high
+  [107/750] 00106: WER=0.2727, CER=0.0833, Conf=high
+  [108/750] 00107: WER=0.3333, CER=0.3714, Conf=
+  [109/750] 00108: WER=1.0000, CER=1.0000, Conf=
+  [110/750] 00109: WER=0.2143, CER=0.0538, Conf=high
+  [111/750] 00110: WER=1.0000, CER=1.0000, Conf=
+  [112/750] 00111: WER=0.3846, CER=0.1029, Conf=high
+  [113/750] 00112: WER=0.2727, CER=0.0417, Conf=high
+  [114/750] 00113: WER=1.0000, CER=1.0000, Conf=
+  [115/750] 00114: WER=0.3636, CER=0.0533, Conf=high
+  [116/750] 00115: WER=1.0000, CER=1.0000, Conf=
+  [117/750] 00116: WER=0.3333, CER=0.1594, Conf=high
+  [118/750] 00117: WER=0.4000, CER=0.0968, Conf=high
+  [119/750] 00118: WER=0.1818, CER=0.0862, Conf=high
+  [120/750] 00119: WER=1.0000, CER=1.0000, Conf=
+
+============================================================
+Processing chunk 5/25
+Files 120 to 149 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [121/750] 00120: WER=1.0000, CER=1.0000, Conf=
+  [122/750] 00121: WER=1.4286, CER=0.7843, Conf=high
+  [123/750] 00122: WER=0.2500, CER=0.0423, Conf=high
+  [124/750] 00123: WER=1.0000, CER=1.0000, Conf=
+  [125/750] 00124: WER=1.0000, CER=1.0000, Conf=
+  [126/750] 00125: WER=0.5833, CER=0.2319, Conf=high
+  [127/750] 00126: WER=1.0000, CER=1.0000, Conf=
+  [128/750] 00127: WER=0.3750, CER=0.1000, Conf=high
+  [129/750] 00128: WER=1.0000, CER=1.0000, Conf=
+  [130/750] 00129: WER=0.5556, CER=0.1667, Conf=high
+  [131/750] 00130: WER=1.0000, CER=1.0000, Conf=
+  [132/750] 00131: WER=0.5556, CER=0.2826, Conf=high
+  [133/750] 00132: WER=1.0000, CER=0.9512, Conf=<high|medium|low>
+  [134/750] 00133: WER=1.0000, CER=0.4048, Conf=high
+  [135/750] 00134: WER=0.5714, CER=0.1781, Conf=high
+  [136/750] 00135: WER=1.0000, CER=1.0000, Conf=
+  [137/750] 00136: WER=0.7143, CER=0.2045, Conf=high
+  [138/750] 00137: WER=1.0000, CER=1.0000, Conf=
+  [139/750] 00138: WER=1.0000, CER=1.0000, Conf=
+  [140/750] 00139: WER=0.3750, CER=0.0806, Conf=high
+  [141/750] 00140: WER=1.0000, CER=1.0000, Conf=
+  [142/750] 00141: WER=0.3333, CER=0.1071, Conf=high
+  [143/750] 00142: WER=1.0000, CER=1.0000, Conf=
+  [144/750] 00143: WER=0.4444, CER=0.0909, Conf=high
+  [145/750] 00144: WER=1.0000, CER=0.9565, Conf=<high|medium|low>
+  [146/750] 00145: WER=0.5000, CER=0.1029, Conf=high
+  [147/750] 00146: WER=1.0000, CER=1.0000, Conf=
+  [148/750] 00147: WER=0.6000, CER=0.0984, Conf=high
+  [149/750] 00148: WER=0.4444, CER=0.1277, Conf=high
+  [150/750] 00149: WER=1.0000, CER=1.0000, Conf=
+
+============================================================
+Processing chunk 6/25
+Files 150 to 179 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [151/750] 00150: WER=0.4615, CER=0.1379, Conf=high
+  [152/750] 00151: WER=0.5000, CER=0.0870, Conf=high
+  [153/750] 00152: WER=1.0000, CER=1.0000, Conf=
+  [154/750] 00153: WER=0.3333, CER=0.0526, Conf=high
+  [155/750] 00154: WER=1.0000, CER=1.0000, Conf=
+  [156/750] 00155: WER=0.3333, CER=0.0566, Conf=high
+  [157/750] 00156: WER=0.4000, CER=0.1176, Conf=high
+  [158/750] 00157: WER=1.0000, CER=1.0000, Conf=
+  [159/750] 00158: WER=0.5833, CER=0.1346, Conf=high
+  [160/750] 00159: WER=1.0000, CER=1.0000, Conf=
+  [161/750] 00160: WER=1.0000, CER=1.0000, Conf=
+  [162/750] 00161: WER=0.3750, CER=0.0714, Conf=high
+  [163/750] 00162: WER=1.0000, CER=1.0000, Conf=
+  [164/750] 00163: WER=0.4286, CER=0.0909, Conf=high
+  [165/750] 00164: WER=1.0000, CER=1.0000, Conf=
+  [166/750] 00165: WER=0.3636, CER=0.1053, Conf=high
+  [167/750] 00166: WER=0.7500, CER=0.1228, Conf=high
+  [168/750] 00167: WER=1.0000, CER=1.0000, Conf=
+  [169/750] 00168: WER=0.5000, CER=0.1556, Conf=high
+  [170/750] 00169: WER=1.0000, CER=0.9444, Conf=<high|medium|low>
+  [171/750] 00170: WER=0.7143, CER=0.2273, Conf=high
+  [172/750] 00171: WER=1.0000, CER=1.0000, Conf=
+  [173/750] 00172: WER=1.0000, CER=1.0000, Conf=
+  [174/750] 00173: WER=0.2857, CER=0.0375, Conf=high
+  [175/750] 00174: WER=1.0000, CER=1.0000, Conf=
+  [176/750] 00175: WER=0.3333, CER=0.0769, Conf=high
+  [177/750] 00176: WER=1.0000, CER=1.0000, Conf=
+  [178/750] 00177: WER=0.6667, CER=0.2830, Conf=high
+  [179/750] 00178: WER=1.0000, CER=0.8148, Conf=high
+  [180/750] 00179: WER=0.3333, CER=0.0862, Conf=high
+
+============================================================
+Processing chunk 7/25
+Files 180 to 209 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [181/750] 00180: WER=0.2500, CER=0.0337, Conf=high
+  [182/750] 00181: WER=1.0000, CER=1.0000, Conf=
+  [183/750] 00182: WER=1.0000, CER=1.0000, Conf=
+  [184/750] 00183: WER=0.6667, CER=0.1216, Conf=high
+  [185/750] 00184: WER=1.0000, CER=1.0000, Conf=
+  [186/750] 00185: WER=0.7778, CER=0.1489, Conf=high
+  [187/750] 00186: WER=0.7500, CER=0.1591, Conf=high
+  [188/750] 00187: WER=0.4000, CER=0.1087, Conf=high
+  [189/750] 00188: WER=1.0000, CER=1.0000, Conf=
+  [190/750] 00189: WER=0.0909, CER=0.0323, Conf=high
+  [191/750] 00190: WER=0.5000, CER=0.1690, Conf=high
+  [192/750] 00191: WER=1.0000, CER=0.9348, Conf=<high|medium|low>
+  [193/750] 00192: WER=0.3750, CER=0.0500, Conf=high
+  [194/750] 00193: WER=1.5000, CER=0.4583, Conf=high
+  [195/750] 00194: WER=0.3333, CER=0.1538, Conf=high
+  [196/750] 00195: WER=0.2500, CER=0.2308, Conf=high
+  [197/750] 00196: WER=1.0000, CER=1.0000, Conf=
+  [198/750] 00197: WER=0.8000, CER=0.2885, Conf=high
+  [199/750] 00198: WER=1.0000, CER=1.0000, Conf=
+  [200/750] 00199: WER=0.3000, CER=0.1111, Conf=high
+  [201/750] 00200: WER=0.5000, CER=0.1273, Conf=high
+  [202/750] 00201: WER=1.0000, CER=1.0000, Conf=
+  [203/750] 00202: WER=0.6667, CER=0.1250, Conf=high
+  [204/750] 00203: WER=0.8000, CER=0.1633, Conf=high
+  [205/750] 00204: WER=1.0000, CER=1.0000, Conf=
+  [206/750] 00205: WER=0.2857, CER=0.0787, Conf=high
+  [207/750] 00206: WER=1.0000, CER=1.0000, Conf=
+  [208/750] 00207: WER=0.0833, CER=0.0169, Conf=high
+  [209/750] 00208: WER=1.0000, CER=1.0000, Conf=
+  [210/750] 00209: WER=0.4545, CER=0.1795, Conf=high
+
+============================================================
+Processing chunk 8/25
+Files 210 to 239 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [211/750] 00210: WER=0.9167, CER=0.7759, Conf=high
+  [212/750] 00211: WER=1.0000, CER=1.0000, Conf=
+  [213/750] 00212: WER=1.0000, CER=1.0000, Conf=
+  [214/750] 00213: WER=0.2500, CER=0.0400, Conf=high
+  [215/750] 00214: WER=0.2000, CER=0.0667, Conf=high
+  [216/750] 00215: WER=1.0000, CER=1.0000, Conf=
+  [217/750] 00216: WER=0.4615, CER=0.0938, Conf=high
+  [218/750] 00217: WER=1.0000, CER=1.0000, Conf=
+  [219/750] 00218: WER=0.2857, CER=0.0682, Conf=high
+  [220/750] 00219: WER=1.0000, CER=1.0000, Conf=
+  [221/750] 00220: WER=0.2000, CER=0.0312, Conf=high
+  [222/750] 00221: WER=0.2308, CER=0.0494, Conf=high
+  [223/750] 00222: WER=0.3846, CER=0.1034, Conf=high
+  [224/750] 00223: WER=0.1818, CER=0.0323, Conf=high
+  [225/750] 00224: WER=0.2500, CER=0.0299, Conf=high
+  [226/750] 00225: WER=0.5714, CER=0.2000, Conf=high
+  [227/750] 00226: WER=1.0000, CER=1.0000, Conf=
+  [228/750] 00227: WER=1.0000, CER=0.3415, Conf=high
+  [229/750] 00228: WER=0.1111, CER=0.0189, Conf=high
+  [230/750] 00229: WER=1.0000, CER=1.0000, Conf=
+  [231/750] 00230: WER=0.2857, CER=0.0500, Conf=high
+  [232/750] 00231: WER=1.0000, CER=1.0000, Conf=
+  [233/750] 00232: WER=1.0000, CER=1.0000, Conf=
+  [234/750] 00233: WER=0.6000, CER=0.1714, Conf=high
+  [235/750] 00234: WER=0.4286, CER=0.1190, Conf=high
+  [236/750] 00235: WER=1.0000, CER=1.0000, Conf=
+  [237/750] 00236: WER=0.5714, CER=0.1176, Conf=high
+  [238/750] 00237: WER=1.0000, CER=1.0000, Conf=
+  [239/750] 00238: WER=1.0000, CER=1.0000, Conf=
+  [240/750] 00239: WER=0.4167, CER=0.1667, Conf=high
+
+============================================================
+Processing chunk 9/25
+Files 240 to 269 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [241/750] 00240: WER=0.3636, CER=0.0556, Conf=high
+  [242/750] 00241: WER=0.1429, CER=0.0460, Conf=high
+  [243/750] 00242: WER=1.0000, CER=1.0000, Conf=
+  [244/750] 00243: WER=0.4167, CER=0.1029, Conf=high
+  [245/750] 00244: WER=0.7692, CER=0.2568, Conf=high
+  [246/750] 00245: WER=1.0000, CER=1.0000, Conf=
+  [247/750] 00246: WER=0.4167, CER=0.2128, Conf=high
+  [248/750] 00247: WER=0.5000, CER=0.2045, Conf=
+  [249/750] 00248: WER=1.0000, CER=1.0000, Conf=
+  [250/750] 00249: WER=0.8000, CER=0.0875, Conf=high
+  [251/750] 00250: WER=0.3333, CER=0.0633, Conf=high
+  [252/750] 00251: WER=1.0000, CER=1.0000, Conf=
+  [253/750] 00252: WER=0.5000, CER=0.2533, Conf=high
+  [254/750] 00253: WER=0.2857, CER=0.0933, Conf=high
+  [255/750] 00254: WER=0.8333, CER=0.6829, Conf=medium
+  [256/750] 00255: WER=1.0000, CER=1.0000, Conf=
+  [257/750] 00256: WER=0.1818, CER=0.0323, Conf=high
+  [258/750] 00257: WER=1.0000, CER=1.0000, Conf=
+  [259/750] 00258: WER=1.0000, CER=1.0000, Conf=
+  [260/750] 00259: WER=0.5833, CER=0.2373, Conf=high
+  [261/750] 00260: WER=1.0000, CER=1.0000, Conf=
+  [262/750] 00261: WER=0.2308, CER=0.0789, Conf=high
+  [263/750] 00262: WER=0.5000, CER=0.1957, Conf=high
+  [264/750] 00263: WER=0.4286, CER=0.0988, Conf=high
+  [265/750] 00264: WER=1.0000, CER=1.0000, Conf=
+  [266/750] 00265: WER=1.4000, CER=0.3333, Conf=high
+  [267/750] 00266: WER=1.0000, CER=1.0000, Conf=
+  [268/750] 00267: WER=0.2500, CER=0.0417, Conf=high
+  [269/750] 00268: WER=1.0000, CER=1.0000, Conf=
+  [270/750] 00269: WER=0.2727, CER=0.0517, Conf=high
+
+============================================================
+Processing chunk 10/25
+Files 270 to 299 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [271/750] 00270: WER=1.0000, CER=1.0000, Conf=
+  [272/750] 00271: WER=1.4286, CER=0.8163, Conf=high
+  [273/750] 00272: WER=0.2857, CER=0.0488, Conf=high
+  [274/750] 00273: WER=1.0000, CER=1.0000, Conf=
+  [275/750] 00274: WER=0.1818, CER=0.0270, Conf=high
+  [276/750] 00275: WER=0.7500, CER=0.1064, Conf=high
+  [277/750] 00276: WER=0.2143, CER=0.0380, Conf=high
+  [278/750] 00277: WER=0.6250, CER=0.0962, Conf=high
+  [279/750] 00278: WER=0.6667, CER=0.0909, Conf=high
+  [280/750] 00279: WER=0.2857, CER=0.0426, Conf=high
+  [281/750] 00280: WER=0.3333, CER=0.0566, Conf=high
+  [282/750] 00281: WER=1.0000, CER=1.0000, Conf=
+  [283/750] 00282: WER=1.0000, CER=1.0000, Conf=
+  [284/750] 00283: WER=0.3750, CER=0.1400, Conf=high
+  [285/750] 00284: WER=0.0833, CER=0.0143, Conf=high
+  [286/750] 00285: WER=1.0000, CER=1.0000, Conf=
+  [287/750] 00286: WER=0.2143, CER=0.0700, Conf=high
+  [288/750] 00287: WER=1.0000, CER=0.9538, Conf=<high|medium|low>
+  [289/750] 00288: WER=0.2500, CER=0.0500, Conf=high
+  [290/750] 00289: WER=1.0000, CER=1.0000, Conf=
+  [291/750] 00290: WER=1.0000, CER=1.0000, Conf=
+  [292/750] 00291: WER=0.4444, CER=0.0923, Conf=high
+  [293/750] 00292: WER=0.2500, CER=0.0635, Conf=high
+  [294/750] 00293: WER=1.0000, CER=1.0000, Conf=
+  [295/750] 00294: WER=0.1667, CER=0.0308, Conf=high
+  [296/750] 00295: WER=1.0000, CER=1.0000, Conf=
+  [297/750] 00296: WER=1.0000, CER=1.0000, Conf=
+  [298/750] 00297: WER=0.6923, CER=0.1071, Conf=high
+  [299/750] 00298: WER=0.6364, CER=0.2075, Conf=high
+  [300/750] 00299: WER=1.0000, CER=1.0000, Conf=
+
+============================================================
+Processing chunk 11/25
+Files 300 to 329 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [301/750] 00300: WER=1.0000, CER=1.0000, Conf=
+  [302/750] 00301: WER=0.5000, CER=0.1143, Conf=high
+  [303/750] 00302: WER=0.5714, CER=0.0682, Conf=high
+  [304/750] 00303: WER=1.0000, CER=1.0000, Conf=
+  [305/750] 00304: WER=0.6000, CER=0.1429, Conf=high
+  [306/750] 00305: WER=1.0000, CER=1.0000, Conf=
+  [307/750] 00306: WER=0.2500, CER=0.0417, Conf=high
+  [308/750] 00307: WER=1.0000, CER=1.0000, Conf=
+  [309/750] 00308: WER=1.0000, CER=1.0000, Conf=
+  [310/750] 00309: WER=0.3333, CER=0.0930, Conf=high
+  [311/750] 00310: WER=0.5556, CER=0.0794, Conf=high
+  [312/750] 00311: WER=1.0000, CER=1.0000, Conf=
+  [313/750] 00312: WER=1.0000, CER=1.0000, Conf=
+  [314/750] 00313: WER=0.6000, CER=0.3256, Conf=high
+  [315/750] 00314: WER=0.1429, CER=0.0225, Conf=high
+  [316/750] 00315: WER=0.1429, CER=0.0375, Conf=high
+  [317/750] 00316: WER=0.2857, CER=0.0556, Conf=high
+  [318/750] 00317: WER=1.0000, CER=1.0000, Conf=
+  [319/750] 00318: WER=0.3636, CER=0.1071, Conf=high
+  [320/750] 00319: WER=0.8750, CER=0.2456, Conf=high
+  [321/750] 00320: WER=1.0000, CER=0.9474, Conf=<high|medium|low>
+  [322/750] 00321: WER=0.2857, CER=0.0385, Conf=high
+  [323/750] 00322: WER=1.0000, CER=1.0000, Conf=
+  [324/750] 00323: WER=0.3571, CER=0.1139, Conf=high
+  [325/750] 00324: WER=0.1000, CER=0.0189, Conf=high
+  [326/750] 00325: WER=0.3000, CER=0.0556, Conf=high
+  [327/750] 00326: WER=1.0000, CER=1.0000, Conf=
+  [328/750] 00327: WER=0.5000, CER=0.1014, Conf=high
+  [329/750] 00328: WER=1.0000, CER=1.0000, Conf=
+  [330/750] 00329: WER=0.4615, CER=0.1486, Conf=high
+
+============================================================
+Processing chunk 12/25
+Files 330 to 359 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [331/750] 00330: WER=0.2500, CER=0.0588, Conf=high
+  [332/750] 00331: WER=1.0000, CER=1.0000, Conf=
+  [333/750] 00332: WER=1.0000, CER=1.0000, Conf=
+  [334/750] 00333: WER=0.1000, CER=0.0152, Conf=high
+  [335/750] 00334: WER=1.0000, CER=1.0000, Conf=
+  [336/750] 00335: WER=0.1818, CER=0.0526, Conf=high
+  [337/750] 00336: WER=1.0000, CER=1.0000, Conf=
+  [338/750] 00337: WER=0.2308, CER=0.0959, Conf=high
+  [339/750] 00338: WER=1.0000, CER=1.0000, Conf=
+  [340/750] 00339: WER=0.4545, CER=0.1053, Conf=high
+  [341/750] 00340: WER=0.7500, CER=0.3810, Conf=high
+  [342/750] 00341: WER=0.0909, CER=0.0141, Conf=high
+  [343/750] 00342: WER=0.0833, CER=0.0164, Conf=high
+  [344/750] 00343: WER=1.0000, CER=1.0000, Conf=
+  [345/750] 00344: WER=1.0000, CER=0.9412, Conf=<high|medium|low>
+  [346/750] 00345: WER=0.3333, CER=0.0588, Conf=high
+  [347/750] 00346: WER=0.4286, CER=0.1011, Conf=high
+  [348/750] 00347: WER=1.0000, CER=1.0000, Conf=
+  [349/750] 00348: WER=0.6667, CER=0.2143, Conf=high
+  [350/750] 00349: WER=1.0000, CER=1.0000, Conf=
+  [351/750] 00350: WER=1.0000, CER=1.0000, Conf=
+  [352/750] 00351: WER=0.3750, CER=0.0698, Conf=high
+  [353/750] 00352: WER=0.4000, CER=0.1094, Conf=high
+  [354/750] 00353: WER=1.0000, CER=1.0000, Conf=
+  [355/750] 00354: WER=0.5000, CER=0.1395, Conf=high
+  [356/750] 00355: WER=1.0000, CER=1.0000, Conf=
+  [357/750] 00356: WER=0.5000, CER=0.1000, Conf=high
+  [358/750] 00357: WER=1.0000, CER=1.0000, Conf=
+  [359/750] 00358: WER=0.6667, CER=0.0920, Conf=high
+  [360/750] 00359: WER=1.0000, CER=0.9589, Conf=<high|medium|low>
+
+============================================================
+Processing chunk 13/25
+Files 360 to 389 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [361/750] 00360: WER=0.6000, CER=0.3226, Conf=
+  [362/750] 00361: WER=0.2000, CER=0.0328, Conf=high
+  [363/750] 00362: WER=1.0000, CER=1.0000, Conf=
+  [364/750] 00363: WER=0.1538, CER=0.0299, Conf=high
+  [365/750] 00364: WER=0.1429, CER=0.0303, Conf=high
+  [366/750] 00365: WER=0.2727, CER=0.0476, Conf=high
+  [367/750] 00366: WER=1.0000, CER=1.0000, Conf=
+  [368/750] 00367: WER=0.1538, CER=0.0233, Conf=high
+  [369/750] 00368: WER=1.0000, CER=1.0000, Conf=
+  [370/750] 00369: WER=0.7500, CER=0.1591, Conf=high
+  [371/750] 00370: WER=1.0000, CER=1.0000, Conf=
+  [372/750] 00371: WER=0.6250, CER=0.1379, Conf=high
+  [373/750] 00372: WER=0.5000, CER=0.0930, Conf=high
+  [374/750] 00373: WER=1.0000, CER=1.0000, Conf=
+  [375/750] 00374: WER=1.0000, CER=1.0000, Conf=
+  [376/750] 00375: WER=0.0909, CER=0.0139, Conf=high
+  [377/750] 00376: WER=1.0000, CER=1.0000, Conf=
+  [378/750] 00377: WER=0.1818, CER=0.0351, Conf=high
+  [379/750] 00378: WER=0.4444, CER=0.1091, Conf=high
+  [380/750] 00379: WER=1.0000, CER=1.0000, Conf=
+  [381/750] 00380: WER=1.0000, CER=1.0000, Conf=
+  [382/750] 00381: WER=0.0909, CER=0.0182, Conf=high
+  [383/750] 00382: WER=1.0000, CER=1.0000, Conf=
+  [384/750] 00383: WER=0.5385, CER=0.1548, Conf=high
+  [385/750] 00384: WER=0.3333, CER=0.1061, Conf=high
+  [386/750] 00385: WER=0.2308, CER=0.0847, Conf=high
+  [387/750] 00386: WER=0.4286, CER=0.0933, Conf=high
+  [388/750] 00387: WER=1.0000, CER=1.0000, Conf=
+  [389/750] 00388: WER=1.0000, CER=1.0000, Conf=
+  [390/750] 00389: WER=0.5000, CER=0.1463, Conf=high
+
+============================================================
+Processing chunk 14/25
+Files 390 to 419 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...
+    QWEN batch 3/15 (2 prompts)...
+    QWEN batch 4/15 (2 prompts)...
+    QWEN batch 5/15 (2 prompts)...
+    QWEN batch 6/15 (2 prompts)...
+    QWEN batch 7/15 (2 prompts)...
+    QWEN batch 8/15 (2 prompts)...
+    QWEN batch 9/15 (2 prompts)...
+    QWEN batch 10/15 (2 prompts)...
+    QWEN batch 11/15 (2 prompts)...
+    QWEN batch 12/15 (2 prompts)...
+    QWEN batch 13/15 (2 prompts)...
+    QWEN batch 14/15 (2 prompts)...
+    QWEN batch 15/15 (2 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [391/750] 00390: WER=1.0000, CER=1.0000, Conf=
+  [392/750] 00391: WER=0.2143, CER=0.0667, Conf=high
+  [393/750] 00392: WER=0.5000, CER=0.1446, Conf=high
+  [394/750] 00393: WER=1.0000, CER=1.0000, Conf=
+  [395/750] 00394: WER=0.2727, CER=0.1286, Conf=high
+  [396/750] 00395: WER=1.0000, CER=1.0000, Conf=
+  [397/750] 00396: WER=0.2000, CER=0.0312, Conf=high
+  [398/750] 00397: WER=1.0000, CER=1.0000, Conf=
+  [399/750] 00398: WER=0.7500, CER=0.2083, Conf=high
+  [400/750] 00399: WER=1.0000, CER=1.0000, Conf=
+  [401/750] 00400: WER=0.4000, CER=0.0571, Conf=high
+  [402/750] 00401: WER=0.5000, CER=0.1622, Conf=high
+  [403/750] 00402: WER=0.5000, CER=0.0625, Conf=high
+  [404/750] 00403: WER=1.0000, CER=0.7949, Conf=high
+  [405/750] 00404: WER=0.4286, CER=0.0566, Conf=high
+  [406/750] 00405: WER=0.5000, CER=0.1176, Conf=high
+  [407/750] 00406: WER=1.0000, CER=1.0000, Conf=
+  [408/750] 00407: WER=0.5000, CER=0.1957, Conf=high
+  [409/750] 00408: WER=1.0000, CER=1.0000, Conf=
+  [410/750] 00409: WER=0.4167, CER=0.0575, Conf=high
+  [411/750] 00410: WER=1.0000, CER=1.0000, Conf=
+  [412/750] 00411: WER=0.6000, CER=0.1667, Conf=high
+  [413/750] 00412: WER=0.4000, CER=0.0879, Conf=high
+  [414/750] 00413: WER=0.7500, CER=0.2500, Conf=high
+  [415/750] 00414: WER=0.2857, CER=0.0455, Conf=high
+  [416/750] 00415: WER=0.3750, CER=0.0784, Conf=high
+  [417/750] 00416: WER=1.0000, CER=1.0000, Conf=
+  [418/750] 00417: WER=0.3636, CER=0.0588, Conf=high
+  [419/750] 00418: WER=0.5000, CER=0.0732, Conf=high
+  [420/750] 00419: WER=0.8750, CER=0.8000, Conf=
+
+============================================================
+Processing chunk 15/25
+Files 420 to 449 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/15 (2 prompts)...
+    QWEN batch 2/15 (2 prompts)...

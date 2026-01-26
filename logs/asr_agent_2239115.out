@@ -1,0 +1,123 @@
+==========================================
+ASR Judge Agent (Single-GPU)
+Job ID: 2239115
+Start time: Sun Jan 25 05:15:40 PM CET 2026
+==========================================
+
+GPU Info:
+Sun Jan 25 17:15:41 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:81:00.0 Off |                  Off |
+| N/A   39C    P8             35W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running ASR Agent (Qwen/Llama/Gemma via config.CURRENT_BACKBONE)...
+Max files: 750, No Flash Attention
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED QWEN ASR Agent
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+8-bit quantization: False
+Flash attention: False
+MMS-ZS: Lexicon-constrained (native Devanagari)
+================================================================================
+
+Loading tokenizer...
+Loading model...
+Using eager attention
+✓ QWEN model ready
+
+Pre-loading baseline configs (one-time setup)...
+✓ Baseline configs ready
+
+
+================================================================================
+QWEN ASR AGENT - OPTIMIZED FOR SINGLE GPU
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+Files to process: 750 (starting from index 0)
+Batch size: 16
+Language: bg
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/bg
+================================================================================
+
+
+============================================================
+Processing chunk 1/25
+Files 0 to 29 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/2 (16 prompts)...
+    QWEN batch 2/2 (14 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1/750] 00000: WER=1.0000, CER=1.0000, Conf=
+  [2/750] 00001: WER=1.0833, CER=0.9444, Conf=medium
+  [3/750] 00002: WER=1.0000, CER=1.0000, Conf=
+  [4/750] 00003: WER=1.0000, CER=1.0000, Conf=medium
+  [5/750] 00004: WER=1.0000, CER=0.8947, Conf=medium
+  [6/750] 00005: WER=1.0000, CER=0.9167, Conf=medium
+  [7/750] 00006: WER=1.4000, CER=1.0000, Conf=medium
+  [8/750] 00007: WER=1.5000, CER=1.0000, Conf=medium
+  [9/750] 00008: WER=1.0000, CER=1.0000, Conf=
+  [10/750] 00009: WER=1.0000, CER=1.0000, Conf=medium
+  [11/750] 00010: WER=1.0000, CER=1.0000, Conf=
+  [12/750] 00011: WER=1.0000, CER=0.9434, Conf=medium
+  [13/750] 00012: WER=2.6667, CER=1.6667, Conf=
+  [14/750] 00013: WER=1.0000, CER=1.0000, Conf=medium
+  [15/750] 00014: WER=1.0000, CER=0.9231, Conf=medium
+  [16/750] 00015: WER=1.0000, CER=0.9176, Conf=medium
+  [17/750] 00016: WER=1.0000, CER=0.9444, Conf=low
+  [18/750] 00017: WER=1.0000, CER=1.0000, Conf=medium
+  [19/750] 00018: WER=1.0000, CER=1.0000, Conf=medium
+  [20/750] 00019: WER=1.0000, CER=0.8875, Conf=medium
+  [21/750] 00020: WER=1.0000, CER=0.9737, Conf=medium
+  [22/750] 00021: WER=1.0000, CER=1.0000, Conf=
+  [23/750] 00022: WER=1.0000, CER=1.0000, Conf=
+  [24/750] 00023: WER=1.0000, CER=1.0000, Conf=medium
+  [25/750] 00024: WER=1.0000, CER=1.0000, Conf=medium
+  [26/750] 00025: WER=1.0000, CER=1.0000, Conf=medium
+  [27/750] 00026: WER=1.0000, CER=1.0000, Conf=medium
+  [28/750] 00027: WER=1.0000, CER=1.0000, Conf=
+  [29/750] 00028: WER=1.0000, CER=1.0000, Conf=medium
+  [30/750] 00029: WER=1.0000, CER=1.0000, Conf=
+
+============================================================
+Processing chunk 2/25
+Files 30 to 59 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...

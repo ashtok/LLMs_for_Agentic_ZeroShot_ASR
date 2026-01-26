@@ -1,18 +1,18 @@
 {
   "audio_idx": 0,
   "audio_name": "hi_00000",
-  "whisper_hyp": "",
+  "whisper_hyp": "तुमारे पास तीन महिने बच्छे हैं",
   "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
-  "mms_zs_constrained_hyp": "",
+  "mms_zs_constrained_hyp": "मरे बस दिन महीने बचे हम",
   "omni_hyp": "तुम्हारे पास तीन महीने बच्चे है",
-  "ref_dev": "",
+  "ref_dev": "तुम्हारे पास तीन महीने बचे हैं।",
   "llm_decision": {
-    "raw": "तुम्हारे पास तीन महीने बच्चे हैं\n\nCONFIDENCE: high  \nREASONING: Both MMS-1B and OmniASR provide identical and grammatically correct transcription: \"तुम्हारे पास तीन महीने बच्चे हैं\", which is a natural and contextually appropriate Hindi sentence. Whisper is missing, so no comparison can be made. The constrained zero-shot model is not provided, but the other two systems agree on the same output, indicating high confidence in the accuracy of the transcription. The sentence is semantically and syntactically valid in Hindi.",
-    "language": "",
-    "transcription": "",
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: तुम्हारे पास तीन महीने बच्चे हैं  \nCONFIDENCE: high  \nREASONING: Among all the hypotheses, \"मरे बस दिन महीने बचे हम\" (MMS-ZeroShot-Constrained) is grammatically incorrect and semantically nonsensical, so it is rejected. \"Whisper\" and \"Omni\" both suggest \"बच्छे\", which is a colloquial or regional variant of \"बच्चे\" (child). However, \"बच्चे\" is the standard, widely used Hindi word for \"children\" in this context, while \"बच्छे\" is less common and typically used in rural or dialectal speech. \"MMS-1B\" and \"Omni\" use \"बच्चे\", which is more standard and natural in formal or standard Hindi. The correct and most natural phrase is \"तुम्हारे पास तीन महीने बच्चे है",
+    "language": "Hindi",
+    "transcription": "तुम्हारे पास तीन महीने बच्चे हैं",
     "confidence": "high",
-    "reasoning": "Both MMS-1B and OmniASR provide identical and grammatically correct transcription: \"तुम्हारे पास तीन महीने बच्चे हैं\", which is a natural and contextually appropriate Hindi sentence. Whisper is missing, so no comparison can be made. The constrained zero-shot model is not provided, but the other two systems agree on the same output, indicating high confidence in the accuracy of the transcription. The sentence is semantically and syntactically valid in Hindi."
+    "reasoning": "Among all the hypotheses, \"मरे बस दिन महीने बचे हम\" (MMS-ZeroShot-Constrained) is grammatically incorrect and semantically nonsensical, so it is rejected. \"Whisper\" and \"Omni\" both suggest \"बच्छे\", which is a colloquial or regional variant of \"बच्चे\" (child). However, \"बच्चे\" is the standard, widely used Hindi word for \"children\" in this context, while \"बच्छे\" is less common and typically used in rural or dialectal speech. \"MMS-1B\" and \"Omni\" use \"बच्चे\", which is more standard and natural in formal or standard Hindi. The correct and most natural phrase is \"तुम्हारे पास तीन महीने बच्चे है"
   },
-  "wer": 1.0,
-  "cer": 1.0
+  "wer": 0.3333333333333333,
+  "cer": 0.0967741935483871
 }

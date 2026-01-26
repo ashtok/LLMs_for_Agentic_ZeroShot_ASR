@@ -8,7 +8,17 @@ from jiwer import wer, cer
 
 # Import config
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from config import DATA_ROOT, LANGUAGE, TRANSCRIPTIONS_FILE, ASR_SAMPLING_RATE
+
+from config import (
+    DATA_ROOT,
+    LANGUAGE,
+    TRANSCRIPTIONS_FILE,
+    ASR_SAMPLING_RATE,
+    AUDIO_FILE_PATTERN,
+    CLIPS_SUBDIR,
+    MMS_MODEL_ID,
+    MMS_TARGET_LANG,
+)
 
 from audio_loader import HFAudioLoader
 
@@ -17,7 +27,7 @@ def run_mms_baseline(
     loader: HFAudioLoader,
     ds,
     model_id: str = "facebook/mms-1b-all",
-    target_lang: str = "hin",
+    target_lang: str = "bul",
     verbose: bool = True,
 ) -> Dict[str, float]:
     """
@@ -104,9 +114,20 @@ def run_mms_baseline(
 
 
 def main():
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Run MMS baseline evaluation")
+    parser.add_argument("--language", default=LANGUAGE, help="Language code for dataset")
+    parser.add_argument("--model-id", default=MMS_MODEL_ID, help="MMS model ID")
+    parser.add_argument("--target-lang", default=MMS_TARGET_LANG, help="Target language code for MMS")
+    parser.add_argument("--quiet", action="store_true", help="Reduce output verbosity")
+    parser.add_argument("--transcriptions", default=TRANSCRIPTIONS_FILE, help="Transcriptions filename")
+    parser.add_argument("--max-samples", type=int, default=None, help="Limit number of samples")
+    args = parser.parse_args()
+    
     # Use config paths
-    data_dir = DATA_ROOT / LANGUAGE
-    transcriptions_path = data_dir / TRANSCRIPTIONS_FILE
+    data_dir = DATA_ROOT / args.language
+    transcriptions_path = data_dir / args.transcriptions
     
     if not data_dir.exists():
         raise FileNotFoundError(f"Data directory not found: {data_dir}")
@@ -114,18 +135,34 @@ def main():
     if not transcriptions_path.exists():
         raise FileNotFoundError(f"Transcriptions file not found: {transcriptions_path}")
     
-    print(f"Loading data from: {data_dir}")
-    print(f"Using transcriptions: {transcriptions_path}")
+    if not args.quiet:
+        print(f"Loading data from: {data_dir}")
+        print(f"Using transcriptions: {transcriptions_path}\n")
     
     loader = HFAudioLoader(target_sr=ASR_SAMPLING_RATE)
     ds = loader.from_dir_with_text(
         str(data_dir),
         str(transcriptions_path),
+        pattern=AUDIO_FILE_PATTERN,
+        clips_subdir=CLIPS_SUBDIR,
     )
     
-    print(f"Loaded {len(ds)} samples\n")
+    # Limit samples if requested
+    if args.max_samples:
+        ds = ds.select(range(min(args.max_samples, len(ds))))
     
-    run_mms_baseline(loader, ds, target_lang="hin", verbose=True)
+    if not args.quiet:
+        print(f"Loaded {len(ds)} samples\n")
+    
+    results = run_mms_baseline(
+        loader,
+        ds,
+        model_id=args.model_id,
+        target_lang=args.target_lang,
+        verbose=not args.quiet,
+    )
+    
+    return results
 
 
 if __name__ == "__main__":

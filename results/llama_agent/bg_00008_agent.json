@@ -1,0 +1,18 @@
+{
+  "audio_idx": 8,
+  "audio_name": "bg_00008",
+  "whisper_hyp": "आज ते प्रते वडर ना मोई प्रियातोद विगिवहानों",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "аз тя пратя удар на мое приятел от ги хана",
+  "omni_hyp": "аж тыя пратя вдар на мое прияте одигил хана",
+  "ref_dev": "Аз ще я пратя в дар на моя приятел Дигил хана.",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: аз пратя удар на мое приятел от ги хана\nCONFIDENCE: high\nREASONING: The most accurate transcription is a combination of MMS-ZeroShot-Constrained and MMS-1B. MMS-ZeroShot-Constrained provides the correct Cyrillic script, while MMS-1B offers a more accurate word order and some correct words. Whisper and OmniASR contain significant errors, so they are not included in the final transcription.",
+    "language": "Bulgarian",
+    "transcription": "аз пратя удар на мое приятел от ги хана",
+    "confidence": "high",
+    "reasoning": "The most accurate transcription is a combination of MMS-ZeroShot-Constrained and MMS-1B. MMS-ZeroShot-Constrained provides the correct Cyrillic script, while MMS-1B offers a more accurate word order and some correct words. Whisper and OmniASR contain significant errors, so they are not included in the final transcription."
+  },
+  "wer": 0.8181818181818182,
+  "cer": 0.30434782608695654
+}

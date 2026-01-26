@@ -1,0 +1,18 @@
+{
+  "audio_idx": 4,
+  "audio_name": "bg_00004",
+  "whisper_hyp": "बेशे रेडख्टूर यो रेद्डिक ना स्पिसानियता",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "беше редактор уред ни на списанието",
+  "omni_hyp": "беше редактор і уреднік на спісанео",
+  "ref_dev": "Беше редактор и уредник на списанието.",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: беше редактор уредник на списанието\nCONFIDENCE: high\nREASONING: The most accurate transcription is from MMS-ZeroShot-Constrained, which is a lexicon-based native Cyrillic model. It provides a clear and correct transcription of the Bulgarian phrase. Whisper's output is not even close to the correct transcription, and MMS-1B has a small mistake with \"надутият\" instead of \"редактор\". OmniASR's output is close, but it uses \"і\" instead of \"у\" which is not a common spelling in Bulgarian.",
+    "language": "Bulgarian",
+    "transcription": "беше редактор уредник на списанието",
+    "confidence": "high",
+    "reasoning": "The most accurate transcription is from MMS-ZeroShot-Constrained, which is a lexicon-based native Cyrillic model. It provides a clear and correct transcription of the Bulgarian phrase. Whisper's output is not even close to the correct transcription, and MMS-1B has a small mistake with \"надутият\" instead of \"редактор\". OmniASR's output is close, but it uses \"і\" instead of \"у\" which is not a common spelling in Bulgarian."
+  },
+  "wer": 0.5,
+  "cer": 0.10526315789473684
+}

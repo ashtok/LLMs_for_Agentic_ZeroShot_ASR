@@ -1,3 +1,6 @@
+import os
+os.environ["FAIRSEQ2_NO_LIBSNDFILE"] = "1"  # Move this to the very top
+
 from pathlib import Path
 from typing import Dict, List, Any
 import sys
@@ -7,8 +10,6 @@ import torchaudio
 import numpy as np
 from jiwer import wer, cer
 
-# Import config
-sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import (
     DATA_ROOT,
     LANGUAGE,
@@ -16,6 +17,7 @@ from config import (
     ASR_SAMPLING_RATE,
     AUDIO_FILE_PATTERN,
     CLIPS_SUBDIR,
+    WHISPER_LANG_CODE,
 )
 
 from audio_loader import HFAudioLoader
@@ -25,7 +27,7 @@ def run_whisper_baseline(
     loader: HFAudioLoader,
     ds: Any,
     model_name: str = "small",
-    language: str = "hi",
+    language: str = "bg",
     verbose: bool = True,
 ) -> Dict[str, float]:
     """
@@ -36,7 +38,7 @@ def run_whisper_baseline(
         loader: Audio loader instance
         ds: Dataset loaded by audio_loader
         model_name: Whisper model size (tiny, base, small, medium, large)
-        language: Language code for Whisper (e.g., "hi" for Hindi)
+        language: Language code for Whisper (e.g., "bg" for Bulgarian)
         verbose: Whether to print detailed output
     
     Returns:
@@ -118,7 +120,7 @@ def main():
     parser.add_argument("--model-name", default="small", 
                        choices=["tiny", "base", "small", "medium", "large", "large-v2", "large-v3"],
                        help="Whisper model size")
-    parser.add_argument("--whisper-lang", default="hi", help="Language code for Whisper")
+    parser.add_argument("--whisper-lang", default=WHISPER_LANG_CODE, help="Language code for Whisper")
     parser.add_argument("--quiet", action="store_true", help="Reduce output verbosity")
     parser.add_argument("--transcriptions", default=TRANSCRIPTIONS_FILE, help="Transcriptions filename")
     parser.add_argument("--max-samples", type=int, default=None, help="Limit number of samples")

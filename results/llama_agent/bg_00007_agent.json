@@ -1,0 +1,18 @@
+{
+  "audio_idx": 7,
+  "audio_name": "bg_00007",
+  "whisper_hyp": "इखोड़े शे लेको न पेतो स्पूव दिगनता अद प्रेट प्ला भो साव.",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "ходеше леко на пет са подигната от пред пола до са",
+  "omni_hyp": "и ходеше леко на пето с повдигната от пред пла доса",
+  "ref_dev": "И ходеше леко, напето, сподигната отпред пола, боса.",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: и ходеше леко на пето с повдигната от пред пла доса\nCONFIDENCE: high\nREASONING: The most accurate transcription is a combination of the MMS-ZeroShot-Constrained and OmniASR hypotheses. MMS-ZeroShot-Constrained provides the correct verb \"ходеше\" and the correct preposition \"на пето\", while OmniASR provides the correct adjective \"повдигната\" and the correct preposition \"от пред пла доса\". The Whisper hypothesis is not accurate and MMS-1B has a small mistake with \"болон\" instead of \"пето\".",
+    "language": "Bulgarian",
+    "transcription": "и ходеше леко на пето с повдигната от пред пла доса",
+    "confidence": "high",
+    "reasoning": "The most accurate transcription is a combination of the MMS-ZeroShot-Constrained and OmniASR hypotheses. MMS-ZeroShot-Constrained provides the correct verb \"ходеше\" and the correct preposition \"на пето\", while OmniASR provides the correct adjective \"повдигната\" and the correct preposition \"от пред пла доса\". The Whisper hypothesis is not accurate and MMS-1B has a small mistake with \"болон\" instead of \"пето\"."
+  },
+  "wer": 1.25,
+  "cer": 0.21153846153846154
+}

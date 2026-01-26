@@ -1,0 +1,21 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "backbone": "llama",
+  "language": "bg",
+  "num_files": 750,
+  "start_idx": 0,
+  "avg_wer": 0.536322153772154,
+  "avg_cer": 0.17795238954039802,
+  "sampled_audio_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

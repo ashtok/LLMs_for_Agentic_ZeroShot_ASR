@@ -193,21 +193,24 @@ class ASRJudgeAgent:
 
     def _build_system_prompt(self) -> str:
         """System prompt for the LLM judge."""
+        language_name = "Bulgarian" if LANGUAGE == "bg" else "Hindi"
+        script_name = "Cyrillic" if LANGUAGE == "bg" else "Devanagari"
+        
         return (
-            "You are an expert Hindi ASR judge.\n\n"
-            "You will receive multiple ASR hypotheses for the SAME Hindi utterance "
+            f"You are an expert {language_name} ASR judge.\n\n"
+            f"You will receive multiple ASR hypotheses for the SAME {language_name} utterance "
             "from different systems:\n"
             "- Whisper (OpenAI)\n"
             "- MMS-1B (Meta)\n"
-            "- MMS-ZeroShot-Constrained (Meta, lexicon-based native Devanagari)\n"  # ✅ Updated
+            f"- MMS-ZeroShot-Constrained (Meta, lexicon-based native {script_name})\n"
             "- OmniASR (multilingual)\n\n"
             "Your task:\n"
             "1. Carefully analyze all candidate transcriptions\n"
             "2. Select or intelligently combine the best elements\n"
             "3. Output the most accurate transcription\n\n"
             "Output format (MANDATORY):\n"
-            "LANGUAGE: Hindi\n"
-            "TRANSCRIPTION: <best transcription in Devanagari>\n"
+            f"LANGUAGE: {language_name}\n"
+            f"TRANSCRIPTION: <best transcription in {script_name}>\n"
             "CONFIDENCE: <high|medium|low>\n"
             "REASONING: <brief explanation in English>\n"
         )

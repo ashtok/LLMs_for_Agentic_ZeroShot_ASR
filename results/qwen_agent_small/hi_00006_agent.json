@@ -1,18 +1,18 @@
 {
   "audio_idx": 6,
   "audio_name": "hi_00006",
-  "whisper_hyp": "",
-  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैन",
-  "mms_zs_constrained_hyp": "",
+  "whisper_hyp": "मैं पूरी राट्रोईं",
+  "mms_1b_hyp": "तुम्हारे पास तीन महीने बच्चे हैं",
+  "mms_zs_constrained_hyp": "ने पुरी रो रोई",
   "omni_hyp": "م پوری رادروین",
-  "ref_dev": "",
+  "ref_dev": "मैं पूरी रात रोई।",
   "llm_decision": {
-    "raw": "आपके द्वारा दिए गए अवधि के लिए अनुरोध के अनुसार, अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अनुरोध के अनुसार अ",
-    "language": "",
-    "transcription": "",
-    "confidence": "",
-    "reasoning": ""
+    "raw": "  \nLANGUAGE: Hindi  \nTRANSCRIPTION: मैं पूरी रो रहा हूँ  \nCONFIDENCE: medium  \nREASONING: Among all hypotheses, \"whisper\" (मैं पूरी राट्रोईं) is closest in structure to a plausible Hindi sentence, though it contains a likely typo or mispronunciation of \"रो रहा हूँ\" (ro rahā hūn – \"I am crying\"). The MMS-ZeroShot-Constrained hypothesis (\"ने पुरी रो रोई\") is grammatically incorrect and lacks subject clarity. \"MMS-1B\" suggests a misheard sentence about children, which is unrelated to the audio context. \"Omni\" is in Urdu script and clearly a multilingual error. The most plausible and contextually coherent Hindi sentence, given the phonetic similarity, is \"मैं पूरी रो रहा हूँ\" – meaning \"I am crying fully\" or \"I am crying completely.\" This is a natural expression in Hindi, and the deviation from \"whisper\"",
+    "language": "Hindi",
+    "transcription": "मैं पूरी रो रहा हूँ",
+    "confidence": "medium",
+    "reasoning": "Among all hypotheses, \"whisper\" (मैं पूरी राट्रोईं) is closest in structure to a plausible Hindi sentence, though it contains a likely typo or mispronunciation of \"रो रहा हूँ\" (ro rahā hūn – \"I am crying\"). The MMS-ZeroShot-Constrained hypothesis (\"ने पुरी रो रोई\") is grammatically incorrect and lacks subject clarity. \"MMS-1B\" suggests a misheard sentence about children, which is unrelated to the audio context. \"Omni\" is in Urdu script and clearly a multilingual error. The most plausible and contextually coherent Hindi sentence, given the phonetic similarity, is \"मैं पूरी रो रहा हूँ\" – meaning \"I am crying fully\" or \"I am crying completely.\" This is a natural expression in Hindi, and the deviation from \"whisper\""
   },
-  "wer": 1.0,
-  "cer": 1.0
+  "wer": 0.75,
+  "cer": 0.47058823529411764
 }

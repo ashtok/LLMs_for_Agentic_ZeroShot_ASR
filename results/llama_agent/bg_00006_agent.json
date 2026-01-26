@@ -1,0 +1,18 @@
+{
+  "audio_idx": 6,
+  "audio_name": "bg_00006",
+  "whisper_hyp": "तो ये पुल्चेते स्लेडे यटेरे दूवे ग्राव्चे",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "той прочете следующите редове градче",
+  "omni_hyp": "той прочете следаещите редове гравче",
+  "ref_dev": "Той прочете следующите редове: „Графче!“",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: той прочете следващите редове градче\nCONFIDENCE: high\nREASONING: The whisper system's output is not relevant as it contains non-Bulgarian characters and words. MMS-1B's output \"и надутият му ката болон корен взе да се събира\" is close but contains a word \"надутият\" which is not present in the other systems. MMS-ZeroShot-Constrained and OmniASR both output \"следващите редове\" which is a more accurate representation of the phrase \"следващи редове\" in the given context. Combining the best elements, I select \"следващите\" from OmniASR and \"градче\" from MMS-ZeroShot-Constrained, resulting in the most accurate transcription.",
+    "language": "Bulgarian",
+    "transcription": "той прочете следващите редове градче",
+    "confidence": "high",
+    "reasoning": "The whisper system's output is not relevant as it contains non-Bulgarian characters and words. MMS-1B's output \"и надутият му ката болон корен взе да се събира\" is close but contains a word \"надутият\" which is not present in the other systems. MMS-ZeroShot-Constrained and OmniASR both output \"следващите редове\" which is a more accurate representation of the phrase \"следващи редове\" in the given context. Combining the best elements, I select \"следващите\" from OmniASR and \"градче\" from MMS-ZeroShot-Constrained, resulting in the most accurate transcription."
+  },
+  "wer": 0.8,
+  "cer": 0.225
+}

@@ -4,8 +4,8 @@
   "language": "hi",
   "num_files": 750,
   "start_idx": 0,
-  "avg_wer": 6.934666666666667,
-  "avg_cer": 33.756,
+  "avg_wer": 0.702649557849558,
+  "avg_cer": 0.5636753926555954,
   "sampled_audio_indices": [
     0,
     1,
