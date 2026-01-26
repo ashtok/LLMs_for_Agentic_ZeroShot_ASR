@@ -1,0 +1,18 @@
+{
+  "audio_idx": 2,
+  "audio_name": "bg_00002",
+  "whisper_hyp": "अग्छ अख्छ श्ड्ड्रावत श्ड्ड्ड्डचिज्ण रादुस्त नम्लत ये बेसग्रिजग चुवेक।",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "от него Ух се здравата жена радост на млад Иа безгрижен човек",
+  "omni_hyp": "от него въх ше здравата жи знарадост на млад и безгрижен човек",
+  "ref_dev": "От него лъхаше здравата жизнерадост на млад и безгрижен човек.",
+  "llm_decision": {
+    "raw": "Отговорът е:  \nLANGUAGE: Bulgarian  \nTRANSCRIPTION: от него във ше здравата жена радост на млад и безгрижен човек  \nCONFIDENCE: medium  \nREASONING: Whisper's hypothesis is in Devanagari script and appears to be a corrupted or misaligned transcription, likely due to language model confusion. MMS-1B is too generic and lacks coherence. MMS-ZeroShot-Constrained and OmniASR both suggest a plausible Bulgarian sentence, with OmniASR providing a more natural and grammatically structured version. \"във ше\" (likely a typo for \"във ше\" → \"във ше\" may be intended as \"във ше\" meaning \"in the sense\" or possibly a phonetic error for \"във сърцето\" or \"във сърцето\", but \"във ше\" is not standard). However, \"във ше\" is likely a mishearing of \"във сърцето\" or \"във сърцето\", but given the constraints and the closest match",
+    "language": "Bulgarian",
+    "transcription": "от него във ше здравата жена радост на млад и безгрижен човек",
+    "confidence": "medium",
+    "reasoning": "Whisper's hypothesis is in Devanagari script and appears to be a corrupted or misaligned transcription, likely due to language model confusion. MMS-1B is too generic and lacks coherence. MMS-ZeroShot-Constrained and OmniASR both suggest a plausible Bulgarian sentence, with OmniASR providing a more natural and grammatically structured version. \"във ше\" (likely a typo for \"във ше\" → \"във ше\" may be intended as \"във ше\" meaning \"in the sense\" or possibly a phonetic error for \"във сърцето\" or \"във сърцето\", but \"във ше\" is not standard). However, \"във ше\" is likely a mishearing of \"във сърцето\" or \"във сърцето\", but given the constraints and the closest match"
+  },
+  "wer": 0.6,
+  "cer": 0.14516129032258066
+}

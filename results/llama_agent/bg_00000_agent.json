@@ -1,0 +1,18 @@
+{
+  "audio_idx": 0,
+  "audio_name": "bg_00000",
+  "whisper_hyp": "इनदुत्यत्मु कत बवाँं कोरेम जाएड़े से सबीरा।",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "им на лудият му като буен ко рев взе да се събира",
+  "omni_hyp": "и надутият му ката бъламкорем взе да се събира",
+  "ref_dev": "И надутият му като балон корем взе да се събира.",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: и надутият му ката буен корем взе да се събира\nCONFIDENCE: high\nREASONING: I combined the best elements from the given hypotheses. Whisper's transcription is not accurate, so it was excluded. MMS-1B and MMS-ZeroShot-Constrained have similar transcriptions, but MMS-ZeroShot-Constrained's \"буен\" is more plausible than \"буламкорем\" in this context. OmniASR's transcription is the most similar to MMS-ZeroShot-Constrained, so I chose it as the base, replacing \"буламкорем\" with \"буен\" from MMS-ZeroShot-Constrained.",
+    "language": "Bulgarian",
+    "transcription": "и надутият му ката буен корем взе да се събира",
+    "confidence": "high",
+    "reasoning": "I combined the best elements from the given hypotheses. Whisper's transcription is not accurate, so it was excluded. MMS-1B and MMS-ZeroShot-Constrained have similar transcriptions, but MMS-ZeroShot-Constrained's \"буен\" is more plausible than \"буламкорем\" in this context. OmniASR's transcription is the most similar to MMS-ZeroShot-Constrained, so I chose it as the base, replacing \"буламкорем\" with \"буен\" from MMS-ZeroShot-Constrained."
+  },
+  "wer": 0.4,
+  "cer": 0.125
+}

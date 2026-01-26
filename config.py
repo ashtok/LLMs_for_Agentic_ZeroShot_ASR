@@ -40,7 +40,7 @@ UROMAN_LANG_CODE = "bul"
 # Results directories
 RESULTS_ROOT = REPO_ROOT / "results"
 BASELINES_RESULTS_DIR = RESULTS_ROOT / "baselines"
-QWEN_AGENT_RESULTS_DIR = RESULTS_ROOT / "qwen_agent_small"
+QWEN_AGENT_RESULTS_DIR = RESULTS_ROOT / "qwen_agent"
 LLAMA_AGENT_RESULTS_DIR = RESULTS_ROOT / "llama_agent"
 
 
@@ -65,8 +65,8 @@ WHISPER_LANG_CODE = "bg"
 
 
 # Qwen configuration
-#QWEN_MODEL_NAME = "Qwen/Qwen3-30B-A3B-Instruct-2507-FP8"
-QWEN_MODEL_NAME = "Qwen/Qwen3-4B-Instruct-2507"
+QWEN_MODEL_NAME = "Qwen/Qwen3-30B-A3B-Instruct-2507-FP8"
+#QWEN_MODEL_NAME = "Qwen/Qwen3-4B-Instruct-2507"
 
 
 # Llama configuration
@@ -78,7 +78,7 @@ LLAMA_MODEL_NAME = "meta-llama/Llama-3.1-8B-Instruct"
 
 
 # Choose which LLM to use for the agent: "qwen" or "llama"
-CURRENT_BACKBONE = "qwen"  # llama or "qwen"
+CURRENT_BACKBONE = "llama"  # llama or "qwen"
 
 
 if CURRENT_BACKBONE == "qwen":
@@ -96,7 +96,7 @@ else:
 # Common generation settings
 LOAD_8BIT = False
 MAX_NEW_TOKENS = 256
-BATCH_SIZE = 16
+BATCH_SIZE = 2
 USE_FLASH_ATTENTION = True
 
 

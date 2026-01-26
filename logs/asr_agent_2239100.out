@@ -1,0 +1,229 @@
+==========================================
+ASR Judge Agent (Single-GPU)
+Job ID: 2239100
+Start time: Sun Jan 25 04:43:24 PM CET 2026
+==========================================
+
+GPU Info:
+Sun Jan 25 16:43:24 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:25:00.0 Off |                  Off |
+| N/A   53C    P0             68W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Running ASR Agent (Qwen/Llama/Gemma via config.CURRENT_BACKBONE)...
+Max files: 750, No Flash Attention
+
+/data/42-julia-hpc-rz-wuenlp/s472389/thesis
+
+================================================================================
+Initializing OPTIMIZED QWEN ASR Agent
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+8-bit quantization: False
+Flash attention: False
+MMS-ZS: Lexicon-constrained (native Devanagari)
+================================================================================
+
+Loading tokenizer...
+Loading model...
+Using eager attention
+✓ QWEN model ready
+
+Pre-loading baseline configs (one-time setup)...
+✓ Baseline configs ready
+
+
+================================================================================
+QWEN ASR AGENT - OPTIMIZED FOR SINGLE GPU
+================================================================================
+Model: Qwen/Qwen3-4B-Instruct-2507
+Files to process: 750 (starting from index 0)
+Batch size: 16
+Language: bg
+Data root: /data/42-julia-hpc-rz-wuenlp/s472389/thesis/data/bg
+================================================================================
+
+
+============================================================
+Processing chunk 1/25
+Files 0 to 29 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/2 (16 prompts)...
+    QWEN batch 2/2 (14 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [1/750] 00000: WER=1.0000, CER=1.0000, Conf=
+  [2/750] 00001: WER=1.0833, CER=0.9444, Conf=medium
+  [3/750] 00002: WER=1.0000, CER=1.0000, Conf=
+  [4/750] 00003: WER=1.0000, CER=1.0000, Conf=medium
+  [5/750] 00004: WER=1.0000, CER=0.8947, Conf=medium
+  [6/750] 00005: WER=1.0000, CER=0.9167, Conf=medium
+  [7/750] 00006: WER=1.4000, CER=1.0000, Conf=medium
+  [8/750] 00007: WER=1.5000, CER=1.0000, Conf=medium
+  [9/750] 00008: WER=1.0000, CER=1.0000, Conf=
+  [10/750] 00009: WER=1.0000, CER=1.0000, Conf=medium
+  [11/750] 00010: WER=1.0000, CER=1.0000, Conf=
+  [12/750] 00011: WER=1.0000, CER=0.9434, Conf=medium
+  [13/750] 00012: WER=2.6667, CER=1.6667, Conf=
+  [14/750] 00013: WER=1.0000, CER=0.9259, Conf=medium
+  [15/750] 00014: WER=1.0000, CER=0.9231, Conf=medium
+  [16/750] 00015: WER=1.0000, CER=0.9176, Conf=medium
+  [17/750] 00016: WER=1.0000, CER=0.9444, Conf=low
+  [18/750] 00017: WER=1.0000, CER=1.0000, Conf=medium
+  [19/750] 00018: WER=1.0000, CER=1.0000, Conf=medium
+  [20/750] 00019: WER=1.0000, CER=0.8875, Conf=medium
+  [21/750] 00020: WER=1.0000, CER=0.9737, Conf=medium
+  [22/750] 00021: WER=1.0000, CER=1.0000, Conf=
+  [23/750] 00022: WER=1.0000, CER=1.0000, Conf=
+  [24/750] 00023: WER=1.0000, CER=1.0000, Conf=medium
+  [25/750] 00024: WER=1.0000, CER=1.0000, Conf=medium
+  [26/750] 00025: WER=1.0000, CER=1.0000, Conf=medium
+  [27/750] 00026: WER=1.0000, CER=1.0000, Conf=medium
+  [28/750] 00027: WER=1.0000, CER=1.0000, Conf=
+  [29/750] 00028: WER=1.0000, CER=1.0000, Conf=medium
+  [30/750] 00029: WER=1.0000, CER=1.0000, Conf=
+
+============================================================
+Processing chunk 2/25
+Files 30 to 59 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/2 (16 prompts)...
+    QWEN batch 2/2 (14 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [31/750] 00030: WER=1.4286, CER=1.0789, Conf=medium
+  [32/750] 00031: WER=1.6000, CER=1.1774, Conf=medium
+  [33/750] 00032: WER=1.0000, CER=0.8358, Conf=low
+  [34/750] 00033: WER=1.0000, CER=1.0000, Conf=
+  [35/750] 00034: WER=1.0000, CER=1.0000, Conf=medium
+  [36/750] 00035: WER=1.0000, CER=0.9265, Conf=medium
+  [37/750] 00036: WER=1.0000, CER=1.0000, Conf=medium
+  [38/750] 00037: WER=1.0000, CER=1.0000, Conf=medium
+  [39/750] 00038: WER=1.0000, CER=1.0000, Conf=
+  [40/750] 00039: WER=1.3000, CER=0.9143, Conf=medium
+  [41/750] 00040: WER=1.3077, CER=0.9884, Conf=medium
+  [42/750] 00041: WER=1.4444, CER=0.9844, Conf=medium
+  [43/750] 00042: WER=1.0000, CER=1.0000, Conf=
+  [44/750] 00043: WER=1.0000, CER=1.0000, Conf=
+  [45/750] 00044: WER=1.0000, CER=1.0000, Conf=
+  [46/750] 00045: WER=1.0000, CER=1.0000, Conf=
+  [47/750] 00046: WER=1.2857, CER=1.0000, Conf=medium
+  [48/750] 00047: WER=1.0000, CER=1.0000, Conf=
+  [49/750] 00048: WER=1.0000, CER=0.9375, Conf=medium
+  [50/750] 00049: WER=1.0000, CER=0.9211, Conf=medium
+  [51/750] 00050: WER=1.0909, CER=0.9254, Conf=low
+  [52/750] 00051: WER=1.0000, CER=0.8810, Conf=medium
+  [53/750] 00052: WER=1.0000, CER=1.0000, Conf=
+  [54/750] 00053: WER=1.0000, CER=1.0000, Conf=medium
+  [55/750] 00054: WER=1.0000, CER=0.9206, Conf=low
+  [56/750] 00055: WER=1.0000, CER=1.0000, Conf=
+  [57/750] 00056: WER=1.0000, CER=1.0000, Conf=medium
+  [58/750] 00057: WER=1.0000, CER=1.0000, Conf=medium
+  [59/750] 00058: WER=1.0000, CER=1.0000, Conf=
+  [60/750] 00059: WER=1.0000, CER=1.0000, Conf=medium
+
+============================================================
+Processing chunk 3/25
+Files 60 to 89 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...
+✓ Baselines completed
+
+Step 2/4: Preparing LLM prompts...
+------------------------------------------------------------
+✓ Prepared 30 prompts
+
+Step 3/4: Running LLM inference...
+------------------------------------------------------------
+    QWEN batch 1/2 (16 prompts)...
+    QWEN batch 2/2 (14 prompts)...
+✓ LLM inference completed
+
+Step 4/4: Parsing results...
+------------------------------------------------------------
+  [61/750] 00060: WER=1.0000, CER=0.8941, Conf=low
+  [62/750] 00061: WER=1.0000, CER=1.0000, Conf=
+  [63/750] 00062: WER=1.0000, CER=1.0000, Conf=medium
+  [64/750] 00063: WER=1.0000, CER=1.0000, Conf=medium
+  [65/750] 00064: WER=1.0000, CER=0.8800, Conf=medium
+  [66/750] 00065: WER=1.0000, CER=1.0000, Conf=medium
+  [67/750] 00066: WER=1.0000, CER=0.9459, Conf=medium
+  [68/750] 00067: WER=1.0000, CER=1.0000, Conf=
+  [69/750] 00068: WER=1.0000, CER=1.0000, Conf=medium
+  [70/750] 00069: WER=1.1818, CER=0.8889, Conf=medium
+  [71/750] 00070: WER=1.0000, CER=1.0000, Conf=medium
+  [72/750] 00071: WER=1.0000, CER=0.8684, Conf=medium
+  [73/750] 00072: WER=1.0000, CER=1.0000, Conf=
+  [74/750] 00073: WER=1.0000, CER=1.0000, Conf=low
+  [75/750] 00074: WER=1.0000, CER=1.0000, Conf=low
+  [76/750] 00075: WER=1.0000, CER=0.9265, Conf=low
+  [77/750] 00076: WER=1.0000, CER=0.9216, Conf=medium
+  [78/750] 00077: WER=1.0000, CER=1.0000, Conf=medium
+  [79/750] 00078: WER=1.5000, CER=1.0106, Conf=medium
+  [80/750] 00079: WER=1.0000, CER=0.9041, Conf=medium
+  [81/750] 00080: WER=1.0000, CER=0.8980, Conf=medium
+  [82/750] 00081: WER=1.0000, CER=1.1212, Conf=medium
+  [83/750] 00082: WER=1.0000, CER=1.0000, Conf=medium
+  [84/750] 00083: WER=1.0000, CER=0.9123, Conf=medium
+  [85/750] 00084: WER=1.0000, CER=1.0000, Conf=
+  [86/750] 00085: WER=1.0000, CER=0.9706, Conf=medium
+  [87/750] 00086: WER=1.0000, CER=1.0000, Conf=medium
+  [88/750] 00087: WER=1.0000, CER=0.8478, Conf=medium
+  [89/750] 00088: WER=1.0000, CER=0.8571, Conf=medium
+  [90/750] 00089: WER=1.0000, CER=1.0000, Conf=medium
+
+============================================================
+Processing chunk 4/25
+Files 90 to 119 (total: 30)
+============================================================
+
+Step 1/4: Running baseline ASR models...
+------------------------------------------------------------
+  Running ALL baseline models on 30 files...

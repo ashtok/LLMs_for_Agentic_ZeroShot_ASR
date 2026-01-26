@@ -1,0 +1,18 @@
+{
+  "audio_idx": 4,
+  "audio_name": "bg_00004",
+  "whisper_hyp": "बेशे रेडख्टूर यो रेद्डिक ना स्पिसानियता",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "беше редактор уред ни на списанието",
+  "omni_hyp": "беше редактор і уреднік на спісанео",
+  "ref_dev": "Беше редактор и уредник на списанието.",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Bulgarian  \nTRANSCRIPTION: беше редактор и уредник на списанието  \nCONFIDENCE: high  \nREASONING: The hypothesis from MMS-ZeroShot-Constrained is the most accurate and contextually appropriate, using native Cyrillic and correct Bulgarian grammar. It correctly identifies \"редактор\" (editor) and \"уредник\" (editor/manager), and \"на списанието\" (of the publication). The OmniASR output is in a corrupted multilingual format (mix of Cyrillic and Latin), and Whisper's output is in incorrect script and language. MMS-1B contains a plausible but semantically off-topic phrase (\"надутият му ката болон корен взе да се събира\") that does not align with the likely content. The combined best version is derived from MMS-ZeroShot-Constrained, which is lexicon-constrained and native-cyrillic, ensuring linguistic accuracy and coherence.",
+    "language": "Bulgarian",
+    "transcription": "беше редактор и уредник на списанието",
+    "confidence": "high",
+    "reasoning": "The hypothesis from MMS-ZeroShot-Constrained is the most accurate and contextually appropriate, using native Cyrillic and correct Bulgarian grammar. It correctly identifies \"редактор\" (editor) and \"уредник\" (editor/manager), and \"на списанието\" (of the publication). The OmniASR output is in a corrupted multilingual format (mix of Cyrillic and Latin), and Whisper's output is in incorrect script and language. MMS-1B contains a plausible but semantically off-topic phrase (\"надутият му ката болон корен взе да се събира\") that does not align with the likely content. The combined best version is derived from MMS-ZeroShot-Constrained, which is lexicon-constrained and native-cyrillic, ensuring linguistic accuracy and coherence."
+  },
+  "wer": 0.3333333333333333,
+  "cer": 0.05263157894736842
+}

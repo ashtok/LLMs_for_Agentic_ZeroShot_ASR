@@ -1,0 +1,18 @@
+{
+  "audio_idx": 1,
+  "audio_name": "bg_00001",
+  "whisper_hyp": "इस्पल्ने ये तो इस्वो एक उबश्च्टान्य, कोई तो डावःषे प्रट्होरड जग्लेट ती डमरत.",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "изпълни ли той своето обещания което даваше пред хора заклети да Мурад",
+  "omni_hyp": "изпълнили той своето обещание което даваше пред хора заклети да мрът",
+  "ref_dev": "Изпълни ли той своето обещание, което даваше пред хора, заклети да мрат?",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: изпълни той своето обещание което даваше пред хора заклети да Мурад\nCONFIDENCE: medium\nREASONING: The MMS-ZeroShot-Constrained system provided a more accurate transcription, but it contained a name \"Мурад\" which is not present in the other systems. The Whisper system's transcription is mostly incorrect, while the MMS-1B system's transcription is close but lacks the verb \"изпълни\". The OmniASR system's transcription is close to the correct one, but contains a small error in the verb \"мрът\" instead of \"да\". I combined the correct verb from MMS-1B (\"изпълни\") with the rest of the correct transcription from MMS-ZeroShot-Constrained.",
+    "language": "Bulgarian",
+    "transcription": "изпълни той своето обещание което даваше пред хора заклети да Мурад",
+    "confidence": "medium",
+    "reasoning": "The MMS-ZeroShot-Constrained system provided a more accurate transcription, but it contained a name \"Мурад\" which is not present in the other systems. The Whisper system's transcription is mostly incorrect, while the MMS-1B system's transcription is close but lacks the verb \"изпълни\". The OmniASR system's transcription is close to the correct one, but contains a small error in the verb \"мрът\" instead of \"да\". I combined the correct verb from MMS-1B (\"изпълни\") with the rest of the correct transcription from MMS-ZeroShot-Constrained."
+  },
+  "wer": 0.4166666666666667,
+  "cer": 0.1388888888888889
+}

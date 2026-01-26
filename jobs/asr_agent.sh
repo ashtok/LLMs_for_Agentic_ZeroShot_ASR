@@ -5,7 +5,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=48G
+#SBATCH --mem=32G
 #SBATCH --time=24:00:00
 #SBATCH --output=logs/asr_agent_%j.out
 #SBATCH --error=logs/asr_agent_%j.err
@@ -42,7 +42,7 @@ echo "Max files: 750, No Flash Attention"
 echo ""
 
 # Run orchestrator with error handling
-uv run main/orchestrator.py --max-files 50 --no-flash-attention
+uv run main/orchestrator.py --max-files 750 --no-flash-attention
 JOB_STATUS=$?
 
 # Stop GPU logger

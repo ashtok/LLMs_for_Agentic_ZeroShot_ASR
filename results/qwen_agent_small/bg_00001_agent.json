@@ -1,0 +1,18 @@
+{
+  "audio_idx": 1,
+  "audio_name": "bg_00001",
+  "whisper_hyp": "इस्पल्ने ये तो इस्वो एक उबश्च्टान्य, कोई तो डावःषे प्रट्होरड जग्लेट ती डमरत.",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "изпълни ли той своето обещания което даваше пред хора заклети да Мурад",
+  "omni_hyp": "изпълнили той своето обещание което даваше пред хора заклети да мрът",
+  "ref_dev": "Изпълни ли той своето обещание, което даваше пред хора, заклети да мрат?",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Bulgarian  \nTRANSCRIPTION: изпълни ли той своето обещание, което даваше пред хора заклети да мрът  \nCONFIDENCE: high  \nREASONING: The most accurate and grammatically correct version is derived from the MMS-ZeroShot-Constrained and OmniASR hypotheses. Both suggest \"изпълни ли той своето обещание, което даваше пред хора заклети да мрът\", with the latter providing a slightly more natural flow. The phrase \"изпълни ли\" (did he fulfill) is a proper interrogative structure in Bulgarian, and \"обещание\" (promise) and \"заклети\" (oaths) are correctly used. The original Whisper hypothesis is in incorrect script (Devanagari) and semantically nonsensical. MMS-1B is too vague and lacks context. The combined version preserves meaning, grammar, and coherence, making it the most reliable.",
+    "language": "Bulgarian",
+    "transcription": "изпълни ли той своето обещание, което даваше пред хора заклети да мрът",
+    "confidence": "high",
+    "reasoning": "The most accurate and grammatically correct version is derived from the MMS-ZeroShot-Constrained and OmniASR hypotheses. Both suggest \"изпълни ли той своето обещание, което даваше пред хора заклети да мрът\", with the latter providing a slightly more natural flow. The phrase \"изпълни ли\" (did he fulfill) is a proper interrogative structure in Bulgarian, and \"обещание\" (promise) and \"заклети\" (oaths) are correctly used. The original Whisper hypothesis is in incorrect script (Devanagari) and semantically nonsensical. MMS-1B is too vague and lacks context. The combined version preserves meaning, grammar, and coherence, making it the most reliable."
+  },
+  "wer": 0.25,
+  "cer": 0.05555555555555555
+}

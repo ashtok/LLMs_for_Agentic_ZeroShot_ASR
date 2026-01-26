@@ -1,0 +1,18 @@
+{
+  "audio_idx": 5,
+  "audio_name": "bg_00005",
+  "whisper_hyp": "तोगावा नकेचिख शापकता सी सेस्थवा और्वा उपेरो इज़़़़ लिएब नाइ होगो तोमेचना स्वेटें",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "Тогава научих шапката си състава урва перо за Любен най хубавото момиче на света",
+  "omni_hyp": "тогава накичих шапката си сества урлоло перо и залюбих най-хобоотономиче на света",
+  "ref_dev": "Тогава накичих шапката си с това орлово перо и залюбих най-хубавото момиче на света.",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian  \nTRANSCRIPTION: Тогава накичих шапката си, състава урва перо и залюбих най-хубавото момиче на света  \nCONFIDENCE: high  \nREASONING: The most accurate and coherent transcription comes from the MMS-ZeroShot-Constrained system, which uses a native Cyrillic lexicon and produces a grammatically correct and contextually meaningful sentence. While OmniASR has a similar structure, it contains errors like \"урлоло\" instead of \"урва\" and \"най-хобоотономиче\" instead of \"най-хубавото\". The MMS-ZeroShot-Constrained version correctly renders \"накичих шапката си\" (I fastened my hat), \"състава урва перо\" (it consists of a feather), and \"залюбих най-хубавото момиче на света\" (I fell in love with the most beautiful girl in the world). The phrase \"състава урва перо\" is likely a misrendering of \"състава",
+    "language": "Bulgarian",
+    "transcription": "Тогава накичих шапката си, състава урва перо и залюбих най-хубавото момиче на света",
+    "confidence": "high",
+    "reasoning": "The most accurate and coherent transcription comes from the MMS-ZeroShot-Constrained system, which uses a native Cyrillic lexicon and produces a grammatically correct and contextually meaningful sentence. While OmniASR has a similar structure, it contains errors like \"урлоло\" instead of \"урва\" and \"най-хобоотономиче\" instead of \"най-хубавото\". The MMS-ZeroShot-Constrained version correctly renders \"накичих шапката си\" (I fastened my hat), \"състава урва перо\" (it consists of a feather), and \"залюбих най-хубавото момиче на света\" (I fell in love with the most beautiful girl in the world). The phrase \"състава урва перо\" is likely a misrendering of \"състава"
+  },
+  "wer": 0.35714285714285715,
+  "cer": 0.10714285714285714
+}

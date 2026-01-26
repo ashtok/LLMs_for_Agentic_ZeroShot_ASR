@@ -1,0 +1,18 @@
+{
+  "audio_idx": 8,
+  "audio_name": "bg_00008",
+  "whisper_hyp": "आज ते प्रते वडर ना मोई प्रियातोद विगिवहानों",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "аз тя пратя удар на мое приятел от ги хана",
+  "omni_hyp": "аж тыя пратя вдар на мое прияте одигил хана",
+  "ref_dev": "Аз ще я пратя в дар на моя приятел Дигил хана.",
+  "llm_decision": {
+    "raw": "  \nLANGUAGE: Bulgarian  \nTRANSCRIPTION: аз тя пратя удар на мое приятел от ги хана  \nCONFIDENCE: medium  \nREASONING: The hypothesis from MMS-ZeroShot-Constrained is the most coherent and grammatically plausible in Bulgarian, despite some errors. It uses native Cyrillic and aligns with expected vocabulary and structure. The other systems produce either non-Bulgarian text (Whisper in Devanagari), semantically unclear or incorrect phrases (MMS-1B, Omni). While \"приятел\" is correct, \"от ги хана\" is likely a mishearing of \"от ги хана\" (possibly intended as \"от ги хана\" or \"от хана\" — a place or event). Given the constrained lexicon and native Cyrillic focus, MMS-ZeroShot-Constrained provides the most contextually grounded and linguistically appropriate output. The transcription is therefore selected with medium confidence due to possible phonetic misinterpretations.",
+    "language": "Bulgarian",
+    "transcription": "аз тя пратя удар на мое приятел от ги хана",
+    "confidence": "medium",
+    "reasoning": "The hypothesis from MMS-ZeroShot-Constrained is the most coherent and grammatically plausible in Bulgarian, despite some errors. It uses native Cyrillic and aligns with expected vocabulary and structure. The other systems produce either non-Bulgarian text (Whisper in Devanagari), semantically unclear or incorrect phrases (MMS-1B, Omni). While \"приятел\" is correct, \"от ги хана\" is likely a mishearing of \"от ги хана\" (possibly intended as \"от ги хана\" or \"от хана\" — a place or event). Given the constrained lexicon and native Cyrillic focus, MMS-ZeroShot-Constrained provides the most contextually grounded and linguistically appropriate output. The transcription is therefore selected with medium confidence due to possible phonetic misinterpretations."
+  },
+  "wer": 0.8181818181818182,
+  "cer": 0.2608695652173913
+}

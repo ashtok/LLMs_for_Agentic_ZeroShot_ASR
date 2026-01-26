@@ -1,0 +1,18 @@
+{
+  "audio_idx": 2,
+  "audio_name": "bg_00002",
+  "whisper_hyp": "अग्छ अख्छ श्ड्रावत श्विज्छ नरादूस्त ना मुलत ये बेस ग्रिजन चुवेक।",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "от него Ух се здравата жена радост на млад Иа безгрижен човек",
+  "omni_hyp": "от него въх ше здравата жи знарадост на млад и безгрижен човек",
+  "ref_dev": "От него лъхаше здравата жизнерадост на млад и безгрижен човек.",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: от него здравата жена радост на млад и безгрижен човек\nCONFIDENCE: high\nREASONING: The most accurate transcription is a combination of MMS-ZeroShot-Constrained and OmniASR. MMS-ZeroShot-Constrained provides the correct phrase \"от него\" and \"радост на млад Иа\" which is close to the correct \"на млад и\". OmniASR provides the correct phrase \"здравата жена\" and \"безгрижен човек\". Whisper and MMS-1B have significant errors, so they are not considered.",
+    "language": "Bulgarian",
+    "transcription": "от него здравата жена радост на млад и безгрижен човек",
+    "confidence": "high",
+    "reasoning": "The most accurate transcription is a combination of MMS-ZeroShot-Constrained and OmniASR. MMS-ZeroShot-Constrained provides the correct phrase \"от него\" and \"радост на млад Иа\" which is close to the correct \"на млад и\". OmniASR provides the correct phrase \"здравата жена\" and \"безгрижен човек\". Whisper and MMS-1B have significant errors, so they are not considered."
+  },
+  "wer": 0.5,
+  "cer": 0.20967741935483872
+}

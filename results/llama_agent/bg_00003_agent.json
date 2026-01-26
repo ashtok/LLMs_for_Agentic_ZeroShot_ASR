@@ -1,0 +1,18 @@
+{
+  "audio_idx": 3,
+  "audio_name": "bg_00003",
+  "whisper_hyp": "तो जो गड़े जे राई ना समोटेन योचरोण",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "Дончо гледаше рай на смутени Церово",
+  "omni_hyp": "дончо гледаше райна смотен и очерован",
+  "ref_dev": "Дончо гледаше Райна смутен и очарован.",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: Дончо гледаше райна смутен и очерован\nCONFIDENCE: high\nREASONING: The most accurate transcription is a combination of the MMS-ZeroShot-Constrained and OmniASR hypotheses. MMS-ZeroShot-Constrained provides the correct name \"Дончо\" and the word \"райна\", while OmniASR adds the correct word \"смутен\" and \"очерован\". Whisper's and MMS-1B's transcriptions contain errors, so they are not used.",
+    "language": "Bulgarian",
+    "transcription": "Дончо гледаше райна смутен и очерован",
+    "confidence": "high",
+    "reasoning": "The most accurate transcription is a combination of the MMS-ZeroShot-Constrained and OmniASR hypotheses. MMS-ZeroShot-Constrained provides the correct name \"Дончо\" and the word \"райна\", while OmniASR adds the correct word \"смутен\" and \"очерован\". Whisper's and MMS-1B's transcriptions contain errors, so they are not used."
+  },
+  "wer": 0.3333333333333333,
+  "cer": 0.07894736842105263
+}

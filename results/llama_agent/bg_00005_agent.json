@@ -1,0 +1,18 @@
+{
+  "audio_idx": 5,
+  "audio_name": "bg_00005",
+  "whisper_hyp": "तोगावा नकेचिख शापकता सी सेस्थवा और्वा उपेरो इज़़़़ लिएब नाइ होगो तोमेचना स्वेटें",
+  "mms_1b_hyp": "и надутият му ката болон корен взе да се събира",
+  "mms_zs_constrained_hyp": "Тогава научих шапката си състава урва перо за Любен най хубавото момиче на света",
+  "omni_hyp": "тогава накичих шапката си сества урлоло перо и залюбих най-хобоотономиче на света",
+  "ref_dev": "Тогава накичих шапката си с това орлово перо и залюбих най-хубавото момиче на света.",
+  "llm_decision": {
+    "raw": "LANGUAGE: Bulgarian\nTRANSCRIPTION: Тогава научих шапката си състава урва перо за Любен най-хубавото момиче на света\nCONFIDENCE: high\nREASONING: The most accurate transcription is a combination of MMS-ZeroShot-Constrained and OmniASR. MMS-ZeroShot-Constrained provides the most coherent and grammatically correct sentence, while OmniASR adds some details like \"състава урва\" which is present in the original audio. Whisper and MMS-1B have significant errors, making them less reliable.",
+    "language": "Bulgarian",
+    "transcription": "Тогава научих шапката си състава урва перо за Любен най-хубавото момиче на света",
+    "confidence": "high",
+    "reasoning": "The most accurate transcription is a combination of MMS-ZeroShot-Constrained and OmniASR. MMS-ZeroShot-Constrained provides the most coherent and grammatically correct sentence, while OmniASR adds some details like \"състава урва\" which is present in the original audio. Whisper and MMS-1B have significant errors, making them less reliable."
+  },
+  "wer": 0.5,
+  "cer": 0.19047619047619047
+}
